@@ -6,6 +6,8 @@ Visit the deployed site here: [Fit Six](https://vinyl-crate-ab3f8a285d4e.herokua
 
 ## Introduction
 
-**Fit Six** is a Django-based e-commerce website built to serve as the official online merch store for *Fit Six Gym*, a community-focused training space in South Wales. The site allows gym members and the wider public to browse, filter, and purchase branded apparel and accessories such as t-shirts, hoodies, shaker bottles, and more.
+**Fit Six Store** is a Django-based full-stack e-commerce web application built to serve as the official online merch store for *Fit Six Gym*, a community-focused training space in South Wales. The platform enables gym members and fitness enthusiasts to browse, filter, and securely purchase branded apparel, accessories, nutritional products, and class bundles.
+
+Designed with usability and performance in mind, the site offers a seamless and responsive shopping experience for both members and the wider public. Gym admins can efficiently manage inventory, update product listings, and track orders through a dedicated interface, making the platform a real-world solution for modern fitness retail needs.
 
 This project was developed as part of the Code Institute Full Stack Web Development Diploma. It demonstrates core skills in backend development, user authentication, responsive front-end design, and secure payment integration using Stripe.
