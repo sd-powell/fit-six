@@ -85,3 +85,52 @@ This tiered approach allows for scalable functionality, supporting both everyday
 | All             | Newsletter signup                            | 2          | 3         |     |   |
 | Admin           | Discount vouchers / coupon codes             | 2          | 2         |     |   |
 | All             | Blog / Articles section                      | 1          | 2         |     |   |
+
+---
+
+<a id="structure-plane"></a>
+
+### Structure Plane
+
+#### **User Stories**
+
+| User Story ID | As a/an       | I want to be able to ...                              | So that I can... |
+|---------------|---------------|--------------------------------------------------------|------------------|
+| **VIEWING & NAVIGATION** |
+| 1             | Guest          | Easily navigate the site                              | Find gym merchandise and information quickly |
+| 2             | Guest          | View a list of product categories                     | Browse items by type (e.g. apparel, supplements) |
+| 3             | Shopper        | View detailed product information                     | Decide if the item meets my needs |
+| 4             | Shopper        | View my cart at any time                              | Track what I plan to purchase |
+| 5             | Shopper        | See my cart total update in real-time                 | Track spending and avoid surprises at checkout |
+| 6             | Shopper        | Access the site easily on mobile                      | Shop from any device conveniently |
+| **REGISTRATION & ACCOUNTS** |
+| 7             | Guest          | Register for an account                               | Make purchases and view order history |
+| 8             | Shopper        | Receive confirmation after registering                | Know that my account is active |
+| 9             | Shopper        | Log in and log out securely                           | Access my private information safely |
+| 10            | Shopper        | View and update my profile                            | Change delivery address and personal info |
+| 11            | Shopper        | View my previous orders                               | Track what I’ve bought and reorder easily |
+| 12            | Shopper        | Reset my password                                     | Recover account access if I forget credentials |
+| **SEARCHING & FILTERING** |
+| 13            | Guest          | Filter products by category or type                   | Quickly narrow down my search |
+| 14            | Guest          | Search for a product by name or keyword               | Find specific items faster |
+| 15            | Shopper        | Sort products by price, name, or popularity           | Choose the most relevant or affordable options |
+| **CART & CHECKOUT** |
+| 16            | Shopper        | Add items to my cart                                  | Save products I intend to buy |
+| 17            | Shopper        | Adjust quantities or remove items from cart           | Finalise exactly what I want to purchase |
+| 18            | Shopper        | Proceed to a secure checkout                          | Buy items with confidence |
+| 19            | Guest/Shopper  | Checkout with or without an account                  | Make quick purchases when needed |
+| 20            | Shopper        | Enter payment details easily                          | Complete my order smoothly |
+| 21            | Shopper        | Receive on-screen and email confirmation              | Ensure the order was successful |
+| 22            | Shopper        | Know that my data is protected                        | Trust the site and continue using it |
+| **ADMIN & STORE MANAGEMENT** |
+| 23            | Admin          | Add new products to the store                         | Keep the shop up to date with new items |
+| 24            | Admin          | Edit or update product info                           | Correct mistakes or make improvements |
+| 25            | Admin          | Delete a product                                      | Remove items that are no longer for sale |
+| 26            | Admin          | Monitor and manage product stock                      | Ensure products don’t oversell |
+| 27            | Admin          | View and manage incoming orders                       | Fulfil customer purchases efficiently |
+| 28            | Admin          | Access the admin panel securely                       | Manage store operations without public access |
+| **EXPERIENCE & COMPLIANCE** |
+| 29            | All users      | View accessibility-friendly content                   | Navigate the site with any device or ability |
+| 30            | All users      | Receive clear feedback when something goes wrong      | Know how to fix errors and complete actions |
+| 31            | All users      | Contact the store via a form                          | Ask questions or report issues |
+| 32            | All users      | Read Terms & Conditions and Privacy Policy            | Understand how my data is used and my rights |
