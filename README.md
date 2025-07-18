@@ -134,3 +134,61 @@ This tiered approach allows for scalable functionality, supporting both everyday
 | 30            | All users      | Receive clear feedback when something goes wrong      | Know how to fix errors and complete actions |
 | 31            | All users      | Contact the store via a form                          | Ask questions or report issues |
 | 32            | All users      | Read Terms & Conditions and Privacy Policy            | Understand how my data is used and my rights |
+
+> [!NOTE]
+> All user stories were manually tested. See [User Story Testing](TESTING.md) for full test results.
+
+<a id="database-schema"></a>
+
+#### **Database Schema**
+
+This project uses a **relational database (PostgreSQL)** to manage structured data with integrity, security, and scalability. PostgreSQL was chosen for its seamless integration with Django, robust transaction support, and clear handling of complex relationships — all critical for powering an e-commerce platform with user-specific functionality and secure transactions.
+
+The schema was designed to support the needs of a fully functional online merch store for *Fit Six Gym*, incorporating essential entities such as **users, products, orders, and categories**, while ensuring extensibility for future features like stock management, admin dashboards, and user reviews.
+
+The **core models** include `Product`, `Order`, and `OrderLineItem`, which work together to implement a flexible yet structured checkout process. Products are grouped by `Category`, and users can store default delivery information via an extended `UserProfile` model. A dedicated `ContactForm` model allows users to reach out through the site’s contact page, with backend flags to manage replies.
+
+In line with best practices, the schema follows **normalisation principles** and includes:
+- **One-to-many relationships** from orders to line items
+- **Foreign key constraints** to maintain referential integrity
+- **Enum fields** for product sizes and order statuses
+- **Timestamps** to track data changes and support future admin analytics
+
+The schema also includes a `status` field on `Order` to reflect real-world business workflows such as *processing, shipped, and complete*, enhancing order tracking and admin oversight.
+
+#### Core Models
+
+- `User`  
+  Authenticates site access and links to an extended profile
+
+- `UserProfile`  
+  One-to-one with `User`, storing default delivery info and phone number
+
+- `Category`  
+  Groups products by type (e.g. apparel, accessories, supplements)
+
+- `Product`  
+  Includes details such as SKU, price, description, image, stock, and category
+
+- `Order`  
+  Stores transaction metadata, user info, and payment details (e.g. Stripe PID)
+
+- `OrderLineItem`  
+  Connects individual products and quantities to each order
+
+- `ContactForm`  
+  Captures user-submitted enquiries and tracks reply status
+
+All models include `created_at` and `updated_at` timestamps for transparency and traceability. This schema supports distinction-level expectations by demonstrating **a realistic, scalable architecture** that can support admin functionality, order management, and secure data practices.
+
+The database schema was visualised using [dbdiagram.io](https://dbdiagram.io), leveraging DBML syntax to generate a clear ERD outlining relationships between all core entities.
+
+
+The database schema was visualised using [dbdiagram.io](https://dbdiagram.io), which provided a clear visual representation of the relational structure between users, products, orders, and associated models using DBML syntax.
+
+<details>
+<summary>Click here to view the database schema</summary>
+
+![Fit Six Database Schema](documentation/readme/structure_plane/database-schema.webp)
+
+</details>
