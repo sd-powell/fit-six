@@ -140,7 +140,7 @@ This tiered approach allows for scalable functionality, supporting both everyday
 
 <a id="database-schema"></a>
 
-#### **Database Schema**
+### **Database Schema**
 
 This project uses a **relational database (PostgreSQL)** to manage structured data with integrity, security, and scalability. PostgreSQL was chosen for its seamless integration with Django, robust transaction support, and clear handling of complex relationships — all critical for powering an e-commerce platform with user-specific functionality and secure transactions.
 
