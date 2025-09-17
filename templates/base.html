@@ -46,6 +46,20 @@
           </a>
         </div>
 
+        <!-- Center: Search -->
+        <div class="col-lg-4 my-auto">
+          <form method="GET" action="#"> {# {% url 'products' %} #}
+            <div class="input-group">
+              <input class="form-control border border-light rounded-0" type="text" name="q" placeholder="Search our site">
+              <div class="input-group-append">
+                <button class="btn btn-light border border-light rounded-0" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
         <!-- Right: Account & Bag -->
         <div class="col-lg-4 my-auto text-center text-lg-end">
           <ul class="list-inline list-unstyled mb-0">
@@ -190,9 +204,9 @@
         const toggle = document.getElementById('mobile-search-toggle');
         const searchBar = document.getElementById('mobile-search-bar');
 
-        toggle.addEventListener('click', function (e) {
+        toggle?.addEventListener('click', function (e) {
           e.preventDefault();
-          searchBar.classList.toggle('d-none');
+          searchBar?.classList.toggle('d-none');
         });
       });
     </script>
