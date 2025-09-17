@@ -35,7 +35,7 @@
 
     <title>Fit Six {% block extra_title %}{% endblock %}</title>
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <header class="container-fluid fixed-top p-0 m-0">
       <nav class="navbar navbar-expand-lg navbar-dark bg-black w-100">
         <div class="d-flex justify-content-between align-items-center w-100 px-3">
@@ -75,7 +75,11 @@
     {% block content %}
     {% endblock %}
 
-    <footer class="bg-black text-white text-center p-4 mt-5">
+    <main class="flex-grow-1">
+      {# {% block content %}{% endblock %} #}
+    </main>
+
+    <footer class="bg-black text-white text-center p-4">
       <div class="container">
         <p class="mb-2"><strong>Join Today</strong></p>
         <p><i class="fas fa-envelope"></i> info@fitsix.co.uk</p>
