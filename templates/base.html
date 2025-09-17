@@ -75,11 +75,8 @@
     {% block page_header %}
     {% endblock %}
 
-    {% block content %}
-    {% endblock %}
-
-    <main class="flex-grow-1">
-      {# {% block content %}{% endblock %} #}
+    <main class="flex-grow-1 main-content">
+      {% block content %}{% endblock %}
     </main>
 
     <footer class="bg-black text-white p-4 mt-5">

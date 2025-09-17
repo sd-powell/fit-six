@@ -25,3 +25,11 @@ body {
   height: 32px;
   background-color: var(--highlight-blue);
 }
+
+.main-content {
+  margin-top: 155px;
+}
+
+.hero-section {
+  height: 400px;
+}
