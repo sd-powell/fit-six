@@ -4,6 +4,7 @@
 :root {
       --highlight-blue: #001AAF;
       --base-grey: #DDDDDD;
+      -o-animation: #FFFFFF;
 
     /************ Typography ************/
     --primary-font: "Poppins", sans-serif;
@@ -19,7 +20,7 @@
 
 body {
   font-family: var(--primary-font);
-  background-color: var(--site-bg-grey);
+  background-color: var(--base-white);
 }
 
 .keyline {
@@ -29,6 +30,7 @@ body {
 
 .main-content {
   margin-top: 155px;
+  min-height: calc(100vh - 155px - 32px - 400px);
 }
 
 .hero-section {
