@@ -20,3 +20,8 @@ body {
   font-family: var(--primary-font);
   background-color: var(--site-bg-grey);
 }
+
+.keyline {
+  height: 32px;
+  background-color: var(--highlight-blue);
+}
