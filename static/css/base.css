@@ -3,6 +3,7 @@
 /************ CSS Variables ************/
 :root {
       --highlight-blue: #001AAF;
+      --base-grey: #DDDDDD;
 
     /************ Typography ************/
     --primary-font: "Poppins", sans-serif;
@@ -32,4 +33,17 @@ body {
 
 .hero-section {
   height: 400px;
+}
+
+.newsletter-signup {
+  background-color: var(--base-grey);
+}
+
+.newsletter-signup input[type="email"] {
+  border-radius: 0;
+}
+
+.newsletter-signup .btn-primary {
+  background-color: var(--highlight-blue);
+  border: none;
 }
