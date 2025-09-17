@@ -39,11 +39,26 @@
   <body class="d-flex flex-column min-vh-100">
     <header class="container-fluid fixed-top p-0 m-0">
       <nav class="navbar navbar-expand-lg navbar-dark bg-black w-100">
-        <div class="d-flex justify-content-between align-items-center w-100 px-4">
-          <!-- Logo -->
-          <a class="navbar-brand" href="{% url 'home' %}">
+        <div class="d-flex align-items-center justify-content-between w-100 px-4">
+          <!-- Left: Logo -->
+          <a class="navbar-brand me-3" href="{% url 'home' %}">
             <img src="{% static 'images/fitsix-logo.svg' %}" alt="Fit Six Logo" height="100" />
           </a>
+
+          <!-- Middle: Search bar (hidden on small screens) -->
+          <div class="d-none d-lg-block flex-grow-1 px-3">
+            <form method="GET" action="#"> {# {% url 'products' %} #}
+              {% csrf_token %}
+              <div class="input-group">
+                <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
+                <div class="input-group-append">
+                  <button class="btn btn-black border border-black rounded-0" type="submit">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
 
           <!-- Icons -->
           <div class="d-flex align-items-center">
