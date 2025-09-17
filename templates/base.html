@@ -79,30 +79,40 @@
       {# {% block content %}{% endblock %} #}
     </main>
 
-    <footer class="bg-black text-white text-center p-4">
+    <footer class="bg-black text-white p-4 mt-5">
       <div class="container">
-        <p class="mb-2"><strong>Join Today</strong></p>
-        <p><i class="fas fa-envelope"></i> info@fitsix.co.uk</p>
-        <p><i class="fas fa-map-marker-alt"></i> Wales 1 Business Park, Magor, Caldicot NP26 3DG</p>
+        <!-- Top Section: 3 Columns -->
+        <div class="row text-start">
+          <!-- Column 1: Join Today -->
+          <div class="col-md-4 mb-3">
+            <p class="mb-2"><strong>Join Today</strong></p>
+            <p><i class="fas fa-envelope"></i> info@fitsix.co.uk</p>
+            <p><i class="fas fa-map-marker-alt"></i> Wales 1 Business Park, Magor, Caldicot NP26 3DG</p>
+          </div>
 
-        <div class="my-3">
-          <p><strong>Helpful Links</strong></p>
-          <a href="#" class="text-white d-block">Contact Us</a>
-          <a href="#" class="text-white d-block">My Account</a>
-          <a href="#" class="text-white d-block">Returns & Exchanges</a>
-          <a href="#" class="text-white d-block">Privacy Policy</a>
-          <a href="#" class="text-white d-block">Terms & Conditions</a>
+          <!-- Column 2: Helpful Links -->
+          <div class="col-md-4 mb-3">
+            <p><strong>Helpful Links</strong></p>
+            <a href="#" class="text-white d-block">Contact Us</a>
+            <a href="#" class="text-white d-block">My Account</a>
+            <a href="#" class="text-white d-block">Returns & Exchanges</a>
+            <a href="#" class="text-white d-block">Privacy Policy</a>
+            <a href="#" class="text-white d-block">Terms & Conditions</a>
+          </div>
+
+          <!-- Column 3: Follow Us -->
+          <div class="col-md-4 mb-3">
+            <p><strong>Follow Us</strong></p>
+            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
 
-        <div class="my-3">
-          <p><strong>Follow Us</strong></p>
-          <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+        <!-- Bottom Section: Copyright -->
+        <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top border-secondary">
+          <p class="mb-0">&copy; 2025 Copyright info</p>
+          <a href="{{ GITHUB_LINK }}" class="text-white">GitHub Link</a>
         </div>
-
-        <p class="mt-3">
-          &copy; 2025 Copyright info | <a href="{{ GITHUB_LINK }}" class="text-white">github link</a>
-        </p>
       </div>
     </footer>
 
