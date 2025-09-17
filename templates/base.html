@@ -35,6 +35,7 @@
 
     <title>Fit Six {% block extra_title %}{% endblock %}</title>
   </head>
+
   <body class="d-flex flex-column min-vh-100">
     <header class="container-fluid fixed-top p-0 m-0">
       <nav class="navbar navbar-expand-lg navbar-dark bg-black w-100">
@@ -75,11 +76,16 @@
     {% block page_header %}
     {% endblock %}
 
-    <main class="flex-grow-1 main-content">
-      {% block content %}{% endblock %}
-    </main>
+    <!-- Main & Newsletter Content -->
+    <div class="flex-grow-1 d-flex flex-column">
+      <main class="flex-grow-1 main-content">
+        {% block content %}{% endblock %}
+      </main>
 
-    <footer class="bg-black text-white p-4 mt-5">
+      {% block newsletter %}{% endblock %}
+    </div>
+
+    <footer class="bg-black text-white p-4">
       <div class="container">
         <!-- Top Section: 3 Columns -->
         <div class="row text-start">

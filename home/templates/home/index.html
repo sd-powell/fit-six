@@ -14,57 +14,59 @@
   <!-- Hero Section -->
   <section class="hero-section d-flex align-items-center justify-content-center bg-light text-center py-5">
     <div class="container">
-      <h1 class="display-4 fw-bold">Official Fit Six Store</h1>
-      <p class="lead">Shop apparel, supplements, accessories & class bundles</p>
-      <a href="#" class="btn btn-primary btn-lg mt-3">Shop Now</a> {# {% url 'products' %} #}
+        <h1 class="display-4 fw-bold">Official Fit Six Store</h1>
+        <p class="lead">Shop apparel, supplements, accessories & class bundles</p>
+        <a href="#" class="btn btn-primary btn-lg mt-3">Shop Now</a> {# {% url 'products' %} #}
     </div>
   </section>
 
     <!-- Shop by Category Section -->
   <section class="shop-categories py-5 text-center">
-  <div class="container">
-    <h2 class="mb-4 fw-bold">Shop Smart. Train Hard.</h2>
-    
-    <div class="row g-4">
-      <div class="col-6 col-md-3">
-        <a href="#" class="btn btn-outline-dark w-100 py-3"> {# {% url 'products' %}?category=apparel #}
-          Apparel
-        </a>
-      </div>
-      <div class="col-6 col-md-3">
-        <a href="#" class="btn btn-outline-dark w-100 py-3"> {# {% url 'products' %}?category=supplements #}
-          Supplements
-        </a>
-      </div>
-      <div class="col-6 col-md-3">
-        <a href="#" class="btn btn-outline-dark w-100 py-3"> {# {% url 'products' %}?category=accessories #}
-          Accessories
-        </a>
-      </div>
-      <div class="col-6 col-md-3">
-        <a href="#" class="btn btn-outline-dark w-100 py-3"> {# {% url 'products' %}?category=class-bundles #}
-          Class Bundles
-        </a>
-      </div>
+    <div class="container">
+        <h2 class="mb-4 fw-bold">Shop Smart. Train Hard.</h2>
+        
+        <div class="row g-4">
+        <div class="col-6 col-md-3">
+            <a href="#" class="btn btn-outline-dark w-100 py-3"> {# {% url 'products' %}?category=apparel #}
+            Apparel
+            </a>
+        </div>
+        <div class="col-6 col-md-3">
+            <a href="#" class="btn btn-outline-dark w-100 py-3"> {# {% url 'products' %}?category=supplements #}
+            Supplements
+            </a>
+        </div>
+        <div class="col-6 col-md-3">
+            <a href="#" class="btn btn-outline-dark w-100 py-3"> {# {% url 'products' %}?category=accessories #}
+            Accessories
+            </a>
+        </div>
+        <div class="col-6 col-md-3">
+            <a href="#" class="btn btn-outline-dark w-100 py-3"> {# {% url 'products' %}?category=class-bundles #}
+            Class Bundles
+            </a>
+        </div>
+        </div>
     </div>
-  </div>
-</section>
+    </section>
+{% endblock %}
 
 <!-- Newsletter Signup Section -->
-<section class="newsletter-signup py-5 text-black text-center">
-  <div class="container">
-    <h2 class="mb-3 fw-bold">Stay Updated</h2>
-    <p class="mb-4">Subscribe to our newsletter for exclusive offers, fitness tips, and new product announcements.</p>
+{% block newsletter %}
+    <section class="newsletter-signup py-5 text-black text-center">
+        <div class="container">
+        <h2 class="mb-3 fw-bold">Stay Updated</h2>
+        <p class="mb-4">Subscribe to our newsletter for exclusive offers, fitness tips, and new product announcements.</p>
 
-    <form class="row justify-content-center" method="POST" action="#"> {# {% url 'subscribe' %} #}
-      {% csrf_token %}
-      <div class="col-12 col-md-6 mb-3 mb-md-0">
-        <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
-      </div>
-      <div class="col-12 col-md-auto">
-        <button type="submit" class="btn btn-primary w-100">Sign Up</button>
-      </div>
-    </form>
-  </div>
-</section>
+        <form class="row justify-content-center" method="POST" action="#">
+            {% csrf_token %}
+            <div class="col-12 col-md-6 mb-3 mb-md-0">
+            <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+            </div>
+            <div class="col-12 col-md-auto">
+            <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+            </div>
+        </form>
+        </div>
+    </section>
 {% endblock %}
