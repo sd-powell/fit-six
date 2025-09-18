@@ -1,0 +1,34 @@
+[
+  {
+    "pk": 1,
+    "model": "products.category",
+    "fields": {
+      "name": "apparel",
+      "friendly_name": "Apparel"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "products.category",
+    "fields": {
+      "name": "supplements",
+      "friendly_name": "Supplements"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "products.category",
+    "fields": {
+      "name": "accessories",
+      "friendly_name": "Accessories"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "products.category",
+    "fields": {
+      "name": "class_bundles",
+      "friendly_name": "Class Bundles"
+    }
+  }
+]
