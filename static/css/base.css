@@ -4,6 +4,8 @@
 :root {
   --highlight-blue: #001aaf;
   --base-grey: #dddddd;
+  --dark-border: #d6d6d6;
+  --background-white: #fff;
   -o-animation: #ffffff;
 
   /************ Typography ************/
@@ -67,4 +69,13 @@ body {
 .newsletter-signup .btn-primary {
   background-color: var(--highlight-blue);
   border: none;
+}
+
+
+
+.product-image-border {
+    border: 1px solid var(--dark-border);
+    border-radius: 4px;
+    padding: 2px;
+    background-color: var(--background-white);
 }
