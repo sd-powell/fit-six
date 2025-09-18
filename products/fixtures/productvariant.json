@@ -1,0 +1,902 @@
+[
+  {
+    "model": "products.productvariant",
+    "pk": 1,
+    "fields": {
+      "product": 1,
+      "sku": "FSBZ-BLA-S",
+      "price": 34.0,
+      "size": "S",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 2,
+    "fields": {
+      "product": 1,
+      "sku": "FSBZ-BLA-M",
+      "price": 34.0,
+      "size": "M",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 3,
+    "fields": {
+      "product": 1,
+      "sku": "FSBZ-BLA-L",
+      "price": 34.0,
+      "size": "L",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 4,
+    "fields": {
+      "product": 1,
+      "sku": "FSBZ-BLA-XL",
+      "price": 34.0,
+      "size": "XL",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 5,
+    "fields": {
+      "product": 1,
+      "sku": "FSBZ-BLA-XXL",
+      "price": 34.0,
+      "size": "XXL",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 6,
+    "fields": {
+      "product": 1,
+      "sku": "FSBZ-GRE-S",
+      "price": 34.0,
+      "size": "S",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 7,
+    "fields": {
+      "product": 1,
+      "sku": "FSBZ-GRE-M",
+      "price": 34.0,
+      "size": "M",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 8,
+    "fields": {
+      "product": 1,
+      "sku": "FSBZ-GRE-L",
+      "price": 34.0,
+      "size": "L",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 9,
+    "fields": {
+      "product": 1,
+      "sku": "FSBZ-GRE-XL",
+      "price": 34.0,
+      "size": "XL",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 10,
+    "fields": {
+      "product": 1,
+      "sku": "FSBZ-GRE-XXL",
+      "price": 34.0,
+      "size": "XXL",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 11,
+    "fields": {
+      "product": 2,
+      "sku": "FSBH-BLA-S",
+      "price": 34.0,
+      "size": "S",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 12,
+    "fields": {
+      "product": 2,
+      "sku": "FSBH-BLA-M",
+      "price": 34.0,
+      "size": "M",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 13,
+    "fields": {
+      "product": 2,
+      "sku": "FSBH-BLA-L",
+      "price": 34.0,
+      "size": "L",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 14,
+    "fields": {
+      "product": 2,
+      "sku": "FSBH-BLA-XL",
+      "price": 34.0,
+      "size": "XL",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 15,
+    "fields": {
+      "product": 2,
+      "sku": "FSBH-BLA-XXL",
+      "price": 34.0,
+      "size": "XXL",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 16,
+    "fields": {
+      "product": 2,
+      "sku": "FSBH-GRE-S",
+      "price": 34.0,
+      "size": "S",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 17,
+    "fields": {
+      "product": 2,
+      "sku": "FSBH-GRE-M",
+      "price": 34.0,
+      "size": "M",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 18,
+    "fields": {
+      "product": 2,
+      "sku": "FSBH-GRE-L",
+      "price": 34.0,
+      "size": "L",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 19,
+    "fields": {
+      "product": 2,
+      "sku": "FSBH-GRE-XL",
+      "price": 34.0,
+      "size": "XL",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 20,
+    "fields": {
+      "product": 2,
+      "sku": "FSBH-GRE-XXL",
+      "price": 34.0,
+      "size": "XXL",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 21,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-BLA-S",
+      "price": 14.0,
+      "size": "S",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 22,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-BLA-M",
+      "price": 14.0,
+      "size": "M",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 23,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-BLA-L",
+      "price": 14.0,
+      "size": "L",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 24,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-BLA-XL",
+      "price": 14.0,
+      "size": "XL",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 25,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-BLA-XXL",
+      "price": 14.0,
+      "size": "XXL",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 26,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-GRE-S",
+      "price": 14.0,
+      "size": "S",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 27,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-GRE-M",
+      "price": 14.0,
+      "size": "M",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 28,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-GRE-L",
+      "price": 14.0,
+      "size": "L",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 29,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-GRE-XL",
+      "price": 14.0,
+      "size": "XL",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 30,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-GRE-XXL",
+      "price": 14.0,
+      "size": "XXL",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 31,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-BLU-S",
+      "price": 14.0,
+      "size": "S",
+      "colour": "Blue",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 32,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-BLU-M",
+      "price": 14.0,
+      "size": "M",
+      "colour": "Blue",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 33,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-BLU-L",
+      "price": 14.0,
+      "size": "L",
+      "colour": "Blue",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 34,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-BLU-XL",
+      "price": 14.0,
+      "size": "XL",
+      "colour": "Blue",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 35,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-BLU-XXL",
+      "price": 14.0,
+      "size": "XXL",
+      "colour": "Blue",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 36,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-PIN-S",
+      "price": 14.0,
+      "size": "S",
+      "colour": "Pink",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 37,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-PIN-M",
+      "price": 14.0,
+      "size": "M",
+      "colour": "Pink",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 38,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-PIN-L",
+      "price": 14.0,
+      "size": "L",
+      "colour": "Pink",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 39,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-PIN-XL",
+      "price": 14.0,
+      "size": "XL",
+      "colour": "Pink",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 40,
+    "fields": {
+      "product": 3,
+      "sku": "FSBT-PIN-XXL",
+      "price": 14.0,
+      "size": "XXL",
+      "colour": "Pink",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 41,
+    "fields": {
+      "product": 4,
+      "sku": "FSBS-BLA-S",
+      "price": 21.0,
+      "size": "S",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 42,
+    "fields": {
+      "product": 4,
+      "sku": "FSBS-BLA-M",
+      "price": 21.0,
+      "size": "M",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 43,
+    "fields": {
+      "product": 4,
+      "sku": "FSBS-BLA-L",
+      "price": 21.0,
+      "size": "L",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 44,
+    "fields": {
+      "product": 4,
+      "sku": "FSBS-BLA-XL",
+      "price": 21.0,
+      "size": "XL",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 45,
+    "fields": {
+      "product": 4,
+      "sku": "FSBS-BLA-XXL",
+      "price": 21.0,
+      "size": "XXL",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 46,
+    "fields": {
+      "product": 4,
+      "sku": "FSBS-GRE-S",
+      "price": 21.0,
+      "size": "S",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 47,
+    "fields": {
+      "product": 4,
+      "sku": "FSBS-GRE-M",
+      "price": 21.0,
+      "size": "M",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 48,
+    "fields": {
+      "product": 4,
+      "sku": "FSBS-GRE-L",
+      "price": 21.0,
+      "size": "L",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 49,
+    "fields": {
+      "product": 4,
+      "sku": "FSBS-GRE-XL",
+      "price": 21.0,
+      "size": "XL",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 50,
+    "fields": {
+      "product": 4,
+      "sku": "FSBS-GRE-XXL",
+      "price": 21.0,
+      "size": "XXL",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 51,
+    "fields": {
+      "product": 5,
+      "sku": "FSBV-BLA-S",
+      "price": 15.0,
+      "size": "S",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 52,
+    "fields": {
+      "product": 5,
+      "sku": "FSBV-BLA-M",
+      "price": 15.0,
+      "size": "M",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 53,
+    "fields": {
+      "product": 5,
+      "sku": "FSBV-BLA-L",
+      "price": 15.0,
+      "size": "L",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 54,
+    "fields": {
+      "product": 5,
+      "sku": "FSBV-BLA-XL",
+      "price": 15.0,
+      "size": "XL",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 55,
+    "fields": {
+      "product": 5,
+      "sku": "FSBV-BLA-XXL",
+      "price": 15.0,
+      "size": "XXL",
+      "colour": "Black",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 56,
+    "fields": {
+      "product": 5,
+      "sku": "FSBV-GRE-S",
+      "price": 15.0,
+      "size": "S",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 57,
+    "fields": {
+      "product": 5,
+      "sku": "FSBV-GRE-M",
+      "price": 15.0,
+      "size": "M",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 58,
+    "fields": {
+      "product": 5,
+      "sku": "FSBV-GRE-L",
+      "price": 15.0,
+      "size": "L",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 59,
+    "fields": {
+      "product": 5,
+      "sku": "FSBV-GRE-XL",
+      "price": 15.0,
+      "size": "XL",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.productvariant",
+    "pk": 60,
+    "fields": {
+      "product": 5,
+      "sku": "FSBV-GRE-XXL",
+      "price": 15.0,
+      "size": "XXL",
+      "colour": "Grey",
+      "stock": 10,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-16T00:00:00Z",
+      "updated_at": "2025-09-16T00:00:00Z"
+    }
+  }
+]
