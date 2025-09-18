@@ -51,14 +51,20 @@
                                     </p>
                                     {% endif %}
 
-                                    <!-- Variants -->
-                                    {% for variant in product.productvariant_set.all %}
-                                    <p class="mb-1">
-                                        <span class="badge bg-secondary">{{ variant.size }}</span>
-                                        <span class="badge bg-light text-dark border">{{ variant.colour }}</span><br>
-                                        <strong>£{{ variant.price }}</strong>
-                                    </p>
-                                    {% endfor %}
+                                    <!-- Variant-Aware Pricing -->
+                                    {% if product.has_variants %}
+                                        {% for variant in product.productvariant_set.all %}
+                                        <p class="mb-1">
+                                            {% if variant.size %}<span class="badge bg-secondary">{{ variant.size }}</span>{% endif %}
+                                            {% if variant.colour %}<span class="badge bg-light text-dark border">{{ variant.colour }}</span>{% endif %}
+                                            <br><strong>£{{ variant.price }}</strong>
+                                        </p>
+                                        {% empty %}
+                                        <p class="text-muted">Variants coming soon</p>
+                                        {% endfor %}
+                                    {% else %}
+                                        <p class="lead mb-0 font-weight-bold">£{{ product.price }}</p>
+                                    {% endif %}
 
                                     <!-- Admin options -->
                                     {% if request.user.is_superuser %}
