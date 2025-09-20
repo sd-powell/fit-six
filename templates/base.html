@@ -126,8 +126,13 @@
         </nav>
       </div>
 
-      <!-- Keyline -->
-      <div class="keyline"></div>
+      <!-- Keyline with Category Links -->
+      <div class="keyline d-none d-lg-flex justify-content-center align-items-center py-1 bg-primary text-white">
+        <a href="{% url 'products' %}?category=apparel" class="text-white text-decoration-none mx-3 text-uppercase small">Apparel</a>
+        <a href="{% url 'products' %}?category=supplements" class="text-white text-decoration-none mx-3 text-uppercase small">Supplements</a>
+        <a href="{% url 'products' %}?category=accessories" class="text-white text-decoration-none mx-3 text-uppercase small">Accessories</a>
+        <a href="{% url 'products' %}?category=class-bundles" class="text-white text-decoration-none mx-3 text-uppercase small">Class Bundles</a>
+      </div>
 
       <!-- Search for Mobile -->
       <div id="mobile-search-bar" class="container d-none py-2 bg-light">
