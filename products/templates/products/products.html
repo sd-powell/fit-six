@@ -2,84 +2,116 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+  <div class="container header-container">
+    <div class="row">
+      <div class="col"></div>
     </div>
+  </div>
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center mt-3 mb-3">
-                <h2>Products</h2>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col text-center mt-3 mb-3">
+        <h2>Products</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="product-container col-10 offset-1">
+        <div class="row mt-1 mb-2">
+            <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-md-end justify-content-center">
+            <div class="sort-select-wrapper position-relative" style="width: 190px;">
+                <i class="fas fa-sort text-muted position-absolute top-50 start-0 translate-middle-y ms-2"></i>
+                <select id="sort-selector"
+                class="form-select ps-5 py-1 rounded-pill border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %} appearance-none"
+                style="background-color: white;">
+                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by</option>
+                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price ↑</option>
+                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price ↓</option>
+                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name A-Z</option>
+                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name Z-A</option>
+                <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category A-Z</option>
+                <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category Z-A</option>
+                </select>
             </div>
-
-            <div class="row">
-                {% for product in products %}
-                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4">
-                    <div class="card h-100 border-0">
-
-                        <!-- Product Image -->
-                        {% if product.image %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid product-image-border" src="{{ product.image.url }}" alt="{{ product.name }}">
-                        </a>
-                        {% else %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid product-image-border" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                        </a>
-                        {% endif %}
-
-                        <!-- Product Info -->
-                        <div class="card-body pb-0">
-                            <p class="mb-0 fw-bold">{{ product.name }}</p>
-                        </div>
-
-                        <div class="card-footer bg-white pt-0 border-0 text-left">
-                            <div class="row">
-                                <div class="col">
-
-                                    <!-- Category -->
-                                    {% if product.category %}
-                                    <p class="small mt-1 mb-0">
-                                        <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
-                                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                                        </a>
-                                    </p>
-                                    {% endif %}
-
-                                    <!-- Variant-Aware Pricing -->
-                                    {% if product.has_variants %}
-                                        {% for variant in product.productvariant_set.all %}
-                                        <p class="mb-1">
-                                            {% if variant.size %}<span class="badge bg-secondary">{{ variant.size }}</span>{% endif %}
-                                            {% if variant.colour %}<span class="badge bg-light text-dark border">{{ variant.colour }}</span>{% endif %}
-                                            <br><strong>£{{ variant.price }}</strong>
-                                        </p>
-                                        {% empty %}
-                                        <p class="text-muted">Variants coming soon</p>
-                                        {% endfor %}
-                                    {% else %}
-                                        <p class="lead mb-0 font-weight-bold">£{{ product.price }}</p>
-                                    {% endif %}
-
-                                    <!-- Admin options -->
-                                    {% if request.user.is_superuser %}
-                                    <small>
-                                        <a href="#">Edit</a> | {# {% url 'edit_product' product.id %} #}
-                                        <a href="#" class="text-danger">Delete</a> {# {% url 'delete_product' product.id %} #}
-                                    </small>
-                                    {% endif %}
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
+            </div>
+            <div class="col-12 col-md-6 order-md-first d-flex align-items-center">
+                <p class="text-muted my-0">
+                    {% if search_term or current_categories or current_sorting != 'None_None' %}
+                    <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
+                    {% endif %}
+                    {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                </p>
             </div>
         </div>
+
+        <div class="row">
+          {% for product in products %}
+            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4">
+              <div class="card h-100 border-0">
+
+                <!-- Product Image -->
+                {% if product.image %}
+                  <a href="{% url 'product_detail' product.id %}">
+                    <img class="card-img-top img-fluid product-image-border" src="{{ product.image.url }}" alt="{{ product.name }}">
+                  </a>
+                {% else %}
+                  <a href="{% url 'product_detail' product.id %}">
+                    <img class="card-img-top img-fluid product-image-border" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                  </a>
+                {% endif %}
+
+                <!-- Product Info -->
+                <div class="card-body pb-0">
+                  <p class="mb-0 fw-bold">{{ product.name }}</p>
+                </div>
+
+                <div class="card-footer bg-white pt-0 border-0 text-left">
+                  <div class="row">
+                    <div class="col">
+
+                      <!-- Category -->
+                      {% if product.category %}
+                        <p class="small mt-1 mb-0">
+                          <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                          </a>
+                        </p>
+                      {% endif %}
+
+                      <!-- Variant-Aware Pricing -->
+                      {% if product.has_variants %}
+                        {% for variant in product.productvariant_set.all %}
+                          <p class="mb-1">
+                            {% if variant.size %}<span class="badge bg-secondary">{{ variant.size }}</span>{% endif %}
+                            {% if variant.colour %}<span class="badge bg-light text-dark border">{{ variant.colour }}</span>{% endif %}
+                            <br><strong>£{{ variant.price }}</strong>
+                          </p>
+                        {% empty %}
+                          <p class="text-muted">Variants coming soon</p>
+                        {% endfor %}
+                      {% else %}
+                        <p class="lead mb-0 font-weight-bold">£{{ product.price }}</p>
+                      {% endif %}
+
+                      <!-- Admin options -->
+                      {% if request.user.is_superuser %}
+                        <small>
+                          <a href="#">Edit</a> | {# {% url 'edit_product' product.id %} #}
+                          <a href="#" class="text-danger">Delete</a> {# {% url 'delete_product' product.id %} #}
+                        </small>
+                      {% endif %}
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+      </div>
     </div>
+  </div>
 {% endblock %}
