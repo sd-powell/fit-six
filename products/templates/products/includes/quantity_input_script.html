@@ -1,0 +1,54 @@
+<script type="text/javascript">
+// Disable +/- buttons outside 1-99 range
+function handleEnableDisable(itemId) {
+    const input = document.getElementById(`id_qty_${itemId}`);
+    const currentValue = parseInt(input.value);
+    document.getElementById(`decrement-qty_${itemId}`).disabled = currentValue < 2;
+    document.getElementById(`increment-qty_${itemId}`).disabled = currentValue > 98;
+}
+
+// Enable/disable on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const qtyInputs = document.querySelectorAll('.qty_input');
+    qtyInputs.forEach(input => {
+        const itemId = input.dataset.item_id;
+        handleEnableDisable(itemId);
+    });
+
+    // Watch for manual input changes
+    qtyInputs.forEach(input => {
+        input.addEventListener('change', (e) => {
+            const itemId = e.target.dataset.item_id;
+            handleEnableDisable(itemId);
+        });
+    });
+
+    // Increment quantity
+    document.querySelectorAll('.increment-qty').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const itemId = e.target.closest('button').dataset.item_id;
+            const input = document.getElementById(`id_qty_${itemId}`);
+            let value = parseInt(input.value);
+            if (value < 99) {
+                input.value = value + 1;
+                handleEnableDisable(itemId);
+            }
+        });
+    });
+
+    // Decrement quantity
+    document.querySelectorAll('.decrement-qty').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const itemId = e.target.closest('button').dataset.item_id;
+            const input = document.getElementById(`id_qty_${itemId}`);
+            let value = parseInt(input.value);
+            if (value > 1) {
+                input.value = value - 1;
+                handleEnableDisable(itemId);
+            }
+        });
+    });
+});
+</script>
