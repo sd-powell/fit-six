@@ -61,7 +61,7 @@
             </form>
           </div>
 
-          <!-- Right: Account & Cart -->
+          <!-- Right: Account & Bag -->
           <div class="col-lg-4 d-flex justify-content-end align-items-center">
             <ul class="list-inline mb-0 d-flex gap-3 align-items-center">
 
@@ -84,9 +84,9 @@
                 </ul>
               </li>
 
-              <!-- Cart Icon + Count -->
+              <!-- Bag Icon + Count -->
               <li class="list-inline-item">
-                <a href="#" class="nav-link text-white position-relative"> {# {% url 'view_bag' %} #}
+                <a href="{% url 'view_bag' %}" class="nav-link text-white position-relative">
                   <i class="fas fa-shopping-bag fa-lg"></i>
                   {% if product_count and product_count > 0 %}
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
