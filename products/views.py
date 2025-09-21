@@ -13,7 +13,8 @@ Handles listing, filtering, and detail display of products.
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
-    products = Product.objects.all()
+    # Prefetch related variants to reduce DB queries on product list view
+    products = Product.objects.prefetch_related('variants').all()
     query = None
     categories = None
     sort = None
