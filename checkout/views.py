@@ -17,26 +17,26 @@ import json
 @require_POST
 def cache_checkout_data(request):
     return HttpResponse(status=200)
-    # try:
-    #     pid = request.POST.get('client_secret').split('_secret')[0]
-    #     stripe.api_key = settings.STRIPE_SECRET_KEY
-    #     stripe.PaymentIntent.modify(pid, metadata={
-    #         'bag': json.dumps(request.session.get('bag', {})),
-    #         'save_info': request.POST.get('save_info'),
-    #         'username': request.user,
-    #     })
-    #     return HttpResponse(status=200)
-    # except Exception as e:
-    #     messages.error(request, 'Sorry, your payment cannot be \
-    #         processed right now. Please try again later.')
-    #     return HttpResponse(content=e, status=400)
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(pid, metadata={
+            'bag': json.dumps(request.session.get('bag', {})),
+            'save_info': request.POST.get('save_info'),
+            'username': request.user,
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, 'Sorry, your payment cannot be \
+            processed right now. Please try again later.')
+        return HttpResponse(content=e, status=400)
 
 
 def checkout(request):
     stripe_public_key = 'pk_test_dummy'
     stripe_secret_key = 'sk_test_dummy'
-    # stripe_public_key = settings.STRIPE_PUBLIC_KEY
-    # stripe_secret_key = settings.STRIPE_SECRET_KEY
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY
+    stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
@@ -94,35 +94,33 @@ def checkout(request):
 
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
-        # stripe_total = round(total * 100)
-        # stripe.api_key = stripe_secret_key
-        # intent = stripe.PaymentIntent.create(
-        #     amount=stripe_total,
-        #     currency=settings.STRIPE_CURRENCY,
+        stripe_total = round(total * 100)
+        stripe.api_key = stripe_secret_key
+        intent = stripe.PaymentIntent.create(
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY,
         intent = type('obj', (object,), {'client_secret': 'test_client_secret'})()
-        #)
+        )
 
-        # if request.user.is_authenticated:
-        #     try:
-        #         profile = UserProfile.objects.get(user=request.user)
-        #         order_form = OrderForm(initial={
-        #             'full_name': profile.user.get_full_name(),
-        #             'email': profile.user.email,
-        #             'phone_number': profile.default_phone_number,
-        #             'country': profile.default_country,
-        #             'postcode': profile.default_postcode,
-        #             'town_or_city': profile.default_town_or_city,
-        #             'street_address1': profile.default_street_address1,
-        #             'street_address2': profile.default_street_address2,
-        #             'county': profile.default_county,
-        #         })
-        #     except UserProfile.DoesNotExist:
-        #         order_form = OrderForm()
-        # else:
-        order_form = OrderForm()
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                    'phone_number': profile.default_phone_number,
+                    'country': profile.default_country,
+                    'postcode': profile.default_postcode,
+                    'town_or_city': profile.default_town_or_city,
+                    'street_address1': profile.default_street_address1,
+                    'street_address2': profile.default_street_address2,
+                    'county': profile.default_county,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+                order_form = OrderForm()
 
-        # in the video, the below code is not indented properly
-        # this is the correct indentation
         if not stripe_public_key:
             messages.warning(request, 'Stripe public key is missing. \
                 Did you forget to set it in your environment?')
@@ -135,7 +133,6 @@ def checkout(request):
         }
 
         return render(request, template, context)
-        # end of the corrected indentation
 
 
 def checkout_success(request, order_number):

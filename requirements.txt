@@ -1,5 +1,6 @@
 asgiref==3.9.1
 crispy-bootstrap5==2025.6
+dj-database-url==3.0.1
 Django==5.2.4
 django-allauth==65.10.0
 django-countries==7.6.1
