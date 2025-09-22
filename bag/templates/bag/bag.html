@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
+
 
 {% block page_header %}
 <div class="container header-container">
@@ -28,7 +30,7 @@
                             {% include "bag/product-image.html" %}
                             {% include "bag/product-info.html" %}
                             <p class="mt-2 mb-1">Price: £{{ item.variant.price }}</p>
-                            <p><strong>Subtotal: </strong>£{{ item.subtotal|floatformat:2 }}</p>
+                            <p><strong>Subtotal: </strong>£{{ item.variant.price|calc_subtotal:item.quantity|floatformat:2 }}</p>
 
                             {% include "bag/quantity-form.html" %}
                         </div>
@@ -64,7 +66,7 @@
                                     <td class="w-25">
                                         {% include "bag/quantity-form.html" %}
                                     </td>
-                                    <td>£{{ item.subtotal|floatformat:2 }}</td>
+                                    <td>£{{ item.variant.price|calc_subtotal:item.quantity|floatformat:2 }}</td>
                                 </tr>
                             {% endfor %}
                             <tr>

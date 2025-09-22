@@ -149,7 +149,21 @@
     </header>
 
     {% if messages %}
-    <div class="message-container"></div>
+    <div class="message-container">
+    {% for message in messages %}
+        {% with message.level as level %}
+            {% if level == 40 %}
+                {% include 'includes/toasts/toast_error.html' %}
+            {% elif level == 30 %}
+                {% include 'includes/toasts/toast_warning.html' %}
+            {% elif level == 25 %}
+                {% include 'includes/toasts/toast_success.html' %}
+            {% else %}
+                {% include 'includes/toasts/toast_info.html' %}
+            {% endif %}
+        {% endwith %}
+    {% endfor %}
+    </div>
     {% endif %}
 
     {% block page_header %}
@@ -211,6 +225,16 @@
           e.preventDefault();
           searchBar?.classList.toggle('d-none');
         });
+      });
+    </script>
+
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function () {
+        const toastElList = [].slice.call(document.querySelectorAll('.toast'));
+        const toastList = toastElList.map(function (toastEl) {
+          return new bootstrap.Toast(toastEl, { autohide: false });
+        });
+        toastList.forEach(toast => toast.show());
       });
     </script>
     {% endblock %}
