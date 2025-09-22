@@ -63,3 +63,28 @@ def add_to_bag(request, item_id):
     request.session['bag'] = bag
     return redirect(redirect_url)
 
+
+def adjust_bag(request, item_id):
+    """Adjust the quantity of the specified product variant"""
+
+    product = get_object_or_404(Product, pk=item_id)
+    size = request.POST.get('variant_size')
+    colour = request.POST.get('variant_colour')
+    quantity = int(request.POST.get('quantity'))
+    redirect_url = request.POST.get('redirect_url')
+
+    bag = request.session.get('bag', {})
+    item_id_str = str(item_id)
+    variant_key = f"{size}_{colour}".lower()
+
+    if quantity > 0:
+        bag[item_id_str]['items_by_variant'][variant_key] = quantity
+        messages.success(request, f"Updated {product.name} ({size.upper()}, {colour.capitalize()}) quantity to {quantity}")
+    else:
+        del bag[item_id_str]['items_by_variant'][variant_key]
+        if not bag[item_id_str]['items_by_variant']:
+            del bag[item_id_str]
+        messages.success(request, f"Removed {product.name} ({size.upper()}, {colour.capitalize()}) from your bag")
+
+    request.session['bag'] = bag
+    return redirect(redirect_url)

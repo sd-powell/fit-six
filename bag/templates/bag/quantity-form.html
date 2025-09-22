@@ -1,12 +1,12 @@
-<!-- bag/quantity-form.html -->
-
-<form class="form update-form" method="POST" action=""> {# {% url 'adjust_bag' item.item_id %} #}
+<form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
     {% csrf_token %}
 
     {% if item.variant %}
         <input type="hidden" name="variant_size" value="{{ item.variant.size }}">
         <input type="hidden" name="variant_colour" value="{{ item.variant.colour }}">
     {% endif %}
+    
+    <input type="hidden" name="redirect_url" value="{% url 'view_bag' %}">
 
     <div class="input-group">
         <div class="input-group-prepend">
@@ -40,3 +40,7 @@
         </a>
     </div>
 </form>
+
+<button type="button" class="btn btn-sm btn-outline-secondary update-link mt-2">
+    Update
+</button>

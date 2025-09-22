@@ -19,7 +19,6 @@ def bag_contents(request):
 
         # Variant items
         for variant_key, quantity in item_data.get('items_by_variant', {}).items():
-            print(f"Processing variant: {variant_key} (qty {quantity})")
             size, colour = variant_key.split('_')
             size = size.upper()
             colour = colour.capitalize()
