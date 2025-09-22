@@ -33,6 +33,7 @@ def bag_contents(request):
                     'quantity': quantity,
                     'product': product,
                     'variant': variant,
+                    'sku': variant.sku,
                     'subtotal': quantity * price,
                 })
                 print(f"Added to bag_items: {variant} x{quantity}")
