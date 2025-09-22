@@ -1,0 +1,8 @@
+<!-- bag/product-info.html -->
+<p class="mb-1 fw-bold">{{ item.product.name }}</p>
+{% if item.variant %}
+  <p class="mb-1 text-muted small">
+    Size: {{ item.variant.size|upper }}<br>
+    Colour: {{ item.variant.colour|capfirst }}
+  </p>
+{% endif %}

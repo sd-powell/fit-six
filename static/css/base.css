@@ -110,4 +110,11 @@ body {
 }
 
 
+.badge {
+  font-size: 0.75rem;
+  padding: 4px 6px;
+  z-index: 1000;
+}
+
+
 

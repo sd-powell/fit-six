@@ -10,46 +10,37 @@ def bag_contents(request):
     bag = request.session.get('bag', {})
 
     for item_id, item_data in bag.items():
-        product = get_object_or_404(Product, pk=item_id)
+        product = get_object_or_404(Product, pk=int(item_id))
 
         if isinstance(item_data, int):
-            # No variants, fallback
-            variant = product.variants.first()
-            price = variant.price if variant else 0
-            total += item_data * price
-            product_count += item_data
-            bag_items.append({
-                'item_id': item_id,
-                'quantity': item_data,
-                'product': product,
-                'variant': variant,
-            })
+            print("Item with no variants:", item_id)
+            # fallback for non-variant products (if you have any)
+            continue
 
-        else:
-            for variant_key, quantity in item_data['items_by_variant'].items():
-                # Split variant_key like "s_black" into "s" and "black"
-                try:
-                    size, colour = variant_key.split('_')
-                except ValueError:
-                    size, colour = variant_key, None
+        # Variant items
+        for variant_key, quantity in item_data.get('items_by_variant', {}).items():
+            print(f"Processing variant: {variant_key} (qty {quantity})")
+            size, colour = variant_key.split('_')
+            size = size.upper()
+            colour = colour.capitalize()
+            variant = product.variants.filter(size=size, colour=colour).first()
 
-                # Find matching variant
-                variant = product.variants.filter(size=size, colour=colour).first()
-
-                if not variant:
-                    continue  # Skip if no matching variant found
-
-                total += quantity * variant.price
+            if variant:
+                price = variant.price
+                total += quantity * price
                 product_count += quantity
-
                 bag_items.append({
                     'item_id': item_id,
                     'quantity': quantity,
                     'product': product,
                     'variant': variant,
-                    'size': size,
-                    'colour': colour,
+                    'subtotal': quantity * price,
                 })
+                print(f"Added to bag_items: {variant} x{quantity}")
+            else:
+                print(f"Variant not found for key {variant_key}")
+
+            print("FINAL product_count:", product_count)
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
