@@ -37,6 +37,7 @@
   </head>
 
   <body class="d-flex flex-column min-vh-100">
+    <p style="color:white; text-align:center;">DEBUG product_count: {{ product_count }}</p>
     <header class="container-fluid fixed-top p-0 m-0 bg-black">
       <nav role="navigation" aria-label="Main navigation">
         <!-- Desktop Nav Row -->
@@ -84,7 +85,7 @@
                 </ul>
               </li>
 
-              <!-- Bag Icon + Count -->
+              <!-- Cart Icon + Count -->
               <li class="list-inline-item">
                 <a href="{% url 'view_bag' %}" class="nav-link text-white position-relative">
                   <i class="fas fa-shopping-bag fa-lg"></i>

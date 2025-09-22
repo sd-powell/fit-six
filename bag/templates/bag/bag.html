@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -20,6 +20,7 @@
     <div class="row">
         <div class="col">
             {% if bag_items %}
+            <pre>{{ bag_items|pprint }}</pre>
                 <!-- Mobile View -->
                 <div class="d-block d-md-none">
                     {% for item in bag_items %}
@@ -27,8 +28,8 @@
                             {% include "bag/product-image.html" %}
                             {% include "bag/product-info.html" %}
 
-                            <p class="mt-2 mb-1">Price: £{{ item.product.price }}</p>
-                            <p><strong>Subtotal: </strong>£</p> {# {{ item.product.price|calc_subtotal:item.quantity }} #}
+                            <p class="mt-2 mb-1">Price: £{{ item.variant.price }}</p>
+                            <p><strong>Subtotal: </strong>£{{ item.subtotal|floatformat:2 }}</p>
 
                             {% include "bag/quantity-form.html" %}
                         </div>
@@ -59,11 +60,11 @@
                                     <td>
                                         {% include "bag/product-info.html" %}
                                     </td>
-                                    <td>£{{ item.product.price }}</td>
+                                    <td>£{{ item.variant.price }}</td>
                                     <td class="w-25">
                                         {% include "bag/quantity-form.html" %}
                                     </td>
-                                    <td>£</td> {# {{ item.product.price|calc_subtotal:item.quantity }} #}
+                                    <td>£{{ item.subtotal|floatformat:2 }}</td>
                                 </tr>
                             {% endfor %}
                             <tr>

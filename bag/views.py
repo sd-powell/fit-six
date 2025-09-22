@@ -19,47 +19,48 @@ def add_to_bag(request, item_id):
     size = request.POST.get('variant_size')
     colour = request.POST.get('variant_colour')
 
-    # Use a nested structure: { item_id: { 'items_by_variant': { 'size_colour': quantity } } }
     bag = request.session.get('bag', {})
+    item_id_str = str(item_id)  # <- convert to string
 
     variant_key = f"{size}_{colour}".lower() if size and colour else None
 
     if variant_key:
-        if item_id in bag:
-            if 'items_by_variant' in bag[item_id]:
-                if variant_key in bag[item_id]['items_by_variant']:
-                    bag[item_id]['items_by_variant'][variant_key] += quantity
+        if item_id_str in bag:
+            if 'items_by_variant' in bag[item_id_str]:
+                if variant_key in bag[item_id_str]['items_by_variant']:
+                    bag[item_id_str]['items_by_variant'][variant_key] += quantity
                     messages.success(
                         request,
-                        f"Updated {product.name} ({size.upper()}, {colour.capitalize()}) quantity to {bag[item_id]['items_by_variant'][variant_key]}"
+                        f"Updated {product.name} ({size.upper()}, {colour.capitalize()}) quantity to {bag[item_id_str]['items_by_variant'][variant_key]}"
                     )
                 else:
-                    bag[item_id]['items_by_variant'][variant_key] = quantity
+                    bag[item_id_str]['items_by_variant'][variant_key] = quantity
                     messages.success(
                         request,
                         f"Added {product.name} ({size.upper()}, {colour.capitalize()}) to your bag"
                     )
             else:
-                bag[item_id]['items_by_variant'] = {variant_key: quantity}
+                bag[item_id_str]['items_by_variant'] = {variant_key: quantity}
                 messages.success(
                     request,
                     f"Added {product.name} ({size.upper()}, {colour.capitalize()}) to your bag"
                 )
         else:
-            bag[item_id] = {'items_by_variant': {variant_key: quantity}}
+            bag[item_id_str] = {'items_by_variant': {variant_key: quantity}}
             messages.success(
                 request,
                 f"Added {product.name} ({size.upper()}, {colour.capitalize()}) to your bag"
             )
     else:
         # No variants (fallback)
-        if item_id in bag:
-            bag[item_id] += quantity
-            messages.success(request, f"Updated {product.name} quantity to {bag[item_id]}")
+        if item_id_str in bag:
+            bag[item_id_str] += quantity
+            messages.success(request, f"Updated {product.name} quantity to {bag[item_id_str]}")
         else:
-            bag[item_id] = quantity
+            bag[item_id_str] = quantity
             messages.success(request, f"Added {product.name} to your bag")
 
     request.session['bag'] = bag
-    print(request.session['bag'])
+    print("SESSION BAG:", request.session['bag'])
     return redirect(redirect_url)
+
