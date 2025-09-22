@@ -32,15 +32,11 @@
     </div>
 
     <div class="mt-2">
-        <a class="btn btn-outline-danger btn-sm remove-item"
+        <a class="btn btn-outline-danger btn-sm rounded-pill px-3 py-1 remove-item"
             id="remove_{{ item.item_id }}"
             data-product_size="{{ item.variant.size }}"
             data-product_colour="{{ item.variant.colour }}">
-            <i class="fas fa-trash-alt"></i> Remove
+            <i class="fas fa-trash-alt me-1"></i> Remove
         </a>
     </div>
 </form>
-
-<button type="button" class="btn btn-sm btn-outline-secondary update-link mt-2">
-    Update
-</button>

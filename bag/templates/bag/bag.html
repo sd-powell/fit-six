@@ -20,13 +20,13 @@
     <div class="row">
         <div class="col">
             {% if bag_items %}
-                <!-- Mobile View -->
+
+                <!-- MOBILE VIEW: one form per item -->
                 <div class="d-block d-md-none">
                     {% for item in bag_items %}
                         <div class="border-bottom mb-4 pb-3">
                             {% include "bag/product-image.html" %}
                             {% include "bag/product-info.html" %}
-
                             <p class="mt-2 mb-1">Price: £{{ item.variant.price }}</p>
                             <p><strong>Subtotal: </strong>£{{ item.subtotal|floatformat:2 }}</p>
 
@@ -38,8 +38,9 @@
                     {% include "bag/checkout-buttons.html" %}
                 </div>
 
-                <!-- Desktop View -->
-                <div class="table-responsive d-none d-md-block">
+                <!-- DESKTOP VIEW: update-all form -->
+                <form method="POST" action="{% url 'update_bag_all' %}" class="d-none d-md-block">
+                    {% csrf_token %}
                     <table class="table align-middle">
                         <thead>
                             <tr class="text-uppercase small text-muted">
@@ -72,17 +73,22 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="5">
+                                <td colspan="5" class="text-end">
+                                    <button type="submit" class="btn btn-secondary rounded-pill px-4 py-2 text-uppercase">
+                                        <i class="fas fa-sync-alt me-2"></i> Update Basket
+                                    </button>
                                     {% include "bag/checkout-buttons.html" %}
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </form>
+
             {% else %}
+                <!-- EMPTY BAG STATE -->
                 <div class="text-center my-5">
                     <h4 class="mb-3">Your bag is currently empty.</h4>
-                    <a href="{% url 'products' %}" class="btn btn-primary rounded-pill px-4 py-2">
+                    <a href="{% url 'products' %}" class="btn btn-grey btn-primary rounded-pill px-4 py-2">
                         <i class="fas fa-chevron-left me-2"></i> Keep Shopping
                     </a>
                 </div>
@@ -92,35 +98,37 @@
 </div>
 {% endblock %}
 
-
 {% block postloadjs %}
 {{ block.super }}
+
 <script type="text/javascript">
+    // Scroll to top
     $('.btt-link').click(function(e) {
-        window.scrollTo(0,0)
-    })
+        window.scrollTo(0, 0);
+    });
 </script>
+
 {% include 'products/includes/quantity_input_script.html' %}
 
 <script type="text/javascript">
-    // Update quantity on click
-    $('.update-link').click(function(e) {
-        var form = $(this).prev('.update-form');
-        form.submit();
-    })
-
     // Remove item and reload on click
     $('.remove-item').click(function(e) {
+        e.preventDefault();
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
         var size = $(this).data('product_size');
+        var colour = $(this).data('product_colour');
         var url = `/bag/remove/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+        var data = {
+            'csrfmiddlewaretoken': csrfToken,
+            'product_size': size,
+            'product_colour': colour
+        };
 
         $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
-    })
+        .done(function() {
+            location.reload();
+        });
+    });
 </script>
 {% endblock %}
