@@ -60,7 +60,7 @@
                                         {% include "bag/product-image.html" %}
                                     </td>
                                     <td>
-                                        {% include "bag/product-info.html" %}
+                                        {% include "bag/product-info.html" with product=item.product variant=item.variant %}
                                     </td>
                                     <td>£{{ item.variant.price }}</td>
                                     <td class="w-25">
