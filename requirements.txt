@@ -1,10 +1,16 @@
 asgiref==3.9.1
+certifi==2025.8.3
+charset-normalizer==3.4.3
 crispy-bootstrap5==2025.6
 dj-database-url==3.0.1
 Django==5.2.4
 django-allauth==65.10.0
 django-countries==7.6.1
 django-crispy-forms==2.4
+idna==3.10
 pillow==10.3.0
+requests==2.32.5
 sqlparse==0.5.3
+stripe==12.5.1
 typing_extensions==4.15.0
+urllib3==2.5.0
