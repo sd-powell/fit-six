@@ -1,0 +1,17 @@
+<!-- bag/bag-total.html -->
+
+<div class="bag-summary">
+    <h6 class="mb-1"><strong>Bag Total:</strong> £{{ total|floatformat:2 }}</h6>
+    <h6 class="mb-1"><strong>Delivery:</strong> £{{ delivery|floatformat:2 }}</h6>
+    <h4 class="mt-4 text-uppercase fw-bold">Grand Total: £{{ grand_total|floatformat:2 }}</h4>
+
+    {% if free_delivery_delta > 0 %}
+        <p class="mt-2 text-danger">
+            Spend <strong>£{{ free_delivery_delta|floatformat:2 }}</strong> more to get <strong>free delivery</strong>!
+        </p>
+    {% else %}
+        <p class="mt-2 text-success">
+            You qualify for <strong>free delivery</strong>!
+        </p>
+    {% endif %}
+</div>

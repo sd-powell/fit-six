@@ -1,0 +1,17 @@
+<!-- bag/checkout-buttons.html -->
+
+<div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center gap-3 mt-4">
+    
+    <!-- Keep Shopping Button -->
+    <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-pill px-4 py-2">
+        <i class="fas fa-chevron-left me-2"></i>
+        <span class="text-uppercase">Keep Shopping</span>
+    </a>
+
+    <!-- Secure Checkout Button -->
+    <a href="#" class="btn btn-primary rounded-pill px-4 py-2 text-white"> {# {% url 'checkout' %} #}
+        <span class="text-uppercase">Secure Checkout</span>
+        <i class="fas fa-lock ms-2"></i>
+    </a>
+
+</div>

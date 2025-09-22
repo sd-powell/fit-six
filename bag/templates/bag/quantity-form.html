@@ -1,0 +1,42 @@
+<!-- bag/quantity-form.html -->
+
+<form class="form update-form" method="POST" action=""> {# {% url 'adjust_bag' item.item_id %} #}
+    {% csrf_token %}
+
+    {% if item.variant %}
+        <input type="hidden" name="variant_size" value="{{ item.variant.size }}">
+        <input type="hidden" name="variant_colour" value="{{ item.variant.colour }}">
+    {% endif %}
+
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <button class="decrement-qty btn btn-black rounded-0"
+                data-item_id="{{ item.item_id }}"
+                id="decrement-qty_{{ item.item_id }}">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+
+        <input class="form-control qty_input" type="number"
+            name="quantity" value="{{ item.quantity }}"
+            data-item_id="{{ item.item_id }}" min="1" max="99"
+            id="id_qty_{{ item.item_id }}">
+
+        <div class="input-group-append">
+            <button class="increment-qty btn btn-black rounded-0"
+                data-item_id="{{ item.item_id }}"
+                id="increment-qty_{{ item.item_id }}">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="mt-2">
+        <a class="btn btn-outline-danger btn-sm remove-item"
+            id="remove_{{ item.item_id }}"
+            data-product_size="{{ item.variant.size }}"
+            data-product_colour="{{ item.variant.colour }}">
+            <i class="fas fa-trash-alt"></i> Remove
+        </a>
+    </div>
+</form>
