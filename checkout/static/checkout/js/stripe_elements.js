@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
         $('#submit-button').attr('disabled', true);
         $('#payment-form').fadeToggle(100);
         $('#loading-overlay').fadeToggle(100);
-        console.log("Posting checkout data to cache...");
 
         var saveInfo = $('#id-save-info').is(':checked');
         // From using {% csrf_token %} in the form
@@ -109,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     $('#loading-overlay').fadeToggle(100);
                     card.update({ 'disabled': false});
                     $('#submit-button').attr('disabled', false);
-                    console.log("Stripe confirm result:", result);
                 } else {
                     if (result.paymentIntent.status === 'succeeded') {
                         form.submit();
