@@ -6,7 +6,6 @@
     https://stripe.com/docs/stripe-js
 */
 document.addEventListener('DOMContentLoaded', function () {
-    console.log("Stripe JS loaded");
 
     var stripePublicKey = JSON.parse(document.getElementById('id_stripe_public_key').textContent);
     var clientSecret = JSON.parse(document.getElementById('id_client_secret').textContent);
@@ -48,11 +47,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Handle form submit
     var form = document.getElementById('payment-form');
-    console.log("Form found?", form ? true : false);
 
     form.addEventListener('submit', function(ev) {
         ev.preventDefault();
-        console.log("Stripe form submit triggered");
         card.update({ 'disabled': true});
         $('#submit-button').attr('disabled', true);
         $('#payment-form').fadeToggle(100);
@@ -70,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function () {
         var url = '/checkout/cache_checkout_data/';
 
         $.post(url, postData).done(function () {
-            console.log("✅ Checkout data cached. Confirming card payment...");
             stripe.confirmCardPayment(clientSecret, {
                 payment_method: {
                     card: card,
@@ -101,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 },
             }).then(function(result) {
-                console.log("Stripe payment result:", result);
                 if (result.error) {
                     var errorDiv = document.getElementById('card-errors');
                     var html = `
@@ -117,13 +112,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.log("Stripe confirm result:", result);
                 } else {
                     if (result.paymentIntent.status === 'succeeded') {
-                        console.log("✅ Payment succeeded. Submitting form...");
                         form.submit();
                     }
                 }
             });
         }).fail(function (xhr, status, error) {
-            console.error("AJAX request failed:", status, error);  // ✅ Fix here
             location.reload();
         });
     });
