@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'bag',
     'checkout.apps.CheckoutConfig',
     'django_countries',
+    'profiles',
     
     # other
     "crispy_forms",

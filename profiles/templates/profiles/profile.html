@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row">
+        <div class="col">
+            <h2 class="mb-4 text-uppercase fw-bold border-bottom pb-2">My Profile</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Profile Form -->
+        <div class="col-12 col-lg-6 mb-5">
+            <p class="text-muted">Default Delivery Information</p>
+            <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="text-end mt-3">
+                    <button class="btn btn-black rounded-pill">
+                        Update Information <i class="fas fa-save ms-1"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Order History -->
+        <div class="col-12 col-lg-6">
+            <p class="text-muted">Order History</p>
+            <div class="table-responsive">
+                <table class="table table-sm table-borderless align-middle">
+                    <thead>
+                        <tr class="small text-uppercase text-muted">
+                            <th scope="col">Order #</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Items</th>
+                            <th scope="col" class="text-end">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'order_history' order.order_number %}" class="text-decoration-none">
+                                    {{ order.order_number|truncatechars:6 }}
+                                </a>
+                            </td>
+                            <td>{{ order.date|date:"d M Y" }}</td>
+                            <td>
+                                <ul class="list-unstyled mb-0 small">
+                                    {% for item in order.lineitems.all %}
+                                        <li>
+                                            {{ item.variant.product.name }} 
+                                            ({{ item.variant.size|upper }} / {{ item.variant.colour|capfirst }}) 
+                                            ×{{ item.quantity }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td class="text-end">£{{ order.grand_total|floatformat:2 }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="4" class="text-center text-muted small">No orders yet.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script src="{% static 'profiles/js/countryfield.js' %}"></script>
+{% endblock %}
