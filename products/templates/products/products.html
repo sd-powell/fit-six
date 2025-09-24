@@ -95,8 +95,8 @@
                     <!-- Admin options -->
                     {% if request.user.is_superuser %}
                         <small>
-                        <a href="#">Edit</a> | {# {% url 'edit_product' product.id %} #}
-                        <a href="#" class="text-danger">Delete</a> {# {% url 'delete_product' product.id %} #}
+                        <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                        <a href="{% url 'delete_product' product.id %}" class="text-danger">Delete</a>
                         </small>
                     {% endif %}
 
