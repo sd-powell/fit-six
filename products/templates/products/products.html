@@ -94,10 +94,14 @@
 
                     <!-- Admin options -->
                     {% if request.user.is_superuser %}
-                        <small>
-                        <a href="{% url 'edit_product' product.id %}">Edit</a> |
-                        <a href="{% url 'delete_product' product.id %}" class="text-danger">Delete</a>
-                        </small>
+                        <div class="mt-2 d-flex gap-2">
+                            <a href="{% url 'edit_product' product.id %}" class="btn btn-outline-black btn-sm rounded-0">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                            <a href="{% url 'delete_product' product.id %}" class="btn btn-danger btn-sm rounded-0">
+                                <i class="fas fa-trash"></i> Delete
+                            </a>
+                        </div>
                     {% endif %}
 
                     </div>
