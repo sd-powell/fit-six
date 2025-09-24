@@ -6,7 +6,6 @@
   --base-grey: #dddddd;
   --dark-border: #d6d6d6;
   --background-white: #fff;
-  -o-animation: #ffffff;
 
   /************ Typography ************/
   --primary-font: "Poppins", sans-serif;
@@ -22,7 +21,7 @@
 
 body {
   font-family: var(--primary-font);
-  background-color: var(--base-white);
+  background-color: var(--background-white);
 }
 
 .keyline {
@@ -71,54 +70,49 @@ body {
   border: none;
 }
 
-
-
 .product-image-border {
-    border: 1px solid var(--dark-border);
-    border-radius: 4px;
-    padding: 2px;
-    background-color: var(--background-white);
+  border: 1px solid var(--dark-border);
+  border-radius: 4px;
+  padding: 2px;
+  background-color: var(--background-white);
 }
 
-
 .btt-button {
-    height: 42px;
-    width: 42px;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
+  height: 42px;
+  width: 42px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
 }
 
 .btt-link,
 .update-link,
 .remove-item {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-
 .btn-outline-black {
-    background: white;
-    color: black !important; /* use important to override link colors for <a> elements */
-    border: 1px solid black;
+  background: white;
+  color: black !important;
+  border: 1px solid black;
 }
 
 .btn-outline-black:hover,
 .btn-outline-black:active,
 .btn-outline-black:focus {
-    background: black;
-    color: white !important;
+  background: black;
+  color: white !important;
 }
 
 .btn-grey {
-    background-color: #6c757d;
-    color: white;
-    border: none;
+  background-color: #6c757d;
+  color: white;
+  border: none;
 }
 
 .btn-grey:hover {
-    background-color: #5a6268;
+  background-color: #5a6268;
 }
-
 
 .badge {
   font-size: 0.75rem;
@@ -126,75 +120,123 @@ body {
   z-index: 1000;
 }
 
-
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
-    position: fixed;
-    top: 72px;
-    right: 15px;
-    z-index: 99999999999;
+  position: fixed;
+  top: 72px;
+  right: 15px;
+  z-index: 99999999999;
 }
 
 .custom-toast {
-    overflow: visible;
+  overflow: visible;
 }
 
 .toast-capper {
-    height: 2px;
+  height: 2px;
 }
 
-/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
-    width: 0; 
-    height: 0; 
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent; 
-    border-bottom: 10px solid black;
-    position: absolute;
-    top: -10px;
-    right: 36px;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 10px solid black;
+  position: absolute;
+  top: -10px;
+  right: 36px;
 }
 
-/* Convenience classes - colors copied from Bootstrap */
-.arrow-primary {
-    border-bottom-color: #007bff !important;
-}
-
-.arrow-secondary {
-    border-bottom-color: #6c757d !important;
-}
-
-.arrow-success {
-    border-bottom-color: #28a745 !important;
-}
-
-.arrow-danger {
-    border-bottom-color: #dc3545 !important;
-}
-
-.arrow-warning {
-    border-bottom-color: #ffc107 !important;
-}
-
-.arrow-info {
-    border-bottom-color: #17a2b8 !important;
-}
-
-.arrow-light {
-    border-bottom-color: #f8f9fa !important;
-}
-
-.arrow-dark {
-    border-bottom-color: #343a40 !important;
-}
+/* Toast arrow color variants */
+.arrow-primary { border-bottom-color: #007bff !important; }
+.arrow-secondary { border-bottom-color: #6c757d !important; }
+.arrow-success { border-bottom-color: #28a745 !important; }
+.arrow-danger { border-bottom-color: #dc3545 !important; }
+.arrow-warning { border-bottom-color: #ffc107 !important; }
+.arrow-info { border-bottom-color: #17a2b8 !important; }
+.arrow-light { border-bottom-color: #f8f9fa !important; }
+.arrow-dark { border-bottom-color: #343a40 !important; }
 
 .bag-notification-wrapper {
-    height: 100px;
-    overflow-x: hidden;
-    overflow-y: auto;
+  height: 100px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
+/* ------------------- Allauth Form Styling (Fit Six Style) ------------------- */
 
+.allauth-form-inner-content {
+  font-family: var(--primary-font);
+}
 
+.allauth-form-inner-content p {
+  margin-top: 1.5rem;
+  color: #6c757d; /* Bootstrap's text-muted */
+  font-size: 1rem;
+  font-family: var(--secondary-font);
+}
 
+.allauth-form-inner-content input {
+  border: 1px solid var(--dark-border);
+  border-radius: 0;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  font-family: var(--primary-font);
+}
+
+.allauth-form-inner-content input::placeholder {
+  color: #aab7c4;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+  display: none;
+}
+
+.allauth-form-inner-content label[for='id_remember'] {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Fit Six Highlight Blue Buttons for Allauth */
+
+.allauth-form-inner-content .button,
+.allauth-form-inner-content a.button,
+.allauth-form-inner-content .btn,
+.allauth-form-inner-content [type="button"],
+.allauth-form-inner-content [type="submit"],
+.allauth-form-inner-content .element-button,
+.allauth-form-inner-content .btn-primary,
+.allauth-form-inner-content button {
+  background-color: var(--highlight-blue);
+  color: white !important;
+  border: none;
+  border-radius: 4px;
+  font-family: var(--primary-font);
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover,
+.allauth-form-inner-content .btn:hover,
+.allauth-form-inner-content .btn-primary:hover,
+.allauth-form-inner-content a.button:hover {
+  background-color: #00118a;
+  color: white !important;
+}
+
+.allauth-form-inner-content .button:focus,
+.allauth-form-inner-content a.button:focus,
+.allauth-form-inner-content .btn:focus {
+  outline: none;
+  box-shadow: none;
+}
