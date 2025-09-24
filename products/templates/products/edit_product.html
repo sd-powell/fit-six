@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="mb-4 text-center">
+                <h2 class="text-uppercase fw-bold border-bottom pb-2">Product Management</h2>
+                <h5 class="text-muted">Edit Product</h5>
+            </div>
+
+            <form method="POST" action="{% url 'edit_product' product.id %}" class="form" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="mb-3">
+                        {% if field.name != 'image' %}
+                            {{ field | as_crispy_field }}
+                        {% else %}
+                            <label for="{{ field.id_for_label }}" class="form-label">Change Image</label>
+                            {{ field }}
+                            <small class="form-text text-muted">Upload a new image to replace the current one.</small>
+                        {% endif %}
+                        {% if field.errors %}
+                            <div class="text-danger small">{{ field.errors|striptags }}</div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+
+                <div class="d-flex justify-content-between mt-4">
+                    <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
+                    <button class="btn btn-black rounded-0" type="submit">Update Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $('#new-image').change(function() {
+        var file = $('#new-image')[0].files[0];
+        $('#filename').text(`Image will be set to: ${file.name}`);
+    });
+</script>
+{% endblock %}
