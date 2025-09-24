@@ -5,7 +5,7 @@ from django.conf import settings
 
 from .models import Order, OrderLineItem
 from products.models import ProductVariant
-# from profiles.models import UserProfile  # Uncomment if using profiles
+from profiles.models import UserProfile
 
 import json
 import time
