@@ -1,6 +1,12 @@
 from django import forms
 from .widgets import CustomClearableFileInput
-from .models import Product, Category
+from .models import Product, ProductVariant, Category
+
+
+class ProductVariantForm(forms.ModelForm):
+    class Meta:
+        model = ProductVariant
+        fields = ['size', 'colour', 'price', 'stock']
 
 
 class ProductForm(forms.ModelForm):
