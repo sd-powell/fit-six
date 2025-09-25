@@ -60,7 +60,11 @@ In recent years, there has been a significant shift toward online retail in the 
 
 The feature planning process for Fit Six Store involves identifying opportunities to enhance the user experience, streamline store management, and support real-world business needs. Each proposed feature has been scored for both **importance** and **viability** (rated 1–5), helping to prioritise features for the Minimum Viable Product (MVP). 
 
+#### Prioritisation Strategy
+
 Features that score highly in both categories will form the foundation of the MVP and must be implemented early. Mid-range features are considered *should-haves* and will be developed once MVP is complete. Features with lower scores are *could-haves*, which may be deferred to future versions of the site if time allows.
+
+#### User Roles
 
 User roles are integral to the structure of the application. The site supports three user types:
 - **Guest users** – can browse and view products but must register to make purchases.
@@ -71,24 +75,26 @@ This tiered approach allows for scalable functionality, supporting both everyday
 
 ## Feature Planning Table
 
-| User Type       | Feature                                      | Importance | Viability |  | Delivered |
+The following table outlines all planned features across different user roles, with scores based on importance to user/business goals and technical viability. Delivered features are marked as ✅.
+
+| User Type       | Feature                                      | Importance | Viability | MVP | Delivered |
 |-----------------|----------------------------------------------|:----------:|:---------:|:--:|:---------:|
 | All             | User roles (Guest, User, Admin)              | 5          | 5         | MVP |  |
-| Guest           | Register for an account                      | 5          | 5         | MVP |  |
-| User            | Login / Logout functionality                 | 5          | 5         | MVP |  |
-| User & Admin    | Account dashboard/profile                    | 5          | 5         | MVP |  |
-| User            | Password reset/recovery                      | 5          | 5         | MVP |  |
+| Guest           | Register for an account                      | 5          | 5         | MVP | ✅ |
+| User            | Login / Logout functionality                 | 5          | 5         | MVP | ✅ |
+| User & Admin    | Account dashboard/profile                    | 5          | 5         | MVP | ✅ |
+| User            | Password reset/recovery                      | 5          | 5         | MVP | ✅ |
 | Guest           | Social media login                           | 2          | 4         |     |   |
-| All             | Search and filter products                   | 5          | 5         | MVP |  |
-| All             | Browse product detail page                   | 5          | 5         | MVP |  |
-| User            | Add to cart                                  | 5          | 5         | MVP |  |
+| All             | Search and filter products                   | 5          | 5         | MVP | ✅ |
+| All             | Browse product detail page                   | 5          | 5         | MVP | ✅ |
+| User            | Add to cart                                  | 5          | 5         | MVP | ✅ |
 | Guest           | Guest checkout                               | 3          | 4         |     |  |
-| All             | Stripe payment integration                   | 5          | 5         | MVP |  |
-| All             | Order confirmation (on-screen & email)       | 5          | 5         | MVP |  |
-| User            | View order history                           | 4          | 5         | MVP |  |
+| All             | Stripe payment integration                   | 5          | 5         | MVP | ✅ |
+| All             | Order confirmation (on-screen & email)       | 5          | 5         | MVP | ✅ |
+| User            | View order history                           | 4          | 5         | MVP | ✅ |
 | Admin           | Add new product (Create)                     | 5          | 5         | MVP |  |
 | Admin           | Edit/update product                          | 5          | 5         | MVP |  |
-| Admin           | Delete product                               | 5          | 5         | MVP |  |
+| Admin           | Delete product                               | 5          | 5         | MVP | ✅ |
 | Admin           | Manage product stock levels                  | 4          | 4         | MVP |  |
 | Admin           | View and manage orders                       | 4          | 4         | MVP |  |
 | All             | Form validation with inline error feedback   | 5          | 5         | MVP |  |
@@ -96,7 +102,7 @@ This tiered approach allows for scalable functionality, supporting both everyday
 | All             | Privacy Policy page                          | 3          | 5         |     |  |
 | All             | Delivery & Returns info page                 | 3          | 5         |     |  |
 | All             | Contact form                                 | 3          | 4         |     |  |
-| All             | Social media links                           | 3          | 5         |     |  |
+| All             | Social media links                           | 3          | 5         |     | ✅ |
 | User            | Wishlist                                     | 3          | 3         |     |   |
 | User            | Write product reviews                        | 3          | 3         |     |   |
 | All             | Read product reviews                         | 3          | 3         |     |   |
