@@ -221,3 +221,21 @@ The database schema was visualised using [dbdiagram.io](https://dbdiagram.io), l
 ![Fit Six Database Schema](documentation/readme/structure_plane/database-schema.webp)
 
 </details>
+
+
+<a id="skeleton-plane"></a>
+
+### Skeleton Plane
+
+<a id="wireframes"></a>
+
+#### **Wireframes**
+
+Initial wireframes were created using [Balsamiq](https://balsamiq.com/) to plan the layout, information hierarchy, and user flow of the **Fit Six Store** e-commerce platform. Wireframes were developed for **mobile, tablet, and desktop** breakpoints to ensure a consistent and responsive shopping experience across all modern devices.
+
+The wireframing process focused on key customer-facing views including the **homepage**, **product listing**, **product detail**, **shopping bag**, and **checkout flow**. Additional views were sketched for the **account dashboard** and **order confirmation**, reflecting the expected user journey for both guests and registered users.
+
+These wireframes served as the **visual foundation** for layout decisions throughout development, guiding the positioning of navigation, filters, product cards, and form inputs. A **mobile-first** approach was taken from the outset, ensuring accessibility and usability on smaller screens.
+
+> [!NOTE]  
+> Admin-related views were not wireframed, as Django’s built-in admin panel was used to manage products and orders. Similarly, individual form layouts (e.g. profile edit, checkout form) were rendered using Django Crispy Forms to ensure consistent spacing and alignment across viewports.
