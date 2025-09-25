@@ -4,9 +4,9 @@
 
 **Fit Six Store** is a Django-based full-stack e-commerce web application built to serve as the official online merch store for *Fit Six Gym*, a community-focused training space in South Wales. The platform enables gym members and fitness enthusiasts to browse, filter, and securely purchase branded apparel, accessories, nutritional products, and class bundles.
 
-Designed with usability and performance in mind, the site offers a seamless and responsive shopping experience for both members and the wider public. Gym admins can efficiently manage inventory, update product listings, and track orders through a dedicated interface, making the platform a real-world solution for modern fitness retail needs.
+Designed with usability and performance in mind, the site offers a seamless, responsive shopping experience for both members and the wider public. Gym admins can efficiently manage inventory, update product listings, and track orders through a dedicated interface, making the platform a real-world solution for modern fitness retail needs.
 
-This project was developed as part of the Code Institute Full Stack Web Development Diploma. It demonstrates core skills in backend development, user authentication, responsive front-end design, and secure payment integration using Stripe.
+This project is the fourth milestone in the Code Institute Full Stack Web Development Diploma and demonstrates core skills in backend development, user authentication, responsive front-end design, and secure payment integration using Stripe.
 
 Visit the deployed site here: [Fit Six](https://vinyl-crate-ab3f8a285d4e.herokuapp.com/)
 
@@ -31,6 +31,24 @@ The primary audience for this site includes gym members, fitness enthusiasts, an
 As a regular gym-goer myself, I’ve observed the increasing demand for on-brand, quality apparel and fitness products that reflect a gym’s identity and values. A dedicated online store not only helps members represent their gym community with pride but also provides a reliable revenue stream for the gym itself — particularly important in an industry that continues to recover from pandemic-related disruptions.
 
 In recent years, there has been a significant shift toward online retail in the health and fitness sector, driven by a growing emphasis on self-care, at-home workouts, and brand loyalty among gym communities. This project aims to reflect these real-world trends by delivering a practical, user-friendly shopping experience backed by a robust Django-based back end and secure Stripe payment integration.
+
+#### Primary Target Audiences
+- Gym members (existing)
+- Fitness enthusiasts and athletes
+- Local community and casual supporters
+
+#### Business Goals
+- Provide a scalable revenue stream for the gym
+- Build brand loyalty through merch and bundles
+- Offer a centralised platform for product management
+
+#### User Goals
+- Browse and buy branded Fit Six products online
+- Access exclusive training bundles and offers
+- Enjoy a smooth, secure, responsive shopping experience
+
+> **Success Criteria:**  
+> This project will be considered successful if it delivers a seamless, intuitive user experience, a secure and responsive e-commerce flow, and a professional administrative interface that enables Fit Six Gym to manage orders and products with ease.
 
 ---
 
