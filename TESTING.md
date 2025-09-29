@@ -19,8 +19,24 @@ This file includes:
 
 <a id=contents></a>
 
-## CONTENTS
-
+- [VALIDATION TESTING](#validation-testing)
+  - [W3C Validator](#w3c-validation)
+  - [W3C CSS Validator](#css-validation)
+  - [JavaScript Validator](#js-validation)
+  - [Python Validator](#python-validation)
+  - [Lighthouse](#lighthouse)
+- [AUTOMATED TESTING](#automated-testing)
+- [MANUAL TESTING](#manual-testing)
+  - [Full Testing](#full-testing)
+  - [Browser Compatibility](#browser)
+  - [Responsiveness](#responsiveness)
+  - [Accessibility](#accessibility)
+  - [Testing User Stories](#user-story-testing)
+  - [Features Testing](#features-testing)
+  - [Manual Features Testing](#manual-features-testing)
+  - [Solved Issues & Bugs](#solved-issues)
+  - [Known Issues & Bugs](#known-issues)
+  - [Conclusion](#conclusion)
 
 <br>
 <hr>
