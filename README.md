@@ -239,3 +239,64 @@ These wireframes served as the **visual foundation** for layout decisions throug
 
 > [!NOTE]  
 > Admin-related views were not wireframed, as Django’s built-in admin panel was used to manage products and orders. Similarly, individual form layouts (e.g. profile edit, checkout form) were rendered using Django Crispy Forms to ensure consistent spacing and alignment across viewports.
+
+<br>
+<hr>
+
+<a id="surface-plane"></a>
+
+### Surface Plane
+
+<a id="colour-scheme"></a>
+
+#### Colour Scheme
+
+The **Fit Six** colour palette is designed to reflect the brand’s identity as a bold, modern, and performance-driven gym — while maintaining a clean, accessible user interface for all devices.
+
+This colour scheme combines **vibrant energy**, **professional clarity**, and **trust-building contrast**, aligning with the expectations of an e-commerce site focused on health, strength, and active lifestyles.
+
+The primary colour variables defined in `style.css` are:
+
+- `#001aaf` (**Highlight Blue**)  
+  A strong, confident blue used for **buttons**, **headings**, and **interactive elements**. This shade represents **discipline, trust, and energy** — ideal for a brand promoting fitness and commitment. It provides a high-contrast accent without overwhelming the interface.
+
+- `#dddddd` (**Base Grey**)  
+  A light neutral used as a **background tone**, **card borders**, and **UI separators**. It offers subtle contrast against white, helping content blocks and images stand out without visual clutter.
+
+- `#d6d6d6` (**Dark Border**)  
+  A slightly deeper grey used for **form outlines**, **footer dividers**, and secondary UI elements. It ensures **visual hierarchy** and clean separation of content sections.
+
+- `#ffffff` (**Background White**)  
+  The dominant **site background**, chosen for its clean, modern look and **maximum readability**. It allows product images, CTAs, and content to shine with clarity and focus.
+
+These colours were chosen to:
+- Reinforce **brand consistency**
+- Improve **readability and contrast** across devices
+- Maintain a clean, **minimalist aesthetic** that supports both the gym’s identity and the needs of online shoppers
+
+All colour variables are stored as **CSS custom properties** and reused consistently throughout the site for buttons, alerts, cards, nav elements, and banners.
+
+> **Note:**  
+> Colour variables are defined in `/static/css/style.css` for centralised control and maintainability.
+
+```css
+:root {
+    --highlight-blue: #001aaf;
+    --base-grey: #dddddd;
+    --dark-border: #d6d6d6;
+    --background-white: #ffffff;
+}
+```
+
+> [!NOTE]
+> Contrast compliance was fully tested and reported. For full detail, see [TESTING.md](TESTING.md)
+
+<details>
+<summary>- Toggle to view the colour swatches used throughout the site</summary>
+
+![Fit Six Swatch Palette](documentation/readme/surface_plane/colours-swatches.webp)
+
+</details>
+
+<br>
+<hr>
