@@ -95,3 +95,12 @@ All Python code was validated using the [Code Institute Python Linter](https://p
 
 I've tested my deployed project using the Lighthouse Audit tool to test the performance, accessibility, best practices and SEO of the website.
 
+---
+
+<a id="automated-testing"></a>
+
+## Automated Testing
+
+Automated testing was a key part of the development workflow for **Fit Six**, helping to ensure that critical components of the e-commerce site functioned reliably under various user scenarios. The test suite covers **models, forms, views, and admin logic** using Django’s built-in [TestCase](https://docs.djangoproject.com/en/4.2/topics/testing/overview/) framework.
+
+[coverage.py](https://pypi.org/project/coverage/) was used to monitor test coverage and identify any untested areas. The goal was to validate backend functionality, prevent regressions, and support a maintainable codebase as the project scaled in complexity.
