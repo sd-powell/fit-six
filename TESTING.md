@@ -35,3 +35,47 @@ To confirm that the site was **responsive and accessible across all modern devic
 
 ---
 
+<a id="validation-testing"></a>
+
+## Validation Testing
+
+<a id="w3c-validation"></a>
+
+### W3C Validator
+
+The [W3C Markup Validation Service](https://validator.w3.org/) was used to check the **HTML and CSS** output across all key pages of the Fit Six site. Because Django templates include dynamic content and logic tags (e.g. `{% %}`, `{{ }}`), the validator was run against the **fully rendered HTML output** by viewing the page source in the browser and pasting that into the validator.
+
+This ensured the final output — as seen by users and browsers — conformed to HTML5 and CSS3 standards.
+
+---
+
+<a id="css-validation"></a>
+
+### CSS Validator
+
+[CSS W3C Validator](https://jigsaw.w3.org/css-validator/) was used to validate my CSS file.
+
+---
+
+<a id="js-validation"></a>
+
+### JavaScript
+
+All JavaScript was validated using [JSHint](https://jshint.com/) to ensure proper syntax, code quality, and adherence to best practices.
+
+---
+
+<a id="python-validation"></a>
+
+### Python Validator
+
+All Python code was validated using the [Code Institute Python Linter](https://pep8ci.herokuapp.com/), which checks for compliance with PEP8 — the official Python style guide. This ensured consistent, readable, and well-structured code throughout the project.
+
+---
+
+<a id=lighthouse></a>
+
+### Lighthouse
+
+I've tested my deployed project using the Lighthouse Audit tool to test the performance, accessibility, best practices and SEO of the website.
+
