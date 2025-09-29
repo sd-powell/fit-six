@@ -300,3 +300,53 @@ All colour variables are stored as **CSS custom properties** and reused consiste
 
 <br>
 <hr>
+
+<a id="typography"></a>
+
+#### Typography
+
+[Google Fonts](https://fonts.google.com/) was used to import the selected fonts for the site, ensuring high‑quality and accessible typography across all devices and browsers. Fonts are imported using CSS `@import` with appropriate fallbacks defined for maximum cross‑device compatibility.
+
+- **Headings (h1, h2, h3):** The font [Poppins](https://fonts.google.com/specimen/Poppins) was chosen for its bold, geometric yet friendly style that provides a clean, modern look. Its balanced curves and contemporary design help headlines stand out, giving the site a distinctive and polished visual identity while remaining easy to read.
+
+![Poppins Font Example](documentation/readme/surface_plane/typography-poppins.webp)
+
+- **Paragraphs and body text:** The font [Open Sans](https://fonts.google.com/specimen/Open+Sans) was selected for body copy due to its neutral tone, excellent legibility at various sizes, and compatibility across screen types. It complements Poppins without competing for attention, supporting a harmonious and user‑friendly reading experience throughout the site.
+
+![Open Sans Font Example](documentation/readme/surface_plane/typography-open-sans.webp)
+
+- Together, **Poppins** and **Open Sans** provide strong typographic contrast—balancing bold headlines with highly readable body text for an accessible, modern feel.
+
+- **Icons and UI elements:** The [Font Awesome](https://fontawesome.com/) icon library was used to support the visual interface with clear, scalable icons. These icons align stylistically with the modern fonts and enhance user experience through recognizable visual cues for actions, navigation, and social media links.
+
+> **Note:**  
+> Font families are defined in `static/css/style.css` for consistency and maintainability.
+
+```css
+:root {
+    /************ Typography ************/
+    --primary-font: "Open Sans", sans-serif;
+    --secondary-font: "Poppins", sans-serif;
+}
+```
+
+<br>
+<hr>
+
+<a id="imagery"></a>
+
+#### Imagery
+
+The imagery used throughout the Fit Six site was selected to reflect the energy, focus, and community spirit of the gym and its members. High-quality stock images were sourced from [Adobe Stock](https://stock.adobe.com/) to give the platform a polished, brand-aligned aesthetic while remaining accessible and professional.
+
+Key banners and product visuals feature themes of:
+- **Strength and movement** – capturing workouts, dynamic training environments, and activewear in motion.
+- **Community and support** – showcasing diverse gym-goers training together, reinforcing Fit Six's inclusive and motivational brand values.
+- **Clean product displays** – focusing on fitness gear, apparel, and nutrition with neutral backgrounds to ensure clarity and professionalism.
+
+Images were carefully selected and edited to ensure consistency in **tone, lighting, and composition**, providing visual cohesion across all views. This consistent imagery reinforces trust, supports branding, and contributes to a modern, aspirational e-commerce experience that appeals to both regular members and first-time visitors.
+
+> **Note:** All hero banners and promotional images were optimised for web and stored in `media/` or `static/images/` as appropriate.
+
+<br>
+<hr>
