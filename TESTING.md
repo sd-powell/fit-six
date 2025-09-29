@@ -123,7 +123,18 @@ Each feature was tested systematically to identify and resolve potential issues 
 
 In addition to structured manual testing, **informal feedback** was gathered from friends and family using a variety of devices and browsers. This helped validate the real-world usability, responsiveness, and accessibility of the site across different screen sizes and operating systems.
 
+<a id="browser"></a>
 
+### Browser Compatibility
+
+To ensure broad accessibility and a consistent user experience, the **Fit Six** application was manually tested on all major modern browsers, including:
+
+- [Google Chrome](https://www.google.com/chrome)
+- [Mozilla Firefox](https://www.mozilla.org/firefox)
+- [Apple Safari](https://www.apple.com/uk/safari/)
+- [Microsoft Edge](https://www.microsoft.com/en-gb/edge)
+
+Each page and core user flow (e.g. registration, product filtering, cart interaction, and checkout) was tested for rendering consistency, interactive behaviour, and layout responsiveness.
 
 ---
 
