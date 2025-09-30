@@ -379,3 +379,9 @@ All pages on the website include:
 ![favicon](documentation/readme/surface_plane/features-home-favicon.webp)
 
 </details>
+
+#### Defensive Programming
+
+**Defensive programming principles** have been applied throughout the **Fit Six Store** to safeguard functionality and ensure that only **authorised users** can access sensitive features. Permission checks are enforced to restrict **admin-level actions** — such as adding, editing, or deleting products, or managing orders — to **superusers only**.
+
+If a user attempts to access a **restricted page** or perform an unauthorised action, they are redirected appropriately — usually to the login page or homepage — depending on the context. This approach enhances both **security** and **user experience** by clearly communicating boundaries and preventing system misuse or unexpected errors.
