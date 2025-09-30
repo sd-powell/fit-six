@@ -350,3 +350,32 @@ Images were carefully selected and edited to ensure consistency in **tone, light
 
 <br>
 <hr>
+
+<a id="features"></a>
+
+### Features
+
+**Fit Six Store** is a full-stack e-commerce platform built for *Fit Six Gym*, allowing members and visitors to browse, filter, and securely purchase gym merchandise, supplements, and class bundles. The site delivers a clean, intuitive shopping experience backed by robust Django functionality and Stripe integration.
+
+Key features include:
+
+- **Product Catalogue with Variant Support** – Products can have multiple variants (e.g. size, colour), improving flexibility for gym apparel and accessories.
+- **Secure Stripe Checkout** – Integrated payment system with order summary, on-screen confirmation, and email receipts.
+- **User Accounts and Order History** – Registered users can manage their profile, view past orders, and save delivery preferences.
+- **Admin Product Management** – Superusers can add, edit, and remove products, adjust stock, and manage incoming orders.
+- **Responsive Design** – All views adapt seamlessly across mobile, tablet, and desktop, ensuring accessibility and ease of use.
+- **Form Validation and Feedback** – Inline validation and custom messages for improved usability and accessibility.
+- **Custom Error Pages** – Branded 404 and 500 pages to guide users if something goes wrong.
+
+These features combine to deliver a reliable and professional user experience, whether customers are browsing for the latest gym gear or staff are managing backend operations.
+
+All pages on the website include:
+
+- A favicon in the browser tab.
+
+<details>
+<summary>Click here to view the favicon</summary>
+
+![favicon](documentation/readme/surface_plane/features-home-favicon.webp)
+
+</details>
