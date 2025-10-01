@@ -2,7 +2,7 @@
 
 /************ CSS Variables ************/
 :root {
-  --highlight-blue: #001aaf;
+  --highlight-blue: #1739FD;
   --base-grey: #dddddd;
   --dark-border: #d6d6d6;
   --background-white: #fff;
@@ -118,6 +118,55 @@ body {
   font-size: 0.75rem;
   padding: 4px 6px;
   z-index: 1000;
+}
+
+
+/* footer */
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--highlight-blue);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.7rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background-color: #003399; /* Optional: Slightly darker blue */
+  transform: scale(1.1);
+}
+
+.footer-logo {
+  height: 120px;
+  width: auto;
+}
+
+.footer-header {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--background-white);
+}
+
+.footer-link,
+.copyright-text {
+  text-decoration: none;
+  color: var(--background-white);
+}
+
+.footer-link:hover,
+.copyright-text:hover {
+  color: var(--highlight-blue); !important;
+}
+
+.copyright-text {
+  font-size: 14px;
+  color: var(--background-white);
 }
 
 /* ------------------------------- bootstrap toasts */
