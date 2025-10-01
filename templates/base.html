@@ -186,33 +186,67 @@
         <div class="row text-start">
           <!-- Column 1: Join Today -->
           <div class="col-md-4 mb-3">
-            <p class="mb-2"><strong>Join Today</strong></p>
-            <p><i class="fas fa-envelope"></i> info@fitsix.co.uk</p>
-            <p><i class="fas fa-map-marker-alt"></i> Wales 1 Business Park, Magor, Caldicot NP26 3DG</p>
+            <p class="mb-4 footer-header">Join Today</p>
+            <p><i class="fas fa-globe me-2"></i> www.fitsix.co.uk</p>
+            <p><i class="fas fa-envelope me-2"></i> info@fitsix.co.uk</p>
+            <p><i class="fas fa-map-marker-alt me-2"></i> Wales 1 Business Park, Magor NP26 3DG</p>
           </div>
 
           <!-- Column 2: Helpful Links -->
-          <div class="col-md-4 mb-3">
-            <p><strong>Helpful Links</strong></p>
-            <a href="#" class="text-white d-block">Contact Us</a>
-            <a href="#" class="text-white d-block">My Account</a>
-            <a href="#" class="text-white d-block">Returns & Exchanges</a>
-            <a href="#" class="text-white d-block">Privacy Policy</a>
-            <a href="#" class="text-white d-block">Terms & Conditions</a>
+          <div class="col-md-4 mb-4">
+            <p class="footer-header">Helpful Links</p>
+            <a href="#" class="footer-link d-block">Contact Us</a>
+            <a href="#" class="footer-link d-block">My Account</a>
+            <a href="#" class="footer-link d-block">Returns & Exchanges</a>
+            <a href="#" class="footer-link d-block">Shipping Policy</a>
           </div>
 
           <!-- Column 3: Follow Us -->
           <div class="col-md-4 mb-3">
-            <p><strong>Follow Us</strong></p>
-            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+            <p class="footer-header">Follow Us</p>
+            <a href="#" class="social-icon me-3" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+
+          <!-- Fit Six Logo Row (above payment/legal section) -->
+          <div class="d-flex justify-content-end mb-3">
+            <img src="{% static 'images/fitsix-logo.svg' %}" alt="Fit Six logo" class="footer-logo" />
+          </div>
+
+        <!-- Bottom Section: Payment + Legal -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4 pt-3">
+          <!-- Left Side: Payment Icons -->
+          <div class="text-white mb-2 mb-md-0">
+            <div class="d-flex align-items-center gap-3 fs-6">
+              <span class="mb-0">Pay securely with</span>
+              <i class="fab fa-cc-visa" aria-label="Visa"></i>
+              <i class="fab fa-cc-mastercard" aria-label="Mastercard"></i>
+              <i class="fab fa-cc-amex" aria-label="American Express"></i>
+              <i class="fab fa-cc-discover" aria-label="Discover"></i>
+            </div>
+          </div>
+
+          <!-- Right Side: Legal + GitHub -->
+          <div class="text-md-end text-white">
+            <div class="mb-1 fs-6">
+              <a href="#" class="copyright-text me-3">Terms & Conditions</a>
+              <a href="#" class="copyright-text">Privacy Policy</a>
+            </div>
           </div>
         </div>
 
         <!-- Bottom Section: Copyright -->
-        <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top border-secondary">
-          <p class="mb-0">&copy; 2025 Copyright info</p>
-          <a href="{{ GITHUB_LINK }}" class="text-white">GitHub Link</a>
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4 pt-3 border-top border-secondary gap-2 text-center text-md-start">
+          <p class="mb-0 text-white small">
+            &copy; 2025 Fit Six Gym. No orders will be fulfilled. Site created for educational use only.
+          </p>
+          <a href="https://github.com/sd-powell" class="footer-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github me-2" aria-hidden="true"></i> Visit my GitHub
+          </a>
         </div>
       </div>
     </footer>
