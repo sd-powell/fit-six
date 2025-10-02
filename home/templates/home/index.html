@@ -53,19 +53,22 @@
 <!-- Newsletter Signup Section -->
 {% block newsletter %}
     <section class="newsletter-signup py-5 text-black text-center">
-        <div class="container">
-        <h2 class="mb-3 fw-bold">Stay Updated</h2>
-        <p class="mb-4">Subscribe to our newsletter for exclusive offers, fitness tips, and new product announcements.</p>
+    <div class="container">
+        <h2 class="mb-2 fw-bold">Stay Updated</h2>
+        <p class="mb-2">Subscribe to our newsletter for exclusive offers, fitness tips, and new product announcements.</p>
 
-        <form class="row justify-content-center" method="POST" action="#">
-            {% csrf_token %}
-            <div class="col-12 col-md-6 mb-3 mb-md-0">
-            <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+        <form method="POST" action="#" class="row justify-content-center">
+        {% csrf_token %}
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="input-group">
+            <input type="email" name="email" class="form-control" placeholder="Enter your email to register" required>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
             </div>
-            <div class="col-12 col-md-auto">
-            <button type="submit" class="btn btn-primary w-100">Sign Up</button>
-            </div>
-        </form>
+            <small class="form-text text-muted mt-2 d-block text-center">
+            By signing up, you’re cool with our <a href="#" class="text-decoration-underline text-muted">privacy policy</a> – but don’t sweat it, you can unsubscribe anytime.
+            </small>
         </div>
+        </form>
+    </div>
     </section>
 {% endblock %}
