@@ -105,7 +105,15 @@ Automated testing was a key part of the development workflow for **Fit Six**, he
 
 [coverage.py](https://pypi.org/project/coverage/) was used to monitor test coverage and identify any untested areas. The goal was to validate backend functionality, prevent regressions, and support a maintainable codebase as the project scaled in complexity.
 
+### Scope of Automated Testing
 
+The automated test suite was planned and executed to cover the following key areas:
+
+#### Newsletter App
+
+- **Form logic** tested to validate unique email submissions and reject duplicates
+- **Model logic** tested for email uniqueness, optional user linking, and string output
+- **View logic** tested for success, warning, and error message feedback with redirects
 
 
 --
