@@ -57,7 +57,7 @@
         <h2 class="mb-2 fw-bold">Stay Updated</h2>
         <p class="mb-2">Subscribe to our newsletter for exclusive offers, fitness tips, and new product announcements.</p>
 
-        <form method="POST" action="#" class="row justify-content-center">
+        <form method="POST" action="{% url 'newsletter_signup' %}" class="row justify-content-center">
         {% csrf_token %}
         <div class="col-12 col-md-8 col-lg-6">
             <div class="input-group">

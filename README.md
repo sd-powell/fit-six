@@ -172,13 +172,15 @@ The schema is designed to support the needs of a fully functional online merch s
 
 The **core models** include `Product`, `Order`, and `OrderLineItem`, which work together to implement a flexible yet structured checkout process. Products are grouped by `Category`, and users can store default delivery information via an extended `UserProfile` model. A dedicated `ContactForm` model allows users to reach out through the site’s contact page, with backend flags to manage replies.
 
-**To support products with multiple options (e.g. sizes and colours), the schema uses a separate `ProductVariant` model**, which links each variant back to a parent product. This allows a single product (e.g. a hoodie) to support multiple configurations without duplicating product-level data like descriptions or categories.
+To support products with multiple options (e.g. sizes and colours), the schema uses a separate `ProductVariant` model, which links each variant back to a parent product. This allows a single product (e.g. a hoodie) to support multiple configurations without duplicating product-level data like descriptions or categories.
 
 In line with best practices, the schema follows **normalisation principles** and includes:
-- **One-to-many relationships** from orders to line items
-- **One-to-many relationships** from products to their variants
-- **Foreign key constraints** to maintain referential integrity
-- **Timestamps** to track data changes and support future admin analytics
+
+- **One-to-many relationships** from orders to line items  
+- **One-to-many relationships** from products to their variants  
+- **Optional one-to-many relationship** from user profiles to newsletter signups  
+- **Foreign key constraints** to maintain referential integrity  
+- **Timestamps** to track data changes and support future admin analytics  
 - **Enum fields** for order status (e.g. Pending, Processing, Shipped)
 
 The schema also includes a `status` field on `Order` to reflect real-world business workflows such as *processing, shipped, and complete*, enhancing order tracking and admin oversight.
@@ -211,14 +213,17 @@ The schema also includes a `status` field on `Order` to reflect real-world busin
 - `ContactForm`  
   Captures user-submitted enquiries and tracks reply status
 
-All models include `created_at` and `updated_at` timestamps for transparency and traceability. This schema supports distinction-level expectations by demonstrating **a realistic, scalable architecture** that can support admin functionality, order management, variant-based product listings, and secure data practices.
+- `NewsletterSignup`  
+  Stores email addresses submitted through the newsletter form. Optionally links to a `UserProfile` for logged-in users. Includes signup timestamp and ensures email uniqueness.
+
+All models include `created_at` and/or `updated_at` timestamps for transparency and traceability. This schema supports distinction-level expectations by demonstrating **a realistic, scalable architecture** that can support admin functionality, order management, variant-based product listings, newsletter signups, and secure data practices.
 
 The database schema was visualised using [dbdiagram.io](https://dbdiagram.io), leveraging DBML syntax to generate a clear ERD outlining relationships between all core entities.
 
 <details>
 <summary>Click here to view the database schema</summary>
 
-![Fit Six Database Schema](documentation/readme/structure_plane/database-schema.webp)
+![Fit Six Database Schema](documentation/readme/surface_plane/database-schema.webp)
 
 </details>
 
