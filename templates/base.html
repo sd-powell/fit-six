@@ -43,32 +43,39 @@
     <header class="container-fluid fixed-top p-0 m-0 bg-black">
       <nav role="navigation" aria-label="Main navigation">
         <!-- Desktop Nav Row -->
-        <div class="row px-4 py-2 d-none d-lg-flex">
+        <div class="row px-5 py-3 d-none d-lg-flex align-items-center">
+
           <!-- Left: Logo -->
-          <div class="col-lg-4 my-auto text-center text-lg-start">
+          <div class="col-lg-3 text-start">
             <a href="{% url 'home' %}" class="nav-link p-0">
               <img src="{% static 'images/fitsix-logo.svg' %}" alt="Fit Six Logo" height="100" />
             </a>
           </div>
 
-          <!-- Center: Search -->
-          <div class="col-lg-4 my-auto">
-            <form method="GET" action="{% url 'products' %}">
-              <div class="input-group">
-                <span class="input-group-text bg-white border-0 rounded-start-pill ps-3">
-                  <i class="fas fa-search text-muted"></i>
-                </span>
-                <input type="text" name="q" class="form-control rounded-end-pill border-0 shadow-sm text-uppercase"
-                      placeholder="SEARCH" aria-label="Search">
-              </div>
-            </form>
+          <!-- Center: Category Navigation (now inline, not absolute) -->
+          <div class="col-lg-6 d-flex justify-content-center align-items-center">
+            <nav aria-label="Product categories">
+              <ul class="d-flex justify-content-center align-items-center gap-4 list-unstyled mb-0">
+                <li><a href="{% url 'products' %}?category=apparel" class="text-white text-decoration-none text-uppercase fs-6">Apparel</a></li>
+                <li><a href="{% url 'products' %}?category=supplements" class="text-white text-decoration-none text-uppercase fs-6">Supplements</a></li>
+                <li><a href="{% url 'products' %}?category=accessories" class="text-white text-decoration-none text-uppercase fs-6">Accessories</a></li>
+                <li><a href="{% url 'products' %}?category=class-bundles" class="text-white text-decoration-none text-uppercase fs-6">Class Bundles</a></li>
+              </ul>
+            </nav>
           </div>
 
-          <!-- Right: Account & Bag -->
-          <div class="col-lg-4 d-flex justify-content-end align-items-center">
-            <ul class="list-inline mb-0 d-flex gap-3 align-items-center">
+          <!-- Right: Search + Account + Bag -->
+          <div class="col-lg-3 d-flex justify-content-end align-items-center">
+            <ul class="list-inline mb-0 d-flex gap-3 align-items-center" role="list">
 
-              <!-- Account Icon -->
+              <!-- Search Icon -->
+              <li class="list-inline-item">
+                <a href="#" class="nav-link text-white" id="desktop-search-toggle" aria-label="Open search">
+                  <i class="fas fa-search fa-lg"></i>
+                </a>
+              </li>
+
+              <!-- User Dropdown -->
               <li class="list-inline-item dropdown">
                 <a class="nav-link text-white" href="#" id="user-options" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="fas fa-user fa-lg"></i>
@@ -87,7 +94,7 @@
                 </ul>
               </li>
 
-              <!-- Cart Icon + Count -->
+              <!-- Shopping Bag Icon -->
               <li class="list-inline-item">
                 <a href="{% url 'view_bag' %}" class="nav-link text-white position-relative">
                   <i class="fas fa-shopping-bag fa-lg"></i>
@@ -103,51 +110,21 @@
           </div>
         </div>
 
-        <!-- Mobile Nav Row -->
-        <div class="row bg-black d-lg-none px-3 py-2">
-          <nav class="navbar navbar-expand-lg navbar-dark w-100">
-            <a class="navbar-brand" href="{% url 'home' %}">
-              <img src="{% static 'images/fitsix-logo.svg' %}" alt="Fit Six Logo" height="100" />
-            </a>
-            <div class="d-flex align-items-center">
-              <a href="#" class="text-white me-2" id="mobile-search-toggle">
-                <i class="fas fa-search"></i>
-              </a>
-              <a href="#" class="text-white me-2"> {# {% url 'view_bag' %} #}
-                <i class="fas fa-shopping-bag"></i>
-              </a>
-              <a href="{% url 'profile' %}" class="text-white me-2">
-                <i class="fas fa-user"></i>
-              </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-            </div>
-          </nav>
-        </div>
-
-        <!-- Category Navigation Keyline -->
-        <div class="keyline d-none d-lg-flex justify-content-center align-items-center py-1 bg-primary text-white">
-          <a href="{% url 'products' %}?category=apparel" class="text-white text-decoration-none mx-3 text-uppercase small">Apparel</a>
-          <a href="{% url 'products' %}?category=supplements" class="text-white text-decoration-none mx-3 text-uppercase small">Supplements</a>
-          <a href="{% url 'products' %}?category=accessories" class="text-white text-decoration-none mx-3 text-uppercase small">Accessories</a>
-          <a href="{% url 'products' %}?category=class-bundles" class="text-white text-decoration-none mx-3 text-uppercase small">Class Bundles</a>
+        <!-- Desktop Slide-In Search (Toggleable) -->
+        <div id="desktop-search-bar" class="container-fluid bg-light d-none position-absolute top-100 start-0 end-0 z-3 shadow py-2">
+          <div class="container">
+            <form method="GET" action="{% url 'products' %}" role="search" aria-label="Sitewide product search">
+              <div class="input-group">
+                <input type="text" name="q" class="form-control rounded-start-pill text-uppercase"
+                      placeholder="Search our site" aria-label="Search query">
+                <button type="submit" class="btn btn-dark rounded-end-pill" aria-label="Submit search">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </nav>
-
-      <!-- Mobile Search Bar -->
-      <div id="mobile-search-bar" class="container d-none py-2 bg-light">
-        <form method="GET" action="{% url 'products' %}">
-          <div class="input-group">
-            <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
-            <div class="input-group-append">
-              <button class="btn btn-black border border-black rounded-0" type="submit">
-                <i class="fas fa-search"></i>
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
     </header>
 
     {% if messages %}
@@ -311,6 +288,27 @@
           return new bootstrap.Toast(toastEl, { autohide: false });
         });
         toastList.forEach(toast => toast.show());
+      });
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('desktop-search-toggle');
+        const searchBar = document.getElementById('desktop-search-bar');
+
+        if (toggle && searchBar) {
+          toggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            searchBar.classList.toggle('d-none');
+          });
+
+          // Close if clicking outside
+          document.addEventListener('click', function (e) {
+            if (!searchBar.contains(e.target) && !toggle.contains(e.target)) {
+              searchBar.classList.add('d-none');
+            }
+          });
+        }
       });
     </script>
     {% endblock %}

@@ -57,6 +57,19 @@ body {
   z-index: 2;
 }
 
+
+/* Footer */
+
+.category-nav-wrapper {
+  pointer-events: none;
+}
+
+.category-nav-wrapper ul {
+  pointer-events: auto;
+}
+
+
+
 .newsletter-signup {
   background-color: var(--base-grey);
 }
