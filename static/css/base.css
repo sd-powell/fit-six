@@ -43,12 +43,14 @@ body {
 }
 
 .hero-section {
-  background-image: url("/static/images/fitsix-sam.jpg");
+  background-image: url("/static/images/fitsix-banner.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 400px;
   position: relative;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 .hero-section::before {
@@ -56,13 +58,31 @@ body {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Dark transparent overlay */
   z-index: 1;
 }
 
 .hero-section > .container {
   position: relative;
   z-index: 2;
+}
+
+/* Products Grid */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Optional: Fix for consistent card height & layout polish */
+.product-grid .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 

@@ -18,7 +18,7 @@
     </div>
 
     <div class="row">
-        <div class="product-container col-10 offset-1">
+        <div class="product-container col-12">
         <div class="row mt-1 mb-2">
             <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-md-end justify-content-center">
             <div class="sort-select-wrapper position-relative" style="width: 190px;">
@@ -46,78 +46,69 @@
             </div>
         </div>
 
-        <div class="row">
+        <!-- UL-based Responsive Product Grid -->
+        <ul class="product-grid list-unstyled d-grid gap-4">
             {% for product in products %}
-            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4">
-                <div class="card h-100 border-0">
-
-                <!-- Product Image -->
-                {% if product.image %}
+            <li class="card h-100 border-0">
                 <a href="{% url 'product_detail' product.id %}">
+                    {% if product.image %}
                     <img class="card-img-top img-fluid product-image-border" src="{{ product.image.url }}" alt="{{ product.name }}">
-                </a>
-                {% else %}
-                <a href="{% url 'product_detail' product.id %}">
+                    {% else %}
                     <img class="card-img-top img-fluid product-image-border" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    {% endif %}
                 </a>
-                {% endif %}
 
-                <!-- Product Info -->
                 <div class="card-body pb-0">
-                <p class="mb-0 fw-bold">{{ product.name }}</p>
+                    <p class="mb-0 fw-bold">{{ product.name }}</p>
                 </div>
 
                 <div class="card-footer bg-white pt-0 border-0 text-left">
-                <div class="row">
-                    <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            {% if product.category %}
+                            <p class="small mt-1 mb-0">
+                                <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                                <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                </a>
+                            </p>
+                            {% endif %}
 
-                    <!-- Category -->
-                    {% if product.category %}
-                    <p class="small mt-1 mb-0">
-                        <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
-                        <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                        </a>
-                    </p>
-                    {% endif %}
+                            {% if product.has_variants %}
+                            {% with product.variants.first as first_variant %}
+                                {% if first_variant %}
+                                <p class="lead mb-0 font-weight-bold">£{{ first_variant.price }}</p>
+                                {% else %}
+                                <p class="text-muted">Variants coming soon</p>
+                                {% endif %}
+                            {% endwith %}
+                            {% else %}
+                            <p class="lead mb-0 font-weight-bold">£{{ product.price }}</p>
+                            {% endif %}
 
-                    {% if product.has_variants %}
-                    {% with product.variants.first as first_variant %}
-                        {% if first_variant %}
-                        <p class="lead mb-0 font-weight-bold">£{{ first_variant.price }}</p>
-                        {% else %}
-                        <p class="text-muted">Variants coming soon</p>
-                        {% endif %}
-                    {% endwith %}
-                    {% else %}
-                    <p class="lead mb-0 font-weight-bold">£{{ product.price }}</p>
-                    {% endif %}
-
-                    <!-- Admin options -->
-                    {% if request.user.is_superuser %}
-                        <div class="mt-2 d-flex gap-2">
-                            <a href="{% url 'edit_product' product.id %}" class="btn btn-outline-black btn-sm rounded-0">
-                                <i class="fas fa-edit"></i> Edit
-                            </a>
-                            <a href="{% url 'delete_product' product.id %}" class="btn btn-danger btn-sm rounded-0">
-                                <i class="fas fa-trash"></i> Delete
-                            </a>
+                            {% if request.user.is_superuser %}
+                            <div class="mt-2 d-flex gap-2">
+                                <a href="{% url 'edit_product' product.id %}" class="btn btn-outline-black btn-sm rounded-0">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <a href="{% url 'delete_product' product.id %}" class="btn btn-danger btn-sm rounded-0">
+                                    <i class="fas fa-trash"></i> Delete
+                                </a>
+                            </div>
+                            {% endif %}
                         </div>
-                    {% endif %}
-
                     </div>
                 </div>
-                </div>
-            </div>
-            </div>
-        {% endfor %}
+            </li>
+            {% endfor %}
+        </ul>
         </div>
 
     </div>
     </div>
-        <div class="btt-button shadow-sm rounded-0 border border-black">
-        <a class="btt-link d-flex h-100">
-            <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
-        </a>
+    <div class="btt-button shadow-sm rounded-0 border border-black">
+    <a class="btt-link d-flex h-100">
+        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+    </a>
 </div>
 {% endblock %}
 
