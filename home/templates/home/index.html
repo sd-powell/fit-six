@@ -11,11 +11,11 @@
 
 {% block content %}
   <!-- Hero Section -->
-  <section class="hero-section d-flex align-items-center justify-content-center bg-light text-center py-5">
-    <div class="container text-white">
+  <section class="hero-section d-flex align-items-center"> {# justify-content-center bg-light text-center py-5 #}
+    <div class="container-fluid text-white text-start py-5 px-4">
         <h1 class="display-4 fw-bold">Official Fit Six Store</h1>
         <p class="lead">Shop apparel, supplements, accessories & class bundles</p>
-        <a href="{% url 'products' %}" class="btn btn-primary btn-lg mt-3">Shop Now</a>
+        <a href="{% url 'products' %}" class="btn btn-light text-black rounded-pill border btn-lg mt-3">Shop Now</a>
     </div>
   </section>
 
@@ -26,22 +26,22 @@
         
         <div class="row g-4">
         <div class="col-6 col-md-3">
-            <a href="#" class="btn btn-outline-dark w-100 py-3"> {# {% url 'products' %}?category=apparel #}
+            <a href="{% url 'products' %}?category=apparel" class="btn btn-outline-dark w-100 py-3">
             Apparel
             </a>
         </div>
         <div class="col-6 col-md-3">
-            <a href="#" class="btn btn-outline-dark w-100 py-3"> {# {% url 'products' %}?category=supplements #}
+            <a href="{% url 'products' %}?category=supplements" class="btn btn-outline-dark w-100 py-3">
             Supplements
             </a>
         </div>
         <div class="col-6 col-md-3">
-            <a href="#" class="btn btn-outline-dark w-100 py-3"> {# {% url 'products' %}?category=accessories #}
+            <a href="{% url 'products' %}?category=accessories" class="btn btn-outline-dark w-100 py-3">
             Accessories
             </a>
         </div>
         <div class="col-6 col-md-3">
-            <a href="#" class="btn btn-outline-dark w-100 py-3"> {# {% url 'products' %}?category=class-bundles #}
+            <a href="{% url 'products' %}?category=class-bundles" class="btn btn-outline-dark w-100 py-3">
             Class Bundles
             </a>
         </div>
