@@ -277,50 +277,13 @@
       </div>
     </footer>
 
-    {% block postloadjs %}
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const toggle = document.getElementById('mobile-search-toggle');
-        const searchBar = document.getElementById('mobile-search-bar');
+  {% block postloadjs %}
+    {# Include JS to handle search toggle on mobile/desktop #}
+    {% include 'includes/scripts/search_toggle.html' %}
 
-        toggle?.addEventListener('click', function (e) {
-          e.preventDefault();
-          searchBar?.classList.toggle('d-none');
-        });
-      });
-    </script>
-
-    <script type="text/javascript">
-      document.addEventListener('DOMContentLoaded', function () {
-        const toastElList = [].slice.call(document.querySelectorAll('.toast'));
-        const toastList = toastElList.map(function (toastEl) {
-          return new bootstrap.Toast(toastEl, { autohide: false });
-        });
-        toastList.forEach(toast => toast.show());
-      });
-    </script>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const toggle = document.getElementById('desktop-search-toggle');
-        const searchBar = document.getElementById('desktop-search-bar');
-
-        if (toggle && searchBar) {
-          toggle.addEventListener('click', function (e) {
-            e.preventDefault();
-            searchBar.classList.toggle('d-none');
-          });
-
-          // Close if clicking outside
-          document.addEventListener('click', function (e) {
-            if (!searchBar.contains(e.target) && !toggle.contains(e.target)) {
-              searchBar.classList.add('d-none');
-            }
-          });
-        }
-      });
-    </script>
-    {% endblock %}
+    {# Include JS to trigger toast messages #}
+    {% include 'includes/scripts/toast_init.html' %}
+  {% endblock %}
 
   </body>
 </html>
