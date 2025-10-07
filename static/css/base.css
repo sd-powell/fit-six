@@ -83,7 +83,7 @@ body {
 } */
 
 .category-tile .overlay {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
   height: 100%;
   width: 100%;
   display: flex;
@@ -99,7 +99,7 @@ body {
 
 /* Individual Background Images */
 .apparel-tile {
-  background-image: url('../images/fitsix-accessories.webp');
+  background-image: url('../images/fitsix-apparel.webp');
 }
 
 .supplements-tile {
@@ -111,7 +111,7 @@ body {
 }
 
 .classes-tile {
-  background-image: url('../images/fitsix-supplements.webp');
+  background-image: url('../images/fitsix-classes.webp');
 }
 
 /* Products Grid */
@@ -242,15 +242,15 @@ body {
   color: var(--background-white);
 }
 
-.footer-link,
+.navlink,
 .copyright-text {
   text-decoration: none;
   color: var(--background-white);
 }
 
-.footer-link:hover,
+.navlink:hover,
 .copyright-text:hover {
-  color: var(--highlight-blue); !important;
+  color: var(--highlight-blue) !important;
 }
 
 .copyright-text {
