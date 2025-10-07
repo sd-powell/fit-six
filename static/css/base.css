@@ -38,8 +38,8 @@ body {
   max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;   /* ~16px */
-  padding-right: 1rem;  /* ~16px */
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .hero-section {
@@ -48,9 +48,16 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   height: 400px;
+  width: 100vw;
+  margin: 0;
   position: relative;
   padding-left: 3rem;
   padding-right: 3rem;
+}
+
+.hero-inner {
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .hero-section::before {
@@ -64,6 +71,22 @@ body {
 .hero-section > .container {
   position: relative;
   z-index: 2;
+}
+
+.custom-hero-padding {
+  padding-left: 2rem; /* mobile */
+}
+
+@media (min-width: 768px) {
+  .custom-hero-padding {
+    padding-left: 4rem; /* tablet and up */
+  }
+}
+
+@media (min-width: 1200px) {
+  .custom-hero-padding {
+    padding-left: 4rem; /* large screens */
+  }
 }
 
 /* Category Tiles */

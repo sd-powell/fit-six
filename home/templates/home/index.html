@@ -9,58 +9,63 @@
     </div>
 {% endblock %}
 
+{% block hero %}
+    <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center text-white text-start py-5">
+        <div class="container-fluid px-0">
+            <div class="hero-inner custom-hero-padding">
+            <h1 class="display-4 fw-bold">Official Fit Six Store</h1>
+            <p class="lead">Shop apparel, supplements, accessories & class bundles</p>
+            <a href="{% url 'products' %}" class="btn btn-light text-black rounded-pill border btn-lg mt-3">Shop Now</a>
+            </div>
+        </div>
+    </section>
+{% endblock %} 
+
 {% block content %}
-  <!-- Hero Section -->
-  <section class="hero-section d-flex align-items-center"> {# justify-content-center bg-light text-center py-5 #}
-    <div class="container-fluid text-white text-start py-5 px-4">
-        <h1 class="display-4 fw-bold">Official Fit Six Store</h1>
-        <p class="lead">Shop apparel, supplements, accessories & class bundles</p>
-        <a href="{% url 'products' %}" class="btn btn-light text-black rounded-pill border btn-lg mt-3">Shop Now</a>
-    </div>
-  </section>
-
     <!-- Shop by Category Section -->
-  <section class="shop-categories py-5 text-center">
-    <div class="container">
-        <h2 class="mb-4 fw-bold">Shop Smart. Train Hard.</h2>
-        
-        <div class="row g-4">
-        <!-- Apparel -->
-        <div class="col-6 col-md-3">
-            <a href="{% url 'products' %}?category=apparel" class="category-tile apparel-tile d-block text-white text-uppercase text-decoration-none">
-            <div class="overlay">
-                <h3 class="h5 m-0">Apparel</h3>
+    <section class="shop-categories py-5 text-center">
+        <div class="container">
+            <h2 class="mb-5 fw-bold">Shop Smart. Train HARD!</h2>
+            
+            <div class="row g-4">
+            <!-- Apparel -->
+            <div class="col-6 col-md-3">
+                <a href="{% url 'products' %}?category=apparel" class="category-tile apparel-tile d-block text-white text-uppercase text-decoration-none">
+                <div class="overlay">
+                    <h3 class="h5 m-0">Apparel</h3>
+                </div>
+                </a>
             </div>
-            </a>
-        </div>
-        <!-- Supplements -->
-        <div class="col-6 col-md-3">
-            <a href="{% url 'products' %}?category=supplements" class="category-tile supplements-tile d-block text-white text-uppercase text-decoration-none">
-            <div class="overlay">
-                <h3 class="h5 m-0">Supplements</h3>
+            
+            <!-- Supplements -->
+            <div class="col-6 col-md-3">
+                <a href="{% url 'products' %}?category=supplements" class="category-tile supplements-tile d-block text-white text-uppercase text-decoration-none">
+                <div class="overlay">
+                    <h3 class="h5 m-0">Supplements</h3>
+                </div>
+                </a>
             </div>
-            </a>
-        </div>
 
-        <!-- Accessories -->
-        <div class="col-6 col-md-3">
-            <a href="{% url 'products' %}?category=accessories" class="category-tile accessories-tile d-block text-white text-uppercase text-decoration-none">
-            <div class="overlay">
-                <h3 class="h5 m-0">Accessories</h3>
+            <!-- Accessories -->
+            <div class="col-6 col-md-3">
+                <a href="{% url 'products' %}?category=accessories" class="category-tile accessories-tile d-block text-white text-uppercase text-decoration-none">
+                <div class="overlay">
+                    <h3 class="h5 m-0">Accessories</h3>
+                </div>
+                </a>
             </div>
-            </a>
-        </div>
 
-        <!-- Class Bundles -->
-        <div class="col-6 col-md-3">
-            <a href="{% url 'products' %}?category=class-bundles" class="category-tile classes-tile d-block text-white text-uppercase text-decoration-none">
-            <div class="overlay">
-                <h3 class="h5 m-0">Class Bundles</h3>
+            <!-- Class Bundles -->
+            <div class="col-6 col-md-3">
+                <a href="{% url 'products' %}?category=class-bundles" class="category-tile classes-tile d-block text-white text-uppercase text-decoration-none">
+                <div class="overlay">
+                    <h3 class="h5 m-0">Class Bundles</h3>
+                </div>
+                </a>
             </div>
-            </a>
+            </div>
         </div>
-        </div>
-    </div>
     </section>
 {% endblock %}
 

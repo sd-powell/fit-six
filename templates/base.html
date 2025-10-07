@@ -154,8 +154,12 @@
     <!-- Main & Newsletter Content -->
     <div class="flex-grow-1 d-flex flex-column">
       <main class="flex-grow-1 main-content">
+
+          {% block hero %}
+          {% endblock %}
+
           <div class="max-width-1600">
-            {% block content %}{% endblock %}
+              {% block content %}{% endblock %}
           </div>
       </main>
 
