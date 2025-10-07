@@ -66,6 +66,54 @@ body {
   z-index: 2;
 }
 
+/* Category Tiles */
+
+.category-tile {
+  height: 438px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+/* .category-tile:hover {
+  transform: scale(1.03);
+} */
+
+.category-tile .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.category-tile:hover .overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Individual Background Images */
+.apparel-tile {
+  background-image: url('../images/fitsix-accessories.webp');
+}
+
+.supplements-tile {
+  background-image: url('../images/fitsix-supplements.webp');
+}
+
+.accessories-tile {
+  background-image: url('../images/fitsix-accessories.webp');
+}
+
+.classes-tile {
+  background-image: url('../images/fitsix-supplements.webp');
+}
+
 /* Products Grid */
 
 .product-grid {
