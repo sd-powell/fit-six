@@ -25,24 +25,38 @@
         <h2 class="mb-4 fw-bold">Shop Smart. Train Hard.</h2>
         
         <div class="row g-4">
+        <!-- Apparel -->
         <div class="col-6 col-md-3">
-            <a href="{% url 'products' %}?category=apparel" class="btn btn-outline-dark w-100 py-3">
-            Apparel
+            <a href="{% url 'products' %}?category=apparel" class="category-tile apparel-tile d-block text-white text-uppercase text-decoration-none">
+            <div class="overlay">
+                <h3 class="h5 m-0">Apparel</h3>
+            </div>
             </a>
         </div>
+        <!-- Supplements -->
         <div class="col-6 col-md-3">
-            <a href="{% url 'products' %}?category=supplements" class="btn btn-outline-dark w-100 py-3">
-            Supplements
+            <a href="{% url 'products' %}?category=supplements" class="category-tile supplements-tile d-block text-white text-uppercase text-decoration-none">
+            <div class="overlay">
+                <h3 class="h5 m-0">Supplements</h3>
+            </div>
             </a>
         </div>
+
+        <!-- Accessories -->
         <div class="col-6 col-md-3">
-            <a href="{% url 'products' %}?category=accessories" class="btn btn-outline-dark w-100 py-3">
-            Accessories
+            <a href="{% url 'products' %}?category=accessories" class="category-tile accessories-tile d-block text-white text-uppercase text-decoration-none">
+            <div class="overlay">
+                <h3 class="h5 m-0">Accessories</h3>
+            </div>
             </a>
         </div>
+
+        <!-- Class Bundles -->
         <div class="col-6 col-md-3">
-            <a href="{% url 'products' %}?category=class-bundles" class="btn btn-outline-dark w-100 py-3">
-            Class Bundles
+            <a href="{% url 'products' %}?category=class-bundles" class="category-tile classes-tile d-block text-white text-uppercase text-decoration-none">
+            <div class="overlay">
+                <h3 class="h5 m-0">Class Bundles</h3>
+            </div>
             </a>
         </div>
         </div>
