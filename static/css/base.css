@@ -53,6 +53,7 @@ body {
   position: relative;
   padding-left: 3rem;
   padding-right: 3rem;
+  z-index: 1;
 }
 
 .hero-inner {
@@ -60,12 +61,17 @@ body {
   margin: 0 auto;
 }
 
+.hero-section .btn {
+  position: relative;
+  z-index: 2;
+}
+
 .hero-section::before {
   content: "";
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  z-index: 1;
+  z-index: 0;
 }
 
 .hero-section > .container {
