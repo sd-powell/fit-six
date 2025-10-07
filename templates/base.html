@@ -55,7 +55,8 @@
         </nav>
       </div>
       <!-- Add keyline here (inside header) -->
-      <div class="d-none d-lg-block keyline"></div>
+      <div class="d-none d-lg-block keyline"></div>  {# Desktop only #}
+      <div class="d-block d-lg-none keyline"></div>  {# Mobile only #}
     </header>
 
     {% if messages %}
@@ -98,11 +99,12 @@
   {% include 'includes/footer.html' %}
 
   {% block postloadjs %}
-    {# Include JS to handle search toggle on mobile/desktop #}
-    {% include 'includes/scripts/search_toggle.html' %}
+    {# Search toggle scripts #}
+    {% include 'includes/scripts/search_toggle_desktop.html' %}
+    {% include 'includes/scripts/search_toggle_mobile.html' %}
 
-    {# Include JS to trigger toast messages #}
-    {% include 'includes/scripts/toast_init.html' %}
+      {# Include JS to trigger toast messages #}
+      {% include 'includes/scripts/toast_init.html' %}
   {% endblock %}
 
   </body>

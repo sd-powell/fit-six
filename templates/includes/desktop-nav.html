@@ -72,15 +72,24 @@
 
 <!-- Desktop Slide-In Search (Toggleable) -->
 <div id="desktop-search-bar" class="container-fluid bg-light d-none position-absolute top-100 start-0 end-0 z-3 shadow py-2">
-<div class="container">
-    <form method="GET" action="{% url 'products' %}" role="search" aria-label="Sitewide product search">
-    <div class="input-group">
-        <input type="text" name="q" class="form-control rounded-start-pill text-uppercase"
-            placeholder="Search our site" aria-label="Search query">
-        <button type="submit" class="btn btn-dark rounded-end-pill" aria-label="Submit search">
-        <i class="fas fa-search"></i>
-        </button>
+    <div class="container">
+        <form method="GET" action="{% url 'products' %}" role="search" aria-label="Sitewide product search">
+        <div class="input-group align-items-center">
+            <!-- Close icon on the left -->
+            <span class="me-2 close-desktop-search" role="button" aria-label="Close search" title="Close search"
+                style="cursor: pointer; font-size: 1.5rem;">
+            &times;
+            </span>
+
+            <!-- Search input -->
+            <input type="text" name="q" class="form-control rounded-start-pill text-uppercase"
+                placeholder="Search our site" aria-label="Search query">
+            
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-dark rounded-0 rounded-end" aria-label="Submit search">
+            <i class="fas fa-search"></i>
+            </button>
+        </div>
+        </form>
     </div>
-    </form>
-</div>
 </div>

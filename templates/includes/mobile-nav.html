@@ -1,0 +1,69 @@
+{% load static %}
+
+<div class="d-flex d-lg-none align-items-center justify-content-between px-3 py-3 bg-black">
+    <!-- Left: Logo -->
+    <div>
+        <a href="{% url 'home' %}" class="nav-link p-0">
+        <img src="{% static 'images/fitsix-logo.svg' %}" alt="Fit Six Logo" height="70">
+        </a>
+    </div>
+
+    <!-- Right: Icons + Burger -->
+    <div class="d-flex align-items-center gap-3">
+        <!-- Search -->
+        <a href="#" class="nav-link text-white" id="mobile-search-toggle" aria-label="Toggle mobile search bar">
+            <i class="fas fa-search fa-lg"></i>
+        </a>
+
+        <!-- Mobile Slide-In Search -->
+        <div id="mobile-search-bar" class="container-fluid bg-light d-lg-none d-none position-absolute top-100 start-0 end-0 z-3 shadow py-2">
+            <div class="container">
+                <form method="GET" action="{% url 'products' %}" role="search" aria-label="Mobile product search">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control rounded-start-pill text-uppercase"
+                            placeholder="Search our site" aria-label="Search query">
+                        <button type="submit" class="btn btn-dark rounded-end-pill" aria-label="Submit search">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- User -->
+        <a href="{% if request.user.is_authenticated %}{% url 'profile' %}{% else %}{% url 'account_login' %}{% endif %}" class="nav-link text-white" aria-label="Account">
+        <i class="fas fa-user fa-lg"></i>
+        </a>
+
+        <!-- Bag -->
+        <a href="{% url 'view_bag' %}" class="nav-link text-white position-relative" aria-label="Shopping Bag">
+        <i class="fas fa-shopping-bag fa-lg"></i>
+        {% if product_count and product_count > 0 %}
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+            {{ product_count }}
+            </span>
+        {% endif %}
+        </a>
+
+        <!-- Burger Menu Toggle -->
+        <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Toggle navigation">
+        <i class="fas fa-bars fa-lg"></i>
+        </button>
+    </div>
+    </div>
+
+    <!-- Offcanvas Mobile Menu -->
+    <div class="offcanvas offcanvas-end bg-light" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="mobileMenuLabel">Menu</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="nav flex-column text-uppercase">
+        <li class="nav-item"><a href="{% url 'products' %}?category=apparel" class="nav-link">Apparel</a></li>
+        <li class="nav-item"><a href="{% url 'products' %}?category=supplements" class="nav-link">Supplements</a></li>
+        <li class="nav-item"><a href="{% url 'products' %}?category=accessories" class="nav-link">Accessories</a></li>
+        <li class="nav-item"><a href="{% url 'products' %}?category=class-bundles" class="nav-link">Class Bundles</a></li>
+        </ul>
+    </div>
+</div>
