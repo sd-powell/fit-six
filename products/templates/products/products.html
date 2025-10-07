@@ -51,10 +51,34 @@
             {% for product in products %}
             <li class="card h-100 border-0">
                 <a href="{% url 'product_detail' product.id %}">
-                    {% if product.image %}
-                    <img class="card-img-top img-fluid product-image-border" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    {% if product.has_variants %}
+                        {% with product.variants.first as variant %}
+                            {% if variant.image %}
+                                <div class="position-relative">
+                                    <img class="card-img-top img-fluid product-image-border variant-front"
+                                        src="{{ variant.image.url }}"
+                                        alt="{{ product.name }}"
+                                        {% if variant.image_back %}
+                                        onmouseover="this.src='{{ variant.image_back.url }}'"
+                                        onmouseout="this.src='{{ variant.image.url }}'"
+                                        {% endif %}>
+                                </div>
+                            {% else %}
+                                <img class="card-img-top img-fluid product-image-border"
+                                    src="{{ MEDIA_URL }}noimage.png"
+                                    alt="{{ product.name }}">
+                            {% endif %}
+                        {% endwith %}
                     {% else %}
-                    <img class="card-img-top img-fluid product-image-border" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        {% if product.image %}
+                            <img class="card-img-top img-fluid product-image-border"
+                                src="{{ product.image.url }}"
+                                alt="{{ product.name }}">
+                        {% else %}
+                            <img class="card-img-top img-fluid product-image-border"
+                                src="{{ MEDIA_URL }}noimage.png"
+                                alt="{{ product.name }}">
+                        {% endif %}
                     {% endif %}
                 </a>
 
