@@ -1,0 +1,113 @@
+{% load static %}
+
+{# Footer content reused across all pages for consistency #}
+<footer class="bg-black text-white" role="contentinfo">
+    <div class="max-width-1600 pt-5 pb-4 px-5">
+    <!-- Top Section: 3 Columns -->
+    <div class="row text-start">
+
+        <!-- Column 1: Join Today -->
+        <section class="col-md-4 mb-4 mb-md-0" aria-labelledby="footer-join">
+        <h3 id="footer-join" class="mb-4 footer-header h6">Join Today</h3>
+        <address>
+            <ul class="list-unstyled">
+            <li class="mb-3">
+                <a href="https://www.fitsix.co.uk" class="navlink d-block" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-globe me-2"></i> www.fitsix.co.uk
+                </a>
+            </li>
+            <li class="mb-3">
+                <a href="mailto:info@fitsix.co.uk" class="navlink d-block">
+                <i class="fas fa-envelope me-2"></i> info@fitsix.co.uk
+                </a>
+            </li>
+            <li>
+                <a href="https://maps.google.com/?q=Wales+1+Business+Park,+Magor+NP26+3DG" class="navlink d-block" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-map-marker-alt me-2"></i> Wales 1 Business Park, Magor NP26 3DG
+                </a>
+            </li>
+            </ul>
+        </address>
+        </section>
+
+        <!-- Column 2: Helpful Links -->
+        <nav class="col-md-4 mb-4 mb-md-0" aria-labelledby="footer-links">
+        <h3 id="footer-links" class="mb-4 footer-header h6">Helpful Links</h3>
+        <ul class="list-unstyled">
+            <li><a href="#" class="navlink d-block mb-1">Contact Us</a></li>
+            <li><a href="#" class="navlink d-block mb-1">My Account</a></li>
+            <li><a href="#" class="navlink d-block mb-1">Returns & Exchanges</a></li>
+            <li><a href="#" class="navlink d-block mb-1">Shipping Policy</a></li>
+        </ul>
+        </nav>
+
+        <!-- Column 3: Follow Us -->
+        <section class="col-md-4 mb-4 mb-md-0" aria-labelledby="footer-social">
+        <h3 id="footer-social" class="mb-4 footer-header h6">Follow Us</h3>
+        <a href="https://www.facebook.com/FitSixMagor" class="social-icon me-3"
+            aria-label="Follow us on Facebook (opens in new tab)" target="_blank"
+            title="Facebook" rel="noopener noreferrer">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.instagram.com/fit_six_magor/" class="social-icon"
+            aria-label="Follow us on Instagram (opens in new tab)" target="_blank"
+            title="Instagram" rel="noopener noreferrer">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+        </a>
+        </section>
+    </div>
+
+    <!-- Fit Six Logo Row (above payment/legal section) -->
+    <div class="d-flex justify-content-end">
+        <img src="{% static 'images/fitsix-logo.svg' %}" alt="Fit Six logo" class="footer-logo" />
+    </div>
+
+    <!-- Bottom Section: Payment + Legal -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-2 pt-3">
+        <!-- Left Side: Payment Icons -->
+        <div class="text-white mb-2 mb-md-0">
+        <span class="visually-hidden" id="payment-label">Accepted Payment Methods</span>
+        
+        <div class="d-flex align-items-center" aria-labelledby="payment-label">
+            <span class="me-3 mb-0">Pay securely with</span>
+            <ul class="list-inline fs-6 mb-0" role="list">
+            <li class="list-inline-item" role="listitem">
+                <i class="fab fa-cc-visa" aria-hidden="true"></i>
+                <span class="visually-hidden">Visa</span>
+            </li>
+            <li class="list-inline-item" role="listitem">
+                <i class="fab fa-cc-mastercard" aria-hidden="true"></i>
+                <span class="visually-hidden">Mastercard</span>
+            </li>
+            <li class="list-inline-item" role="listitem">
+                <i class="fab fa-cc-amex" aria-hidden="true"></i>
+                <span class="visually-hidden">American Express</span>
+            </li>
+            <li class="list-inline-item" role="listitem">
+                <i class="fab fa-cc-discover" aria-hidden="true"></i>
+                <span class="visually-hidden">Discover</span>
+            </li>
+            </ul>
+        </div>
+        </div>
+
+        <!-- Right Side: Legal -->
+        <nav class="text-md-end text-white" aria-label="Legal links">
+        <div class="mb-1 fs-6">
+            <a href="#" class="copyright-text me-3">Terms & Conditions</a>
+            <a href="#" class="copyright-text">Privacy Policy</a>
+        </div>
+        </nav>
+    </div>
+
+    <!-- Bottom Section: Copyright -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4 pt-3 border-top border-secondary gap-2 text-center text-md-start">
+        <p class="mb-0 text-white small">
+        &copy; 2025 Fit Six Gym. No orders will be fulfilled. Site created for educational use only.
+        </p>
+        <a href="https://github.com/sd-powell" class="navlink" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github me-2" aria-hidden="true"></i> Visit my GitHub
+        </a>
+    </div>
+    </div>
+</footer>
