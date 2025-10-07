@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block body_class %}bg-offwhite{% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -10,150 +12,156 @@
 {% endblock %}
 
 {% block content %}
-<div class="max-width-1600">
-    <div class="row">
-    <div class="col text-center mt-3 mb-3">
-        <h2>Products</h2>
-    </div>
-    </div>
-
-    <div class="row">
-        <div class="product-container col-12">
-        <div class="row mt-1 mb-2">
-            <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-md-end justify-content-center">
-            <div class="sort-select-wrapper position-relative" style="width: 190px;">
-                <i class="fas fa-sort text-muted position-absolute top-50 start-0 translate-middle-y ms-2"></i>
-                <select id="sort-selector"
-                class="form-select ps-5 py-1 rounded-pill border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %} appearance-none"
-                style="background-color: white;">
-                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by</option>
-                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price ↑</option>
-                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price ↓</option>
-                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name A-Z</option>
-                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name Z-A</option>
-                <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category A-Z</option>
-                <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category Z-A</option>
-                </select>
-            </div>
-            </div>
-            <div class="col-12 col-md-6 order-md-first d-flex align-items-center">
-                <p class="text-muted my-0">
-                    {% if search_term or current_categories or current_sorting != 'None_None' %}
-                    <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
-                    {% endif %}
-                    {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
-                </p>
-            </div>
+<div class="bg-offwhite py-5">
+    <div class="max-width-1600">
+        <div class="row">
+        <div class="col text-center mb-4">
+            <h2 class="fw-bold">Products</h2>
+        </div>
         </div>
 
-        <!-- UL-based Responsive Product Grid -->
-        <ul class="product-grid list-unstyled d-grid gap-4">
-            {% for product in products %}
-            <li class="card h-100 border-0">
-                <a href="{% url 'product_detail' product.id %}">
-                    {% if product.has_variants %}
-                        {% with product.variants.first as variant %}
-                            {% if variant.image %}
-                                <div class="position-relative">
-                                    <img class="card-img-top img-fluid product-image-border variant-front"
-                                        src="{{ variant.image.url }}"
-                                        alt="{{ product.name }}"
+        <div class="row">
+            <div class="product-container col-12">
+            <div class="row mt-1 mb-2">
+                <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-md-end justify-content-center">
+                <div class="sort-select-wrapper position-relative" style="width: 190px;">
+                    <i class="fas fa-sort text-muted position-absolute top-50 start-0 translate-middle-y ms-2"></i>
+                    <select id="sort-selector"
+                    class="form-select ps-5 py-1 rounded-pill border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %} appearance-none"
+                    style="background-color: white;">
+                    <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by</option>
+                    <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price ↑</option>
+                    <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price ↓</option>
+                    <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name A-Z</option>
+                    <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name Z-A</option>
+                    <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category A-Z</option>
+                    <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category Z-A</option>
+                    </select>
+                </div>
+                </div>
+                <div class="col-12 col-md-6 order-md-first d-flex align-items-center">
+                    <p class="text-muted my-0">
+                        {% if search_term or current_categories or current_sorting != 'None_None' %}
+                        <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
+                        {% endif %}
+                        {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                    </p>
+                </div>
+            </div>
+
+            <!-- UL-based Responsive Product Grid -->
+            <ul class="product-grid list-unstyled d-grid gap-4">
+                {% for product in products %}
+                <li class="card h-100 border-0 product-card">
+                    <a href="{% url 'product_detail' product.id %}">
+                        {% if product.has_variants %}
+                            {% with product.variants.first as variant %}
+                                {% if variant.image %}
+                                    <div class="position-relative">
+                                        <div class="image-swap-wrapper position-relative">
+                                        <img src="{{ variant.image.url }}"
+                                            class="product-image front w-100"
+                                            alt="{{ product.name }}">
+                                        
                                         {% if variant.image_back %}
-                                        onmouseover="this.src='{{ variant.image_back.url }}'"
-                                        onmouseout="this.src='{{ variant.image.url }}'"
-                                        {% endif %}>
-                                </div>
+                                        <img src="{{ variant.image_back.url }}"
+                                            class="product-image back w-100 position-absolute top-0 start-0"
+                                            alt="{{ product.name }} - Back">
+                                        {% endif %}
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <img class="card-img-top img-fluid product-card-image"
+                                        src="{{ MEDIA_URL }}noimage.png"
+                                        alt="{{ product.name }}">
+                                {% endif %}
+                            {% endwith %}
+                        {% else %}
+                            {% if product.image %}
+                                <img class="card-img-top img-fluid"
+                                    src="{{ product.image.url }}"
+                                    alt="{{ product.name }}">
                             {% else %}
-                                <img class="card-img-top img-fluid product-image-border"
+                                <img class="card-img-top img-fluid"
                                     src="{{ MEDIA_URL }}noimage.png"
                                     alt="{{ product.name }}">
                             {% endif %}
-                        {% endwith %}
-                    {% else %}
-                        {% if product.image %}
-                            <img class="card-img-top img-fluid product-image-border"
-                                src="{{ product.image.url }}"
-                                alt="{{ product.name }}">
-                        {% else %}
-                            <img class="card-img-top img-fluid product-image-border"
-                                src="{{ MEDIA_URL }}noimage.png"
-                                alt="{{ product.name }}">
                         {% endif %}
-                    {% endif %}
-                </a>
+                    </a>
 
-                <div class="card-body pb-0">
-                    <p class="mb-0 fw-bold">{{ product.name }}</p>
-                </div>
+                    <div class="card-body pb-0">
+                        <p class="mb-0 fw-bold">{{ product.name }}</p>
+                    </div>
 
-                <div class="card-footer bg-white pt-0 border-0 text-left">
-                    <div class="row">
-                        <div class="col">
-                            {% if product.category %}
-                            <p class="small mt-1 mb-0">
-                                <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
-                                <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                                </a>
-                            </p>
-                            {% endif %}
-
-                            {% if product.has_variants %}
-                            {% with product.variants.first as first_variant %}
-                                {% if first_variant %}
-                                <p class="lead mb-0 font-weight-bold">£{{ first_variant.price }}</p>
-                                {% else %}
-                                <p class="text-muted">Variants coming soon</p>
+                    <div class="card-footer bg-white pt-0 border-0 text-left">
+                        <div class="row">
+                            <div class="col">
+                                {% if product.category %}
+                                <p class="small mt-1 mb-0">
+                                    <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                                    <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                    </a>
+                                </p>
                                 {% endif %}
-                            {% endwith %}
-                            {% else %}
-                            <p class="lead mb-0 font-weight-bold">£{{ product.price }}</p>
-                            {% endif %}
 
-                            {% if request.user.is_superuser %}
-                            <div class="mt-2 d-flex flex-wrap gap-2">
-                                <a href="{% url 'edit_product' product.id %}" class="btn btn-outline-dark btn-sm rounded-pill px-3">
-                                    <i class="fas fa-edit me-1"></i> Edit
-                                </a>
-                                <button type="button" class="btn btn-outline-danger btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ product.id }}">
-                                    <i class="fas fa-trash-alt me-1"></i> Delete
-                                </button>
+                                {% if product.has_variants %}
+                                {% with product.variants.first as first_variant %}
+                                    {% if first_variant %}
+                                    <p class="lead mb-0 font-weight-bold">£{{ first_variant.price }}</p>
+                                    {% else %}
+                                    <p class="text-muted">Variants coming soon</p>
+                                    {% endif %}
+                                {% endwith %}
+                                {% else %}
+                                <p class="lead mb-0 font-weight-bold">£{{ product.price }}</p>
+                                {% endif %}
+
+                                {% if request.user.is_superuser %}
+                                <div class="mt-2 d-flex flex-wrap gap-2">
+                                    <a href="{% url 'edit_product' product.id %}" class="btn btn-outline-dark btn-sm rounded-pill px-3">
+                                        <i class="fas fa-edit me-1"></i> Edit
+                                    </a>
+                                    <button type="button" class="btn btn-outline-danger btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ product.id }}">
+                                        <i class="fas fa-trash-alt me-1"></i> Delete
+                                    </button>
+                                </div>
+                                {% endif %}
                             </div>
-                            {% endif %}
+                        </div>
+                    </div>
+                </li>
+                <!-- Delete Confirmation Modal -->
+                <div class="modal fade" id="deleteModal-{{ product.id }}" tabindex="-1" aria-labelledby="deleteModalLabel-{{ product.id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                        <div class="modal-header bg-danger text-white">
+                            <h5 class="modal-title" id="deleteModalLabel-{{ product.id }}">Confirm Deletion</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to delete <strong>{{ product.name }}</strong>? This action cannot be undone.
+                        </div>
+                        <div class="modal-footer">
+                            <form method="POST" action="{% url 'delete_product' product.id %}">
+                            {% csrf_token %}
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                            </form>
+                        </div>
                         </div>
                     </div>
                 </div>
-            </li>
-            <!-- Delete Confirmation Modal -->
-            <div class="modal fade" id="deleteModal-{{ product.id }}" tabindex="-1" aria-labelledby="deleteModalLabel-{{ product.id }}" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                    <div class="modal-header bg-danger text-white">
-                        <h5 class="modal-title" id="deleteModalLabel-{{ product.id }}">Confirm Deletion</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to delete <strong>{{ product.name }}</strong>? This action cannot be undone.
-                    </div>
-                    <div class="modal-footer">
-                        <form method="POST" action="{% url 'delete_product' product.id %}">
-                        {% csrf_token %}
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-danger">Yes, Delete</button>
-                        </form>
-                    </div>
-                    </div>
-                </div>
+                {% endfor %}
+            </ul>
             </div>
-            {% endfor %}
-        </ul>
-        </div>
 
+        </div>
+        </div>
+        <div class="btt-button shadow-sm rounded-0 border border-black">
+        <a class="btt-link d-flex h-100">
+            <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+        </a>
     </div>
-    </div>
-    <div class="btt-button shadow-sm rounded-0 border border-black">
-    <a class="btt-link d-flex h-100">
-        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
-    </a>
 </div>
 {% endblock %}
 

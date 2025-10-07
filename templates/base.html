@@ -38,7 +38,7 @@
     <title>Fit Six {% block extra_title %}{% endblock %}</title>
   </head>
 
-  <body class="d-flex flex-column min-vh-100">
+  <body class="d-flex flex-column min-vh-100 {% block body_class %}{% endblock %}">
     <header class="fixed-top p-0 m-0 bg-black">
       <div class="max-width-1600">
         <nav role="navigation" aria-label="Main navigation">

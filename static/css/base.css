@@ -24,6 +24,67 @@ body {
   background-color: var(--background-white);
 }
 
+.bg-white {
+    background-color: #ffffff !important;
+}
+
+.bg-offwhite {
+    background-color: #eeeeee !important;
+}
+
+.product-grid .card {
+    background-color: white;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.product-grid .card-body {
+    padding: 1rem;
+}
+
+.product-grid .card-footer {
+    background-color: white;
+}
+
+.product-card {
+    width: 360px;
+    padding: 20px;
+}
+
+.product-card-image {
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.product-card-padding {
+    padding: 20px;
+}
+
+.image-swap-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image {
+  transition: opacity 0.4s ease;
+  display: block;
+}
+
+.product-image.back {
+  opacity: 0;
+  z-index: 1;
+}
+
+.image-swap-wrapper:hover .product-image.back {
+  opacity: 1;
+}
+
+.image-swap-wrapper:hover .product-image.front {
+  opacity: 0;
+}
+
 .keyline {
   height: 32px;
   background-color: var(--highlight-blue);
