@@ -1,0 +1,33 @@
+{# Toggle mobile and desktop search bars open/close #}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggle = document.getElementById('mobile-search-toggle');
+        const searchBar = document.getElementById('mobile-search-bar');
+
+        toggle?.addEventListener('click', function (e) {
+            e.preventDefault();
+            searchBar?.classList.toggle('d-none');
+        });
+    });
+</script>
+
+<script>
+    {# Toggle desktop search bar and close if clicked outside #}
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('desktop-search-toggle');
+        const searchBar = document.getElementById('desktop-search-bar');
+
+    if (toggle && searchBar) {
+        toggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            searchBar.classList.toggle('d-none');
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!searchBar.contains(e.target) && !toggle.contains(e.target)) {
+            searchBar.classList.add('d-none');
+            }
+        });
+        }
+    });
+</script>

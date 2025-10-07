@@ -1,0 +1,10 @@
+{# Show all Bootstrap toast messages on page load #}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toastElList = [].slice.call(document.querySelectorAll('.toast'));
+        const toastList = toastElList.map(function (toastEl) {
+        return new bootstrap.Toast(toastEl, { autohide: false });
+        });
+        toastList.forEach(toast => toast.show());
+    });
+</script>
