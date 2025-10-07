@@ -56,10 +56,10 @@
             <div class="col-lg-6 d-flex justify-content-center align-items-center">
               <nav aria-label="Product categories">
                 <ul class="d-flex justify-content-center align-items-center gap-4 list-unstyled mb-0">
-                  <li><a href="{% url 'products' %}?category=apparel" class="text-white text-decoration-none text-uppercase fs-6">Apparel</a></li>
-                  <li><a href="{% url 'products' %}?category=supplements" class="text-white text-decoration-none text-uppercase fs-6">Supplements</a></li>
-                  <li><a href="{% url 'products' %}?category=accessories" class="text-white text-decoration-none text-uppercase fs-6">Accessories</a></li>
-                  <li><a href="{% url 'products' %}?category=class-bundles" class="text-white text-decoration-none text-uppercase fs-6">Class Bundles</a></li>
+                  <li><a href="{% url 'products' %}?category=apparel" class="navlink text-uppercase fs-6">Apparel</a></li>
+                  <li><a href="{% url 'products' %}?category=supplements" class="navlink text-uppercase fs-6">Supplements</a></li>
+                  <li><a href="{% url 'products' %}?category=accessories" class="navlink text-uppercase fs-6">Accessories</a></li>
+                  <li><a href="{% url 'products' %}?category=class-bundles" class="navlink text-uppercase fs-6">Class Bundles</a></li>
                 </ul>
               </nav>
             </div>
@@ -126,6 +126,8 @@
           </div>
         </nav>
       </div>
+      <!-- Add keyline here (inside header) -->
+      <div class="d-none d-lg-block keyline"></div>
     </header>
 
     {% if messages %}
@@ -171,17 +173,17 @@
             <address>
               <ul class="list-unstyled">
                 <li class="mb-3">
-                  <a href="https://www.fitsix.co.uk" class="footer-link d-block" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.fitsix.co.uk" class="navlink d-block" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-globe me-2"></i> www.fitsix.co.uk
                   </a>
                 </li>
                 <li class="mb-3">
-                  <a href="mailto:info@fitsix.co.uk" class="footer-link d-block">
+                  <a href="mailto:info@fitsix.co.uk" class="navlink d-block">
                     <i class="fas fa-envelope me-2"></i> info@fitsix.co.uk
                   </a>
                 </li>
                 <li>
-                  <a href="https://maps.google.com/?q=Wales+1+Business+Park,+Magor+NP26+3DG" class="footer-link d-block" target="_blank" rel="noopener noreferrer">
+                  <a href="https://maps.google.com/?q=Wales+1+Business+Park,+Magor+NP26+3DG" class="navlink d-block" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-map-marker-alt me-2"></i> Wales 1 Business Park, Magor NP26 3DG
                   </a>
                 </li>
@@ -193,10 +195,10 @@
           <nav class="col-md-4 mb-4 mb-md-0" aria-labelledby="footer-links">
             <h3 id="footer-links" class="mb-4 footer-header h6">Helpful Links</h3>
             <ul class="list-unstyled">
-              <li><a href="#" class="footer-link d-block mb-1">Contact Us</a></li>
-              <li><a href="#" class="footer-link d-block mb-1">My Account</a></li>
-              <li><a href="#" class="footer-link d-block mb-1">Returns & Exchanges</a></li>
-              <li><a href="#" class="footer-link d-block mb-1">Shipping Policy</a></li>
+              <li><a href="#" class="navlink d-block mb-1">Contact Us</a></li>
+              <li><a href="#" class="navlink d-block mb-1">My Account</a></li>
+              <li><a href="#" class="navlink d-block mb-1">Returns & Exchanges</a></li>
+              <li><a href="#" class="navlink d-block mb-1">Shipping Policy</a></li>
             </ul>
           </nav>
 
@@ -264,7 +266,7 @@
           <p class="mb-0 text-white small">
             &copy; 2025 Fit Six Gym. No orders will be fulfilled. Site created for educational use only.
           </p>
-          <a href="https://github.com/sd-powell" class="footer-link" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/sd-powell" class="navlink" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-github me-2" aria-hidden="true"></i> Visit my GitHub
           </a>
         </div>
