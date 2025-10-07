@@ -56,6 +56,11 @@ def all_products(request):
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
+            
+            # If only one category selected, pass its friendly name
+            selected_category = categories.first().friendly_name if categories.count() == 1 else None
+        else:
+            selected_category = None
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -72,6 +77,7 @@ def all_products(request):
         'products': products,
         'search_term': query,
         'current_categories': categories,
+        'selected_category': selected_category,
         'current_sorting': current_sorting,
     }
 

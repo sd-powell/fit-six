@@ -16,7 +16,15 @@
     <div class="max-width-1600">
         <div class="row">
         <div class="col text-center mb-4">
-            <h2 class="fw-bold">Products</h2>
+            <h2 class="fw-bold">
+                {% if selected_category %}
+                    {{ selected_category }}
+                {% elif search_term %}
+                    Results for "{{ search_term }}"
+                {% else %}
+                    Products
+                {% endif %}
+            </h2>
         </div>
         </div>
 
