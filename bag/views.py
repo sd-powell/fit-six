@@ -45,7 +45,7 @@ def view_bag(request):
                 subtotal = Decimal(quantity) * price
                 total += subtotal
                 product_count += quantity
-                
+
                 bag_items.append({
                     'item_id': item_id,
                     'quantity': quantity,
