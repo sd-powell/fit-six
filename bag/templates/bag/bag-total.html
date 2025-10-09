@@ -2,6 +2,13 @@
 
 <div class="bag-summary">
     <h6 class="mb-1"><strong>Bag Total:</strong> £{{ total|floatformat:2 }}</h6>
+    
+    {% if discount > 0 %}
+        <h6 class="mb-1 text-success">
+            <strong>Member Discount:</strong> -£{{ discount|floatformat:2 }}
+        </h6>
+    {% endif %}
+    
     <h6 class="mb-1"><strong>Delivery:</strong> £{{ delivery|floatformat:2 }}</h6>
     <h4 class="mt-4 text-uppercase fw-bold">Order Total: £{{ grand_total|floatformat:2 }}</h4>
 
