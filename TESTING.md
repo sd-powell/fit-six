@@ -115,6 +115,11 @@ The automated test suite was planned and executed to cover the following key are
 - **Model logic** tested for email uniqueness, optional user linking, and string output
 - **View logic** tested for success, warning, and error message feedback with redirects
 
+#### Profiles App
+
+- **Model logic** tested to confirm automatic `UserProfile` creation via Django signals, correct string representation, field defaults, and update persistence  
+- **Form logic** tested to verify field validation, placeholder and CSS class rendering, autofocus behavior, and label suppression in `UserProfileForm`  
+- **App configuration** verified to ensure proper `AppConfig` registration and name resolution
 
 --
 <a id="manual-testing"></a>
