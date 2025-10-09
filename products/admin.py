@@ -48,6 +48,7 @@ class ProductVariantInline(admin.TabularInline):
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'category', 'has_variants', 'image_preview')
     ordering = ('name',)
+    search_fields = ('name',)
     inlines = [ProductVariantInline]
     readonly_fields = ['image_preview']
     fields = (
