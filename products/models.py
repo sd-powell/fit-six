@@ -2,7 +2,9 @@ from django.db import models
 
 
 class Category(models.Model):
-
+    """
+    Category model for grouping products.
+    """
     class Meta:
         verbose_name_plural = 'Categories'
 
