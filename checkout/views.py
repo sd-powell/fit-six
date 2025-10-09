@@ -207,8 +207,9 @@ def checkout_success(request, order_number):
 
     # Add discount info if applicable
     if order.discount and order.discount > 0:
-        msg += f' You saved £{order.discount:.2f} with your Fit Six member discount!'
-
+        msg += (
+            f' You saved £{order.discount:.2f} with your Fit Six member discount!'
+    )
     messages.success(request, msg)
 
     if 'bag' in request.session:

@@ -3,31 +3,29 @@ from django.forms import inlineformset_factory
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q, Min
-from .models import Product, ProductVariant, Category
 from django.db.models.functions import Lower
 
+from .models import Product, ProductVariant, Category
 from .forms import ProductForm, ProductVariantForm
 
 ProductVariantFormSet = inlineformset_factory(
-    Product, ProductVariant, form=ProductVariantForm,
-    fields=('size', 'colour', 'price', 'stock'), extra=1, can_delete=True
+    Product,
+    ProductVariant,
+    form=ProductVariantForm,
+    fields=('size', 'colour', 'price', 'stock'),
+    extra=1,
+    can_delete=True
 )
-
-"""
-Product app views.
-Handles listing, filtering, and detail display of products.
-"""
 
 
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
-
-    # Prefetch related variants to reduce DB queries on product list view
     products = Product.objects.prefetch_related('variants').all()
     query = None
     categories = None
     sort = None
     direction = None
+    selected_category = None
 
     if request.GET:
         if 'sort' in request.GET:
@@ -37,10 +35,8 @@ def all_products(request):
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 products = products.annotate(lower_name=Lower('name'))
-
             elif sortkey == 'category':
                 sortkey = 'category__name'
-
             elif sortkey == 'price':
                 sortkey = 'min_price'
                 products = products.annotate(min_price=Min('variants__price'))
@@ -56,19 +52,22 @@ def all_products(request):
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
-            
-            # If only one category selected, pass its friendly name
-            selected_category = categories.first().friendly_name if categories.count() == 1 else None
-        else:
-            selected_category = None
+            if categories.count() == 1:
+                selected_category = categories.first().friendly_name
 
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request,
+                    "You didn't enter any search criteria!"
+                    )
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = (
+                      Q(name__icontains=query) |
+                      Q(description__icontains=query)
+            )
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -85,10 +84,9 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
+    """ A view to show an individual product and its variants """
     product = get_object_or_404(Product, pk=product_id)
     variants = product.variants.all()
-
-    # Get distinct colours and sizes
     colours = variants.values_list('colour', flat=True).distinct()
     sizes = variants.values_list('size', flat=True).distinct()
 
@@ -114,10 +112,14 @@ def add_product(request):
             product = form.save()
             formset.instance = product
             formset.save()
-            messages.success(request, 'Successfully added product and variants!')
+            messages.success(
+                request, 'Successfully added product and variants!'
+            )
             return redirect(reverse('product_detail', args=[product.id]))
-        else:
-            messages.error(request, 'Failed to add product. Please check the form and variants.')
+        messages.error(
+            request,
+            'Failed to add product. Please check the form and variants.'
+        )
     else:
         form = ProductForm()
         formset = ProductVariantFormSet()
@@ -137,7 +139,7 @@ def edit_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-    
+
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
@@ -145,8 +147,10 @@ def edit_product(request, product_id):
             form.save()
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
-        else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+        messages.error(
+            request,
+            'Failed to update product. Please ensure the form is valid.'
+        )
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -166,7 +170,7 @@ def delete_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-    
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')
