@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% load bag_tools %}
-
+{% load bag_extras %}
 
 {% block page_header %}
 <div class="container header-container">
@@ -29,6 +29,18 @@
                         <div class="border-bottom mb-4 pb-3">
                             {% include "bag/product-image.html" %}
                             {% include "bag/product-info.html" %}
+
+                            {% if item.variant_key %}
+                                {% with item.variant_key|cut:" " as raw_key %}
+                                    {% with raw_key|split:"_" as parts %}
+                                        <p class="small text-muted mb-1">
+                                            Size: <strong>{{ parts.0|upper }}</strong>,
+                                            Colour: <strong>{{ parts.1|capfirst }}</strong>
+                                        </p>
+                                    {% endwith %}
+                                {% endwith %}
+                            {% endif %}
+
                             <p class="mt-2 mb-1">Price: £{{ item.price }}</p>
                             <p><strong>Subtotal: </strong>£{{ item.subtotal|floatformat:2 }}</p>
 
@@ -61,6 +73,17 @@
                                     </td>
                                     <td>
                                         {% include "bag/product-info.html" with product=item.product variant=item.variant %}
+
+                                        {% if item.variant_key %}
+                                            {% with item.variant_key|cut:" " as raw_key %}
+                                                {% with raw_key|split:"_" as parts %}
+                                                    <p class="small text-muted mb-1">
+                                                        Size: <strong>{{ parts.0|upper }}</strong>,
+                                                        Colour: <strong>{{ parts.1|capfirst }}</strong>
+                                                    </p>
+                                                {% endwith %}
+                                            {% endwith %}
+                                        {% endif %}
                                     </td>
                                     <td>£{{ item.price }}</td>
                                     <td class="w-25">
