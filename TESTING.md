@@ -109,6 +109,13 @@ Automated testing was a key part of the development workflow for **Fit Six**, he
 
 The automated test suite was planned and executed to cover the following key areas:
 
+#### Checkout App
+
+- **Form logic** tested for placeholder population, required field indicators, autofocus, CSS class assignment, and label suppression in `OrderForm`.  
+- **Model logic** tested for accurate total, discount, and delivery cost calculations in `Order`, plus readable string output for both `Order` and `OrderLineItem` models.  
+- **View logic** tested for checkout flow behavior including form rendering, Stripe integration context, redirects on empty bag, order success handling, and error message feedback for invalid submissions.  
+- **Webhook and handler logic** tested to ensure correct processing of Stripe webhook events — including order creation, profile updates, email confirmations, and error handling for invalid payloads, signatures, and failed payments.
+
 #### Newsletter App
 
 - **Form logic** tested to validate unique email submissions and reject duplicates
