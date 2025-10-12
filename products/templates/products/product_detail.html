@@ -13,17 +13,66 @@
     <div class="overlay"></div>
     <div class="container-fluid">
         <div class="row">
-            <!-- Product Image -->
-            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-                <div class="image-container my-5">
-                    {% if product.image %}
-                        <a href="{{ product.image.url }}" target="_blank">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                        </a>
-                    {% else %}
-                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                    {% endif %}
+            <!-- Product Images -->
+            <div class="col-12 col-lg-6 offset-lg-1 my-5">
+
+                <!-- Mobile Carousel -->
+                <div class="d-md-none">
+                    <div id="variantImageCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+
+                            <div class="carousel-item active">
+                                {% if product.image %}
+                                    <img src="{{ product.image.url }}" class="d-block w-100" alt="{{ product.name }} Front">
+                                {% else %}
+                                    <img src="{{ MEDIA_URL }}noimage.png" class="d-block w-100" alt="{{ product.name }}">
+                                {% endif %}
+                            </div>
+
+                            {% with product.variants.all|first as default_variant %}
+                                {% if default_variant.image_back %}
+                                <div class="carousel-item">
+                                    <img src="{{ default_variant.image_back.url }}" class="d-block w-100" alt="{{ product.name }} Back">
+                                </div>
+                                {% endif %}
+                            {% endwith %}
+                        </div>
+
+                        <!-- Carousel indicators -->
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#variantImageCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Front"></button>
+                            {% with product.variants.all|first as default_variant %}
+                                {% if default_variant.image_back %}
+                                <button type="button" data-bs-target="#variantImageCarousel" data-bs-slide-to="1" aria-label="Back"></button>
+                                {% endif %}
+                            {% endwith %}
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Desktop Vertical Stack -->
+                <div class="d-none d-md-block">
+                    <div class="mb-3">
+                        {% if product.image %}
+                            <a href="{{ product.image.url }}" target="_blank">
+                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }} Front">
+                            </a>
+                        {% else %}
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        {% endif %}
+                    </div>
+
+                    {% with product.variants.all|first as default_variant %}
+                        {% if default_variant.image_back %}
+                        <div>
+                            <a href="{{ default_variant.image_back.url }}" target="_blank">
+                                <img class="card-img-top img-fluid" src="{{ default_variant.image_back.url }}" alt="{{ product.name }} Back">
+                            </a>
+                        </div>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+
             </div>
 
             <!-- Product Details -->
