@@ -68,7 +68,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'fitsix_project.urls'
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_ALLOWED_TEMPLATE_PACKS = ["bootstrap5"]
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 TEMPLATES = [

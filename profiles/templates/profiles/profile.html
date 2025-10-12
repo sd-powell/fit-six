@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
@@ -27,12 +28,7 @@
             <p class="text-muted">Default Delivery Information</p>
             <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
                 {% csrf_token %}
-                {{ form|crispy }}
-                <div class="text-end mt-3">
-                    <button class="btn btn-black rounded-pill">
-                        Update Information <i class="fas fa-save ms-1"></i>
-                    </button>
-                </div>
+                {% crispy form %}
             </form>
         </div>
 
