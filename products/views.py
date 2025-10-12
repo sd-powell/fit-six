@@ -65,8 +65,8 @@ def all_products(request):
                 return redirect(reverse('products'))
 
             queries = (
-                      Q(name__icontains=query) |
-                      Q(description__icontains=query)
+                    Q(name__icontains=query) |
+                    Q(description__icontains=query)
             )
             products = products.filter(queries)
 
@@ -83,9 +83,9 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
-def product_detail(request, product_id):
+def product_detail(request, slug):
     """ A view to show an individual product and its variants """
-    product = get_object_or_404(Product, pk=product_id)
+    product = get_object_or_404(Product, slug=slug)
     variants = product.variants.all()
     colours = variants.values_list('colour', flat=True).distinct()
     sizes = variants.values_list('size', flat=True).distinct()
@@ -115,7 +115,7 @@ def add_product(request):
             messages.success(
                 request, 'Successfully added product and variants!'
             )
-            return redirect(reverse('product_detail', args=[product.id]))
+            return redirect('product_detail', slug=product.slug)
         messages.error(
             request,
             'Failed to add product. Please check the form and variants.'
@@ -146,7 +146,7 @@ def edit_product(request, product_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated product!')
-            return redirect(reverse('product_detail', args=[product.id]))
+            return redirect('product_detail', slug=product.slug)
         messages.error(
             request,
             'Failed to update product. Please ensure the form is valid.'

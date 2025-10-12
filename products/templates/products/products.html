@@ -61,7 +61,7 @@
             <ul class="product-grid list-unstyled d-grid gap-4">
                 {% for product in products %}
                 <li class="card h-100 border-0 product-card">
-                    <a href="{% url 'product_detail' product.id %}">
+                    <a href="{{ product.get_absolute_url }}">
                         {% if product.has_variants %}
                             {% with product.variants.first as variant %}
                                 {% if variant.image %}
