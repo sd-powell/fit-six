@@ -95,13 +95,13 @@
 
                 <fieldset class="rounded px-3 mb-4">
                     <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
-                    {{ order_form.phone_number|as_crispy_field }}
                     {{ order_form.street_address1|as_crispy_field }}
                     {{ order_form.street_address2|as_crispy_field }}
                     {{ order_form.town_or_city|as_crispy_field }}
                     {{ order_form.postcode|as_crispy_field }}
                     {{ order_form.county|as_crispy_field }}
                     {{ order_form.country|as_crispy_field }}
+                    {{ order_form.phone_number|as_crispy_field }}
 
                     <div class="form-check form-check-inline float-end">
                         {% if user.is_authenticated %}
@@ -134,7 +134,7 @@
                     <a href="{% url 'view_bag' %}" class="btn btn-outline-dark rounded-pill me-2">
                         <i class="fas fa-chevron-left me-1"></i> Adjust Bag
                     </a>
-                    <button id="submit-button" class="btn btn-black rounded-pill">
+                    <button id="submit-button" class="btn btn-blue rounded-pill">
                         Complete Order <i class="fas fa-lock ms-1"></i>
                     </button>
                     <p class="small text-danger mt-2">
