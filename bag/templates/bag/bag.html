@@ -143,10 +143,10 @@
     $('.remove-item').click(function(e) {
         e.preventDefault();
         var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
+        var slug = $(this).data('product_slug');
         var size = $(this).data('product_size');
         var colour = $(this).data('product_colour');
-        var url = `/bag/remove/${itemId}/`;
+        var url = `/bag/remove/${slug}/`;
         var data = {
             'csrfmiddlewaretoken': csrfToken,
             'product_size': size,

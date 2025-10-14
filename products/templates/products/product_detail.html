@@ -110,7 +110,7 @@
                     <p class="mt-3">{{ product.description }}</p>
 
                     <!-- Add to Bag Form -->
-                    <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+                    <form class="form" action="{% url 'add_to_bag' product.slug %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
 
@@ -166,7 +166,7 @@
                                 <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0">
                                     <i class="fas fa-chevron-left"></i> Keep Shopping
                                 </a>
-                                <input type="submit" class="btn btn-black rounded-0 text-uppercase" value="Add to Bag">
+                                <input type="submit" class="btn btn-blue rounded-0 text-uppercase" value="Add to Bag">
                             </div>
 
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">

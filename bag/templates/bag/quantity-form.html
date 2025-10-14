@@ -1,11 +1,18 @@
-<form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+{% load bag_extras %}
+
+
+<form class="form update-form" method="POST" action="{% url 'adjust_bag' item.product.slug %}">
     {% csrf_token %}
 
-    {% if item.variant %}
-        <input type="hidden" name="variant_size" value="{{ item.variant.size }}">
-        <input type="hidden" name="variant_colour" value="{{ item.variant.colour }}">
+    {% if item.variant_key %}
+        {% with item.variant_key|cut:" " as raw_key %}
+            {% with raw_key|split:"_" as parts %}
+                <input type="hidden" name="variant_size" value="{{ parts.0 }}">
+                <input type="hidden" name="variant_colour" value="{{ parts.1 }}">
+            {% endwith %}
+        {% endwith %}
     {% endif %}
-    
+
     <input type="hidden" name="redirect_url" value="{% url 'view_bag' %}">
 
     <div class="input-group">
@@ -31,12 +38,19 @@
         </div>
     </div>
 
-    <div class="mt-2">
-        <a class="btn btn-outline-danger btn-sm rounded-pill px-3 py-1 remove-item"
-            id="remove_{{ item.item_id }}"
-            data-product_size="{{ item.variant.size }}"
-            data-product_colour="{{ item.variant.colour }}">
-            <i class="fas fa-trash-alt me-1"></i> Remove
-        </a>
-    </div>
+    {% if item.variant_key %}
+        {% with item.variant_key|cut:" " as raw_key %}
+            {% with raw_key|split:"_" as parts %}
+                <div class="mt-2">
+                    <a class="btn btn-outline-danger btn-sm rounded-pill px-3 py-1 remove-item"
+                        id="remove_{{ item.item_id }}"
+                        data-product_slug="{{ item.product.slug }}"
+                        data-product_size="{{ parts.0 }}"
+                        data-product_colour="{{ parts.1 }}">
+                        <i class="fas fa-trash-alt me-1"></i> Remove
+                    </a>
+                </div>
+            {% endwith %}
+        {% endwith %}
+    {% endif %}
 </form>

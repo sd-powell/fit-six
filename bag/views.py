@@ -81,16 +81,16 @@ def view_bag(request):
     return render(request, 'bag/bag.html', context)
 
 
-def add_to_bag(request, item_id):
+def add_to_bag(request, slug):
     """Add a quantity of a specific variant (size + colour) to the bag."""
-    product = get_object_or_404(Product, pk=item_id)
+    product = get_object_or_404(Product, slug=slug)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     size = request.POST.get('variant_size')
     colour = request.POST.get('variant_colour')
 
     bag = request.session.get('bag', {})
-    item_id_str = str(item_id)
+    item_id_str = str(product.id)
     variant_key = f"{size}_{colour}".lower() if size and colour else None
 
     if variant_key:
@@ -135,16 +135,16 @@ def add_to_bag(request, item_id):
 
 
 @require_POST
-def adjust_bag(request, item_id):
+def adjust_bag(request, slug):
     """Adjust the quantity of a specific product variant in the bag."""
-    product = get_object_or_404(Product, pk=item_id)
+    product = get_object_or_404(Product, slug=slug)
     size = request.POST.get('variant_size')
     colour = request.POST.get('variant_colour')
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
 
     bag = request.session.get('bag', {})
-    item_id_str = str(item_id)
+    item_id_str = str(product.id)
     variant_key = f"{size}_{colour}".lower()
 
     if item_id_str in bag and 'items_by_variant' in bag[item_id_str]:
@@ -173,16 +173,16 @@ def adjust_bag(request, item_id):
 
 
 @require_POST
-def remove_from_bag(request, item_id):
+def remove_from_bag(request, slug):
     """Remove a specific variant (size + colour) of a product from the bag."""
     try:
+        product = get_object_or_404(Product, slug=slug)
+        item_id_str = str(product.id)
+        
         size = request.POST.get('product_size')
         colour = request.POST.get('product_colour')
         variant_key = f"{size}_{colour}".lower()
         bag = request.session.get('bag', {})
-        item_id_str = str(item_id)
-
-        product = get_object_or_404(Product, pk=item_id)
 
         if item_id_str in bag and 'items_by_variant' in bag[item_id_str]:
             if variant_key in bag[item_id_str]['items_by_variant']:
@@ -220,7 +220,7 @@ def update_bag_all(request):
         variant_key = request.POST.get(f'variant_key_{i}')
         quantity = int(request.POST.get(f'quantity_{i}'))
         product = get_object_or_404(Product, pk=item_id)
-        item_id_str = str(item_id)
+        item_id_str = str(product.id)
 
         if item_id_str in bag and 'items_by_variant' in bag[item_id_str]:
             if quantity > 0:
