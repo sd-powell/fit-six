@@ -248,6 +248,30 @@ These wireframes served as the **visual foundation** for layout decisions throug
 <br>
 <hr>
 
+<a id="mobile-frames"></a>
+
+#### **Mobile Wireframes**
+
+<details>
+<summary> Click here to see the Mobile Wireframes </summary>
+
+|                Base template                |                Home page                 |                   Register page                     |
+| :-----------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------------------: |
+| ![Base template](documentation/readme/skeleton_plane/wireframe-mobile-base.webp) | ![Home](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![Register](documentation/readme/skeleton_plane/wireframe-mobile-register.webp) |
+
+|                   Login page                   |                Logout page                |                 Profile page                  |
+| :-----------------------------------------------------------: | :-----------------------------------------------: | :-----------------------------------------------------: |
+| ![Login](documentation/readme/skeleton_plane/wireframe-mobile-login.webp) | ![Logout](documentation/readme/skeleton_plane/wireframe-mobile-logout.webp) | ![Profile](documentation/readme/skeleton_plane/wireframe-mobile-profile.webp) |
+
+|               Bag page (Empty Bag)                |               Bag page                |
+| :---------------------------------------------: | :---------------------------------------------: |
+| ![404](documentation/readme/skeleton_plane/wireframe-mobile-bag-empty.webp) | ![500](documentation/readme/skeleton_plane/wireframe-mobile-bag.webp) |
+
+</details>
+
+<br>
+<hr>
+
 <a id="surface-plane"></a>
 
 ### Surface Plane
