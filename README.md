@@ -263,9 +263,10 @@ These wireframes served as the **visual foundation** for layout decisions throug
 | :-----------------------------------------------------------: | :-----------------------------------------------: | :-----------------------------------------------------: |
 | ![Login](documentation/readme/skeleton_plane/wireframe-mobile-login.webp) | ![Logout](documentation/readme/skeleton_plane/wireframe-mobile-logout.webp) | ![Profile](documentation/readme/skeleton_plane/wireframe-mobile-profile.webp) |
 
-|               Bag page (Empty Bag)                |               Bag page                |
+|               Bag page (Empty Bag)                |               Bag page                |                 Checkout page                  |
 | :---------------------------------------------: | :---------------------------------------------: |
-| ![404](documentation/readme/skeleton_plane/wireframe-mobile-bag-empty.webp) | ![500](documentation/readme/skeleton_plane/wireframe-mobile-bag.webp) |
+:-----------------------------------------------------: |
+| ![Bag (Empty)](documentation/readme/skeleton_plane/wireframe-mobile-bag-empty.webp) | ![Bag](documentation/readme/skeleton_plane/wireframe-mobile-bag.webp) | ![Checkout](documentation/readme/skeleton_plane/wireframe-mobile-checkout.webp) |
 
 </details>
 
