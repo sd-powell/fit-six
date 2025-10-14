@@ -257,9 +257,9 @@ These wireframes served as the **visual foundation** for layout decisions throug
 
 #### **Core Pages**
 
-| Base Template | Home page | Register page |
+| Base Template | Home page | Sign up page |
 | :-----------: | :-------: | :-----------: |
-| ![Base template](documentation/readme/skeleton_plane/wireframe-mobile-base.webp) | ![Home](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![Register](documentation/readme/skeleton_plane/wireframe-mobile-register.webp) |
+| ![Base template](documentation/readme/skeleton_plane/wireframe-mobile-base.webp) | ![Home](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![Sign up](documentation/readme/skeleton_plane/wireframe-mobile-signup.webp) |
 
 #### **Authentication**
 
