@@ -250,23 +250,28 @@ These wireframes served as the **visual foundation** for layout decisions throug
 
 <a id="mobile-frames"></a>
 
-#### **Mobile Wireframes**
+#### **User Flow – Mobile Wireframes**
 
 <details>
-<summary> Click here to see the Mobile Wireframes </summary>
+<summary> Click here to see the User Mobile Wireframes </summary>
 
-|                Base template                |                Home page                 |                   Register page                     |
-| :-----------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------------------: |
+#### **Core Pages**
+
+| Base Template | Home page | Register page |
+| :-----------: | :-------: | :-----------: |
 | ![Base template](documentation/readme/skeleton_plane/wireframe-mobile-base.webp) | ![Home](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![Register](documentation/readme/skeleton_plane/wireframe-mobile-register.webp) |
 
-|                   Login page                   |                Logout page                |                 Profile page                  |
-| :-----------------------------------------------------------: | :-----------------------------------------------: | :-----------------------------------------------------: |
-| ![Login](documentation/readme/skeleton_plane/wireframe-mobile-login.webp) | ![Logout](documentation/readme/skeleton_plane/wireframe-mobile-logout.webp) | ![Profile](documentation/readme/skeleton_plane/wireframe-mobile-profile.webp) |
+#### **Authentication**
 
-|               Bag page (Empty Bag)                |               Bag page                |                 Checkout page                  |
-| :---------------------------------------------: | :---------------------------------------------: |
-:-----------------------------------------------------: |
-| ![Bag (Empty)](documentation/readme/skeleton_plane/wireframe-mobile-bag-empty.webp) | ![Bag](documentation/readme/skeleton_plane/wireframe-mobile-bag.webp) | ![Checkout](documentation/readme/skeleton_plane/wireframe-mobile-checkout.webp) |
+|  Login page | Logout page | Profile page |
+| :---------: | :---------: | :----------: |
+| ![Login](documentation/readme/skeleton_plane/wireframe-mobile-signin.webp) | ![Logout](documentation/readme/skeleton_plane/wireframe-mobile-logout.webp) | ![Profile](documentation/readme/skeleton_plane/wireframe-mobile-profile.webp) |
+
+#### **Shopping Flow**
+
+| Bag page (Empty Bag) | Bag page | Checkout page |
+| :------------------: | :------: | :-----------: |
+| ![Bag Empty](documentation/readme/skeleton_plane/wireframe-mobile-bag-empty.webp) | ![Bag](documentation/readme/skeleton_plane/wireframe-mobile-bag.webp) | ![Checkout](documentation/readme/skeleton_plane/wireframe-mobile-checkout.webp) |
 
 </details>
 
