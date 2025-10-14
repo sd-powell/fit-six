@@ -83,18 +83,28 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
+# products/views.py
 def product_detail(request, slug):
-    """ A view to show an individual product and its variants """
     product = get_object_or_404(Product, slug=slug)
     variants = product.variants.all()
     colours = variants.values_list('colour', flat=True).distinct()
     sizes = variants.values_list('size', flat=True).distinct()
+
+    # Build a dictionary of variant data per colour
+    colour_image_map = {}
+    for variant in variants:
+        if variant.colour not in colour_image_map:
+            colour_image_map[variant.colour] = {
+                'image_url': variant.image.url if variant.image else '',
+                'image_back_url': variant.image_back.url if variant.image_back else ''
+            }
 
     return render(request, 'products/product_detail.html', {
         'product': product,
         'variants': variants,
         'colours': colours,
         'sizes': sizes,
+        'colour_image_map': colour_image_map,
     })
 
 

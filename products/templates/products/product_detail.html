@@ -23,7 +23,7 @@
 
                             <div class="carousel-item active">
                                 {% if product.image %}
-                                    <img src="{{ product.image.url }}" class="d-block w-100" alt="{{ product.name }} Front">
+                                    <img id="product-front-image-mobile" src="{{ product.image.url }}" class="d-block w-100" alt="Fit Six {{ product.name }} - Front View">
                                 {% else %}
                                     <img src="{{ MEDIA_URL }}noimage.png" class="d-block w-100" alt="{{ product.name }}">
                                 {% endif %}
@@ -32,7 +32,7 @@
                             {% with product.variants.all|first as default_variant %}
                                 {% if default_variant.image_back %}
                                 <div class="carousel-item">
-                                    <img src="{{ default_variant.image_back.url }}" class="d-block w-100" alt="{{ product.name }} Back">
+                                    <img id="product-back-image-mobile" src="{{ default_variant.image_back.url }}" class="d-block w-100" alt="Fit Six {{ product.name }} - Back View">
                                 </div>
                                 {% endif %}
                             {% endwith %}
@@ -55,7 +55,7 @@
                     <div class="mb-3">
                         {% if product.image %}
                             <a href="{{ product.image.url }}" target="_blank">
-                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }} Front">
+                                <img id="product-front-image-desktop" class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }} Front">
                             </a>
                         {% else %}
                             <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
@@ -66,7 +66,7 @@
                         {% if default_variant.image_back %}
                         <div>
                             <a href="{{ default_variant.image_back.url }}" target="_blank">
-                                <img class="card-img-top img-fluid" src="{{ default_variant.image_back.url }}" alt="{{ product.name }} Back">
+                                <img id="product-back-image-desktop" class="card-img-top img-fluid" src="{{ default_variant.image_back.url }}" alt="{{ product.name }} Back">
                             </a>
                         </div>
                         {% endif %}
@@ -180,5 +180,8 @@
 
 {% block postloadjs %}
 {{ block.super }}
+{{ colour_image_map|json_script:"colour-image-data" }}
+
 {% include 'products/includes/quantity_input_script.html' %}
+{% include 'products/includes/variant_image_script.html' %}
 {% endblock %}

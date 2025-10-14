@@ -496,3 +496,38 @@ body {
     border-color: #dc3545;
     border-radius: 0;
 }
+
+
+/* 980px and up: 4 columns */
+@media (min-width: 980px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Between 768px and 979px: 2 columns */
+@media (min-width: 768px) and (max-width: 979px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Below 768px: 1 column (mobile) */
+@media (max-width: 767px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

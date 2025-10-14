@@ -1,0 +1,58 @@
+<script>
+    /**
+     * Updates product images on the product detail page when a colour is selected.
+     *
+     * This script listens for changes to the colour dropdown (`#variant_colour`) and updates
+     * the front and back product images based on the selected colour's image URLs, which are
+     * provided via a JSON object (`#colour-image-data`) rendered in the template.
+     *
+     * - Stores the default image sources so they can be reverted if no data is found.
+     * - Safely handles missing elements or missing image data.
+     * - Expects the following HTML IDs to be present:
+     *     - #variant_colour
+     *     - #product-front-image
+     *     - #product-back-image (optional)
+     *     - #colour-image-data (JSON script tag with image URLs per colour)
+     */
+document.addEventListener('DOMContentLoaded', function () {
+    const colourSelect = document.getElementById('variant_colour');
+    const frontImageDesktop = document.getElementById('product-front-image-desktop');
+    const backImageDesktop = document.getElementById('product-back-image-desktop');
+    const frontImageMobile = document.getElementById('product-front-image-mobile');
+    const backImageMobile = document.getElementById('product-back-image-mobile');
+
+    if (!colourSelect || (!frontImageDesktop && !frontImageMobile)) return;
+
+    const colourData = JSON.parse(
+        document.getElementById('colour-image-data').textContent
+    );
+
+    function updateImage(img, newSrc) {
+        if (img && newSrc) {
+            img.src = newSrc;
+        }
+    }
+
+    function updateImagesForColour(colour) {
+        const data = colourData[colour];
+        if (!data) return;
+
+        updateImage(frontImageDesktop, data.image_url);
+        updateImage(backImageDesktop, data.image_back_url);
+        updateImage(frontImageMobile, data.image_url);
+        updateImage(backImageMobile, data.image_back_url);
+    }
+
+    // Store default images
+    [frontImageDesktop, frontImageMobile].forEach(img => {
+        if (img) img.dataset.defaultSrc = img.src;
+    });
+    [backImageDesktop, backImageMobile].forEach(img => {
+        if (img) img.dataset.defaultSrc = img.src;
+    });
+
+    colourSelect.addEventListener('change', function () {
+        updateImagesForColour(this.value);
+    });
+});
+</script>
