@@ -25,6 +25,12 @@
 
                 <!-- MOBILE VIEW: one form per item -->
                 <div class="d-block d-md-none">
+                    <!-- Move totals and buttons to the top on mobile -->
+                    <div class="mb-4">
+                        {% include "bag/bag-total.html" %}
+                        {% include "bag/checkout-buttons.html" %}
+                    </div>
+
                     {% for item in bag_items %}
                         <div class="border-bottom mb-4 pb-3">
                             {% include "bag/product-image.html" %}
@@ -47,9 +53,6 @@
                             {% include "bag/quantity-form.html" %}
                         </div>
                     {% endfor %}
-
-                    {% include "bag/bag-total.html" %}
-                    {% include "bag/checkout-buttons.html" %}
                 </div>
 
                 <!-- DESKTOP VIEW: update-all form -->

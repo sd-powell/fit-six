@@ -549,3 +549,11 @@ body {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+@media (max-width: 767px) {
+  .mobile-bag-img {
+    max-width: 120px;
+    height: auto;
+    display: block;
+  }
+}
