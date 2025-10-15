@@ -580,6 +580,14 @@ All pages on the website include:
 
 If a user attempts to access a **restricted page** or perform an unauthorised action, they are redirected appropriately — usually to the login page or homepage — depending on the context. This approach enhances both **security** and **user experience** by clearly communicating boundaries and preventing system misuse or unexpected errors.
 
+<a id="design"></a>
+
+### Design & Visuals
+
+- [Balsamiq](https://balsamiq.com/) – Used to create wireframes for mobile, tablet, and desktop layouts.
+- [Adobe Illustrator](https://www.adobe.com/uk/products/illustrator.html) – Used to design the logo and key UI elements.
+- [Adobe Photoshop](https://www.adobe.com/uk/products/photoshop.html) – Used for cropping, resizing, and exporting images in WebP format to ensure faster load times and modern compression efficiency.
+
 <a id="development-tools"></a>
 
 ### Development & Deployment
