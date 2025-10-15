@@ -579,3 +579,29 @@ All pages on the website include:
 **Defensive programming principles** have been applied throughout the **Fit Six Store** to safeguard functionality and ensure that only **authorised users** can access sensitive features. Permission checks are enforced to restrict **admin-level actions** — such as adding, editing, or deleting products, or managing orders — to **superusers only**.
 
 If a user attempts to access a **restricted page** or perform an unauthorised action, they are redirected appropriately — usually to the login page or homepage — depending on the context. This approach enhances both **security** and **user experience** by clearly communicating boundaries and preventing system misuse or unexpected errors.
+
+
+
+
+<a id="media"></a>
+
+### Media
+
+- [Adobe Stock](https://stock.adobe.com/) - Used to source royalty free imagery for the site.
+
+<a id="acknowledgement"></a>
+
+### Acknowledgments
+
+I would like to acknowledge the following people:
+
+- [Jubril Akolade](https://github.com/Jubrillionaire) - My Code Institute Mentor.
+
+- Ax de Klerk, Jordan Acomba & Robert Lewis - My fellow Code Institute cohort, who helped each other over the course of our milestone projects.
+
+- Special thanks to **Sam Watson at Fit Six** for granting permission to build this project around his gym and for his ongoing support.
+
+- The Code Institute Slack channel Peer Code Review - Thank you to everyone who took the time to view my site and look over the code.
+
+<br><hr>
+[🔼 Back to top](#contents)
