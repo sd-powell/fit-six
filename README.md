@@ -580,6 +580,20 @@ All pages on the website include:
 
 If a user attempts to access a **restricted page** or perform an unauthorised action, they are redirected appropriately — usually to the login page or homepage — depending on the context. This approach enhances both **security** and **user experience** by clearly communicating boundaries and preventing system misuse or unexpected errors.
 
+<a id="accessibility"></a>
+
+### Accessibility
+
+Accessibility has been a key consideration throughout the development of Fit Six. Measures taken to ensure the site is inclusive and user-friendly include:
+
+- Using semantic HTML5 elements to improve structure and navigation for assistive technologies
+- Providing descriptive `alt` text for all meaningful images, including record covers and banners
+- Applying `aria-labels` to interactive elements such as icon-only buttons and links for screen reader clarity
+- Maintaining strong colour contrast across the UI, particularly in key areas like filters, buttons, and navigation (see [Colour Scheme](#colour-scheme))
+- Ensuring focus states and keyboard navigability across all interactive components
+
+Accessibility was evaluated using **Lighthouse**, **WAVE**, and manual checks in Chrome DevTools. Detailed results are available in the [TESTING.md](TESTING.md) document.
+
 <a id="deployment-development"></a>
 
 ## Deployment & Local Development
