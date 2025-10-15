@@ -300,9 +300,17 @@ These wireframes served as the **visual foundation** for layout decisions throug
 <details>
 <summary>Click to view Admin Mobile Wireframes</summary>
 
-| Add Product | Edit Product | Product Management |
-|:-----------:|:------------:|:------------------:|
-| ![Add Product](documentation/readme/skeleton_plane/wireframe-mobile-add-product.webp) | ![Edit Product](documentation/readme/skeleton_plane/wireframe-mobile-edit-product.webp) | ![Product Management](documentation/readme/skeleton_plane/wireframe-mobile-admin-dashboard.webp) |
+- Add Product
+
+![Add Product](documentation/readme/skeleton_plane/wireframe-mobile-add-product.webp)
+
+- Edit Product
+
+![Edit Product](documentation/readme/skeleton_plane/wireframe-mobile-edit-product.webp)
+
+- Product Management
+
+![Product Management](documentation/readme/skeleton_plane/wireframe-mobile-admin-dashboard.webp)
 
 </details>
 
@@ -408,9 +416,21 @@ These wireframes served as the **visual foundation** for layout decisions throug
 <details>
 <summary>Click to view Admin Desktop Wireframes</summary>
 
-| Add Product | Edit Product | Product Management |
-|:-----------:|:------------:|:------------------:|
-| ![Add Product](documentation/readme/skeleton_plane/wireframe-desktop-add-product.webp) | ![Edit Product](documentation/readme/skeleton_plane/wireframe-desktop-edit-product.webp) | ![Product Management](documentation/readme/skeleton_plane/wireframe-desktop-admin-dashboard.webp) |
+- Add Product
+
+![Add Product](documentation/readme/skeleton_plane/wireframe-desktop-add-product.webp)
+
+- Edit Product
+
+![Edit Product](documentation/readme/skeleton_plane/wireframe-desktop-edit-product.webp)
+
+- Delete Product
+
+![Delete Product](documentation/readme/skeleton_plane/wireframe-desktop-delete-product.webp)
+
+- Product Management
+
+![Product Management](documentation/readme/skeleton_plane/wireframe-desktop-admin-dashboard.webp) |
 
 </details>
 
