@@ -740,6 +740,60 @@ Each section of the homepage is designed for **clarity, usability, and conversio
 
 </details>
 
+<a id="product-features"></a>
+
+#### Product Catalogue Page
+
+The **Products page** is a core browsing experience where users can view all available Fit Six items. It is built for **clarity, performance, and interactivity**, with a responsive grid layout and intuitive filtering and sorting tools.
+
+---
+
+**Key Features:**
+
+1. **Dynamic Page Header**
+   - Displays a relevant title based on user interaction:
+     - Selected category (e.g., "Apparel")
+     - Search result string (e.g., `Results for "protein"`)
+     - Default fallback: **"Products"**
+   - Helps users quickly understand what they’re viewing.
+
+2. **Filter & Sorting Tools**
+   - **Sorting dropdown** (top-right) allows users to reorder products by:
+     - Price (low → high / high → low)
+     - Name (A-Z / Z-A)
+     - Category (A-Z / Z-A)
+   - Automatically updates the page using query parameters (no form submission required).
+   - A contextual “Products Home” reset link appears when filters are applied.
+
+3. **Responsive Product Grid**
+   - Uses a semantic `<ul>` + `<li>` structure styled as a CSS Grid.
+   - Card-based layout adapts to screen width:
+     - 4 items on large screens
+     - 2 on tablets
+     - 1 on mobile
+   - Product cards show:
+     - **Front image**, with **hover-to-back** image effect if available
+     - **Name**, **category link**, and **price**
+     - Admin controls (Edit / Delete) for superusers only
+
+4. **Delete Confirmation Modals**
+   - Admin users can delete products via modal prompts for safety.
+   - Each product has a dedicated modal triggered by a delete button.
+
+5. **Back to Top Button**
+   - Fixed position button in the bottom-right allows users to scroll smoothly to the top of the page.
+
+---
+
+The overall experience prioritises usability, accessibility, and visual consistency — helping users explore the catalogue efficiently across all device sizes.
+
+<details>
+<summary>Click to view the Product Page</summary>
+
+![Fit Six Product Page](documentation/readme/surface_plane/features-products.webp)
+
+</details>
+
 <a id="dev-process"></a>
 
 ### Development Process
