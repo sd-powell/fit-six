@@ -580,6 +580,34 @@ All pages on the website include:
 
 If a user attempts to access a **restricted page** or perform an unauthorised action, they are redirected appropriately — usually to the login page or homepage — depending on the context. This approach enhances both **security** and **user experience** by clearly communicating boundaries and preventing system misuse or unexpected errors.
 
+<a id="technologies"></a>
+
+## Technologies Used
+
+<a id="languages"></a>
+
+### Languages Used
+
+- HTML
+- CSS
+- JavaScript
+- Python
+
+<a id="frameworks"></a>
+
+### Frameworks, Libraries & Tools
+
+- [Django](https://www.djangoproject.com/) – Version 4.2.20 – The primary web framework used to build the application.
+- [Django Allauth](https://django-allauth.readthedocs.io/en/latest/) – Version 65.8.0 – Provides authentication, registration, and account management.
+- [Django Environ](https://django-environ.readthedocs.io/en/latest/) – Version 0.12.0 – Manages environment variables from a `.env` file.
+- [dj-database-url](https://pypi.org/project/dj-database-url/) – Version 0.5.0 – Simplifies database configuration for deployment on Heroku.
+- [Pillow](https://pillow.readthedocs.io/en/stable/) – Version 11.2.1 – Handles image uploads and processing in Django models.
+- [psycopg2-binary](https://pypi.org/project/psycopg2-binary/) – Version 2.9.10 – PostgreSQL database adapter used for connecting to the PostgreSQL database.
+- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) – Version 2025.4 – Used to render Django forms with Bootstrap 5 styling.
+- [Bootstrap 5](https://getbootstrap.com/) – Front-end framework for building responsive, mobile-first interfaces.
+- [Gunicorn](https://gunicorn.org/) – Version 20.1.0 – WSGI HTTP server used for deploying the Django application on Heroku.
+- [Whitenoise](https://whitenoise.evans.io/en/stable/) – Version 6.5.0 – Serves static files efficiently in production environments.
+
 <a id="design"></a>
 
 ### Design & Visuals
