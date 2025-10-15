@@ -580,6 +580,23 @@ All pages on the website include:
 
 If a user attempts to access a **restricted page** or perform an unauthorised action, they are redirected appropriately — usually to the login page or homepage — depending on the context. This approach enhances both **security** and **user experience** by clearly communicating boundaries and preventing system misuse or unexpected errors.
 
+<a id="dev-process"></a>
+
+### Development Process
+
+Fit Six was developed using an **iterative, feature-driven approach**:
+
+1. Planned the site structure, wireframes, and database schema
+2. Set up the Django project with a connected PostgreSQL database
+3. Implemented user authentication with Django Allauth
+4. Built core e-commerce functionality including product listings, variant selection, and shopping bag
+5. Integrated Cloudinary for media uploads and Stripe for secure payment processing
+6. Developed custom admin tools for product and order management
+7. Focused on accessibility, responsive design, and consistent branding across devices
+8. Completed manual and automated testing, final documentation, and deployed to Heroku
+
+Version control was managed using **Git** and **GitHub**, with regular, descriptive commits to track progress and maintain a clear development history.
+
 <a id="accessibility"></a>
 
 ### Accessibility
