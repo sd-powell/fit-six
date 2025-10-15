@@ -650,6 +650,96 @@ The entire footer layout is **fully responsive**, stacking and scaling appropria
 
 </details>
 
+<a id="home-features"></a>
+
+#### Home Page
+
+The home page serves as the **main landing experience** for the Fit Six Store, combining bold branding with intuitive navigation and conversion-focused sections. It is fully responsive, visually engaging, and structured into three key sections:
+
+---
+
+1. **Hero Section**
+   - A large, full-width **hero banner** introduces the site with the text:
+     - **"Official Fit Six Store"**
+     - Subheading: *"Shop apparel, supplements, accessories & class bundles"*
+   - Includes a prominent **"Shop Now"** button linking directly to the full product catalogue.
+   - Designed with high-contrast text and spacing to grab attention and drive users deeper into the site.
+
+---
+
+2. **Shop by Category**
+   - A four-column grid of **clickable category tiles**:
+     - **Apparel**
+     - **Supplements**
+     - **Accessories**
+     - **Class Bundles**
+   - Each tile uses a hover overlay and styled text for consistency and engagement.
+   - Provides quick access to filtered views within the product catalogue, streamlining the shopping experience.
+
+---
+
+3. **Newsletter Signup**
+   - A central, full-width section inviting users to **subscribe to the Fit Six newsletter**.
+   - Features a responsive form for email input and submission.
+   - Includes a short privacy disclaimer with a link to the **Privacy Policy**.
+   - This section supports future **marketing and engagement efforts** by growing the subscriber base.
+
+---
+
+Each section of the homepage is designed for **clarity, usability, and conversion**, helping users navigate the store, explore categories, and stay connected with the Fit Six brand.
+
+<details>
+<summary>Click to view the Fit Six home page</summary>
+
+![Fit Six Home Page](documentation/readme/surface_plane/features-home.webp)
+
+</details>
+
+<a id="home-features"></a>
+
+#### Home Page
+
+The home page serves as the **main landing experience** for the Fit Six Store, combining bold branding with intuitive navigation and conversion-focused sections. It is fully responsive, visually engaging, and structured into three key sections:
+
+---
+
+1. **Hero Section**
+   - A large, full-width **hero banner** introduces the site with the text:
+     - **"Official Fit Six Store"**
+     - Subheading: *"Shop apparel, supplements, accessories & class bundles"*
+   - Includes a prominent **"Shop Now"** button linking directly to the full product catalogue.
+   - Designed with high-contrast text and spacing to grab attention and drive users deeper into the site.
+
+---
+
+2. **Shop by Category**
+   - A four-column grid of **clickable category tiles**:
+     - **Apparel**
+     - **Supplements**
+     - **Accessories**
+     - **Class Bundles**
+   - Each tile uses a hover overlay and styled text for consistency and engagement.
+   - Provides quick access to filtered views within the product catalogue, streamlining the shopping experience.
+
+---
+
+3. **Newsletter Signup**
+   - A central, full-width section inviting users to **subscribe to the Fit Six newsletter**.
+   - Features a responsive form for email input and submission.
+   - Includes a short privacy disclaimer with a link to the **Privacy Policy**.
+   - This section supports future **marketing and engagement efforts** by growing the subscriber base.
+
+---
+
+Each section of the homepage is designed for **clarity, usability, and conversion**, helping users navigate the store, explore categories, and stay connected with the Fit Six brand.
+
+<details>
+<summary>Click to view the Fit Six home page</summary>
+
+![Fit Six Home Page](documentation/readme/surface_plane/features-home.webp)
+
+</details>
+
 <a id="dev-process"></a>
 
 ### Development Process
