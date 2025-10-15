@@ -580,6 +580,42 @@ All pages on the website include:
 
 If a user attempts to access a **restricted page** or perform an unauthorised action, they are redirected appropriately — usually to the login page or homepage — depending on the context. This approach enhances both **security** and **user experience** by clearly communicating boundaries and preventing system misuse or unexpected errors.
 
+<a id="navbar-features"></a>
+
+#### Navigation Bar
+
+The navigation bar is a **persistent and responsive component** positioned at the top of every page, designed to provide quick access to core site features and adapt fluidly to the user’s device and login state.
+
+It is structured into three key zones:
+
+1. **Left Section – Logo & Home Link**
+   - Displays the **Fit Six logo**, which doubles as a clickable link to the home page.
+   - Positioned for brand visibility and consistent user orientation.
+
+2. **Center Section – Category Navigation (Desktop)**
+   - A horizontal menu with links to key product categories (e.g., Clothing, Accessories, Bundles).
+   - On wider screens, this section provides instant access to filtered product views.
+
+3. **Right Section – Interactive Icons & User Controls**
+   - **Search Icon** – Triggers an overlay search bar for querying products site-wide.
+   - **User Account Icon** – Opens a dropdown menu with dynamic links based on authentication status:
+     - **Unauthenticated Users**: Login and Register.
+     - **Authenticated Users**: Profile, Order History, Logout.
+   - **Shopping Bag Icon** – Displays a real-time item count and links to the user's current basket.
+
+#### Responsive Behaviour
+
+- On **mobile devices**, the category navigation collapses into a **hamburger menu**, ensuring clean display and touch-friendly access.
+- The account and bag icons remain visible and accessible in all screen sizes.
+- All interactive elements include ARIA labels and focus states to support keyboard navigation and screen readers.
+
+<details>
+<summary>Click here to view the navigation bar</summary>
+
+![Fit Six Navigation Bar](documentation/readme/surface_plane/features-navbar.webp)
+
+</details>
+
 <a id="footer-features"></a>
 
 #### Footer
