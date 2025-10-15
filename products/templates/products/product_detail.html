@@ -116,13 +116,16 @@
 
                             <!-- Colour Dropdown -->
                             {% if colours %}
-                            <div class="col-12">
+                            <div class="col-12 position-relative w-50">
                                 <p><strong>Colour:</strong></p>
-                                <select class="form-control rounded-0 w-50" name="variant_colour" id="variant_colour">
-                                    {% for colour in colours %}
-                                        <option value="{{ colour }}">{{ colour|capfirst }}</option>
-                                    {% endfor %}
-                                </select>
+                                <div class="position-relative">
+                                    <select class="form-control rounded-0 pe-5" name="variant_colour" id="variant_colour">
+                                        {% for colour in colours %}
+                                            <option value="{{ colour }}">{{ colour|capfirst }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <i class="fas fa-chevron-down position-absolute top-50 end-0 translate-middle-y me-3 text-muted pointer-events-none"></i>
+                                </div>
                             </div>
                             {% endif %}
 
@@ -130,11 +133,14 @@
                             {% if sizes %}
                             <div class="col-12 mt-3">
                                 <p><strong>Size:</strong></p>
-                                <select class="form-control rounded-0 w-50" name="variant_size" id="variant_size">
-                                    {% for size in sizes %}
-                                        <option value="{{ size }}">{{ size|upper }}</option>
-                                    {% endfor %}
-                                </select>
+                                <div class="position-relative w-50">
+                                    <select class="form-control rounded-0 pe-5" name="variant_size" id="variant_size">
+                                        {% for size in sizes %}
+                                            <option value="{{ size }}">{{ size|upper }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <i class="fas fa-chevron-down position-absolute top-50 end-0 translate-middle-y me-3 text-muted pointer-events-none"></i>
+                                </div>
                             </div>
                             {% endif %}
 
@@ -166,7 +172,7 @@
                                 <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0">
                                     <i class="fas fa-chevron-left"></i> Keep Shopping
                                 </a>
-                                <input type="submit" class="btn btn-blue rounded-0 text-uppercase" value="Add to Bag">
+                                <input type="submit" class="btn btn-blue rounded-0 text-uppercase border border-primary" value="Add to Bag">
                             </div>
 
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">

@@ -489,6 +489,13 @@ body {
 
 /* Product Form */
 
+.input-group-prepend .btn,
+.input-group-append .btn {
+    border: 1px solid var(--highlight-blue);
+    background-color: var(--highlight-blue);
+    color: white;
+}
+
 .btn-file {
     position: relative;
     overflow: hidden;
