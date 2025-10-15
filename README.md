@@ -250,7 +250,7 @@ These wireframes served as the **visual foundation** for layout decisions throug
 
 <a id="mobile-frames"></a>
 
-#### **User Flow – Mobile Wireframes**
+#### **Mobile Wireframes - User Flow**
 
 <details>
 <summary> Click here to see the User Mobile Wireframes </summary>
@@ -259,7 +259,7 @@ These wireframes served as the **visual foundation** for layout decisions throug
 
 | Base Template | Home page | Sign up page |
 | :-----------: | :-------: | :-----------: |
-| ![Base template](documentation/readme/skeleton_plane/wireframe-mobile-base.webp) | ![Home](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![Sign up](documentation/readme/skeleton_plane/wireframe-mobile-signup.webp) |
+| ![Base Template](documentation/readme/skeleton_plane/wireframe-mobile-base.webp) | ![Home](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![Sign up](documentation/readme/skeleton_plane/wireframe-mobile-signup.webp) |
 
 #### **Authentication**
 
@@ -275,7 +275,7 @@ These wireframes served as the **visual foundation** for layout decisions throug
 
 | Product page | Product Detail | Checkout Success |
 |:------------:|:--------------:|:----------------:|
-| ![Product page](documentation/readme/skeleton_plane/wireframe-mobile-product.webp) | ![Payment Overlay](documentation/readme/skeleton_plane/wireframe-mobile-product-detail.webp) | ![Checkout Success](documentation/readme/skeleton_plane/wireframe-mobile-checkout-success.webp) |
+| ![Product Page](documentation/readme/skeleton_plane/wireframe-mobile-product.webp) | ![Product Detail](documentation/readme/skeleton_plane/wireframe-mobile-product-detail.webp) | ![Checkout Success](documentation/readme/skeleton_plane/wireframe-mobile-checkout-success.webp) |
 
 #### **Content & Legal Pages**
 
@@ -295,7 +295,7 @@ These wireframes served as the **visual foundation** for layout decisions throug
 
 </details>
 
-### **Admin Flow – Mobile Wireframes**
+#### **Mobile Wireframes - Admin Flow**
 
 <details>
 <summary>Click to view Admin Mobile Wireframes</summary>
@@ -303,6 +303,114 @@ These wireframes served as the **visual foundation** for layout decisions throug
 | Add Product | Edit Product | Product Management |
 |:-----------:|:------------:|:------------------:|
 | ![Add Product](documentation/readme/skeleton_plane/wireframe-mobile-add-product.webp) | ![Edit Product](documentation/readme/skeleton_plane/wireframe-mobile-edit-product.webp) | ![Product Management](documentation/readme/skeleton_plane/wireframe-mobile-admin-dashboard.webp) |
+
+</details>
+
+<br>
+<hr>
+
+<a id="desktop-frames"></a>
+
+#### **Desktop Wireframes - User Flow**
+
+<details>
+<summary> Click here to see the User Desktop Wireframes </summary>
+
+#### **Core Pages**
+
+- Base Template
+
+![Base Template](documentation/readme/skeleton_plane/wireframe-desktop-base.webp)
+
+- Home page
+
+![Home](documentation/readme/skeleton_plane/wireframe-desktop-home.webp)
+
+- Sign up page
+
+![Sign up](documentation/readme/skeleton_plane/wireframe-desktop-signup.webp)
+
+#### **Authentication**
+
+- Login page
+
+![Login](documentation/readme/skeleton_plane/wireframe-desktop-signin.webp)
+
+- Logout page
+
+![Logout](documentation/readme/skeleton_plane/wireframe-desktop-logout.webp)
+
+- Profile page
+
+![Profile](documentation/readme/skeleton_plane/wireframe-desktop-profile.webp)
+
+#### **Shopping Flow**
+
+- Bag page (Empty Bag)
+
+![Bag Empty](documentation/readme/skeleton_plane/wireframe-desktop-bag-empty.webp)
+
+- Bag page
+
+![Bag](documentation/readme/skeleton_plane/wireframe-desktop-bag.webp)
+
+- Checkout page
+![Checkout](documentation/readme/skeleton_plane/wireframe-desktop-checkout.webp)
+
+- Product page
+
+![Product Page](documentation/readme/skeleton_plane/wireframe-desktop-product.webp)
+
+- Product Detail
+
+![Product Detail](documentation/readme/skeleton_plane/wireframe-desktop-product-detail.webp)
+
+- Checkout Success
+
+![Checkout Success](documentation/readme/skeleton_plane/wireframe-desktop-checkout-success.webp)
+
+#### **Content & Legal Pages**
+
+- 404 Error
+
+![404 Error](documentation/readme/skeleton_plane/wireframe-desktop-404-error.webp)
+
+- Privacy Policy
+
+![Privacy Policy](documentation/readme/skeleton_plane/wireframe-desktop-privacy-policy.webp)
+
+- Terms & Conditions
+
+![Terms](documentation/readme/skeleton_plane/wireframe-desktop-terms.webp)
+
+- Contact Us
+
+![Contact Us](documentation/readme/skeleton_plane/wireframe-desktop-contact-us.webp)
+
+- Returns & Exchanges
+
+![Returns](documentation/readme/skeleton_plane/wireframe-desktop-returns.webp)
+
+- Shipping Policy
+
+![Shipping](documentation/readme/skeleton_plane/wireframe-desktop-shipping.webp) |
+
+#### **UI Feedback**
+
+- Toast Message
+
+![Toast Message](documentation/readme/skeleton_plane/wireframe-desktop-toast-message.webp)
+
+</details>
+
+#### **Desktop Wireframes - Admin Flow**
+
+<details>
+<summary>Click to view Admin Desktop Wireframes</summary>
+
+| Add Product | Edit Product | Product Management |
+|:-----------:|:------------:|:------------------:|
+| ![Add Product](documentation/readme/skeleton_plane/wireframe-desktop-add-product.webp) | ![Edit Product](documentation/readme/skeleton_plane/wireframe-desktop-edit-product.webp) | ![Product Management](documentation/readme/skeleton_plane/wireframe-desktop-admin-dashboard.webp) |
 
 </details>
 
