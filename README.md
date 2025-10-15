@@ -580,6 +580,40 @@ All pages on the website include:
 
 If a user attempts to access a **restricted page** or perform an unauthorised action, they are redirected appropriately — usually to the login page or homepage — depending on the context. This approach enhances both **security** and **user experience** by clearly communicating boundaries and preventing system misuse or unexpected errors.
 
+<a id="footer-features"></a>
+
+#### Footer
+
+The footer is a **shared component** displayed consistently across all pages, reinforcing navigation, brand identity, and accessibility.
+
+It is divided into four key sections:
+
+1. **Join Today** – A dedicated call-to-action section with links to:
+   - The official [Fit Six website](https://www.fitsix.co.uk)
+   - A mailto link for enquiries: [info@fitsix.co.uk](mailto:info@fitsix.co.uk)
+   - The gym's physical location, linking to [Google Maps](https://www.google.com/maps?q=Wales+1+Business+Park,+Magor+NP26+3DG)
+
+2. **Helpful Links** – Includes shortcut access to essential pages such as Contact Us, My Account, Returns & Exchanges and Shipping Policy. These links support faster navigation and adapt responsively for mobile users.
+
+3. **Social Links** – A “Follow Us” heading is followed by accessible, high-contrast icons linking to Fit Six’s social media profiles. These icons are designed for clarity and provide visual feedback on hover, ensuring usability on both desktop and mobile.
+
+4. **Footer Base** – Split into two aligned sections:
+   - **Left-aligned**: "Pay securely with" followed by card provider icons (e.g. Visa, Mastercard, Amex) showing accepted payment methods.
+   - **Right-aligned**: Legal navigation links to [Terms & Conditions](/terms/) and [Privacy Policy](/privacy/)
+
+The **final row** below the footer base displays:
+- **Left**: Copyright © 2025 Fit Six Gym. No orders will be fulfilled. Site created for educational use only.
+- **Right**: Developer credit with a link to the [GitHub repository](https://github.com/sd-powell)
+
+The entire footer layout is **fully responsive**, stacking and scaling appropriately to preserve readability and functionality across all devices.
+
+<details>
+<summary>Click here to view the footer</summary>
+
+![Fit Six Footer](documentation/readme/surface_plane/features-footer.webp)
+
+</details>
+
 <a id="dev-process"></a>
 
 ### Development Process
