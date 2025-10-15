@@ -912,6 +912,49 @@ Key features include:
 
 </details>
 
+<a id="features-order-success"></a>
+
+#### Order Success Page
+
+The **Order Success page** confirms a customer’s completed purchase, providing a professional and reassuring post‑checkout experience. It displays all relevant order details in a structured, easy‑to‑read layout and reinforces trust in the transaction process.
+
+Key features include:
+
+- **Order Confirmation Message**
+  - Prominent “Thank you for your order” heading confirms successful payment.
+  - A follow‑up message informs the user that a confirmation email has been sent to their registered email address.
+
+- **Detailed Order Summary**
+  - Lists each purchased product, including size, colour, quantity, and price.
+  - Displays the unique **Order Number** and **Order Date** for reference.
+  - Uses a clean, card‑style layout with subtle borders and spacing to enhance readability.
+
+- **Delivery Information**
+  - Shows the full shipping address and contact phone number provided during checkout.
+  - Conditionally displays optional address fields (Street Address 2, County, Postcode) only if provided.
+
+- **Billing Breakdown**
+  - Includes a full pricing summary showing:
+    - Order Total  
+    - Member Discount (if applicable)  
+    - Delivery Cost  
+    - Grand Total (clearly emphasised in bold)
+  - Member discounts appear in green to visually reinforce the benefit.
+
+- **Post‑Order Navigation**
+  - If the user accessed the checkout from their **profile page**, a “Back to Profile” button allows easy return to their account.
+  - Otherwise, users are presented with a **“Shop New Deals”** button linking directly to new arrivals, deals, or clearance categories.
+
+- **Responsive Design**
+  - Optimised for all devices, maintaining a clean and structured layout on mobile, tablet, and desktop.
+
+<details>
+<summary>Click here to view the Order Success page</summary>
+
+![Order Success](documentation/readme/surface_plane/features-order-success.webp)
+
+</details>
+
 <a id="dev-process"></a>
 
 ### Development Process
