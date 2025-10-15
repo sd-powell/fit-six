@@ -580,6 +580,331 @@ All pages on the website include:
 
 If a user attempts to access a **restricted page** or perform an unauthorised action, they are redirected appropriately — usually to the login page or homepage — depending on the context. This approach enhances both **security** and **user experience** by clearly communicating boundaries and preventing system misuse or unexpected errors.
 
+<a id="deployment-development"></a>
+
+## Deployment & Local Development
+
+<a id="deployment"></a>
+
+### Deployment
+
+The Fit Six project is deployed on **Heroku**, using a **PostgreSQL** database hosted via **Amazon RDS** for live data management and **Cloudinary** for secure storage and delivery of media files.
+
+#### **Create the Live Database**
+
+While `sqlite3` was used for local development, this is not suitable for production. Instead, a free-tier PostgreSQL database from Amazon AWS was used for deployment.
+
+1. Sign in to your [Amazon RDS Console](https://console.aws.amazon.com/rds/) and click **Create Database**.
+2. Select **Standard Create**, choose **PostgreSQL**, and select the **Free tier** template.
+3. Set a unique DB instance identifier, master username, and password.
+4. In the connectivity section, enable public access and ensure security group rules allow inbound connections from your IP.
+5. Launch the database and wait for the instance to become available.
+6. Once ready, copy the **Endpoint** and construct your `DATABASE_URL` in the following format:
+    ```
+    postgres://username:password@hostname:5432/dbname
+    ```
+
+#### **Heroku App Setup**
+
+1. In the [Heroku Dashboard](https://dashboard.heroku.com/), click **New** → **Create new app**.
+2. Name your app uniquely, select a region, and click **Create App**.
+3. Go to the **Settings** tab → **Reveal Config Vars** → Add:
+
+    - `DATABASE_URL`: paste your constructed PostgreSQL URL (no quotes)
+
+### Preparation for Deployment in VS Code (with PostgreSQL on AWS)
+
+1. **Install required packages**  
+   Install `dj_database_url` and `psycopg2` to enable Django to connect to an external PostgreSQL database:
+
+   ```bash
+   pip3 install dj_database_url==0.5.0 psycopg2
+   ```
+
+2. **Freeze dependencies**  
+   Save the installed packages to your `requirements.txt`:
+
+   ```bash
+   pip3 freeze > requirements.txt
+   ```
+
+3. **Update `settings.py`**  
+   Add the following import near the top of `settings.py`:
+
+   ```python
+   import dj_database_url
+   ```
+
+4. **Temporarily connect to AWS PostgreSQL**  
+   In `settings.py`, comment out the default `DATABASES` block and add the following (replace with your actual AWS RDS connection string):
+
+   > **This is temporary and should NOT be pushed to GitHub.**
+
+   ```python
+   DATABASES = {
+       'default': dj_database_url.parse('your-aws-rds-db-url-here')
+   }
+   ```
+
+5. **Test connection**  
+   Run the server to confirm the connection works:
+
+   ```bash
+   python3 manage.py runserver
+   ```
+
+6. **Apply migrations to AWS**  
+   If successful, migrate your models to the new external database:
+
+   ```bash
+   python3 manage.py migrate
+   ```
+
+7. **Create a superuser**  
+   Set up admin access on the new database:
+
+   ```bash
+   python3 manage.py createsuperuser
+   ```
+
+8. **Switch between local and external DB automatically**  
+   Replace the temporary block in `settings.py` with the following conditional logic:
+
+   ```python
+   if 'DATABASE_URL' in os.environ:
+       DATABASES = {
+           'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+       }
+   else:
+       DATABASES = {
+           'default': {
+               'ENGINE': 'django.db.backends.sqlite3',
+               'NAME': BASE_DIR / 'db.sqlite3',
+           }
+       }
+   ```
+
+9. **Install Gunicorn**  
+   Add Gunicorn to serve your Django app in production:
+
+   ```bash
+   pip3 install gunicorn
+   pip3 freeze > requirements.txt
+   ```
+
+10. **Create a `Procfile`**  
+    In the root of your project, create a file named `Procfile` with the following line (no extension, no blank line below):
+
+    ```Procfile
+    web: gunicorn your_project_name.wsgi:application
+    ```
+
+    > Replace `your_project_name` with your actual Django project folder name (the one containing `settings.py`).
+
+11. **Disable collectstatic on Heroku (for now)**  
+    Prevent Heroku from trying to collect static files during deployment:
+
+    ```bash
+    heroku config:set DISABLE_COLLECTSTATIC=1 --app your-heroku-app-name
+    ```
+
+12. **Update allowed hosts**  
+    In `settings.py`, update `ALLOWED_HOSTS` to include Heroku and local development:
+
+    ```python
+    ALLOWED_HOSTS = ['your-app-name.herokuapp.com', 'localhost']
+    ```
+
+13. **Commit and push changes**  
+    Save all changes, commit, and push to GitHub:
+
+    ```bash
+    git add .
+    git commit -m "Prepare for Heroku deployment with AWS DB"
+    git push origin main
+    ```
+
+14. **Connect to Heroku Git and deploy**  
+    Link your repo and deploy:
+
+    ```bash
+    heroku git:remote -a your-heroku-app-name
+    git push heroku main
+    ```
+
+15. **Verify deployment**  
+    Your site should now be live (without static files). Re-enable collectstatic and confirm static assets are served correctly.
+
+16. **Enable automatic deploys**  
+    Go to your Heroku app’s **Deploy** tab:
+    - Connect your GitHub repo
+    - Click **Enable Automatic Deploys**
+
+#### **Generating a Secure SECRET_KEY & Configuring DEBUG Settings**
+
+1. When a Django project is created, it includes a default `SECRET_KEY`. However, using this default in production poses a security risk. Instead, generate a new secure key specifically for deployment and store it safely.
+
+2. Use a tool like the [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/) to create a strong, random key. Copy the generated key.
+
+3. In your Heroku dashboard, navigate to the app’s **Settings** tab and add a new Config Var:
+   - **Key**: `SECRET_KEY`
+   - **Value**: Paste your newly generated secret key
+
+4. In your `settings.py`, update the `SECRET_KEY` definition to retrieve the value securely from the environment:
+
+    ```python
+    SECRET_KEY = os.environ.get('SECRET_KEY', ' ')
+    ```
+
+5. Update the `DEBUG` setting so it is only enabled during development:
+
+    ```python
+    DEBUG = 'DEVELOPMENT' in os.environ
+    ```
+
+6. Save your changes, then add, commit, and push them to your repository:
+
+    ```bash
+    git add .
+    git commit -m "Configure SECRET_KEY and DEBUG for secure deployment"
+    git push origin main
+    ```
+
+#### **Set Up Cloudinary for Media File Storage**
+
+To handle media files (such as record cover images), this project uses [Cloudinary](https://cloudinary.com/), a cloud-based image and video management service.
+
+---
+
+1. Create a Cloudinary Account
+
+- Go to [cloudinary.com](https://cloudinary.com/) and sign up for a free account.
+- After logging in, navigate to the **Dashboard**.
+- Copy your **Cloud name**, **API Key**, and **API Secret** – you'll need these for your environment variables.
+
+2. Install Required Packages
+
+    Install the required Python packages using pip:
+    ```bash
+    pip3 install cloudinary django-cloudinary-storage
+    ```
+
+    Then update your requirements.txt:
+    ```
+    pip3 freeze > requirements.txt
+    ```
+
+3. Configure Cloudinary in Django
+
+    In your settings.py, add the following:
+
+    Add to INSTALLED_APPS:
+    ```python
+    INSTALLED_APPS = [
+        ...
+        'cloudinary',
+        'cloudinary_storage',
+        ...
+    ]
+    ```
+
+    Configure the default file storage:
+    ```Python
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    ```
+
+    Add your Cloudinary credentials:
+
+    These will be pulled from environment variables for security:
+    ```python
+    import cloudinary
+    import cloudinary.uploader
+    import cloudinary.api
+
+    CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+        'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+        'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
+    }
+    ```
+
+4. Set Config Vars in Heroku
+
+    Go to your app on Heroku, open the Settings tab, and add the following Config Vars:
+
+    ```python
+    CLOUDINARY_CLOUD_NAME = your_cloud_name
+    CLOUDINARY_API_KEY = your_api_key
+    CLOUDINARY_API_SECRET = your_api_secret
+    ```
+
+5. Use CloudinaryField in Your Models
+
+    Your Record model (or any other models needing media upload) should use:
+
+    ```python
+    from cloudinary.models import CloudinaryField
+
+    cover_image = CloudinaryField('image', blank=True, null=True)
+    ```
+
+Cloudinary will now automatically handle image storage, optimization, and delivery via CDN.
+
+<a id="local-development"></a>
+
+## Local Development
+
+To run this project locally, you will need to fork and clone the repository, then install the required dependencies in a virtual environment.
+
+---
+
+<a id="fork"></a>
+
+#### How to Fork
+
+To create a personal copy of this repository:
+
+1. Log in (or sign up) to [GitHub](https://github.com/).
+2. Navigate to the repository: [sd-powell/fit-six](https://github.com/sd-powell/fit-six).
+3. Click the **Fork** button in the top-right corner of the page.
+
+---
+
+<a id="clone"></a>
+
+#### How to Clone
+
+To clone your forked repository:
+
+1. Log in to [GitHub](https://github.com/).
+2. Go to the repository for this project, [sd-powell/fit-six](https://github.com/sd-powell/fit-six).
+3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+4. Open the terminal in your code editor and change the current working directory to the location where you want to clone the repository.
+5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
+6. Set up a **virtual environment** by running:
+
+    ```bash
+    python3 -m venv env
+    ```
+
+7. Activate the virtual environment:
+    - On **macOS/Linux**:  
+      ```bash
+      source env/bin/activate
+      ```
+    - On **Windows**:  
+      ```bash
+      env\Scripts\activate
+      ```
+
+8. Install the required packages from `requirements.txt` by running:
+
+    ```bash
+    pip3 install -r requirements.txt
+    ```
+
+---
+
 <a id="technologies"></a>
 
 ## Technologies Used
