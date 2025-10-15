@@ -871,6 +871,47 @@ Key features include:
 
 </details>
 
+<a id="features-checkout"></a>
+
+#### Checkout Page
+
+The Checkout page provides a secure, user-friendly interface for completing purchases. It is split into two responsive columns: the **Order Summary** and the **Checkout Form**.
+
+Key features include:
+
+- **Order Summary Panel**
+  - Displays a list of all items in the shopping bag, including variant information (size and colour), quantity, and individual subtotals.
+  - Shows calculated totals for bag, delivery, and final grand total.
+  - **Member discount** is conditionally displayed and subtracted from the total if applicable.
+
+- **Checkout Form**
+  - Includes structured fieldsets for:
+    - **Customer Details** (Name and Email)
+    - **Delivery Information** (Address, Postcode, Country, etc.)
+    - **Payment Information**, powered by **Stripe Elements** for secure card entry.
+  - Fields are rendered using **Crispy Forms** for clean, accessible form layouts.
+  - Authenticated users can save their delivery information to their profile; unauthenticated users are prompted to sign up or log in.
+  - The form uses a **client_secret** from Stripe to securely handle payment confirmation on the front end.
+
+- **Security & UX Enhancements**
+  - A prominent **"Complete Order"** button with lock icon reinforces trust and security.
+  - The page includes a **dynamic loading overlay** with a spinning dumbbell icon during payment processing.
+  - Validation messages for card errors are clearly displayed above the submit button.
+
+- **Navigation Aids**
+  - A clear **"Adjust Bag"** button allows users to go back and make changes without losing their entered info.
+  - Totals are reiterated just below the submit button to prevent surprises at checkout.
+
+- **Fully Responsive Design**
+  - The layout adjusts for mobile and desktop, maintaining a clean and intuitive experience on all devices.
+
+<details>
+<summary>Click here to view the checkout page</summary>
+
+![Checkout Page](documentation/readme/surface_plane/features-checkout.webp)
+
+</details>
+
 <a id="dev-process"></a>
 
 ### Development Process
