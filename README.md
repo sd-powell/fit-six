@@ -580,8 +580,15 @@ All pages on the website include:
 
 If a user attempts to access a **restricted page** or perform an unauthorised action, they are redirected appropriately — usually to the login page or homepage — depending on the context. This approach enhances both **security** and **user experience** by clearly communicating boundaries and preventing system misuse or unexpected errors.
 
+<a id="content"></a>
 
+## Content
 
+The content displayed throughout the site is based on real-world products, services, and branding provided by Fit Six Gym, with kind permission from owner Sam Watson.
+
+Product names, descriptions, categories, and pricing were either adapted from real items or created to reflect a realistic online store experience for a fitness-focused audience.
+
+All other written content — including UI text, labels, instructions, button copy, and page descriptions — was written by me to support the site’s structure, tone, and user experience goals.
 
 <a id="media"></a>
 
