@@ -580,6 +580,18 @@ All pages on the website include:
 
 If a user attempts to access a **restricted page** or perform an unauthorised action, they are redirected appropriately — usually to the login page or homepage — depending on the context. This approach enhances both **security** and **user experience** by clearly communicating boundaries and preventing system misuse or unexpected errors.
 
+<a id="development-tools"></a>
+
+### Development & Deployment
+
+- [Heroku](https://www.heroku.com/) – Cloud platform used to deploy the final version of the application.
+- [Cloudinary](https://cloudinary.com/) – Used to host and deliver user-uploaded images.
+- [Git](https://git-scm.com/) – Used for version control throughout development.
+- [GitHub](https://github.com/) – Repository hosting and collaboration platform.
+- [Pip](https://pypi.org/project/pip/) – Python package manager used to install project dependencies.
+- [Visual Studio Code](https://code.visualstudio.com/) – Primary code editor used for writing and debugging code.
+- [Google Fonts](https://fonts.google.com/) – Used to integrate custom typography into the UI.
+- [Font Awesome](https://fontawesome.com/) – Icon library used to enhance visual elements across the interface.
 
 <a id="testing-tools"></a>
 
