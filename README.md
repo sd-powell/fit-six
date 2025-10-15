@@ -828,6 +828,49 @@ The product detail page provides users with **clear, engaging product informatio
 
 </details>
 
+<a id="features-bag"></a>
+
+#### Shopping Bag
+
+The Shopping Bag page allows users to review, update, and manage the items they intend to purchase. It supports both mobile and desktop layouts with responsive design, dynamic functionality, and enhanced user experience.
+
+Key features include:
+
+- **Dual Layouts for Mobile and Desktop**
+  - On mobile, items are displayed in a vertical stack with subtotals and checkout buttons placed prominently at the top for easy access.
+  - On desktop, items are arranged in a table with clearly defined columns for product image, name, price, quantity, and subtotal.
+
+- **Product Variants Display**
+  - For items with size and colour variants, a dynamic display shows the selected options in a readable format using Django template filters.
+
+- **Dynamic Quantity Updates**
+  - JavaScript-powered plus/minus buttons allow users to adjust item quantities within the allowed range (1–99).
+  - Quantity changes are auto-submitted in real-time, eliminating the need for an "Update Basket" button.
+
+- **Remove Item Functionality**
+  - Users can remove an item from their bag with a single click. This triggers an AJAX `POST` request to remove the item and refresh the page dynamically without a full reload.
+
+- **Member Discount Integration**
+  - Logged-in members automatically receive a **10% discount** at checkout.
+  - The discount is displayed in the bag total summary and recalculated dynamically based on the user’s membership status.
+
+- **Basket Totals and Checkout Buttons**
+  - Both layouts prominently display the total cost and delivery information.
+  - Clear checkout buttons guide users towards the next step in the purchasing process.
+
+- **Empty Bag State**
+  - If no items are present, the user is shown a friendly message and a "Keep Shopping" button, maintaining a positive user experience.
+
+- **Responsive & Accessible Design**
+  - The layout adapts cleanly across screen sizes and uses semantic HTML, clear labels, and accessible controls throughout.
+
+<details>
+<summary>Click here to view the shopping bag</summary>
+
+![Shopping Bag](documentation/readme/surface_plane/features-bag.webp)
+
+</details>
+
 <a id="dev-process"></a>
 
 ### Development Process
