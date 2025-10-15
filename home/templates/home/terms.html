@@ -1,0 +1,121 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block extra_title %} - Terms & Conditions{% endblock %}
+
+{% block extra_meta %}
+    <meta name="description" content="Fit Six - Terms and Conditions. Information on the terms & conditions for Fit Six, the official online store for gym apparel, accessories, supplements, and class bundles.">
+    <meta name="keywords" content="terms and conditions, Fit Six, gym wear, supplements, accessories, e-commerce, fitness shop, online store, gym clothing, protein, workout gear">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Fit Six - Terms & Conditions">
+    <meta property="og:description" content="Fit Six - Terms and Conditions. Information on the terms & conditions for Fit Six, the official online store for gym apparel, accessories, supplements, and class bundles.">
+    <meta name="image" property="og:image" content="{% static 'images/responsive-site-image.png' %}">
+    <meta property="og:image:alt" content="Fit Six ecommerce store shown on a variety of devices, from mobile to desktop">
+    <meta property="og:url" content="https://fitsix.herokuapp.com/terms">
+    <meta property="og:site_name" content="Fit Six - Terms & Conditions">
+{% endblock %} 
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col text-center">
+            <h1 class="display-5 fw-bold text-uppercase border-bottom pb-3 mb-4">Terms & Conditions</h1>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 col-xl-9">
+
+            <div class="alert alert-secondary small rounded-2 mb-4">
+                <p class="mb-0">
+                    <strong>Note:</strong> Fit Six has been created by 
+                    <a href="https://github.com/sd-powell" target="_blank" class="link-dark text-decoration-underline">Steven Powell</a> 
+                    as an educational project for the Level 5 Diploma in Web Application Development. 
+                    This is a fictional e-commerce site — <strong>no real orders will be processed.</strong>
+                </p>
+            </div>
+
+            <ul class="mb-5">
+                <li>By using this site or placing an order, you agree to the following Terms & Conditions.</li>
+                <li>Please read them carefully and contact us if you have any questions.</li>
+            </ul>
+
+            <h4 class="fw-bold text-uppercase mt-4">Application</h4>
+            <ul>
+                <li>These terms apply to purchases made by you (the <strong>Customer</strong>) from Fit Six, operated by Steven Powell (<strong>Supplier</strong>).</li>
+                <li>Orders may only be placed by individuals aged 18 or over who are legally able to enter into a contract.</li>
+            </ul>
+
+            <h4 class="fw-bold text-uppercase mt-4">Interpretation</h4>
+            <ul>
+                <li><strong>Consumer</strong> – A person buying goods for personal use.</li>
+                <li><strong>Goods</strong> – Products listed on this site, including apparel, supplements, accessories, and digital class bundles.</li>
+                <li><strong>Order</strong> – Your request to purchase Goods via the website.</li>
+                <li><strong>Privacy Policy</strong> – See our <a class="text-decoration-underline" href="{% url 'privacy' %}">Privacy Policy</a> for details on how your data is handled.</li>
+                <li><strong>Website</strong> – Refers to <a href="https://fitsix.herokuapp.com" class="link-dark text-decoration-underline" target="_blank">https://fitsix.herokuapp.com</a>.</li>
+            </ul>
+
+            <h4 class="fw-bold text-uppercase mt-4">Goods</h4>
+            <ul>
+                <li>Images are for reference only and minor variations may occur.</li>
+                <li>Products are subject to availability. If something is out of stock, we’ll let you know promptly.</li>
+                <li>We may update or substitute products for safety or quality improvements.</li>
+            </ul>
+
+            <h4 class="fw-bold text-uppercase mt-4">Personal Information</h4>
+            <ul>
+                <li>Your personal data is handled according to our <a class="text-decoration-underline" href="{% url 'privacy' %}">Privacy Policy</a>.</li>
+                <li>We may contact you via email for order confirmations and updates.</li>
+            </ul>
+
+            <h4 class="fw-bold text-uppercase mt-4">Price & Payment</h4>
+            <ul>
+                <li>Prices are in GBP (£) and include VAT where applicable.</li>
+                <li>Secure payments are handled via <strong>Stripe</strong>. We never store your card details.</li>
+                <li>Orders are processed once payment is complete.</li>
+            </ul>
+
+            <h4 class="fw-bold text-uppercase mt-4">Delivery</h4>
+            <ul>
+                <li>We aim to deliver your items within the timeframe shown at checkout.</li>
+                <li>Shipping is limited to UK addresses.</li>
+                <li>Ownership passes upon payment. Risk transfers upon delivery.</li>
+            </ul>
+
+            <h4 class="fw-bold text-uppercase mt-4">Returns & Refunds</h4>
+            <ul>
+                <li>You may return unworn/unused items within 14 days.</li>
+                <li>Supplements, opened hygiene products, or redeemed class credits are non-returnable.</li>
+                <li>Refunds are processed within 14 days of receiving returned items.</li>
+            </ul>
+
+            <h4 class="fw-bold text-uppercase mt-4">Privacy</h4>
+            <ul>
+                <li>We comply with UK GDPR and the Data Protection Act 2018.</li>
+                <li>Your data is only used for order processing and site improvement.</li>
+                <li>Contact us for data-related queries via the <a class="text-decoration-underline" href="{% url 'contact' %}">Contact page</a>.</li>
+            </ul>
+
+            <h4 class="fw-bold text-uppercase mt-4">Liability</h4>
+            <ul>
+                <li>Fit Six is not liable for any indirect loss arising from your use of the website or our products.</li>
+                <li>Our total liability is limited to the value of your order.</li>
+                <li>This does not affect your statutory rights.</li>
+            </ul>
+
+            <h4 class="fw-bold text-uppercase mt-4">Governing Law</h4>
+            <ul>
+                <li>These terms are governed by the laws of England and Wales.</li>
+                <li>Disputes shall be resolved by the courts of England and Wales.</li>
+                <li>We aim to resolve complaints fairly. Please <a class="text-decoration-underline" href="{% url 'contact' %}">contact us</a> if you have any issues.</li>
+            </ul>
+
+            <p class="mt-5 small text-muted">
+                Last updated: <time datetime="2025-10-15">15 October 2025</time> by Steven Powell.
+            </p>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -281,7 +281,7 @@ These wireframes served as the **visual foundation** for layout decisions throug
 
 | 404 Error | Privacy Policy | Terms & Conditions |
 |:---------:|:--------------:|:------------------:|
-| ![404 Error](documentation/readme/skeleton_plane/wireframe-mobile-404-error.webp) | ![Privacy Policy](documentation/readme/skeleton_plane/wireframe-mobile-privacy-policy.webp) | ![Terms](documentation/readme/skeleton_plane/wireframe-mobile-terms.webp) |
+| ![404 Error](documentation/readme/skeleton_plane/wireframe-mobile-404-error.webp) | ![Privacy Policy](documentation/readme/skeleton_plane/wireframe-mobile-privacy.webp) | ![Terms](documentation/readme/skeleton_plane/wireframe-mobile-terms.webp) |
 
 | Contact Us | Returns & Exchanges | Shipping Policy |
 |:----------:|:-------------------:|:----------------:|
@@ -952,6 +952,44 @@ Key features include:
 <summary>Click here to view the Order Success page</summary>
 
 ![Order Success](documentation/readme/surface_plane/features-order-success.webp)
+
+</details>
+
+<a id="features-profile"></a>
+
+#### Profile Page
+
+The **Profile Page** provides logged-in users with a central hub to manage their delivery details and view past orders. It streamlines the post-purchase experience and encourages repeat engagement by making reordering simple.
+
+Key features include:
+
+- **Update Default Delivery Information**
+  - A clean, form-based section allows users to view and update their saved delivery details, including name, address, and phone number.
+  - Uses Django **Crispy Forms** for consistent styling and accessibility across all inputs.
+  - On successful checkout, users can opt to save their delivery info — which automatically populates this profile form for future purchases.
+
+- **Order History Table**
+  - Displays a list of all previous orders placed by the logged-in user.
+  - For each order, the table shows:
+    - A truncated **Order Number** (with link to view full order details)
+    - **Date** of purchase
+    - A concise list of **items**, including size, colour, and quantity
+    - **Grand Total** of the order
+  - Responsive layout ensures mobile users can easily scroll and access order info.
+
+- **Revisit Order Details**
+  - Clicking an Order Number opens the [Order Success page](#features-order-success) for that specific order, allowing users to review past purchases, confirm delivery details, or reorder items.
+
+- **Empty State Handling**
+  - If a user has not placed any orders, the table displays a friendly “No orders yet” message to avoid dead space.
+
+- **JavaScript Enhancement**
+  - Includes the custom `countryfield.js` script to handle country dropdown interactivity and consistent selection when updating address fields.
+
+<details>
+<summary>Click here to view the Profile Page</summary>
+
+![Profile Page](documentation/readme/surface_plane/features-profile.webp)
 
 </details>
 
