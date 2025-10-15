@@ -794,6 +794,40 @@ The overall experience prioritises usability, accessibility, and visual consiste
 
 </details>
 
+#### Product Detail Page
+
+The product detail page provides users with **clear, engaging product information** and an intuitive way to select product variants and add items to their shopping bag.
+
+#### Key Features:
+- **Hero Section (Left Column)**  
+  Displays responsive product images — front and back — using a **carousel on mobile** and a **stacked layout on desktop**. These dynamically pull from the selected product variant.
+
+- **Product Information (Right Column)**  
+  Includes product name, price (based on the first available variant), category tag, and a clear product description.
+
+- **Admin Controls**  
+  If the user is an admin, **Edit** and **Delete** buttons appear for product management.
+
+- **Variant Selection**  
+  Users can choose product **colour** and **size** via dropdowns with subtle visual indicators (custom chevron icon). Dropdowns are styled for accessibility and mobile clarity.
+
+- **Quantity Controls**  
+  A custom-styled input with increment/decrement buttons lets users easily adjust the quantity (range 1–99). The logic ensures disabled states for out-of-range values and auto-submits when changed.
+
+- **Add to Bag Form**  
+  Contains both **“Add to Bag”** and **“Keep Shopping”** buttons for smooth navigation. The Add to Bag button uses consistent **blue branding**.
+
+- **Form Handling**  
+  The form includes CSRF protection and dynamically redirects users back to the current page after submission.
+
+#### Screenshot  
+<details>
+<summary>Click to view the Product Detail Page</summary>
+
+![Fit Six product detail page](documentation/readme/surface_plane/features-product-detail.webp)
+
+</details>
+
 <a id="dev-process"></a>
 
 ### Development Process
