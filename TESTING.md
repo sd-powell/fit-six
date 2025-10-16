@@ -63,6 +63,23 @@ The [W3C Markup Validation Service](https://validator.w3.org/) was used to check
 
 This ensured the final output — as seen by users and browsers — conformed to HTML5 and CSS3 standards.
 
+| Page Tested              | Result | Evidence |
+|--------------------------|--------|----------|
+| Home                     | Pass   | [Home Page Validation](documentation/testing/validation/w3c-home.webp) |
+| Products (All)           | Pass   | [Products Page Validation](documentation/testing/validation/w3c-products.webp) |
+| Product Detail           | Pass   | [Product Detail Validation](documentation/testing/validation/w3c-product-detail.webp) |
+| Shopping Bag             | Pass   | [Bag Page Validation](documentation/testing/validation/w3c-bag.webp) |
+| Checkout                 | Pass   | [Checkout Page Validation](documentation/testing/validation/w3c-checkout.webp) |
+| Checkout Success         | Pass   | [Checkout Success Validation](documentation/testing/validation/w3c-checkout-success.webp) |
+| User Profile             | Pass   | [Profile Page Validation](documentation/testing/validation/w3c-profile.webp) |
+| Terms & Conditions       | Pass   | [Terms Page Validation](documentation/testing/validation/w3c-terms.webp) |
+| Privacy Policy           | Pass   | [Privacy Policy Validation](documentation/testing/validation/w3c-privacy.webp) |
+| Shipping Policy          | Pass   | [Shipping Page Validation](documentation/testing/validation/w3c-shipping.webp) |
+| 400 Error Page           | Pass   | [400 Page Validation](documentation/testing/validation/w3c-400.webp) |
+| 403 Error Page           | Pass   | [403 Page Validation](documentation/testing/validation/w3c-403.webp) |
+| 404 Error Page           | Pass   | [404 Page Validation](documentation/testing/validation/w3c-404.webp) |
+| 500 Error Page           | Pass   | [500 Page Validation](documentation/testing/validation/w3c-500.webp) |
+
 ---
 
 <a id="css-validation"></a>
@@ -134,6 +151,26 @@ The automated test suite was planned and executed to cover the following key are
 - **Model logic** tested to confirm automatic `UserProfile` creation via Django signals, correct string representation, field defaults, and update persistence  
 - **Form logic** tested to verify field validation, placeholder and CSS class rendering, autofocus behavior, and label suppression in `UserProfileForm`  
 - **App configuration** verified to ensure proper `AppConfig` registration and name resolution
+
+
+#### Tools Used
+
+| Tool | Purpose |
+| ---- | ------- |
+| Django TestCase | Core unit and integration test framework |
+| Client() | Simulates authenticated and anonymous users |
+| coverage.py | Measures line and branch coverage |
+| htmlcov/ | Visual review of missed lines and test quality |
+
+#### Test Files
+
+| File Name | Contents | 
+| ---- | ------- |
+| tests_forms_record.py | RecordForm validation and required field logic |
+| tests_forms_track.py | TrackForm validation, optional fields, and data types |
+| tests_forms_signup.py | Signup logic and first/last name persistence |
+| tests_views.py | All key views covered including CRUD and 404 |
+| tests_admin.py | Admin thumbnail image rendering logic |
 
 --
 <a id="manual-testing"></a>

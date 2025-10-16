@@ -5,24 +5,32 @@
 <html lang="en">
   <head>
 
+    <!-- Meta Tags -->
     {% block meta %}
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Allows support of older ie versions & eliminates HTML validation errors-->
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="copyright" content="Fit Six">
+      <meta name="Classification" content="Business">
+      <meta name="owner" content="Steve Powell">
     {% endblock %}
 
     {% block extra_meta %}
     {% endblock %}
 
+    <!-- Stylesheets -->
     {% block corecss %}
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap" />
-      <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
+      <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extra_css %}
     {% endblock %}
 
+    <!-- Scripts -->
+    <!-- Placed in the head so they load as early as possible -->
     {% block corejs %}
       <script src="https://kit.fontawesome.com/357186c75c.js" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
@@ -41,7 +49,7 @@
   <body class="d-flex flex-column min-vh-100 {% block body_class %}{% endblock %}">
     <header class="fixed-top p-0 m-0 bg-black">
       <div class="max-width-1600">
-        <nav role="navigation" aria-label="Main navigation">
+        <nav aria-label="Main navigation">
 
           {# Desktop navigation #}
           {% include 'includes/desktop-nav.html' %}
@@ -59,6 +67,7 @@
       <div class="d-block d-lg-none keyline"></div>  {# Mobile only #}
     </header>
 
+    <!-- Messages / Toasts -->
     {% if messages %}
     <div class="message-container">
     {% for message in messages %}

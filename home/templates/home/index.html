@@ -3,6 +3,23 @@
 
 {% block body_class %}bg-white{% endblock %}
 
+{% block extra_title %} - Home{% endblock %}
+
+{% block extra_meta %}
+    <!-- Descriptive Meta for SEO -->
+    <meta name="description" content="Official Fit Six Gym store. Shop premium fitness apparel, supplements, accessories, and class bundles. Designed for training, performance and recovery.">
+    <meta name="keywords" content="Fit Six, gym clothing, supplements, fitness gear, gym classes, performance wear">
+
+    <!-- Social Media Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Fit Six - Official Gym Store">
+    <meta property="og:description" content="Shop gym wear, supplements, accessories, and class bundles at the official Fit Six store.">
+    <meta property="og:image" content="/static/images/fitsix-logo.svg">
+    <meta property="og:image:alt" content="Fit Six ecommerce store shown on a variety of devices, from mobile to desktop">
+    <meta property="og:url" content="https://fitsix.herokuapp.com">
+    <meta property="og:site_name" content="Fit Six">
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">

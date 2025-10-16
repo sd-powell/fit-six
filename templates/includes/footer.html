@@ -1,7 +1,7 @@
 {% load static %}
 
 {# Footer content reused across all pages for consistency #}
-<footer class="bg-black text-white" role="contentinfo">
+<footer class="bg-black text-white">
     <div class="max-width-1600 pt-5 pb-4 px-5">
     <!-- Top Section: 3 Columns -->
     <div class="row text-start">
@@ -59,7 +59,7 @@
 
     <!-- Fit Six Logo Row (above payment/legal section) -->
     <div class="d-flex justify-content-end">
-        <img src="{% static 'images/fitsix-logo.svg' %}" alt="Fit Six logo" class="footer-logo" />
+        <img src="{% static 'images/fitsix-logo.svg' %}" alt="Fit Six logo" class="footer-logo">
     </div>
 
     <!-- Bottom Section: Payment + Legal -->
@@ -70,20 +70,20 @@
         
         <div class="d-flex align-items-center" aria-labelledby="payment-label">
             <span class="me-3 mb-0">Pay securely with</span>
-            <ul class="list-inline fs-6 mb-0" role="list">
-            <li class="list-inline-item" role="listitem">
+            <ul class="list-inline fs-6 mb-0">
+            <li class="list-inline-item">
                 <i class="fab fa-cc-visa" aria-hidden="true"></i>
                 <span class="visually-hidden">Visa</span>
             </li>
-            <li class="list-inline-item" role="listitem">
+            <li class="list-inline-item">
                 <i class="fab fa-cc-mastercard" aria-hidden="true"></i>
                 <span class="visually-hidden">Mastercard</span>
             </li>
-            <li class="list-inline-item" role="listitem">
+            <li class="list-inline-item">
                 <i class="fab fa-cc-amex" aria-hidden="true"></i>
                 <span class="visually-hidden">American Express</span>
             </li>
-            <li class="list-inline-item" role="listitem">
+            <li class="list-inline-item">
                 <i class="fab fa-cc-discover" aria-hidden="true"></i>
                 <span class="visually-hidden">Discover</span>
             </li>
