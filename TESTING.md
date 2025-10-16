@@ -346,6 +346,14 @@ To support users with visual impairments, all key colour combinations (text, but
 
 In addition, form labels, alt attributes, and ARIA roles were reviewed to improve screen reader compatibility and keyboard accessibility.
 
+| Foreground colour | Background colour | Screenshot | Testing results |
+| :-----------------: | :-----------------: | :---------------: | :---------------: |
+| `#1739FD`         | `#000000`         | ![Screenshot1](documentation/testing/accessibility/testing-webaim-1.webp)| ⛔️ Fail on normal text <br> ✅  Pass on larger text and graphics |
+| `#1739FD`         | `#ffffff`         | ![Screenshot1](documentation/testing/accessibility/testing-webaim-2.webp)| ✅ Pass |
+| `#000000`         | `#dddddd`         | ![Screenshot1](documentation/testing/accessibility/testing-webaim-3.webp)| ✅ Pass |
+| `#dc3545`         | `#ffffff`         | ![Screenshot1](documentation/testing/accessibility/testing-webaim-4.webp)| ✅ Pass |
+| `#198754`         | `#ffffff`         | ![Screenshot1](documentation/testing/accessibility/testing-webaim-5.webp)| ✅ Pass |
+
 ---
 
 <a id="user-story-testing"></a>
