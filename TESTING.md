@@ -465,6 +465,29 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 | **Newsletter Signup - No Input** | Inline browser validation prevents submission | Clicked submit without entering email | Browser showed “Please fill in this field” | ✅ Pass |
 | **Newsletter Signup - Blank Space** | Inline browser validation prevents submission | Entered space and clicked submit | Browser showed “Please fill in this field” | ✅ Pass |
 
+### Footer - (`base.html`)
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| **Fit Six Website Link (Join Today section)** | Opens official Fit Six website in new tab (`https://www.fitsix.co.uk`) | Clicked on **www.fitsix.co.uk** link | Fit Six website opened in a new browser tab | ✅ Pass |
+| **Email Link (Join Today section)** | Opens default mail client with `mailto:info@fitsix.co.uk` | Clicked **info@fitsix.co.uk** link | Default mail client opened with address prefilled | ✅ Pass |
+| **Address Link (Join Today section)** | Opens Google Maps location in new tab (`https://maps.google.com/?q=Wales+1+Business+Park,+Magor+NP26+3DG`) | Clicked on **Fit Six address** link | Google Maps opened in a new browser tab | ✅ Pass |
+| **Shipping Policy Link (Helpful Links)** | Navigates to `/shipping` | Clicked **Shipping Policy** under Helpful Links | Redirected to `/shipping` page | ✅ Pass |
+| **Facebook Icon (Follow Us)** | Opens **Fit Six Facebook** page in new tab (`https://www.facebook.com/FitSixMagor`) | Clicked **Facebook** icon | Facebook page opened in a new tab | ✅ Pass |
+| **Instagram Icon (Follow Us)** | Opens **Fit Six Instagram** page in new tab (`https://www.instagram.com/fit_six_magor/`) | Clicked **Instagram** icon | Instagram page opened in a new tab | ✅ Pass |
+| **Terms & Conditions Link** | Navigates to `/terms` | Clicked **Terms & Conditions** in footer | Redirected to `/terms` page | ✅ Pass |
+| **Privacy Policy Link** | Navigates to `/privacy` | Clicked **Privacy Policy** in footer | Redirected to `/privacy` page | ✅ Pass |
+| **GitHub Link** | Opens developer’s GitHub profile in new tab (`https://github.com/sd-powell`) | Clicked **GitHub** link in footer | GitHub profile opened in new tab | ✅ Pass |
+
+### ⛔️ Footer - Negative Testing Scenarios
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| External links | All external links open in a **new browser tab** without affecting current session | Clicked each external link (Fit Six site, address, Facebook, Instagram, GitHub) | Each opened in a new tab and the original session remained intact | ✅ Pass |
+| `mailto:` link | Opens user's **default mail client** without page reload or error | Clicked **info@fitsix.co.uk** link | Mail app opened; no page disruption | ✅ Pass |
+| Inactive or broken links | No broken or inactive links in footer | Manually clicked each footer link to confirm navigation | All links routed correctly; no 404 or inactive anchors found | ✅ Pass |
+| Layout stability | Clicking footer links should **not break layout or styling** | Tested navigation back and forth from linked pages | Footer retained consistent styling across all linked pages | ✅ Pass |
+
 ---
 <a id="conclusion"></a>
 
