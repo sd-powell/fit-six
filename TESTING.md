@@ -146,9 +146,9 @@ All Python code was validated using the [Code Institute Python Linter](https://p
 | products/apps.py | Pass | [apps.py validation](documentation/testing/validation/python-products-apps.webp) |
 | products/forms.py | Pass | [forms.py validation](documentation/testing/validation/python-products-forms.webp) |
 | products/models.py | Pass | [models.py validation](documentation/testing/validation/python-products-models.webp) |
-| products/urls.py | Pass | [urls.py validation](documentation/testing/validation/python/products-urls-validation.png) |
+| products/urls.py | Pass | [urls.py validation](documentation/testing/validation/python-products-urls.webp) |
 | products/views.py | Pass | [views.py validation](documentation/testing/validation/python-products-views.webp) |
-| products/widgets.py | Pass | [widgets.py validation](documentation/testing/validation/python/products-widgets-validation.png) |
+| products/widgets.py | Pass | [widgets.py validation](documentation/testing/validation/python-products-widgets.webp) |
 | **PROFILES** |
 | profiles/apps.py | Pass | [apps.py validation](documentation/testing/validation/python/profiles-apps-validation.png) |
 | profiles/forms.py | Pass | [forms.py validation](documentation/testing/validation/python/profiles-forms-validation.png) |
