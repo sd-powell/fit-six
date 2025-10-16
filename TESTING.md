@@ -236,15 +236,16 @@ The automated test suite was planned and executed to cover the following key are
 | coverage.py | Measures line and branch coverage |
 | htmlcov/ | Visual review of missed lines and test quality |
 
-#### Test Files
+#### Coverage Scores
 
-| File Name | Contents | 
-| ---- | ------- |
-| tests_forms_record.py | RecordForm validation and required field logic |
-| tests_forms_track.py | TrackForm validation, optional fields, and data types |
-| tests_forms_signup.py | Signup logic and first/last name persistence |
-| tests_views.py | All key views covered including CRUD and 404 |
-| tests_admin.py | Admin thumbnail image rendering logic |
+| Coverage for | Total | Evidence |
+| :---| :--- | :--- |
+| Bag | 74% | [Coverage Bag](documentation/testing/validation/coverage-bag.webp) |
+| Checkout | 90% | [Coverage Checkout](documentation/testing/validation/coverage-checkout.webp)|
+| Home | 100% | [Coverage Home](documentation/testing/validation/coverage-home.png) |
+| Newsletter | 100% | [Coverage Contact](documentation/testing/validation/coverage-newsletter.webp) |
+| Products | 97% | [Coverage Products](documentation/testing/validation/coverage-products.webp) |
+| Profiles | 94%  | [Coverage Profiles](documentation/testing/validation/coverage-profiles.webp) |
 
 --
 <a id="manual-testing"></a>

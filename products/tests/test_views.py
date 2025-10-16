@@ -54,7 +54,7 @@ class ProductViewsTest(TestCase):
         """
         Verify the product_detail view returns 200 and correct context.
         """
-        url = reverse('product_detail', args=[self.product.id])
+        url = reverse('product_detail', args=[self.product.slug])
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/product_detail.html')
@@ -164,7 +164,7 @@ class ProductViewsTest(TestCase):
             'has_variants': True,
         })
         self.assertRedirects(
-            response, reverse('product_detail', args=[self.product.id])
+            response, reverse('product_detail', args=[self.product.slug])
         )
         self.product.refresh_from_db()
         self.assertEqual(self.product.name, 'Updated Name')
