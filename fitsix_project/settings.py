@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django_countries',
     'profiles',
     'newsletter',
-    
+
     # other
     "crispy_forms",
     'crispy_bootstrap5',
@@ -123,16 +123,28 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'UserAttributeSimilarityValidator'
+            ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'MinimumLengthValidator'
+            ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'CommonPasswordValidator'
+            ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'NumericPasswordValidator'
+            ),
     },
 ]
 
@@ -200,7 +212,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SECURE_SSL_REDIRECT = not DEBUG
 # SECURE_SSL_REDIRECT = os.environ.get('DEVELOPMENT') != 'True'
-print(f"DEBUG: {DEBUG}, ALLOWED_HOSTS: {ALLOWED_HOSTS}, DEVELOPMENT: {os.environ.get('DEVELOPMENT')}")
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 LOGGING = {
