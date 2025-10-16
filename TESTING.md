@@ -488,6 +488,28 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 | Inactive or broken links | No broken or inactive links in footer | Manually clicked each footer link to confirm navigation | All links routed correctly; no 404 or inactive anchors found | ✅ Pass |
 | Layout stability | Clicking footer links should **not break layout or styling** | Tested navigation back and forth from linked pages | Footer retained consistent styling across all linked pages | ✅ Pass |
 
+### Products Page - (`products.html`)
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|---------|------------------|-------------------|--------|-----------|
+| **Sort By Dropdown** | Selecting an option sorts the products accordingly (Name A–Z, Z–A, Price Low–High, High–Low) | Chose each sorting option and observed the order of displayed products | Products reordered as expected | ✅ Pass |
+| **Product Image Click** | Clicking a product image navigates to the correct product detail page | Clicked several product images | Each navigated to the correct product detail view | ✅ Pass |
+| **Category Tag Click** | Clicking a product's category tag filters products by that category | Clicked on category tags beneath products | Navigated to `/products/?category=...` and filtered view shown | ✅ Pass |
+| **Back to Top Button** | Clicking the button scrolls the page smoothly to the top | Scrolled down the page and clicked the button | Page returned to the top as expected | ✅ Pass |
+
+### Product Detail Page - (`product_detail.html`)
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| **Product Image Click** | Clicking on the main product image opens it in a new tab | Clicked on product image | Full-size image opened in a new browser tab | ✅ Pass |
+| **Category Tag Click** | Navigates to `/products/?category=...` for that product's category | Clicked the category tag under the product name | Correct category page loaded | ✅ Pass |
+| **Colour Dropdown** | Selecting a colour updates the image preview (if available) | Selected each colour option | Correct image preview shown for each colour | ✅ Pass |
+| **Size Dropdown** | Selected size remains selected when chosen | Selected a size from dropdown | Selection was retained | ✅ Pass |
+| **Quantity Plus Button** | Increases quantity by 1 until stock level is reached, then disables | Clicked + repeatedly | Quantity increased and button disabled at stock limit | ✅ Pass |
+| **Quantity Minus Button with Over-limit Value** | Tooltip informs user to reduce quantity | Manually entered quantity above stock and hovered | Tooltip appeared instructing user to lower quantity | ✅ Pass |
+| **Keep Shopping Button** | Returns user to product list | Clicked on **Keep Shopping** | Redirected to `/products/` | ✅ Pass |
+| **Add to Bag Button** | Adds item to bag and shows success toast | Selected options, clicked **Add to Bag** | Item added and toast confirmed quantity | ✅ Pass |
+
 ---
 <a id="conclusion"></a>
 
