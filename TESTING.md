@@ -133,9 +133,9 @@ All Python code was validated using the [Code Institute Python Linter](https://p
 | checkout/forms.py | Pass | [forms.py validation](documentation/testing/validation/python-checkout-forms.webp) |
 | checkout/models.py | Pass | [models.py validation](documentation/testing/validation/python-checkout-models.webp) |
 | checkout/signals.py | Pass | [signals.py validation](documentation/testing/validation/python-checkout-signals.webp) |
-| checkout/urls.py | Pass | [urls.py validation](documentation/testing/validation/python/checkout-urls-validation.png) |
-| checkout/views.py | Pass | [views.py validation](documentation/testing/validation/python/checkout-views-validation.png) |
-| checkout/webhook_handler.py | Pass | [webhook_handler.py validation](documentation/testing/validation/python/checkout-webhook_handler-validation.png) |
+| checkout/urls.py | Pass | [urls.py validation](documentation/testing/validation/python-checkout-urls.webp) |
+| checkout/views.py | Pass | [views.py validation](documentation/testing/validation/python-checkout-views.webp) |
+| checkout/webhook_handler.py | Pass | [webhook_handler.py validation](documentation/testing/validation/python-checkout-handler.webp) |
 | checkout/webhooks.py | Pass | [webhooks.py validation](documentation/testing/validation/python/checkout-webhooks-validation.png) |
 | checkout/test_forms.py | Pass | [test_forms.py validation](documentation/testing/validation/python/checkout-test-forms-validation.png) |
 | checkout/test_views.py | Pass | [test_views.py validation](documentation/testing/validation/python/checkout-test-views.png) |

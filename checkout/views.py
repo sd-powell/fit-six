@@ -19,6 +19,10 @@ from profiles.models import UserProfile
 
 @require_POST
 def cache_checkout_data(request):
+    """
+    View to cache checkout data in the payment intent metadata.
+    Stores bag contents, save_info checkbox, and username.
+    """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -38,6 +42,14 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """
+    Handle checkout form display and order creation.
+
+    - GET: Create payment intent and prefill the order form
+    if user is logged in.
+    - POST: Validate submitted form, create Order and related LineItems,
+    apply discount if available, and redirect to success page.
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -181,7 +193,10 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """
-    Handle successful checkouts
+    Handle successful checkouts.
+
+    - Updates user profile with delivery info if save_info was checked.
+    - Displays a success message and clears the session bag.
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
@@ -216,8 +231,9 @@ def checkout_success(request, order_number):
     # Add discount info if applicable
     if order.discount and order.discount > 0:
         msg += (
-            f' You saved £{order.discount:.2f} with your Fit Six member discount!'
-    )
+            f"You saved £{order.discount:.2f} "
+            "with your Fit Six member discount!"
+        )
     messages.success(request, msg)
 
     if 'bag' in request.session:
