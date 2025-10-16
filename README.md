@@ -993,6 +993,49 @@ Key features include:
 
 </details>
 
+### **Terms and Conditions Page**
+
+<details>
+<summary><strong>View Feature Description</strong></summary>
+
+The Terms and Conditions page outlines the legal terms applied to all purchases made through the Fit Six website. It was adapted from a Rocket Lawyer template and edited for educational use by Steven Powell as part of the Level 5 Web Application Development Diploma. The terms cover areas such as eligibility, contracts, delivery, cancellation, data handling, and liability.
+
+As this is an educational project, no purchases are legally binding and no goods will be fulfilled.
+
+![Terms Page Screenshot](documentation/readme/surface_plane/features-terms.webp)
+
+</details>
+
+---
+
+### **Privacy Policy Page**
+
+<details>
+<summary><strong>View Feature Description</strong></summary>
+
+The Privacy Policy page details how Fit Six collects, uses, and protects user data in compliance with UK GDPR regulations. It includes information on personal data processing, third-party involvement (such as Stripe), and user rights.
+
+Created using a Rocket Lawyer template and tailored for the Fit Six brand by Steven Powell for educational purposes only. No personal data is collected or processed on the live site.
+
+![Privacy Page Screenshot](documentation/readme/surface_plane/features-privacy.webp)
+
+</details>
+
+---
+
+### **Shipping (Delivery) Policy Page**
+
+<details>
+<summary><strong>View Feature Description</strong></summary>
+
+The Shipping Policy page provides customers with important delivery information, including timeframes, shipping zones, and how Fit Six handles delays or missed deliveries.
+
+As part of an educational project, the page demonstrates best practices for an e-commerce site, but the content is not legally binding and no goods are shipped.
+
+![Shipping Page Screenshot](documentation/readme/surface_plane/features-shipping.webp)
+
+</details>
+
 <a id="dev-process"></a>
 
 ### Development Process
