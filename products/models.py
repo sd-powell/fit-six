@@ -25,7 +25,13 @@ class Product(models.Model):
         'Category', null=True, blank=True, on_delete=models.SET_NULL
     )
     name = models.CharField(max_length=254)
-    slug = models.SlugField(max_length=254, unique=True, blank=True, null=False, editable=False)
+    slug = models.SlugField(
+        max_length=254,
+        unique=True,
+        blank=True,
+        null=False,
+        editable=False
+    )
     description = models.TextField()
     has_variants = models.BooleanField(default=False)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
@@ -38,12 +44,14 @@ class Product(models.Model):
             base_slug = slugify(self.name)
             slug = base_slug
             counter = 1
-            while Product.objects.filter(slug=slug).exclude(pk=self.pk).exists():
+            while Product.objects.filter(
+                slug=slug
+            ).exclude(pk=self.pk).exists():
                 slug = f"{base_slug}-{counter}"
                 counter += 1
             self.slug = slug
         super().save(*args, **kwargs)
-        
+
     def get_absolute_url(self):
         return reverse('product_detail', kwargs={'slug': self.slug})
 

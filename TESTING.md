@@ -145,12 +145,10 @@ All Python code was validated using the [Code Institute Python Linter](https://p
 | products/admin.py | Pass | [admin.py validation](documentation/testing/validation/python-products-admin.webp) |
 | products/apps.py | Pass | [apps.py validation](documentation/testing/validation/python-products-apps.webp) |
 | products/forms.py | Pass | [forms.py validation](documentation/testing/validation/python-products-forms.webp) |
-| products/models.py | Pass | [models.py validation](documentation/testing/validation/python/products-models-validation.png) |
+| products/models.py | Pass | [models.py validation](documentation/testing/validation/python-products-models.webp) |
 | products/urls.py | Pass | [urls.py validation](documentation/testing/validation/python/products-urls-validation.png) |
-| products/views.py | Pass | [views.py validation](documentation/testing/validation/python/products-views-validation.png) |
+| products/views.py | Pass | [views.py validation](documentation/testing/validation/python-products-views.webp) |
 | products/widgets.py | Pass | [widgets.py validation](documentation/testing/validation/python/products-widgets-validation.png) |
-| products/test_models.py | Pass | [test_models.py validation](documentation/testing/validation/python/products-test-models.png) |
-| products/test_views.py | Pass | [test_views.py validation](documentation/testing/validation/python/products-test-views.png) |
 | **PROFILES** |
 | profiles/apps.py | Pass | [apps.py validation](documentation/testing/validation/python/profiles-apps-validation.png) |
 | profiles/forms.py | Pass | [forms.py validation](documentation/testing/validation/python/profiles-forms-validation.png) |

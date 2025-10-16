@@ -19,7 +19,15 @@ ProductVariantFormSet = inlineformset_factory(
 
 
 def all_products(request):
-    """ A view to show all products, including sorting and search queries """
+    """
+    Display all products, with optional sorting, category filtering,
+    and search functionality.
+
+    Supports:
+    - Sorting by name, category, or lowest variant price.
+    - Filtering by category name(s).
+    - Searching by name or description.
+    """
     products = Product.objects.prefetch_related('variants').all()
     query = None
     categories = None
@@ -85,6 +93,16 @@ def all_products(request):
 
 # products/views.py
 def product_detail(request, slug):
+    """
+    Display a single product's detail page.
+
+    Retrieves all variants for the product and prepares:
+    - Available sizes and colours
+    - Image mapping per colour for front/back display
+
+    Args:
+        slug (str): The product's unique slug used for lookup.
+    """
     product = get_object_or_404(Product, slug=slug)
     variants = product.variants.all()
     colours = variants.values_list('colour', flat=True).distinct()
@@ -96,7 +114,8 @@ def product_detail(request, slug):
         if variant.colour not in colour_image_map:
             colour_image_map[variant.colour] = {
                 'image_url': variant.image.url if variant.image else '',
-                'image_back_url': variant.image_back.url if variant.image_back else ''
+                'image_back_url':
+                    variant.image_back.url if variant.image_back else ''
             }
 
     return render(request, 'products/product_detail.html', {
@@ -110,7 +129,13 @@ def product_detail(request, slug):
 
 @login_required
 def add_product(request):
-    """ Add a product and its variants to the store """
+    """
+    Allow superusers to add a new product and its variants.
+
+    - Validates the main product form and associated inline formset.
+    - On success, redirects to the product detail page.
+    - Displays error messages if form or formset is invalid.
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -145,7 +170,15 @@ def add_product(request):
 
 @login_required
 def edit_product(request, product_id):
-    """ Edit a product in the store """
+    """
+    Allow superusers to edit an existing product's details.
+
+    - Pre-fills the form with current product data.
+    - Displays a success or error message based on submission result.
+
+    Args:
+        product_id (int): The primary key of the product to edit.
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -176,7 +209,12 @@ def edit_product(request, product_id):
 
 @login_required
 def delete_product(request, product_id):
-    """ Delete a product from the store """
+    """
+    Allow superusers to delete a product from the store.
+
+    Args:
+        product_id (int): The primary key of the product to delete.
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
