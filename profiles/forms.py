@@ -5,6 +5,13 @@ from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
+    """
+    Form for updating user profile information.
+
+    Extends the base ModelForm to include user-related fields
+    such as first and last name, along with delivery and contact details.
+    Integrates Crispy Forms for structured layout and styling.
+    """
     # Add first_name and last_name from the related User model
     first_name = forms.CharField(
         max_length=30,
@@ -24,15 +31,26 @@ class UserProfileForm(forms.ModelForm):
             'class': 'border-black rounded-0 profile-form-input'
         })
     )
-    
+
     class Meta:
+        """
+        Meta configuration linking the form to the UserProfile model.
+
+        Excludes system-managed fields and membership status
+        (which are handled elsewhere in the application).
+        """
         model = UserProfile
         exclude = ('user', 'is_member',)
 
     def __init__(self, *args, **kwargs):
         """
-        Add placeholders and classes, remove auto-generated
-        labels and set autofocus on first field.
+        Initialize the UserProfileForm.
+
+        - Adds placeholders and consistent styling to form fields.
+        - Removes default Django labels for cleaner presentation.
+        - Prefills first and last names from the associated User object
+        (if passed as a keyword argument).
+        - Configures Crispy Forms layout for improved readability and order.
         """
         user = kwargs.pop('user', None)  # Allow passing user to prefill
         super().__init__(*args, **kwargs)
