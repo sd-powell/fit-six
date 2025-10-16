@@ -68,14 +68,19 @@ class Order(models.Model):
 
     def _generate_order_number(self):
         """
-        Generate a random, unique order number using UUID
+        Return a unique, random order number using UUID4.
+
+        Used internally when saving a new order for the first time.
         """
         return uuid.uuid4().hex.upper()
 
     def update_total(self):
         """
-        Update grand total each time a line item is added,
-        accounting for delivery costs and member discount.
+        Calculate and update the order's totals.
+
+        Adds up line item totals, applies delivery costs
+        (if below free delivery threshold), subtracts any discount,
+        and saves the grand total.
         """
         self.order_total = self.lineitems.aggregate(
             Sum('lineitem_total')
@@ -96,13 +101,17 @@ class Order(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Set the order number if not already set.
+        Override the default save method to set the order number
+        on the first save if it hasn't been set already.
         """
         if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
 
     def __str__(self):
+        """
+        Return the order number as the string representation.
+        """
         return self.order_number
 
 
@@ -131,11 +140,14 @@ class OrderLineItem(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Set the line item total using variant price and quantity.
+        Override the default save method to calculate the line item total
+        using the variant's price multiplied by quantity.
         """
         self.lineitem_total = self.variant.price * self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):
+        """
+        Return a readable string showing the SKU and related order number.
+        """
         return f"SKU {self.variant.sku} on order {self.order.order_number}"
-    

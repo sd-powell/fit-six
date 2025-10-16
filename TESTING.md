@@ -128,11 +128,11 @@ All Python code was validated using the [Code Institute Python Linter](https://p
 | bag/templatetags/bag_tools.py | Pass | [bag_tools.py validation](documentation/testing/validation/python-bag-tools.webp) |
 | bag/bag_extras.py | Pass | [bag_extras.py validation](documentation/testing/validation/python-bag-extras.webp) |
 | **CHECKOUT** |
-| checkout/admin.py | Pass | [admin.py validation](documentation/testing/validation/python/checkout-admin-validation.png) |
-| checkout/apps.py | Pass | [apps.py validation](documentation/testing/validation/python/checkout-apps-validation.png) |
-| checkout/forms.py | Pass | [forms.py validation](documentation/testing/validation/python/checkout-forms-validation.png) |
-| checkout/models.py | Pass | [models.py validation](documentation/testing/validation/python/checkout-models-validation.png) |
-| checkout/signals.py | Pass | [signals.py validation](documentation/testing/validation/python/checkout-signals-validation.png) |
+| checkout/admin.py | Pass | [admin.py validation](documentation/testing/validation/python-checkout-admin.webp) |
+| checkout/apps.py | Pass | [apps.py validation](documentation/testing/validation/python-checkout-apps.webp) |
+| checkout/forms.py | Pass | [forms.py validation](documentation/testing/validation/python-checkout-forms.webp) |
+| checkout/models.py | Pass | [models.py validation](documentation/testing/validation/python-checkout-models.webp) |
+| checkout/signals.py | Pass | [signals.py validation](documentation/testing/validation/python-checkout-signals.webp) |
 | checkout/urls.py | Pass | [urls.py validation](documentation/testing/validation/python/checkout-urls-validation.png) |
 | checkout/views.py | Pass | [views.py validation](documentation/testing/validation/python/checkout-views-validation.png) |
 | checkout/webhook_handler.py | Pass | [webhook_handler.py validation](documentation/testing/validation/python/checkout-webhook_handler-validation.png) |
