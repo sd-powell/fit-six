@@ -7,8 +7,10 @@ from django_countries.fields import CountryField
 
 class UserProfile(models.Model):
     """
-    A user profile model for maintaining default
-    delivery information, order history, and membership status.
+    Stores user profile information linked to the Django User model.
+
+    Includes default delivery details, order history access,
+    and Fit Six membership status (for discounts and promotions).
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_member = models.BooleanField(
@@ -54,9 +56,12 @@ class UserProfile(models.Model):
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     """
-    Create or update the user profile
+    Signal to create or update a user profile on user save.
+
+    - If the user is newly created, a profile is created automatically.
+    - For existing users, the profile is saved on update.
     """
     if created:
         UserProfile.objects.create(user=instance)
-    # Existing users: just save the profile
-    instance.userprofile.save()
+    else:
+        instance.userprofile.save()
