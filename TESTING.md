@@ -102,6 +102,11 @@ This ensured the final output — as seen by users and browsers — conformed to
 
 All JavaScript was validated using [JSHint](https://jshint.com/) to ensure proper syntax, code quality, and adherence to best practices.
 
+| File tested | Result | Evidence | Notes |
+| ----------- | ------ | -------- | ----- |
+| checkout/static/checkout/js/stripe-elements.js | Pass | [stripe-elements.js](documentation/testing/validation/javascript-stripe-elements.webp) | There were 2 initial warnings -  'template literal syntax' is only available in ES6 (use 'esversion: 6'). I updated the JSHint configuration to ES8 using this code `/*jshint esversion: 8 */`. |
+| profiles/static/profiles/js/countryfield.js | Pass |[countryfield.js](documentation/testing/validation/javascript-countryfield.webp) |
+
 ---
 
 <a id="python-validation"></a>
