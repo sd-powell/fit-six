@@ -79,10 +79,10 @@
                         <thead>
                             <tr class="text-uppercase small text-muted">
                                 <th scope="col">Item</th>
-                                <th></th>
-                                <th>Price</th>
-                                <th>Qty</th>
-                                <th>Subtotal</th>
+                                <th scope="col"></th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Subtotal</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -143,7 +143,7 @@
 {% block postloadjs %}
 {{ block.super }}
 
-<script type="text/javascript">
+<script>
     // Scroll to top
     $('.btt-link').click(function(e) {
         window.scrollTo(0, 0);
@@ -152,7 +152,7 @@
 
 {% include 'products/includes/quantity_input_script.html' %}
 
-<script type="text/javascript">
+<script>
     // Remove item and reload on click
     $('.remove-item').click(function(e) {
         e.preventDefault();

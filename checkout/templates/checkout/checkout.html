@@ -2,6 +2,23 @@
 {% load static %}
 {% load bag_tools %}
 
+{% block extra_title %} - Checkout{% endblock %}
+
+{% block extra_meta %}
+    <!-- Descriptive Meta for SEO -->
+    <meta name="description" content="Fit Six Gym store - Checkout. Shop premium fitness apparel, supplements, accessories, and class bundles. Designed for training, performance and recovery.">
+    <meta name="keywords" content="Fit Six, gym clothing, supplements, fitness gear, gym classes, performance wear">
+
+    <!-- Social Media Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Fit Six - Checkout">
+    <meta property="og:description" content="Shop gym wear, supplements, accessories, and class bundles at the official Fit Six store.">
+    <meta property="og:image" content="/static/images/fitsix-logo.svg">
+    <meta property="og:image:alt" content="Fit Six ecommerce store shown on a variety of devices, from mobile to desktop">
+    <meta property="og:url" content="https://fitsix.herokuapp.com/">
+    <meta property="og:site_name" content="Fit Six - Checkout">
+{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
@@ -147,12 +164,13 @@
     </div>
 </div>
 
-<div id="loading-overlay">
-    <h1 class="text-light logo-font loading-spinner">
-        <span class="icon">
+<div id="loading-overlay" role="status" aria-live="polite">
+    <div class="text-light logo-font loading-spinner">
+        <span class="visually-hidden">Loading...</span>
+        <span class="icon" aria-hidden="true">
             <i class="fas fa-dumbbell fa-spin fa-3x"></i>
         </span>
-    </h1>
+    </div>
 </div>
 {% endblock %}
 

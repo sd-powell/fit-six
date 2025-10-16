@@ -1,6 +1,6 @@
 <!-- bag/bag-total.html -->
 
-<div class="bag-summary">
+<div class="bag-summary" aria-live="polite">
     <h6 class="mb-1"><strong>Bag Total:</strong> £{{ total|floatformat:2 }}</h6>
     
     {% if discount > 0 %}
