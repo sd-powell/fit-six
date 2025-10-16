@@ -406,6 +406,41 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 > [!NOTE]
 > User stories can also be viewed in the [README](README.md) file.
 
+<a id="manual-features-testing"></a>
+
+## Manual Features Testing
+
+### Navbar (Header) - (`base.html`)
+
+### Feature Testing
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| **Fit Six Logo (mobile & desktop)** | Clicking the **Fit Six** logo navigates to the home page (`/`) | Clicked the logo in both desktop and mobile views | Home page rendered successfully | ✅ Pass |
+| **Login Link** | Navigates to `/accounts/login/` | Clicked on the **Login** link from the user dropdown | User redirected to login page | ✅ Pass |
+| **Register Link** | Navigates to `/accounts/signup/` | Clicked on the **Register** link from the user dropdown | User redirected to signup page | ✅ Pass |
+| **Apparel Category Link** | Navigates to `/products/?category=apparel` | Clicked on **Apparel** in category nav | Products filtered by **Apparel** category | ✅ Pass |
+| **Supplements Category Link** | Navigates to `/products/?category=supplements` | Clicked on **Supplements** in category nav | Products filtered by **Supplements** category | ✅ Pass |
+| **Accessories Category Link** | Navigates to `/products/?category=accessories` | Clicked on **Accessories** in category nav | Products filtered by **Accessories** category | ✅ Pass |
+| **Class Bundles Category Link** | Navigates to `/products/?category=class-bundles` | Clicked on **Class Bundles** in category nav | Products filtered by **Class Bundles** category | ✅ Pass |
+| **Search Icon** | Toggles open the desktop search bar | Clicked the **search icon** (magnifying glass) in the navbar | Search bar appeared below the navbar | ✅ Pass |
+| **Account Icon (Guest)** | Displays **Login** and **Register** links in dropdown | Clicked account icon while not logged in | Dropdown showed **Login** and **Register** links | ✅ Pass |
+| **Account Icon (Guest) → Register** | Navigates to `/accounts/signup/` | Clicked **Register** from the guest dropdown | Signup page loaded successfully | ✅ Pass |
+| **Account Icon (User)** | Displays **My Profile** and **Logout** options | Logged in as a standard user and clicked account icon | Dropdown displayed **My Profile** and **Logout** | ✅ Pass |
+| **Account Icon (Admin)** | Displays **Product Management**, **My Profile**, and **Logout** options | Logged in as an admin user and clicked account icon | Dropdown displayed **Product Management**, **My Profile**, and **Logout** | ✅ Pass |
+| **My Profile Link** | Navigates to `/profile/` | Clicked **My Profile** from the account dropdown (user) | Profile page loaded successfully | ✅ Pass |
+| **Logout Link (User)** | Logs the user out and redirects | Clicked **Logout** from the dropdown (user) | User was logged out and redirected | ✅ Pass |
+| **Product Management (Admin)** | Navigates to `/products/add/` | Clicked **Product Management** from admin dropdown | Product creation form loaded | ✅ Pass |
+| **Logout Link (Admin)** | Logs the admin out and redirects | Clicked **Logout** from the dropdown (admin) | Admin was logged out and redirected | ✅ Pass |
+| **Shopping Bag Icon** | Navigates to `/bag/` | Clicked the shopping bag icon in the navbar | Redirected to the bag page | ✅ Pass |
+
+### ⛔️ Navbar (Header) - Negative Testing Scenarios
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| **Navbar links for unauthenticated users** | Should only show Login/Register | Logged out and viewed navbar | Correct links displayed | ✅ Pass |
+| **Broken navigation** | Manually edited link in DevTools to non-existent route | Got 404 error page | ✅ Pass |
+
 ---
 <a id="conclusion"></a>
 
