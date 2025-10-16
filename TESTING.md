@@ -302,7 +302,35 @@ Based on research from [Stack Exchange](https://ux.stackexchange.com/questions/7
 
 In addition to using Chrome’s responsive design mode, the [Mobile First](https://www.webmobilefirst.com/en/) Chrome extension was used to simulate how the site renders across various devices and breakpoints.
 
+#### Mobile Devices
 
+| Device tested | Screen Width (px) | Screen Height (px) | Result | Notes (Issues Found) |
+| :---: | :---: | :---: | :---: | :---: |
+| iPhone 5 ![iPhone 5](documentation/testing/responsiveness/responsive-iphone5.webp) | iPhone 12/13/14 ![iPhone 12/13/14](documentation/testing/responsiveness/responsive-iphone14.webp) | Google Pixel 8 ![Google Pixel 8](documentation/testing/responsiveness/responsive-googlepixel8.webp) | iPhone 16 Pro Max ![iPhone 16 Pro Max](documentation/testing/responsiveness/responsive-iphone16promax.webp) |
+| iPhone 5 | 320px | 568px | ✅ Pass | 🛠️ Removed background image and filled screen with panel |
+| iPhone 12/13/14 | 390px | 844px | ✅ Pass | 🛠️ Set info panel to hidden when other panels are visible |
+| Google Pixel 8 | 412px | 916px | ✅ Pass | 🛠️ Set info panel to hidden when other panels are visible |
+| iPhone 16 Pro Max | 440px | 956px | ✅ Pass | 🛠️ Set info panel to hidden when other panels are visible |
+
+#### Tablets
+
+| Device tested | Screen Width (px) | Screen Height (px) | Result | Notes (Issues Found) |
+| :---: | :---: | :---: | :---: | :---: |
+| iPad Mini ![iPad Mini](documentation/testing/responsiveness/responsive-ipadmini.webp) | Galaxy Tab S7 ![Galaxy Tab S7](documentation/testing/responsiveness/responsive-galaxytab.webp) | iPad Pro 11 ![iPad Pro 11](documentation/testing/responsiveness/responsive-ipadpro.webp) | | |
+| iPad Mini | 768px | 1024px | ✅ Pass | 🛠️ Decreased margin spacing to improve UI |
+| Galaxy Tab S7 | 800px | 1280px | ✅ Pass | 🛠️ Decreased margin spacing to improve UI |
+| iPad Pro 11 | 834px | 1194px | ✅ Pass | 🛠️ Decreased margin spacing to improve UI |
+
+#### Laptops & Desktops
+
+| Device tested | Screen Width (px) | Screen Height (px) | Result | Notes (Issues Found) |
+| :---: | :---: | :---: | :---: | :---: |
+| MacBook Air 13” ![MacBook Air 13”](documentation/testing/responsiveness/responsive-macbookair.webp) | Dell Latitude ![Dell Latitude](documentation/testing/responsiveness/responsive-dell.webp) | Macbook Pro 16" ![Macbook Pro 16"](documentation/testing/responsiveness/responsive-macbook.webp) | iMac 24" ![iMac 24"](documentation/testing/responsiveness/responsive-imac24.webp) | Full HD monitor ![Full HD monitor](documentation/testing/responsiveness/responsive-hdmonitor.webp) |
+| MacBook Air 13” | 1280px | 800px | ✅ Pass | ✅ Fully responsive |
+| Dell Latitude | 1440px | 809px | ✅ Pass | ✅ Fully responsive |
+| Macbook Pro 16" | 1728px | 1085px | ✅ Pass | ✅ Fully responsive |
+| iMac 24" | 2048px | 1142px | ✅ Pass | ✅ Fully responsive |
+| Full HD monitor | 1920px  | 1080px | ✅ Pass | ✅ Fully responsive |
 
 ---
 
