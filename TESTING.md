@@ -8,12 +8,12 @@ This document outlines the testing strategy, process, and results for the **Fit 
 Both **manual and automated testing** were conducted throughout development, covering functionality, responsiveness, browser compatibility, accessibility, and data validation. Django’s built-in test framework was used for backend testing, while real-device and browser tools were used to assess front-end behaviour.
 
 This file includes:
-- ✅ User story-based test cases  
-- ✅ Manual testing across devices and browsers  
-- ✅ Automated unit tests (Django views, forms, models)  
-- ✅ HTML, CSS, Python, and accessibility validation  
-- ✅ Bug tracking and fixes  
-- ✅ Known issues (if any)
+- User story-based test cases  
+- Manual testing across devices and browsers  
+- Automated unit tests (Django views, forms, models)  
+- HTML, CSS, Python, and accessibility validation  
+- Bug tracking and fixes  
+- Known issues (if any)
 
 ---
 
@@ -226,7 +226,6 @@ The automated test suite was planned and executed to cover the following key are
 - **Form logic** tested to verify field validation, placeholder and CSS class rendering, autofocus behavior, and label suppression in `UserProfileForm`  
 - **App configuration** verified to ensure proper `AppConfig` registration and name resolution
 
-
 #### Tools Used
 
 | Tool | Purpose |
@@ -236,16 +235,32 @@ The automated test suite was planned and executed to cover the following key are
 | coverage.py | Measures line and branch coverage |
 | htmlcov/ | Visual review of missed lines and test quality |
 
-#### Coverage Scores
+#### Coverage Testing
+
+Test coverage was monitored using `coverage.py`, with line-by-line analysis used to identify and close gaps. Edge cases, such as admin-only views, error handling in checkout, and model method branches (e.g., slugs, totals, and discounts), were explicitly tested. All core business logic — from browsing and purchasing to profile management — was thoroughly covered and validated.
 
 | Coverage for | Total | Evidence |
 | :---| :--- | :--- |
-| Bag | 74% | [Coverage Bag](documentation/testing/validation/coverage-bag.webp) |
-| Checkout | 90% | [Coverage Checkout](documentation/testing/validation/coverage-checkout.webp)|
-| Home | 100% | [Coverage Home](documentation/testing/validation/coverage-home.png) |
-| Newsletter | 100% | [Coverage Contact](documentation/testing/validation/coverage-newsletter.webp) |
-| Products | 97% | [Coverage Products](documentation/testing/validation/coverage-products.webp) |
-| Profiles | 94%  | [Coverage Profiles](documentation/testing/validation/coverage-profiles.webp) |
+| Bag | **74%** | [Coverage Bag](documentation/testing/validation/coverage-bag.webp) |
+| Checkout | **90%** | [Coverage Checkout](documentation/testing/validation/coverage-checkout.webp)|
+| Home | **100%** | [Coverage Home](documentation/testing/validation/coverage-home.png) |
+| Newsletter | **100%** | [Coverage Contact](documentation/testing/validation/coverage-newsletter.webp) |
+| Products | **97%** | [Coverage Products](documentation/testing/validation/coverage-products.webp) |
+| Profiles | **94%**  | [Coverage Profiles](documentation/testing/validation/coverage-profiles.webp) |
+
+#### Edge Cases Covered
+- Submitting forms with missing, invalid, or out-of-range product or checkout data
+- Attempting to add a product without a name or category (invalid)
+- Sorting and filtering products with multiple query parameters
+- Viewing checkout or profile pages as unauthenticated users
+- Attempting to edit or delete products as a non-admin user
+- Rendering views with no products or order history (empty states)
+- Handling missing or broken product/variant images in the admin panel
+- Custom 404 handling for invalid product slugs or broken URLs
+
+### Summary
+
+This comprehensive automated test suite ensures that **Fit Six** is stable, secure, and reliable. It enabled fast development cycles with confidence, catching regressions early and validating critical user and admin workflows throughout the app.
 
 --
 <a id="manual-testing"></a>
@@ -303,8 +318,57 @@ To support users with visual impairments, all key colour combinations (text, but
 
 In addition, form labels, alt attributes, and ARIA roles were reviewed to improve screen reader compatibility and keyboard accessibility.
 
+---
 
+<a id="user-story-testing"></a>
 
+### Testing User Stories
+
+### Testing User Stories
+
+| User Story ID | As a/an       | I want to be able to ...                              | So that I can...                                       | How is this achieved? | Evidence |
+|---------------|---------------|--------------------------------------------------------|--------------------------------------------------------|------------------------|----------|
+| **Viewing and Navigation** | | | | | |
+| 1             | Guest          | Easily navigate the site                              | Find gym merchandise and information quickly           | Responsive navigation, structured layout, and intuitive page links | |
+| 2             | Guest          | View a list of product categories                     | Browse items by type (e.g. apparel, supplements)       | Homepage and nav show category cards and links to filtered product views | |
+| 3             | Shopper        | View detailed product information                     | Decide if the item meets my needs                      | Product detail page shows sizes, colours, price, and images | |
+| 4             | Shopper        | View my cart at any time                              | Track what I plan to purchase                          | Bag icon updates in real-time and links to bag summary page | |
+| 5             | Shopper        | See my cart total update in real-time                 | Track spending and avoid surprises at checkout         | AJAX cart updates, mini bag on add-to-cart actions | |
+| 6             | Shopper        | Access the site easily on mobile                      | Shop from any device conveniently                      | Fully responsive design with mobile-first layout and off-canvas nav | |
+| **Registration & Accounts** | | | | | |
+| 7             | Guest          | Register for an account                               | Make purchases and view order history                  | Custom Allauth templates with signup form | |
+| 8             | Shopper        | Receive confirmation after registering                | Know that my account is active                         | Success message and email confirmation (optional) | |
+| 9             | Shopper        | Log in and log out securely                           | Access my private information safely                   | Secure login/logout with redirect and CSRF protection | |
+| 10            | Shopper        | View and update my profile                            | Change delivery address and personal info              | Profile page with update form and validation | |
+| 11            | Shopper        | View my previous orders                               | Track what I’ve bought and reorder easily              | Order history in profile, with links to past order receipts | |
+| 12            | Shopper        | Reset my password                                     | Recover account access if I forget credentials         | Allauth password reset flow with secure token emails | |
+| **Searching & Filtering** | | | | | |
+| 13            | Guest          | Filter products by category or type                   | Quickly narrow down my search                          | Category sidebar and query param filtering | |
+| 14            | Guest          | Search for a product by name or keyword               | Find specific items faster                             | Search bar with Q object matching against name and description | |
+| 15            | Shopper        | Sort products by price, name, or popularity           | Choose the most relevant or affordable options         | Sort dropdown updates results via query params | |
+| **Cart & Checkout** | | | | | |
+| 16            | Shopper        | Add items to my cart                                  | Save products I intend to buy                          | Add to cart button with size/colour selection | |
+| 17            | Shopper        | Adjust quantities or remove items from cart           | Finalise exactly what I want to purchase               | Bag summary page allows quantity changes and deletions | |
+| 18            | Shopper        | Proceed to a secure checkout                          | Buy items with confidence                              | Stripe integration, CSRF-protected forms | |
+| 19            | Guest/Shopper  | Checkout with or without an account                  | Make quick purchases when needed                       | Guest checkout enabled via session bag and order | |
+| 20            | Shopper        | Enter payment details easily                          | Complete my order smoothly                             | Stripe card input with custom style, instant validation | |
+| 21            | Shopper        | Receive on-screen and email confirmation              | Ensure the order was successful                        | Checkout success page and order confirmation email | |
+| 22            | Shopper        | Know that my data is protected                        | Trust the site and continue using it                   | HTTPS, Stripe, and secure session handling | |
+| **Admin & Store Management** | | | | | |
+| 23            | Admin          | Add new products to the store                         | Keep the shop up to date with new items                | Admin panel product + variant forms with preview | |
+| 24            | Admin          | Edit or update product info                           | Correct mistakes or make improvements                  | Admin panel and edit views for products | |
+| 25            | Admin          | Delete a product                                      | Remove items that are no longer for sale               | Delete button in product admin and confirmation modal | |
+| 26            | Admin          | Monitor and manage product stock                      | Ensure products don’t oversell                         | Stock is managed at variant level and updated per order | |
+| 27            | Admin          | View and manage incoming orders                       | Fulfil customer purchases efficiently                  | Orders visible in Django admin with line item breakdowns | |
+| 28            | Admin          | Access the admin panel securely                       | Manage store operations without public access          | Admin login via Django admin with superuser access only | |
+| **Experience & Compliance** | | | | | |
+| 29            | All users      | View accessibility-friendly content                   | Navigate the site with any device or ability           | Contrast-checked colour palette, semantic HTML, alt text on images | |
+| 30            | All users      | Receive clear feedback when something goes wrong      | Know how to fix errors and complete actions            | Flash messages and form validation feedback | |
+| 31            | All users      | Contact the store via a form                          | Ask questions or report issues                         | Contact form with success/error messaging | |
+| 32            | All users      | Read Terms & Conditions and Privacy Policy            | Understand how my data is used and my rights           | Dedicated privacy.html and terms.html pages, linked in footer | |
+
+> [!NOTE]
+> User stories can also be viewed in the [README](README.md) file.
 
 ---
 <a id="conclusion"></a>
