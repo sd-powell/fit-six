@@ -441,6 +441,30 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 | **Navbar links for unauthenticated users** | Should only show Login/Register | Logged out and viewed navbar | Correct links displayed | ✅ Pass |
 | **Broken navigation** | Manually edited link in DevTools to non-existent route | Got 404 error page | ✅ Pass |
 
+### Homepage Content (Public) - (`index.html`)
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| **Shop Now CTA (Hero Banner)** | Navigates to `/products/` | Clicked **Shop Now** in the hero section | Redirected to `/products/` | ✅ Pass |
+| **Apparel Category Image** | Navigates to `/products/?category=apparel` | Clicked **Apparel** image card | Products filtered by Apparel category | ✅ Pass |
+| **Supplements Category Image** | Navigates to `/products/?category=supplements` | Clicked **Supplements** image card | Products filtered by Supplements category | ✅ Pass |
+| **Accessories Category Image** | Navigates to `/products/?category=accessories` | Clicked **Accessories** image card | Products filtered by Accessories category | ✅ Pass |
+| **Class Bundles Category Image** | Navigates to `/products/?category=class-bundles` | Clicked **Class Bundles** image card | Products filtered by Class Bundles category | ✅ Pass |
+| **Newsletter Signup (valid email)** | Submitting valid email shows toast confirmation | Entered valid email and clicked sign up | Toast message: _Success! Thanks for signing up to our newsletter_ | ✅ Pass |
+| **Carousel controls: Previous button** | Scrolls to previous slide | Clicked the previous arrow | Previous carousel slide shown | ✅ Pass |
+| **Carousel controls: Next button** | Scrolls to next slide | Clicked the next arrow | Next carousel slide shown | ✅ Pass |
+| **Carousel indicators (dots)** | Navigates to the correct slide | Clicked each dot below the carousel | Corresponding slide shown | ✅ Pass |
+
+---
+
+### ⛔️ Homepage Content (Public) - Negative Testing Scenarios
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| **Unauthenticated access** | Site loads fully without login | Accessed homepage while logged out | All public sections loaded successfully | ✅ Pass |
+| **Newsletter Signup - No Input** | Inline browser validation prevents submission | Clicked submit without entering email | Browser showed “Please fill in this field” | ✅ Pass |
+| **Newsletter Signup - Blank Space** | Inline browser validation prevents submission | Entered space and clicked submit | Browser showed “Please fill in this field” | ✅ Pass |
+
 ---
 <a id="conclusion"></a>
 
