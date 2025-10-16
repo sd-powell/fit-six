@@ -1,6 +1,6 @@
 from django import forms
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Field, Submit
+from crispy_forms.layout import Layout, Field
 from .models import UserProfile
 
 
@@ -68,6 +68,7 @@ class UserProfileForm(forms.ModelForm):
         # Crispy Forms layout for custom field order
         self.helper = FormHelper()
         self.helper.form_method = 'post'
+        self.helper.form_tag = False
         self.helper.layout = Layout(
             Field('first_name'),
             Field('last_name'),
@@ -78,5 +79,4 @@ class UserProfileForm(forms.ModelForm):
             Field('default_postcode'),
             Field('default_country'),
             Field('default_phone_number'),
-            Submit('submit', 'Update Information', css_class='btn btn-black rounded-pill mt-3')
         )
