@@ -137,8 +137,6 @@ All Python code was validated using the [Code Institute Python Linter](https://p
 | checkout/views.py | Pass | [views.py validation](documentation/testing/validation/python-checkout-views.webp) |
 | checkout/webhook_handler.py | Pass | [webhook_handler.py validation](documentation/testing/validation/python-checkout-handler.webp) |
 | checkout/webhooks.py | Pass | [webhooks.py validation](documentation/testing/validation/python-checkout-webhooks.webp) |
-| checkout/test_forms.py | Pass | [test_forms.py validation](documentation/testing/validation/python/checkout-test-forms-validation.png) |
-| checkout/test_views.py | Pass | [test_views.py validation](documentation/testing/validation/python/checkout-test-views.png) |
 | **HOME** |
 | home/apps.py | Pass | [apps.py validation](documentation/testing/validation/python/home-apps-validation.png) |
 | home/urls.py | Pass | [urls.py validation](documentation/testing/validation/python/home-urls-validation.png) |
