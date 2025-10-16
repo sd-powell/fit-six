@@ -1,7 +1,6 @@
 from django.test import TestCase
-from django.core.files.uploadedfile import SimpleUploadedFile
 from products.forms import ProductForm, ProductVariantForm
-from products.models import Product, ProductVariant, Category
+from products.models import Product, Category
 
 
 class ProductFormTest(TestCase):

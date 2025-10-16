@@ -13,12 +13,10 @@ from unittest.mock import patch, MagicMock
 
 from django.test import TestCase, RequestFactory
 from django.contrib.auth.models import User
-from django.http import HttpRequest
 
 from checkout.webhook_handler import StripeWH_Handler
 from checkout.models import Order
 from products.models import Category, Product, ProductVariant
-from profiles.models import UserProfile
 
 
 class WebhookHandlerTests(TestCase):
@@ -92,9 +90,10 @@ class WebhookHandlerTests(TestCase):
         'checkout.webhook_handler.StripeWH_Handler._send_confirmation_email'
     )
     def test_handle_payment_intent_succeeded_creates_new_order(
-    self, mock_email, mock_charge
+        self, mock_email, mock_charge
     ):
-        """A valid new webhook should create an order and send confirmation email."""
+        """A valid new webhook should create an order and
+        send confirmation email."""
         mock_charge.return_value = MagicMock(
             billing_details=MagicMock(email='test@example.com'),
             amount=1000
@@ -130,8 +129,9 @@ class WebhookHandlerTests(TestCase):
     )
     def test_handle_payment_intent_succeeded_order_already_exists(
         self, mock_email, mock_charge
-        ):
-        """A valid new webhook should create an order and send confirmation email."""
+    ):
+        """A valid new webhook should create an order and
+        send confirmation email."""
         mock_charge.return_value = MagicMock(
             billing_details=MagicMock(email='test@example.com'),
             amount=1000

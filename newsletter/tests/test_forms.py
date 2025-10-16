@@ -6,7 +6,7 @@ from newsletter.models import NewsletterSignup
 class TestNewsletterSignupForm(TestCase):
     def test_valid_email_is_accepted(self):
         """Test that a new, valid email passes form validation.
-        
+
         Based on standard Django form testing patterns
         learned from official docs and testing tutorials.
         """
@@ -17,7 +17,7 @@ class TestNewsletterSignupForm(TestCase):
     def test_duplicate_email_is_rejected(self):
         """Test that an already subscribed email
         raises a validation error.
-        
+
         Pattern learned from testing custom `clean_email()` methods
         with pre-existing model data, as shown in community examples.
         """
@@ -37,7 +37,7 @@ class TestNewsletterSignupForm(TestCase):
     def test_email_is_lowercased(self):
         """Test that the form treats uppercase email
         as lowercase duplicates.
-        
+
         Inspired by Django best practices for normalising input
         and enforcing uniqueness across case-insensitive email addresses.
         """

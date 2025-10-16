@@ -11,7 +11,6 @@ Covers:
 from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
-from profiles.models import UserProfile
 
 
 class ProfileViewTest(TestCase):
@@ -94,7 +93,8 @@ class ProfileViewTest(TestCase):
 
     def test_profile_post_invalid_form_shows_error_message(self):
         """
-        Invalid profile submission should not save and should show error message.
+        Invalid profile submission should not save and should
+        show error message.
         """
         self.client.login(username='profileuser', password='securepassword')
 

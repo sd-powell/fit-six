@@ -1,7 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
 from profiles.forms import UserProfileForm
-from profiles.models import UserProfile
 
 
 class UserProfileFormTest(TestCase):

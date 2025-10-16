@@ -19,7 +19,7 @@ class NewsletterSignupModelTests(TestCase):
         Test creating a signup linked to a UserProfile.
 
         Follows standard model instance creation testing,
-        learned from Django testing documentation and previous 
+        learned from Django testing documentation and previous
         project patterns.
         """
         signup = NewsletterSignup.objects.create(

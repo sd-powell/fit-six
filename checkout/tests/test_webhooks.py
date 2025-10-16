@@ -11,7 +11,7 @@ Covers:
 from django.test import TestCase, Client, override_settings
 from django.urls import reverse
 from django.http import HttpResponse
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 import json
 
 
@@ -32,7 +32,8 @@ class WebhookViewTest(TestCase):
 
     @patch('stripe.Webhook.construct_event')
     @patch(
-        'checkout.webhook_handler.StripeWH_Handler.handle_payment_intent_succeeded'
+        'checkout.webhook_handler.'
+        'StripeWH_Handler.handle_payment_intent_succeeded'
     )
     def test_valid_webhook_success(self, mock_handler, mock_construct):
         """

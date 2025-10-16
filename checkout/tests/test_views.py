@@ -127,6 +127,7 @@ class CheckoutViewsTest(TestCase):
         response = self.client.get(
             reverse('checkout_success', args=['TEST123']), follow=True
         )
+        self.assertEqual(order.full_name, 'Test User')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'checkout/checkout_success.html')
         self.assertIn('order', response.context)
