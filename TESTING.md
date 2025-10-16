@@ -158,13 +158,10 @@ All Python code was validated using the [Code Institute Python Linter](https://p
 | **NEWSLETTER** |
 | newsletter/admin.py | Pass | [admin.py validation](documentation/testing/validation/python-newsletter-admin.webp) |
 | contact/apps.py | Pass | [apps.py validation](documentation/testing/validation/python-newsletter-apps.webp) |
-| contact/forms.py | Pass | [forms.py validation](documentation/testing/validation/python/contact-forms-validation.png) |
-| contact/models.py | Pass | [models.py validation](documentation/testing/validation/python/contact-models-validation.png) |
-| contact/urls.py | Pass | [urls.py validation](documentation/testing/validation/python/contact-urls-validation.png) |
-| contact/views.py | Pass | [views.py validation](documentation/testing/validation/python/contact-views-validation.png) |
-| contact/test_forms.py | Pass | [test_forms.py validation](documentation/testing/validation/python/contact-test-forms-validation.png) |
-| contact/test_models.py | Pass | [test_models.py validation](documentation/testing/validation/python/contact-test-models.png) |
-| contact/test_views.py | Pass | [test_views.py validation](documentation/testing/validation/python/contact-test-views.png) |
+| contact/forms.py | Pass | [forms.py validation](documentation/testing/validation/python-newsletter-forms.webp) |
+| contact/models.py | Pass | [models.py validation](documentation/testing/validation/python-newsletter-models.webp) |
+| contact/urls.py | Pass | [urls.py validation](documentation/testing/validation/python-newsletter-urls.webp) |
+| contact/views.py | Pass | [views.py validation](documentation/testing/validation/python-newsletter-views.webp) |
 
 ---
 
