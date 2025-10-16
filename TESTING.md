@@ -88,6 +88,12 @@ This ensured the final output — as seen by users and browsers — conformed to
 
 [CSS W3C Validator](https://jigsaw.w3.org/css-validator/) was used to validate my CSS file.
 
+| File tested | Result | Evidence |
+| :--- | :--- | :---: |
+| static/base.css | Pass | [static/base.css validation](documentation/testing/validation/w3c-base-css.webp) |
+| checkout/static/checkout/css/checkout.css | Pass | [checkout.css validation](documentation/testing/validation/w3c-checkout-css.webp) |
+| profiles/static/profiles/css/profile.css | Pass | [profile.css validation](documentation/testing/validation/w3c-profile-css.webp) |
+
 ---
 
 <a id="js-validation"></a>
