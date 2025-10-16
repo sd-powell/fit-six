@@ -16,13 +16,24 @@ MEMBER_DISCOUNT_RATE = Decimal('0.10')
 
 
 class StripeWH_Handler:
-    """Handle Stripe webhooks"""
+    """
+    Handles incoming Stripe webhooks for payment events.
+
+    This class processes successful and failed payment intents,
+    verifies or creates
+    corresponding Order records, applies discounts for members,
+    sends confirmation
+    emails, and updates user profiles with saved delivery details.
+    """
 
     def __init__(self, request):
         self.request = request
 
     def _send_confirmation_email(self, order):
-        """Send the user a confirmation email"""
+        """
+        Send an order confirmation email to the customer using
+        predefined email subject and body templates.
+        """
         cust_email = order.email
         subject = render_to_string(
             'checkout/confirmation_emails/confirmation_email_subject.txt',
@@ -40,14 +51,25 @@ class StripeWH_Handler:
         )
 
     def handle_event(self, event):
-        """Handle any webhook that isn't explicitly handled"""
+        """
+        Default handler for unrecognised webhook events.
+        Returns a 200 response to acknowledge receipt.
+        """
         return HttpResponse(
             content=f'Unhandled webhook received: {event["type"]}',
             status=200,
         )
 
     def handle_payment_intent_succeeded(self, event):
-        """Handle the payment_intent.succeeded webhook from Stripe"""
+        """
+        Handle Stripe's payment_intent.succeeded event.
+
+        - Attempts to find an existing matching order.
+        - If not found, creates a new Order and related OrderLineItems.
+        - Applies member discounts if applicable.
+        - Saves user profile data if requested.
+        - Sends confirmation email to the customer.
+        """
         intent = event.data.object
         pid = intent.id
         bag = intent.metadata.bag
@@ -76,7 +98,9 @@ class StripeWH_Handler:
                     profile.default_postcode = (
                         shipping_details.address.postal_code
                     )
-                    profile.default_town_or_city = shipping_details.address.city
+                    profile.default_town_or_city = (
+                        shipping_details.address.city
+                    )
                     profile.default_street_address1 = (
                         shipping_details.address.line1
                     )
@@ -162,7 +186,9 @@ class StripeWH_Handler:
 
             bag_items = json.loads(bag)
             for item_id, item_data in bag_items.items():
-                for variant_key, quantity in item_data['items_by_variant'].items():
+                for variant_key, quantity in (
+                    item_data['items_by_variant'].items()
+                ):
                     size, colour = variant_key.split('_')
                     variant = ProductVariant.objects.get(
                         product_id=item_id,
@@ -193,7 +219,10 @@ class StripeWH_Handler:
         )
 
     def handle_payment_intent_payment_failed(self, event):
-        """Handle payment_intent.payment_failed webhook"""
+        """
+        Handle Stripe's payment_intent.payment_failed event.
+        No further action is taken except logging acknowledgment.
+        """
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200,
