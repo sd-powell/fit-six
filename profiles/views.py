@@ -10,7 +10,16 @@ from checkout.models import Order
 
 @login_required
 def profile(request):
-    """ Display the user's profile. """
+    """
+    Display and manage the user's profile.
+
+    - If the request is POST, update the UserProfile and
+    related User model fields
+    with the submitted form data.
+    - If GET, display the profile form pre-filled with current data.
+
+    Also displays the user's past orders in the same view.
+    """
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
@@ -48,7 +57,12 @@ def profile(request):
 
 
 def order_history(request, order_number):
-    """ Display past order confirmation from profile """
+    """
+    Display a past order confirmation page.
+
+    This view renders the same template as a successful checkout
+    but includes a message to indicate the order is from history.
+    """
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (

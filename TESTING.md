@@ -154,9 +154,7 @@ All Python code was validated using the [Code Institute Python Linter](https://p
 | profiles/forms.py | Pass | [forms.py validation](documentation/testing/validation/python-profiles-forms.webp) |
 | profiles/models.py | Pass | [models.py validation](documentation/testing/validation/python-profiles-models.webp) |
 | profiles/urls.py | Pass | [urls.py validation](documentation/testing/validation/python/profiles-urls-validation.png) |
-| profiles/views.py | Pass | [views.py validation](documentation/testing/validation/python/profiles-views-validation.png) |
-| profiles/test_models.py | Pass | [test_models.py validation](documentation/testing/validation/python/profiles-test-models.png) |
-| profiles/test_views.py | Pass | [test_views.py validation](documentation/testing/validation/python/profiles-test-views.png) |
+| profiles/views.py | Pass | [views.py validation](documentation/testing/validation/python-profiles-views.webp) |
 | **CONTACT** |
 | contact/admin.py | Pass | [admin.py validation](documentation/testing/validation/python/contact-admin-validation.png) |
 | contact/apps.py | Pass | [apps.py validation](documentation/testing/validation/python/contact-apps-validation.png) |
