@@ -3,8 +3,8 @@ from django.shortcuts import render
 
 def index(request):
     """ A view to return the index page """
-    
     return render(request, 'home/index.html')
+
 
 def privacy(request):
     """
@@ -25,6 +25,7 @@ def shipping(request):
     View that returns the shipping policy page
     """
     return render(request, "home/shipping.html")
+
 
 def custom_404(request, exception):
     """

@@ -138,10 +138,9 @@ All Python code was validated using the [Code Institute Python Linter](https://p
 | checkout/webhook_handler.py | Pass | [webhook_handler.py validation](documentation/testing/validation/python-checkout-handler.webp) |
 | checkout/webhooks.py | Pass | [webhooks.py validation](documentation/testing/validation/python-checkout-webhooks.webp) |
 | **HOME** |
-| home/apps.py | Pass | [apps.py validation](documentation/testing/validation/python/home-apps-validation.png) |
-| home/urls.py | Pass | [urls.py validation](documentation/testing/validation/python/home-urls-validation.png) |
-| home/views.py | Pass | [views.py validation](documentation/testing/validation/python/home-views-validation.png) |
-| home/test_views.py | Pass | [test_views.py validation](documentation/testing/validation/python/home-test-views.png) |
+| home/apps.py | Pass | [apps.py validation](documentation/testing/validation/python-home-apps.webp) |
+| home/urls.py | Pass | [urls.py validation](documentation/testing/validation/python-home-urls.webp) |
+| home/views.py | Pass | [views.py validation](documentation/testing/validation/python-home-views.webp) |
 | **PRODUCTS** |
 | products/admin.py | Pass | [admin.py validation](documentation/testing/validation/python/products-admin-validation.png) |
 | products/apps.py | Pass | [apps.py validation](documentation/testing/validation/python/products-apps-validation.png) |
