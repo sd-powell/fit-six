@@ -1,0 +1,62 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block extra_title %} - Shipping Policy{% endblock %}
+
+{% block extra_meta %}
+    <meta name="description" content="Fit Six - Delivery Policy. Information on the delivery policy for Fit Six, the official online store for gym apparel, accessories, supplements, and class bundles.">
+    <meta name="keywords" content="shipping policy, delivery, Fit Six, gym wear, supplements, accessories, e-commerce, fitness shop, online store, gym clothing, protein, workout gear">
+
+    <!-- Social Media - Facebook, LinkedIn, Google -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Fit Six - Shipping Policy">
+    <meta property="og:description" content="Fit Six - Shipping Policy. Information on the delivery policy for Fit Six, the official online store for gym apparel, accessories, supplements, and class bundles.">
+    <meta name="image" property="og:image" content="{% static 'images/responsive-site-image.png' %}">
+    <meta property="og:image:alt" content="Fit Six ecommerce store shown on a variety of devices, from mobile to desktop">
+    <meta property="og:url" content="https://web-production-e39f.up.railway.app/delivery">
+    <meta property="og:site_name" content="Fit Six - Shipping Policy">
+{% endblock %} 
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col text-center">
+            <h1 class="display-5 fw-bold text-uppercase border-bottom pb-3 mb-4">Shipping Policy</h1>
+        </div>
+    </div>
+
+        <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 col-xl-9">
+
+            <div class="alert alert-secondary small rounded-2 mb-4">
+                <p class="mb-0">
+                    <strong>Note:</strong> Fit Six has been created by 
+                    <a href="https://github.com/sd-powell" target="_blank" class="link-dark text-decoration-underline">Steven Powell</a> 
+                    as an educational project for the Level 5 Diploma in Web Application Development. 
+                    This is a fictional e-commerce site — <strong>no real orders will be processed.</strong>
+                </p>
+            </div>
+
+            <h4 class="pt-4 pb-2">Delivery Prices</h4>
+            <p>We offer a flat rate delivery price of £3.99</p>
+            <p>Free Delivery is offered for all orders over £50</p>
+
+            <h4 class="pt-4 pb-2">Delivery Times</h4>
+            <p>All orders are processed within 1 to 3 business days (excluding weekends and holidays) after receiving your order confirmation email. You will receive another notification when your order has posted.</p>
+            <p>Delivery times are estimates and commence from the date of postage, rather than the date of order. Delivery times are to be used as a guide only and are subject to the acceptance and approval of your order.</p>
+
+            <h4 class="pt-4 pb-2">How do I check the status of my order?</h4>
+            <p>When your order has been posted, you will receive an email notification from us which will include a tracking number you can use to check its status. Please allow 48 hours for the tracking information to become available.</p> 
+            <p>If you haven't received your order within 2 days of receiving your confirmation of postage email, please <a class="text-muted" href="#">contact us</a>  with your name and order number, and we will look into it for you.</p>
+            <p>You can also keep track of your delivery in your account profile.</p>
+
+            <h4 class="pt-4 pb-2">Refunds, returns and exchanges</h4>
+            <p>We do not accept returns or exchanges unless the item you purchased is defective.</p>
+            <p>In the event that your order arrives damaged in any way, please <a class="text-muted" href="#">contact us</a> as soon as possible with your order number and a photo of the item's condition. We address these on a case-by-case basis but will try our best to work towards a satisfactory solution.</p>
+            <p>Refunds do not include any postage and handling charges shown on the packaging slip or invoice. Delivery charges for all returns must be prepaid and insured by you. You are responsible for any loss or damage to hardware during postage. We do not guarantee that we will receive your returned item. Postage and handling charges are not refundable. Any amounts refunded will not include the cost of Postage.</p>
+            <p>If you have any further questions, please don't hesitate to <a class="text-muted" href="#">contact us.</a></p>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
