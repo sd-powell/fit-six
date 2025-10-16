@@ -1,6 +1,6 @@
 from decimal import Decimal
 from django.shortcuts import (
-    render, redirect, reverse, HttpResponse, get_object_or_404
+    render, redirect, HttpResponse, get_object_or_404
 )
 from django.contrib import messages
 from django.views.decorators.http import require_POST
@@ -178,7 +178,7 @@ def remove_from_bag(request, slug):
     try:
         product = get_object_or_404(Product, slug=slug)
         item_id_str = str(product.id)
-        
+
         size = request.POST.get('product_size')
         colour = request.POST.get('product_colour')
         variant_key = f"{size}_{colour}".lower()

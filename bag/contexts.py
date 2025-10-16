@@ -3,7 +3,7 @@ from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 
-from products.models import Product, ProductVariant
+from products.models import Product
 from profiles.models import UserProfile
 
 MEMBER_DISCOUNT_RATE = Decimal('0.10')
@@ -39,7 +39,9 @@ def bag_contents(request):
             })
             continue
 
-        for variant_key, quantity in item_data.get('items_by_variant', {}).items():
+        for variant_key, quantity in item_data.get(
+            'items_by_variant', {}
+        ).items():
             size, colour = variant_key.split('_')
             size = size.upper()
             colour = colour.capitalize()
@@ -81,7 +83,9 @@ def bag_contents(request):
         delivery = total_after_discount * (
             Decimal(settings.STANDARD_DELIVERY_PERCENTAGE) / 100
         )
-        free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total_after_discount
+        free_delivery_delta = (
+            settings.FREE_DELIVERY_THRESHOLD - total_after_discount
+        )
     else:
         delivery = Decimal('0.00')
         free_delivery_delta = Decimal('0.00')

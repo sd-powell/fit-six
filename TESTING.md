@@ -121,12 +121,12 @@ All Python code was validated using the [Code Institute Python Linter](https://p
 | fitsix_project/settings.py | Pass | [settings.py validation](documentation/testing/validation/python-settings.webp) |
 | fitsix_project/urls.py | Pass | [urls.py validation](documentation/testing/validation/python-fitsix-urls.webp) |
 | **BAG** |
-| bag/apps.py | Pass | [apps.py validation](documentation/testing/validation/python/bag-apps-validation.png) |
-| bag/contexts.py | Pass | [contexts.py validation](documentation/testing/validation/python/bag-contexts-validation.png) |
-| bag/urls.py | Pass | [urls.py validation](documentation/testing/validation/python/bag-urls-validation.png) |
-| bag/views.py | Pass | [views.py validation](documentation/testing/validation/python/bag-views-validation.png) |
-| bag/templatetags/bag_tools.py | Pass | [bag_tools.py validation](documentation/testing/validation/python/bag-bag_tools-validation.png) |
-| bag/test_views.py | Pass | [test_views.py validation](documentation/testing/validation/python/bag-test-views.png) |
+| bag/apps.py | Pass | [apps.py validation](documentation/testing/validation/python-bag-apps.webp) |
+| bag/contexts.py | Pass | [contexts.py validation](documentation/testing/validation/python-bag-contexts.webp) |
+| bag/urls.py | Pass | [urls.py validation](documentation/testing/validation/python-bag-urls.webp) |
+| bag/views.py | Pass | [views.py validation](documentation/testing/validation/python-bag-views.webp) |
+| bag/templatetags/bag_tools.py | Pass | [bag_tools.py validation](documentation/testing/validation/python-bag-tools.webp) |
+| bag/bag_extras.py | Pass | [bag_extras.py validation](documentation/testing/validation/python-bag-extras.webp) |
 | **CHECKOUT** |
 | checkout/admin.py | Pass | [admin.py validation](documentation/testing/validation/python/checkout-admin-validation.png) |
 | checkout/apps.py | Pass | [apps.py validation](documentation/testing/validation/python/checkout-apps-validation.png) |
