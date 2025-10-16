@@ -4,10 +4,18 @@ from .models import Category, Product, ProductVariant
 
 
 class CategoryAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for Category model.
+    Displays friendly name and internal name.
+    """
     list_display = ('friendly_name', 'name',)
 
 
 class ProductVariantInline(admin.TabularInline):
+    """
+    Inline admin class to manage ProductVariant entries
+    within the Product admin interface.
+    """
     model = ProductVariant
     extra = 1
     show_change_link = True
@@ -26,6 +34,9 @@ class ProductVariantInline(admin.TabularInline):
         )
 
     def preview(self, obj):
+        """
+        Display a small preview of the front product image.
+        """
         if obj.image:
             return format_html(
                 '<img src="{}" style="height: 60px;" />',
@@ -34,6 +45,9 @@ class ProductVariantInline(admin.TabularInline):
         return "(No image)"
 
     def preview_back(self, obj):
+        """
+        Display a small preview of the back product image.
+        """
         if obj.image_back:
             return format_html(
                 '<img src="{}" style="height: 60px;" />',
@@ -46,6 +60,11 @@ class ProductVariantInline(admin.TabularInline):
 
 
 class ProductAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for Product model.
+    Displays product name, category, and inline variants.
+    Includes image preview and search capability.
+    """
     list_display = ('name', 'category', 'has_variants', 'image_preview')
     ordering = ('name',)
     search_fields = ('name',)
@@ -61,6 +80,9 @@ class ProductAdmin(admin.ModelAdmin):
         )
 
     def image_preview(self, obj):
+        """
+        Display a small preview of the main product image.
+        """
         if obj.image:
             return format_html(
                 '<img src="{}" style="height: 100px;" />',
@@ -72,6 +94,10 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class ProductVariantAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for standalone ProductVariant model.
+    Includes front and back image previews.
+    """
     list_display = (
         'sku',
         'product',
@@ -85,6 +111,9 @@ class ProductVariantAdmin(admin.ModelAdmin):
     readonly_fields = ['variant_image_preview', 'variant_back_image_preview']
 
     def variant_image_preview(self, obj):
+        """
+        Display a small preview of the variant's front image.
+        """
         if obj.image:
             return format_html(
                 '<img src="{}" style="height: 60px;" />',
@@ -93,6 +122,9 @@ class ProductVariantAdmin(admin.ModelAdmin):
         return "(No image)"
 
     def variant_back_image_preview(self, obj):
+        """
+        Display a small preview of the variant's back image.
+        """
         if obj.image_back:
             return format_html(
                 '<img src="{}" style="height: 60px;" />',

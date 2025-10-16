@@ -142,9 +142,9 @@ All Python code was validated using the [Code Institute Python Linter](https://p
 | home/urls.py | Pass | [urls.py validation](documentation/testing/validation/python-home-urls.webp) |
 | home/views.py | Pass | [views.py validation](documentation/testing/validation/python-home-views.webp) |
 | **PRODUCTS** |
-| products/admin.py | Pass | [admin.py validation](documentation/testing/validation/python/products-admin-validation.png) |
-| products/apps.py | Pass | [apps.py validation](documentation/testing/validation/python/products-apps-validation.png) |
-| products/forms.py | Pass | [forms.py validation](documentation/testing/validation/python/products-forms-validation.png) |
+| products/admin.py | Pass | [admin.py validation](documentation/testing/validation/python-products-admin.webp) |
+| products/apps.py | Pass | [apps.py validation](documentation/testing/validation/python-products-apps.webp) |
+| products/forms.py | Pass | [forms.py validation](documentation/testing/validation/python-products-forms.webp) |
 | products/models.py | Pass | [models.py validation](documentation/testing/validation/python/products-models-validation.png) |
 | products/urls.py | Pass | [urls.py validation](documentation/testing/validation/python/products-urls-validation.png) |
 | products/views.py | Pass | [views.py validation](documentation/testing/validation/python/products-views-validation.png) |
