@@ -1,5 +1,7 @@
 # Fit Six - Train hard. Shop harder.
 
+![Fit Six Banner Image](documentation/readme/surface_plane/og-image.webp)
+
 ## Introduction
 
 **Fit Six Store** is a Django-based full-stack e-commerce web application built to serve as the official online merch store for *Fit Six Gym*, a community-focused training space in South Wales. The platform enables gym members and fitness enthusiasts to browse, filter, and securely purchase branded apparel, accessories, nutritional products, and class bundles.

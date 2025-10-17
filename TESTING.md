@@ -1,5 +1,7 @@
 # Fit Six – Testing
 
+![Fit Six Banner Image](documentation/readme/surface_plane/og-image.webp)
+
 > [!NOTE]  
 > Return to the main [README.md](README.md) file.
 
