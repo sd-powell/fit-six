@@ -180,16 +180,11 @@ def product_detail(request, slug):
 def add_product(request):
     """
     Allow superusers to add a new product and its variants.
-
-    - Validates the main product form and associated inline formset.
-    - On success, redirects to the product detail page.
-    - Displays error messages if form or formset is invalid.
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    # Local inlineformset with extra=1
     ProductVariantFormSet = inlineformset_factory(
         Product,
         ProductVariant,
@@ -203,62 +198,62 @@ def add_product(request):
             'image',
             'image_back'
         ),
-        extra=1,  # Show one empty form by default on "add"
+        extra=1,
         can_delete=True
     )
 
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         formset = ProductVariantFormSet(
-            request.POST or None, prefix='variants'
+            request.POST, request.FILES, prefix='variants'
         )
-        if form.is_valid() and formset.is_valid():
-            product = form.save()
-            formset.instance = product
-            variants = formset.save(commit=False)
 
-            for variant in variants:
-                # Check for duplicate size+colour for this product
-                exists = ProductVariant.objects.filter(
-                    product=product,
-                    size=variant.size,
-                    colour=variant.colour
-                ).exists()
+        if form.is_valid():
+            product = form.save(commit=False)
+            formset.instance = product  # must come before validation
+            if formset.is_valid():
+                product.save()  # save parent first
+                variants = formset.save(commit=False)
 
-                if exists:
-                    messages.warning(
-                        request,
-                        f"Duplicate variant skipped: "
-                        f"{variant.size or 'N/A'} / {variant.colour or 'N/A'}"
-                    )
-                    continue
+                for variant in variants:
+                    # Skip duplicate size/colour combos
+                    if ProductVariant.objects.filter(
+                        product=product,
+                        size=variant.size,
+                        colour=variant.colour
+                    ).exists():
+                        messages.warning(
+                            request,
+                            f"Duplicate variant skipped: "
+                            f"{variant.size or 'N/A'} / "
+                            "{variant.colour or 'N/A'}"
+                        )
+                        continue
 
-                # Assign SKU if missing
-                if not variant.sku:
-                    variant.sku = str(uuid4())[:8].upper()
+                    # Assign SKU if missing
+                    if not variant.sku:
+                        variant.sku = str(uuid4())[:8].upper()
 
-                variant.save()
+                    variant.save()
 
-            formset.save_m2m()
-            messages.success(
-                request, 'Successfully added product and variants!'
-            )
-            return redirect('product_detail', slug=product.slug)
+                formset.save_m2m()
+                messages.success(
+                    request, 'Successfully added product and variants!'
+                )
+                return redirect('product_detail', slug=product.slug)
+            else:
+                messages.error(
+                    request, 'One or more variants are invalid. Please check.'
+                )
         else:
-            messages.error(
-                request,
-                'Failed to add product. Please check the form and variants.'
-            )
+            messages.error(request, 'Product form invalid. Please check.')
+
     else:
         form = ProductForm()
         formset = ProductVariantFormSet(prefix='variants')
 
     template = 'products/add_product.html'
-    context = {
-        'form': form,
-        'formset': formset,
-    }
-
+    context = {'form': form, 'formset': formset}
     return render(request, template, context)
 
 

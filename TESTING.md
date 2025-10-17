@@ -186,6 +186,21 @@ All Python code was validated using the [Code Institute Python Linter](https://p
 
 I've tested my deployed project using the Lighthouse Audit tool to test the performance, accessibility, best practices and SEO of the website.
 
+| Page | Mobile | Desktop | Notes |
+| :--: | :--: | :--: | :--: |
+| Home | ![screenshot](documentation/testing/validation/lighthouse-mobile-home.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-home.webp) | ✅ Passed |
+| Products | ![screenshot](documentation/testing/validation/lighthouse-mobile-products.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-products.webp) | ✅ Passed |
+| Product Detail | ![screenshot](documentation/testing/validation/lighthouse-mobile-productdetail.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-productdetail.webp) | ✅ Passed |
+| Add Product | ![screenshot](documentation/testing/validation/lighthouse-mobile-addproduct.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-addproduct.webp) | ✅ Passed |
+| Edit Product | ![screenshot](documentation/testing/validation/lighthouse-mobile-editproduct.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-editproduct.webp) | ✅ Passed |
+| Bag Page | ![screenshot](documentation/testing/validation/lighthouse-mobile-bag.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-bag.webp) | ✅ Passed |
+| Checkout Page | ![screenshot](documentation/testing/validation/lighthouse-mobile-checkout.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-checkout.webp) | ✅ Passed |
+| Checkout SuccessPage | ![screenshot](documentation/testing/validation/lighthouse-mobile-checkout-success.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-checkout-success.webp) | ✅ Passed |
+| Profile Page | ![screenshot](documentation/testing/validation/lighthouse-mobile-profile.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-profile.webp) | ✅ Passed |
+| Privacy Policy Page | ![screenshot](documentation/testing/validation/lighthouse-mobile-privacy.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-privacy.webp) | ✅ Passed |
+| Terms & Conditions Page | ![screenshot](documentation/testing/validation/lighthouse-mobile-terms.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-terms.webp) | ✅ Passed |
+| Shipping Policy Page | ![screenshot](documentation/testing/validation/lighthouse-mobile-shipping.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-shipping.webp) | ✅ Passed |
+
 ---
 
 <a id="automated-testing"></a>
