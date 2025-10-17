@@ -2,6 +2,23 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+{% block extra_title %} - Product Management - Edit Product{% endblock %}
+
+{% block extra_meta %}
+    <!-- Descriptive Meta for SEO -->
+    <meta name="description" content="Fit Six Gym store - Edit Product. Shop premium fitness apparel, supplements, accessories, and class bundles. Designed for training, performance and recovery.">
+    <meta name="keywords" content="Fit Six, gym clothing, supplements, fitness gear, gym classes, performance wear">
+
+    <!-- Social Media Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Fit Six - Product Management - Edit Product">
+    <meta property="og:description" content="Shop gym wear, supplements, accessories, and class bundles at the official Fit Six store.">
+    <meta property="og:image" content="/static/images/fitsix-logo.svg">
+    <meta property="og:image:alt" content="Fit Six ecommerce store shown on a variety of devices, from mobile to desktop">
+    <meta property="og:url" content="https://fitsix.herokuapp.com/products">
+    <meta property="og:site_name" content="Fit Six - Product Management - Edit Product">
+{% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -19,23 +36,113 @@
                 <h5 class="text-muted">Edit Product</h5>
             </div>
 
-            <form method="POST" action="{% url 'edit_product' product.id %}" class="form" enctype="multipart/form-data">
+            {# Main form: handles product and its variant editing #}
+            <form method="POST" action="{% url 'edit_product' product.slug %}" class="form" enctype="multipart/form-data">
                 {% csrf_token %}
+
+                {# Loop through each field in the main product form #}
                 {% for field in form %}
                     <div class="mb-3">
                         {% if field.name != 'image' %}
+                            {# Render normal fields with crispy-forms styling #}
                             {{ field | as_crispy_field }}
                         {% else %}
+                            {# Custom rendering for image field (with hint text) #}
                             <label for="{{ field.id_for_label }}" class="form-label">Change Image</label>
                             {{ field }}
                             <small class="form-text text-muted">Upload a new image to replace the current one.</small>
                         {% endif %}
+                        {# If the field has errors, display them inline #}
                         {% if field.errors %}
                             <div class="text-danger small">{{ field.errors|striptags }}</div>
                         {% endif %}
                     </div>
                 {% endfor %}
 
+                <hr class="my-4">
+
+                {# Subheading for product variants #}
+                <h4 class="fw-bold text-uppercase mb-3">Edit Variants</h4>
+
+                {# Required hidden formset metadata (e.g., total forms) #}
+                {{ variant_formset.management_form }}
+
+                {# Loop through each variant form in the inline formset #}
+                {% for form in variant_formset %}
+                    <div class="card mb-3 border rounded shadow-sm p-3">
+                        <h6 class="fw-semibold mb-3">Variant {{ forloop.counter }}</h6>
+
+                        {{ form.id }}
+
+                        {# Show current images if they exist #}
+                        <div class="mb-3 d-flex gap-3 flex-wrap">
+                            {% if form.instance.image %}
+                                <div>
+                                    <label class="form-label d-block small text-muted">Current Front Image</label>
+                                    <img src="{{ form.instance.image.url }}" alt="Current Front Image" style="max-height: 100px;" class="img-thumbnail">
+                                </div>
+                            {% endif %}
+                            {% if form.instance.image_back %}
+                                <div>
+                                    <label class="form-label d-block small text-muted">Current Back Image</label>
+                                    <img src="{{ form.instance.image_back.url }}" alt="Current Back Image" style="max-height: 100px;" class="img-thumbnail">
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Render each field, including price/stock/image etc. -->
+                        {% for field in form.visible_fields %}
+                            <div class="mb-2">
+                                {% if field.name == 'image' or field.name == 'image_back' %}
+                                    {% with label=field.label %}
+                                        <div class="mb-3">
+                                            <label for="{{ field.id_for_label }}" class="form-label">{{ label }}</label>
+
+                                            <!-- Styled Select Button -->
+                                            <div class="btn btn-outline-blue btn-file mb-2">
+                                                Select {{ label }}
+                                                {{ field }}
+                                            </div>
+
+                                            <!-- Clear/Remove checkbox -->
+                                            {% if field.value %}
+                                                <div class="form-check mt-2">
+                                                    <input type="checkbox"
+                                                        name="{{ field.clear_checkbox_name }}"
+                                                        id="{{ field.clear_checkbox_id }}"
+                                                        class="form-check-input">
+                                                    <label for="{{ field.clear_checkbox_id }}" class="form-check-label text-danger small">
+                                                        Remove {{ label|lower }}
+                                                    </label>
+                                                </div>
+                                            {% endif %}
+
+                                            <!-- Filename display (updated via JS) -->
+                                            <p class="filename-display text-muted small mt-1"></p>
+
+                                            <!-- Field error messages -->
+                                            {% if field.errors %}
+                                                <div class="text-danger small">{{ field.errors|striptags }}</div>
+                                            {% endif %}
+                                        </div>
+                                    {% endwith %}
+                                {% else %}
+                                    {{ field|as_crispy_field }}
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+
+                        {# Show delete checkbox if it's available in the formset #}
+                        {% if form.fields.DELETE %}
+                            <div class="form-check">
+                                {{ form.DELETE }}
+                                <label class="form-check-label">Delete this variant</label>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+
+                {# Buttons to submit or cancel #}
                 <div class="d-flex justify-content-between mt-4">
                     <a class="btn btn-outline-black rounded-pill" href="{% url 'products' %}">Cancel</a>
                     <button class="btn btn-blue rounded-pill" type="submit">Update Product</button>
@@ -49,9 +156,29 @@
 {% block postloadjs %}
 {{ block.super }}
 <script type="text/javascript">
+    // --- Main product image preview ---
     $('#new-image').change(function() {
-        var file = $('#new-image')[0].files[0];
-        $('#filename').text(`Image will be set to: ${file.name}`);
+        const file = $('#new-image')[0].files[0];
+        if (file) {
+            $('#filename').text(`Image will be set to: ${file.name}`);
+        }
+    });
+
+    // --- Variant image file name display ---
+    document.querySelectorAll('input[type="file"]').forEach(input => {
+        input.addEventListener('change', function () {
+            const fileName = this.files.length ? this.files[0].name : '';
+            if (fileName) {
+                // Find or create a nearby filename display element
+                let display = this.closest('.btn-file')?.nextElementSibling;
+                if (!display || !display.classList.contains('filename-display')) {
+                    display = document.createElement('p');
+                    display.className = 'filename-display text-muted small mt-1';
+                    this.closest('.btn-file')?.after(display);
+                }
+                display.textContent = `Selected: ${fileName}`;
+            }
+        });
     });
 </script>
 {% endblock %}

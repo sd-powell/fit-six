@@ -15,8 +15,8 @@ ProductVariantFormSet = inlineformset_factory(
     Product,
     ProductVariant,
     form=ProductVariantForm,
-    fields=('size', 'colour', 'price', 'stock'),
-    extra=1,
+    fields=('id', 'size', 'colour', 'price', 'stock', 'image', 'image_back'),
+    extra=0,
     can_delete=True
 )
 
@@ -245,33 +245,51 @@ def add_product(request):
 @login_required
 def edit_product(request, slug):
     """
-    Allow superusers to edit an existing product's details.
-
-    Args:
-        slug (str): The slug of the product to edit.
+    Allow superusers to edit an existing product's details, including variants.
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, slug=slug)
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Successfully updated product!')
-            return redirect('product_detail', slug=product.slug)
-        messages.error(
-            request,
-            'Failed to update product. Please ensure the form is valid.'
+        variant_formset = ProductVariantFormSet(
+            request.POST,
+            instance=product,
+            queryset=ProductVariant.objects.filter(product=product),
         )
+
+        if form.is_valid() and variant_formset.is_valid():
+            form.save()
+            variant_formset.save()
+            messages.success(
+                request, 'Successfully updated product and variants!'
+            )
+            return redirect('product_detail', slug=product.slug)
+        else:
+            print("Product form errors:", form.errors)
+            print("Variant formset errors:")
+            for variant_form in variant_formset:
+                print(variant_form.errors)
+            messages.error(
+                request,
+                'Failed to update product or variants.'
+                'Please ensure the form is valid.'
+            )
     else:
         form = ProductForm(instance=product)
+        variant_formset = ProductVariantFormSet(
+            instance=product,
+            queryset=ProductVariant.objects.filter(product=product),
+        )
         messages.info(request, f'You are editing {product.name}')
 
     template = 'products/edit_product.html'
     context = {
         'form': form,
+        'variant_formset': variant_formset,
         'product': product,
     }
 
