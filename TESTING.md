@@ -523,6 +523,17 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 | **Secure Checkout Button** | Takes the user to checkout page to enter details and complete purchase. | Clicked **Secure Checkout** | Redirected to `/checkout/` | ✅ Pass |
 | **Checkout Button (Toast)** | The toast shown after adding an item includes product info, bag total, free delivery message, and a **Go to Checkout** button. | Added product to bag, then clicked **Checkout** on toast | Toast displayed correct details and button redirected to `/bag/` for review | ✅ Pass |
 
+### Checkout Page - (`checkout.html`)
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| **Form validation** | Submitting form with missing required fields shows tooltip errors | Submitted the form with required fields left blank | A tooltip informs the user to fill in required fields | ✅ Pass |
+| **Save delivery information checkbox** | Delivery info is saved to profile when checkbox is selected | Filled out form, selected checkbox, completed checkout, and checked profile | Profile info was updated correctly with delivery data | ✅ Pass |
+| **Login link (not logged in)** | Navigates to login page from checkout, keeps bag contents after login | Clicked **Login** link, logged in, and returned to checkout | Logged in successfully, redirected to home, and bag contents retained | ✅ Pass |
+| **Register link (not logged in)** | Allows users to register before checkout, retaining bag contents | Clicked **Register** link and created an account | Redirected to home, logged in, and bag contents available | ✅ Pass |
+| **Payment information validation** | Invalid card numbers trigger real-time Stripe errors | Entered invalid test card number | Stripe displayed red error message indicating invalid card | ✅ Pass |
+| **Complete Order button** | Clicking button shows loading overlay and redirects to success page | Filled in form, clicked **Complete Order** | Overlay appeared, then redirected to **Checkout Success** page | ✅ Pass |
+
 ---
 <a id="conclusion"></a>
 
