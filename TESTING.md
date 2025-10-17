@@ -534,6 +534,14 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 | **Payment information validation** | Invalid card numbers trigger real-time Stripe errors | Entered invalid test card number | Stripe displayed red error message indicating invalid card | ✅ Pass |
 | **Complete Order button** | Clicking button shows loading overlay and redirects to success page | Filled in form, clicked **Complete Order** | Overlay appeared, then redirected to **Checkout Success** page | ✅ Pass |
 
+<a id="solved-issues"></a>
+
+### Solved Issues & Bugs
+
+| No | Bug Description | Solution | Screenshot |
+| :- | :------------- | :-------- | :--------- |
+| 1  | Users could submit form fields containing leading or trailing spaces (e.g., `"  John "` or `" test@example.com "`), which occasionally caused validation inconsistencies or messy data storage. | Added a `clean()` method in `OrderForm` to automatically trim whitespace from all string fields before validation, ensuring consistent and clean data entry. | ![Screenshot](documentation/testing/bugs/testing-orderform-clean.webp) |
+
 ---
 <a id="conclusion"></a>
 

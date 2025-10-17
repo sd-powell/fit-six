@@ -41,3 +41,13 @@ class OrderForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
+
+    def clean(self):
+        """
+        Trim leading/trailing whitespace from all string fields.
+        """
+        cleaned_data = super().clean()
+        for field_name, value in cleaned_data.items():
+            if isinstance(value, str):
+                cleaned_data[field_name] = value.strip()
+        return cleaned_data
