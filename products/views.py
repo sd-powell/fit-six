@@ -91,6 +91,14 @@ def all_products(request):
 
     current_sorting = f'{sort}_{direction}'
 
+    # Manually ensure min_price and max_price for non-variant products
+    for product in products:
+        if not product.has_variants:
+            variant = product.variants.first()
+            if variant:
+                setattr(product, 'min_price', variant.price)
+                setattr(product, 'max_price', variant.price)
+
     context = {
         'products': products,
         'search_term': query,

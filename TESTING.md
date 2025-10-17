@@ -547,6 +547,8 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 | 5  | Error raised when adding non-variant product to bag due to missing `.price` on `Product` object and unused import warning. | Removed unused `ProductVariant` import, adjusted logic to only use `variant.price`, and added fallback structure for non-variant products. Also split long lines for clarity. | N/A |
 | 6  | Unused import warning for `ProductVariant` in `bag/views.py` | Removed the unnecessary `from products.models import ProductVariant` line, as variant lookups are now done via `product.variants.filter(...)`. | N/A |
 | 6  | Only the first variant item in the bag displayed a "Remove" button; other items (including non-variants) lacked it. | Moved the remove button outside the `{% if variant_key %}` block and conditionally added variant data attributes only when present. | ![Screenshot](documentation/testing/bugs/testing-remove-variant-fix.webp) |
+| 5  | Non-variant products (e.g., accessories) were missing a displayed price on the products.html page, resulting in a blank space where the price should appear. | Added a fallback condition to render `product.price` using `floatformat`, or show a fallback message like “Price coming soon” if `product.price` is `None`. This ensures all products display a valid price. | ![Screenshot](documentation/testing/bugs/testing-nonvariant-price-fix.webp) |
+
 
 ---
 <a id="conclusion"></a>

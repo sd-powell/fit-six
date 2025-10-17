@@ -143,7 +143,11 @@
                                         <p class="text-muted">Variants coming soon</p>
                                     {% endif %}
                                 {% else %}
-                                    <p class="lead mb-0 font-weight-bold">£{{ product.price }}</p>
+                                    {% if product.min_price %}
+                                        <p class="lead mb-0 font-weight-bold">£{{ product.min_price|floatformat:2 }}</p>
+                                    {% else %}
+                                        <p class="text-muted">Price coming soon</p>
+                                    {% endif %}
                                 {% endif %}
 
                                 {% if request.user.is_superuser %}
