@@ -548,7 +548,7 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 | 6  | Unused import warning for `ProductVariant` in `bag/views.py` | Removed the unnecessary `from products.models import ProductVariant` line, as variant lookups are now done via `product.variants.filter(...)`. | N/A |
 | 6  | Only the first variant item in the bag displayed a "Remove" button; other items (including non-variants) lacked it. | Moved the remove button outside the `{% if variant_key %}` block and conditionally added variant data attributes only when present. | ![Screenshot](documentation/testing/bugs/testing-remove-variant-fix.webp) |
 | 5  | Non-variant products (e.g., accessories) were missing a displayed price on the products.html page, resulting in a blank space where the price should appear. | Added a fallback condition to render `product.price` using `floatformat`, or show a fallback message like “Price coming soon” if `product.price` is `None`. This ensures all products display a valid price. | ![Screenshot](documentation/testing/bugs/testing-nonvariant-price-fix.webp) |
-
+| 6  | Submitting the add product form with duplicate variant size/colour caused an IntegrityError due to a UNIQUE constraint on SKU. | Added logic in the `add_product` view to check for and skip duplicate variant combinations before saving the formset, ensuring only unique variants are persisted. | ![Screenshot](documentation/testing/bugs/testing-duplicate-sku-fix.webp) |
 
 ---
 <a id="conclusion"></a>

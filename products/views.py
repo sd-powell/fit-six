@@ -6,6 +6,7 @@ from django.utils.safestring import mark_safe
 from django.db.models import Q, Min, Max
 from django.db.models.functions import Lower
 import json
+from uuid import uuid4
 
 from .models import Product, ProductVariant, Category
 from .forms import ProductForm, ProductVariantForm
@@ -194,15 +195,40 @@ def add_product(request):
         if form.is_valid() and formset.is_valid():
             product = form.save()
             formset.instance = product
-            formset.save()
+            variants = formset.save(commit=False)
+
+            for variant in variants:
+                # Check for duplicate size+colour for this product
+                exists = ProductVariant.objects.filter(
+                    product=product,
+                    size=variant.size,
+                    colour=variant.colour
+                ).exists()
+
+                if exists:
+                    messages.warning(
+                        request,
+                        f"Duplicate variant skipped: "
+                        f"{variant.size or 'N/A'} / {variant.colour or 'N/A'}"
+                    )
+                    continue
+
+                # Assign SKU if missing
+                if not variant.sku:
+                    variant.sku = str(uuid4())[:8].upper()
+
+                variant.save()
+
+            formset.save_m2m()
             messages.success(
                 request, 'Successfully added product and variants!'
             )
             return redirect('product_detail', slug=product.slug)
-        messages.error(
-            request,
-            'Failed to add product. Please check the form and variants.'
-        )
+        else:
+            messages.error(
+                request,
+                'Failed to add product. Please check the form and variants.'
+            )
     else:
         form = ProductForm()
         formset = ProductVariantFormSet()
