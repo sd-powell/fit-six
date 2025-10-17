@@ -550,7 +550,7 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 | 5  | Non-variant products (e.g., accessories) were missing a displayed price on the products.html page, resulting in a blank space where the price should appear. | Added a fallback condition to render `product.price` using `floatformat`, or show a fallback message like “Price coming soon” if `product.price` is `None`. This ensures all products display a valid price. | ![Screenshot](documentation/testing/bugs/testing-nonvariant-price-fix.webp) |
 | 6  | Submitting the add product form with duplicate variant size/colour caused an IntegrityError due to a UNIQUE constraint on SKU. | Added logic in the `add_product` view to check for and skip duplicate variant combinations before saving the formset, ensuring only unique variants are persisted. | ![Screenshot](documentation/testing/bugs/testing-duplicate-sku-fix.webp) |
 | 8 | Deleting a product from the product detail page triggered immediate deletion with only a toast notification and no confirmation modal, unlike the product list page. | Added a Bootstrap confirmation modal to the product detail page, matching the design and behavior of the modal used on the products list. This ensures users confirm before deleting any item. | ![Screenshot](documentation/testing/bugs/testing-modal-product-detail.webp) |
-
+| 9  | The back-to-top arrow icon used `text-black`, making it invisible on the black footer background. | Changed icon class to `text-primary` to ensure contrast and visibility against dark backgrounds. | ![Screenshot](documentation/testing/bugs/testing-arrow-visibility.webp) |
 ---
 <a id="conclusion"></a>
 
