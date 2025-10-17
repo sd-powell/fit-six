@@ -13,6 +13,84 @@ MEMBER_DISCOUNT_RATE = Decimal('0.10')
 
 
 def view_bag(request):
+    """Render the bag contents page,
+    calculating totals and member discount."""
+    bag = request.session.get('bag', {})
+    bag_items = []
+    total = Decimal('0.00')
+    product_count = 0
+
+    for item_id, item_data in bag.items():
+        product = get_object_or_404(Product, pk=item_id)
+
+        # Handle non-variant items (if any remain)
+        if isinstance(item_data, int):
+            # Use first variant price if available, else 0.00
+            variant = product.variants.first()
+            price = variant.price if variant else Decimal('0.00')
+            subtotal = Decimal(item_data) * price
+            total += subtotal
+            product_count += item_data
+            bag_items.append({
+                'item_id': item_id,
+                'quantity': item_data,
+                'product': product,
+                'price': price,
+                'subtotal': subtotal,
+            })
+            continue
+
+        # Handle products with variants
+        for variant_key, quantity in item_data.get(
+            'items_by_variant', {}
+        ).items():
+            size, colour = variant_key.split('_')
+            size = size.strip().upper()
+            colour = colour.strip().capitalize()
+
+            variant = product.variants.filter(size=size, colour=colour).first()
+            if variant:
+                price = variant.price
+                subtotal = Decimal(quantity) * price
+                total += subtotal
+                product_count += quantity
+
+                bag_items.append({
+                    'item_id': item_id,
+                    'quantity': quantity,
+                    'product': product,
+                    'variant': variant,
+                    'sku': variant.sku,
+                    'price': price,
+                    'subtotal': subtotal,
+                    'variant_key': variant_key,
+                })
+
+    # --- Member discount logic ---
+    discount = Decimal('0.00')
+    is_member = False
+
+    if request.user.is_authenticated:
+        try:
+            profile = UserProfile.objects.get(user=request.user)
+            if profile.is_member:
+                discount = total * MEMBER_DISCOUNT_RATE
+                is_member = True
+        except UserProfile.DoesNotExist:
+            pass
+
+    grand_total = total - discount
+
+    context = {
+        'bag_items': bag_items,
+        'total': total,
+        'product_count': product_count,
+        'discount': round(discount, 2),
+        'grand_total': grand_total,
+        'is_member': is_member,
+    }
+
+    return render(request, 'bag/bag.html', context)
     """Render the bag contents page, with optional member discount."""
     bag = request.session.get('bag', {})
     bag_items = []
