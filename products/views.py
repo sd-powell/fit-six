@@ -39,7 +39,7 @@ def all_products(request):
             max_price=Max('variants__price')
         )
     )
-    
+
     query = None
     categories = None
     sort = None

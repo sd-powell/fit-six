@@ -13,6 +13,9 @@ def bag_contents(request):
     """
     Calculate bag totals, apply member discount if eligible,
     and return all relevant context variables.
+
+    Updated to reference ProductVariant for pricing,
+    since Product no longer contains a price field.
     """
     bag_items = []
     total = Decimal('0.00')
@@ -24,9 +27,13 @@ def bag_contents(request):
     for item_id, item_data in bag.items():
         product = get_object_or_404(Product, pk=int(item_id))
 
+        # Handle non-variant items (fallback)
         if isinstance(item_data, int):
-            # Non-variant fallback
-            price = product.price
+            variant = product.variants.first()
+            if not variant:
+                continue  # Skip if no variants exist
+
+            price = variant.price
             subtotal = item_data * price
             total += subtotal
             product_count += item_data
@@ -34,20 +41,21 @@ def bag_contents(request):
                 'item_id': item_id,
                 'quantity': item_data,
                 'product': product,
+                'variant': variant,
+                'sku': variant.sku,
                 'price': price,
                 'subtotal': subtotal,
             })
             continue
 
-        for variant_key, quantity in item_data.get(
-            'items_by_variant', {}
-        ).items():
+        # Handle variant-based products
+        items_by_variant = item_data.get('items_by_variant', {})
+        for variant_key, quantity in items_by_variant.items():
             size, colour = variant_key.split('_')
-            size = size.upper()
-            colour = colour.capitalize()
-            variant = product.variants.filter(
-                size=size, colour=colour
-            ).first()
+            size = size.strip().upper()
+            colour = colour.strip().capitalize()
+
+            variant = product.variants.filter(size=size, colour=colour).first()
 
             if variant:
                 price = variant.price
@@ -83,9 +91,8 @@ def bag_contents(request):
         delivery = total_after_discount * (
             Decimal(settings.STANDARD_DELIVERY_PERCENTAGE) / 100
         )
-        free_delivery_delta = (
-            settings.FREE_DELIVERY_THRESHOLD - total_after_discount
-        )
+        threshold = settings.FREE_DELIVERY_THRESHOLD
+        free_delivery_delta = threshold - total_after_discount
     else:
         delivery = Decimal('0.00')
         free_delivery_delta = Decimal('0.00')
