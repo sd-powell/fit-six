@@ -8,10 +8,25 @@ class NewsletterSignupForm(forms.ModelForm):
 
     Collects and validates an email address, optionally linking it
     to a UserProfile if provided in the view.
+    Prevents duplicate subscriptions and whitespace-only input.
     """
     class Meta:
         model = NewsletterSignup
         fields = ['email']
+
+    def __init__(self, *args, **kwargs):
+        """
+        Customise the email input field:
+        - Add placeholder, class styling
+        - Prevent whitespace-only submissions using HTML5 pattern
+        """
+        super().__init__(*args, **kwargs)
+        self.fields['email'].widget.attrs.update({
+            'placeholder': 'Enter your email',
+            'class': 'border-black rounded-0',
+            'pattern': r'.*\S.*',
+            'title': 'This field cannot be blank or contain only spaces.',
+        })
 
     def clean_email(self):
         """
