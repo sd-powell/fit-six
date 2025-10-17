@@ -551,6 +551,8 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 | 6  | Submitting the add product form with duplicate variant size/colour caused an IntegrityError due to a UNIQUE constraint on SKU. | Added logic in the `add_product` view to check for and skip duplicate variant combinations before saving the formset, ensuring only unique variants are persisted. | ![Screenshot](documentation/testing/bugs/testing-duplicate-sku-fix.webp) |
 | 8 | Deleting a product from the product detail page triggered immediate deletion with only a toast notification and no confirmation modal, unlike the product list page. | Added a Bootstrap confirmation modal to the product detail page, matching the design and behavior of the modal used on the products list. This ensures users confirm before deleting any item. | ![Screenshot](documentation/testing/bugs/testing-modal-product-detail.webp) |
 | 9  | The back-to-top arrow icon used `text-black`, making it invisible on the black footer background. | Changed icon class to `text-primary` to ensure contrast and visibility against dark backgrounds. | ![Screenshot](documentation/testing/bugs/testing-arrow-visibility.webp) |
+| 12 | On mobile and tablet, the account icon was not intuitive for users and lacked clear navigation options for signing in, signing out, or managing their account. | Added authenticated/guest account links (`My Profile`, `Logout`, `Sign Up`, `Sign In`) directly into the mobile offcanvas menu to mirror desktop flyout behavior and improve UX clarity. | ![Screenshot](documentation/testing/bugs/testing-mobile-account-menu.webp) |
+
 ---
 <a id="conclusion"></a>
 

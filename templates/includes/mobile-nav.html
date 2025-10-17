@@ -30,11 +30,6 @@
             </div>
         </div>
 
-        <!-- User -->
-        <a href="{% if request.user.is_authenticated %}{% url 'profile' %}{% else %}{% url 'account_login' %}{% endif %}" class="nav-link text-white" aria-label="Account">
-        <i class="fas fa-user fa-lg"></i>
-        </a>
-
         <!-- Bag -->
         <a href="{% url 'view_bag' %}" class="nav-link text-white position-relative" aria-label="Shopping Bag">
         <i class="fas fa-shopping-bag fa-lg"></i>
@@ -64,6 +59,17 @@
         <li class="nav-item"><a href="{% url 'products' %}?category=supplements" class="nav-link">Supplements</a></li>
         <li class="nav-item"><a href="{% url 'products' %}?category=accessories" class="nav-link">Accessories</a></li>
         <li class="nav-item"><a href="{% url 'products' %}?category=class-bundles" class="nav-link">Class Bundles</a></li>
+
+        <hr class="my-3">
+        <h6 class="text-uppercase text-muted small">Account</h6>
+        
+        {% if request.user.is_authenticated %}
+            <li class="nav-item"><a href="{% url 'profile' %}" class="nav-link">My Profile</a></li>
+            <li class="nav-item"><a href="{% url 'account_logout' %}" class="nav-link">Logout</a></li>
+        {% else %}
+            <li class="nav-item"><a href="{% url 'account_signup' %}" class="nav-link">Sign up</a></li>
+            <li class="nav-item"><a href="{% url 'account_login' %}" class="nav-link">Sign in</a></li>
+        {% endif %}
         </ul>
     </div>
 </div>
