@@ -33,16 +33,19 @@ Visit the deployed site here: [Fit Six](https://vinyl-crate-ab3f8a285d4e.herokua
     - [Typography](#typography)
     - [Imagery](#imagery)
     - [Features](#features)
+        - [Navbar](#navbar-features)
         - [Footer](#footer-features)
-        - [The Home Page](#home-page-features)
-        - [The Dashboard Page](#dashboard-features)
-        - [The My Crate Page](#my-crate-features)
-        - [The Record Detail Page](#record-detail-features)
-        - [Record & TRack Form](#record-track-forms)
-        - [The 400 Page](#400-page-features)
-        - [The 403 Page](#403-page-features)
-        - [The 404 Page](#404-page-features)
-        - [The 500 Page](#500-page-features)
+        - [Home Page](#home-features)
+        - [Product Page](#product-features)
+        - [Product Detail Page](#product-detail-features)
+        - [Bag Page](#bag-features)
+        - [Checkout Page](#checkout-features)
+        - [Order Success Page](#order-success-features)
+        - [Profile Page](#profile-features)
+        - [Terms & Conditions Page](#terms-features)
+        - [Privacy Policy Page](#privacy-features)
+        - [Shipping Page](#shipping-features)
+        - [400 Page](#400-page-features)
 
 - [Development Process](#dev-process)
     - [Future Implementations](#future-implementation)
@@ -750,51 +753,6 @@ Each section of the homepage is designed for **clarity, usability, and conversio
 
 </details>
 
-<a id="home-features"></a>
-
-#### Home Page
-
-The home page serves as the **main landing experience** for the Fit Six Store, combining bold branding with intuitive navigation and conversion-focused sections. It is fully responsive, visually engaging, and structured into three key sections:
-
----
-
-1. **Hero Section**
-   - A large, full-width **hero banner** introduces the site with the text:
-     - **"Official Fit Six Store"**
-     - Subheading: *"Shop apparel, supplements, accessories & class bundles"*
-   - Includes a prominent **"Shop Now"** button linking directly to the full product catalogue.
-   - Designed with high-contrast text and spacing to grab attention and drive users deeper into the site.
-
----
-
-2. **Shop by Category**
-   - A four-column grid of **clickable category tiles**:
-     - **Apparel**
-     - **Supplements**
-     - **Accessories**
-     - **Class Bundles**
-   - Each tile uses a hover overlay and styled text for consistency and engagement.
-   - Provides quick access to filtered views within the product catalogue, streamlining the shopping experience.
-
----
-
-3. **Newsletter Signup**
-   - A central, full-width section inviting users to **subscribe to the Fit Six newsletter**.
-   - Features a responsive form for email input and submission.
-   - Includes a short privacy disclaimer with a link to the **Privacy Policy**.
-   - This section supports future **marketing and engagement efforts** by growing the subscriber base.
-
----
-
-Each section of the homepage is designed for **clarity, usability, and conversion**, helping users navigate the store, explore categories, and stay connected with the Fit Six brand.
-
-<details>
-<summary>Click to view the Fit Six home page</summary>
-
-![Fit Six Home Page](documentation/readme/surface_plane/features-home.webp)
-
-</details>
-
 <a id="product-features"></a>
 
 #### Product Catalogue Page
@@ -849,6 +807,8 @@ The overall experience prioritises usability, accessibility, and visual consiste
 
 </details>
 
+<a id="product-detail-features"></a>
+
 #### Product Detail Page
 
 The product detail page provides users with **clear, engaging product information** and an intuitive way to select product variants and add items to their shopping bag.
@@ -883,7 +843,7 @@ The product detail page provides users with **clear, engaging product informatio
 
 </details>
 
-<a id="features-bag"></a>
+<a id="bag-features"></a>
 
 #### Shopping Bag
 
@@ -926,7 +886,7 @@ Key features include:
 
 </details>
 
-<a id="features-checkout"></a>
+<a id="checkout-features"></a>
 
 #### Checkout Page
 
@@ -967,7 +927,7 @@ Key features include:
 
 </details>
 
-<a id="features-order-success"></a>
+<a id="order-success-features"></a>
 
 #### Order Success Page
 
@@ -1010,7 +970,7 @@ Key features include:
 
 </details>
 
-<a id="features-profile"></a>
+<a id="profile-features"></a>
 
 #### Profile Page
 
@@ -1048,6 +1008,8 @@ Key features include:
 
 </details>
 
+<a id="terms-features"></a>
+
 ### **Terms and Conditions Page**
 
 <details>
@@ -1063,6 +1025,8 @@ As this is an educational project, no purchases are legally binding and no goods
 
 ---
 
+<a id="privacy-features"></a>
+
 ### **Privacy Policy Page**
 
 <details>
@@ -1077,6 +1041,8 @@ Created using a Rocket Lawyer template and tailored for the Fit Six brand by Ste
 </details>
 
 ---
+
+<a id="shipping-features"></a>
 
 ### **Shipping (Delivery) Policy Page**
 
