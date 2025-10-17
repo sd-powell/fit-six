@@ -133,15 +133,17 @@
                                 {% endif %}
 
                                 {% if product.has_variants %}
-                                {% with product.variants.first as first_variant %}
-                                    {% if first_variant %}
-                                    <p class="lead mb-0 font-weight-bold">£{{ first_variant.price }}</p>
+                                    {% if product.min_price and product.max_price %}
+                                        {% if product.min_price != product.max_price %}
+                                            <p class="lead mb-0 font-weight-bold">From £{{ product.min_price|floatformat:2 }}</p>
+                                        {% else %}
+                                            <p class="lead mb-0 font-weight-bold">£{{ product.min_price|floatformat:2 }}</p>
+                                        {% endif %}
                                     {% else %}
-                                    <p class="text-muted">Variants coming soon</p>
+                                        <p class="text-muted">Variants coming soon</p>
                                     {% endif %}
-                                {% endwith %}
                                 {% else %}
-                                <p class="lead mb-0 font-weight-bold">£{{ product.price }}</p>
+                                    <p class="lead mb-0 font-weight-bold">£{{ product.price }}</p>
                                 {% endif %}
 
                                 {% if request.user.is_superuser %}

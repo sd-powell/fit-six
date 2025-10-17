@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.forms import inlineformset_factory
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q, Min
+from django.utils.safestring import mark_safe
+from django.db.models import Q, Min, Max
 from django.db.models.functions import Lower
+import json
 
 from .models import Product, ProductVariant, Category
 from .forms import ProductForm, ProductVariantForm
@@ -27,8 +29,17 @@ def all_products(request):
     - Sorting by name, category, or lowest variant price.
     - Filtering by category name(s).
     - Searching by name or description.
+    - Annotates products with min/max variant prices for display logic.
     """
-    products = Product.objects.prefetch_related('variants').all()
+    # Annotate each product with its min and max variant prices
+    products = (
+        Product.objects.prefetch_related('variants')
+        .annotate(
+            min_price=Min('variants__price'),
+            max_price=Max('variants__price')
+        )
+    )
+    
     query = None
     categories = None
     sort = None
@@ -99,6 +110,7 @@ def product_detail(request, slug):
     Retrieves all related product variants and prepares data for:
     - Available sizes and colours (excluding empty/null values)
     - Mapping each colour to its associated front and back images
+    - Mapping each size/colour combination to its price for dynamic updates
     - Rendering colour and size selectors only when applicable
 
     Args:
@@ -111,27 +123,48 @@ def product_detail(request, slug):
     """
     product = get_object_or_404(Product, slug=slug)
     variants = product.variants.all()
-    colours = variants.exclude(colour__isnull=True).exclude(colour__exact='') \
-        .values_list('colour', flat=True).distinct()
+
+    # Distinct dropdown data
+    colours = (
+        variants.exclude(colour__isnull=True)
+        .exclude(colour__exact='')
+        .values_list('colour', flat=True)
+        .distinct()
+    )
     sizes = variants.values_list('size', flat=True).distinct()
 
-    # Build a dictionary of variant data per colour
+    # Build a dictionary of variant data per colour (for image display)
     colour_image_map = {}
     for variant in variants:
         if variant.colour not in colour_image_map:
             colour_image_map[variant.colour] = {
                 'image_url': variant.image.url if variant.image else '',
-                'image_back_url':
-                    variant.image_back.url if variant.image_back else ''
+                'image_back_url': (
+                    variant.image_back.url
+                    if variant.image_back
+                    else ''
+                ),
             }
 
-    return render(request, 'products/product_detail.html', {
+    # Build a variant price map for dynamic JS updates
+    variant_price_map = {}
+    for variant in variants:
+        size = variant.size or ''
+        colour = variant.colour or ''
+        key = f"{size}_{colour}"
+        variant_price_map[key] = float(variant.price)
+
+    context = {
         'product': product,
         'variants': variants,
         'colours': colours,
         'sizes': sizes,
         'colour_image_map': colour_image_map,
-    })
+        # Safe JSON to render in template
+        'variant_price_map': mark_safe(json.dumps(variant_price_map)),
+    }
+
+    return render(request, 'products/product_detail.html', context)
 
 
 @login_required

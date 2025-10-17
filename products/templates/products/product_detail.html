@@ -99,7 +99,7 @@
 
                     {% with product.variants.all|first as default_variant %}
                         {% if default_variant %}
-                            <p class="lead mb-0 text-left font-weight-bold">From £{{ default_variant.price }}</p>
+                            <p class="lead mb-0 text-left font-weight-bold">£<span id="product-price">{{ default_variant.price }}</span></p>
                         {% else %}
                             <p class="lead mb-0 text-left font-weight-bold text-danger">Price unavailable</p>
                         {% endif %}
@@ -204,6 +204,30 @@
 {% block postloadjs %}
 {{ block.super }}
 {{ colour_image_map|json_script:"colour-image-data" }}
+
+<script id="variant-data" type="application/json">
+    {{ variant_price_map|safe }}
+</script>
+
+<script>
+    const variantData = JSON.parse(document.getElementById('variant-data').textContent);
+    const priceSpan = document.getElementById('product-price');
+    const colourSelect = document.getElementById('variant_colour');
+    const sizeSelect = document.getElementById('variant_size');
+
+    function updatePrice() {
+        const colour = colourSelect?.value || '';
+        const size = sizeSelect?.value || '';
+        const key = `${size}_${colour}`;
+        const newPrice = variantData[key];
+        if (newPrice) {
+            priceSpan.textContent = parseFloat(newPrice).toFixed(2);
+        }
+    }
+
+    if (colourSelect) colourSelect.addEventListener('change', updatePrice);
+    if (sizeSelect) sizeSelect.addEventListener('change', updatePrice);
+</script>
 
 {% include 'products/includes/quantity_input_script.html' %}
 {% include 'products/includes/variant_image_script.html' %}
