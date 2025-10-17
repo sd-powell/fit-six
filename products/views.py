@@ -243,21 +243,18 @@ def add_product(request):
 
 
 @login_required
-def edit_product(request, product_id):
+def edit_product(request, slug):
     """
     Allow superusers to edit an existing product's details.
 
-    - Pre-fills the form with current product data.
-    - Displays a success or error message based on submission result.
-
     Args:
-        product_id (int): The primary key of the product to edit.
+        slug (str): The slug of the product to edit.
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    product = get_object_or_404(Product, pk=product_id)
+    product = get_object_or_404(Product, slug=slug)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
@@ -282,18 +279,18 @@ def edit_product(request, product_id):
 
 
 @login_required
-def delete_product(request, product_id):
+def delete_product(request, slug):
     """
     Allow superusers to delete a product from the store.
 
     Args:
-        product_id (int): The primary key of the product to delete.
+        slug (str): The slug of the product to delete.
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    product = get_object_or_404(Product, pk=product_id)
+    product = get_object_or_404(Product, slug=slug)
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))

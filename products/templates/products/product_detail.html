@@ -115,7 +115,7 @@
 
                     {% if request.user.is_superuser %}
                         <div class="mt-3">
-                            <a href="{% url 'edit_product' product.id %}" class="btn btn-outline-black rounded-pill btn-sm me-2">
+                            <a href="{% url 'edit_product' product.slug %}" class="btn btn-outline-black rounded-pill btn-sm me-2">
                                 <i class="fas fa-edit"></i> Edit
                             </a>
                             <button type="button" class="btn btn-danger rounded-pill btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ product.id }}">
@@ -212,7 +212,7 @@
                     Are you sure you want to delete <strong>{{ product.name }}</strong>? This action cannot be undone.
                 </div>
                 <div class="modal-footer">
-                    <form method="POST" action="{% url 'delete_product' product.id %}">
+                    <form method="POST" action="{% url 'delete_product' product.slug %}">
                     {% csrf_token %}
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-danger">Yes, Delete</button>
