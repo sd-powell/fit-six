@@ -509,7 +509,7 @@ This colour scheme combines **vibrant energy**, **professional clarity**, and **
 
 The primary colour variables defined in `style.css` are:
 
-- `#001aaf` (**Highlight Blue**)  
+- `#1739fd` (**Highlight Blue**)  
   A strong, confident blue used for **buttons**, **headings**, and **interactive elements**. This shade represents **discipline, trust, and energy** — ideal for a brand promoting fitness and commitment. It provides a high-contrast accent without overwhelming the interface.
 
 - `#dddddd` (**Base Grey**)  
