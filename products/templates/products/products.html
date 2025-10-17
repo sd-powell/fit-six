@@ -83,17 +83,20 @@
                             {% with product.variants.first as variant %}
                                 {% if variant.image %}
                                     <div class="position-relative">
-                                        <div class="image-swap-wrapper position-relative">
-                                        <img src="{{ variant.image.url }}"
-                                            class="product-image front w-100"
-                                            alt="{{ product.name }}">
-                                        
                                         {% if variant.image_back %}
-                                        <img src="{{ variant.image_back.url }}"
-                                            class="product-image back w-100 position-absolute top-0 start-0"
-                                            alt="{{ product.name }} - Back">
-                                        {% endif %}
+                                        <div class="image-swap-wrapper position-relative">
+                                            <img src="{{ variant.image.url }}"
+                                                class="product-image front w-100"
+                                                alt="{{ product.name }}">
+                                            <img src="{{ variant.image_back.url }}"
+                                                class="product-image back w-100 position-absolute top-0 start-0"
+                                                alt="{{ product.name }} - Back">
                                         </div>
+                                        {% else %}
+                                        <img src="{{ variant.image.url }}"
+                                            class="product-image w-100"
+                                            alt="{{ product.name }}">
+                                        {% endif %}
                                     </div>
                                 {% else %}
                                     <img class="card-img-top img-fluid product-card-image"
@@ -158,7 +161,7 @@
                 
                 {% endfor %}
             </ul>
-            
+
             <!-- Delete Confirmation Modal -->
             {% for product in products %}
             <div class="modal fade" id="deleteModal-{{ product.id }}" tabindex="-1" aria-labelledby="deleteModalLabel-{{ product.id }}" aria-hidden="true">

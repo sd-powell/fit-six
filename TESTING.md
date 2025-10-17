@@ -542,6 +542,7 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 | :- | :------------- | :-------- | :--------- |
 | 1  | Users could submit form fields containing leading or trailing spaces (e.g., `"  John "` or `" test@example.com "`), which occasionally caused validation inconsistencies or messy data storage. | Added a `clean()` method in `OrderForm` to automatically trim whitespace from all string fields before validation, ensuring consistent and clean data entry. | ![Screenshot](documentation/testing/bugs/testing-orderform-clean.webp) |
 | 2  | Products without a colour field were causing inconsistencies on the frontend (e.g. dropdown showing when unnecessary). | Updated the template to only show the colour dropdown if colour variants exist. Also ensured that product variants can be created or edited with optional colour fields via the Django admin inline form. | ![Screenshot](documentation/testing/bugs/testing-conditional-colour.webp) |
+| 3  | The hover image swap animation triggered even when products only had a single front image, causing a flicker effect. | Updated the product template to only include the `.image-swap-wrapper` when a `variant.image_back` exists, ensuring the fade/swap animation only activates when both front and back images are available. | ![Screenshot](documentation/testing/bugs/testing-image-swap-fix.webp) |
 
 ---
 <a id="conclusion"></a>
