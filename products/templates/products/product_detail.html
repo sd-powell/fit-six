@@ -118,9 +118,9 @@
                             <a href="{% url 'edit_product' product.id %}" class="btn btn-outline-black rounded-pill btn-sm me-2">
                                 <i class="fas fa-edit"></i> Edit
                             </a>
-                            <a href="{% url 'delete_product' product.id %}" class="btn btn-danger rounded-pill btn-sm">
-                                <i class="fas fa-trash"></i> Delete
-                            </a>
+                            <button type="button" class="btn btn-danger rounded-pill btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ product.id }}">
+                                <i class="fas fa-trash-alt me-1"></i> Delete
+                            </button>
                         </div>
                     {% endif %}
 
@@ -194,6 +194,28 @@
 
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal (matching products.html style) -->
+    <div class="modal fade" id="deleteModal-{{ product.id }}" tabindex="-1" aria-labelledby="deleteModalLabel-{{ product.id }}" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteModalLabel-{{ product.id }}">Confirm Deletion</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete <strong>{{ product.name }}</strong>? This action cannot be undone.
+                </div>
+                <div class="modal-footer">
+                    <form method="POST" action="{% url 'delete_product' product.id %}">
+                    {% csrf_token %}
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
                     </form>
                 </div>
             </div>
