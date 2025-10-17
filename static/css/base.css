@@ -604,3 +604,10 @@ body {
     padding-right: 1rem;
   }
 }
+
+@media (max-width: 992px) {
+  .hero-section {
+    padding-top: 2rem !important; /* reduce from py-5 (3rem) if used */
+    margin-top: -1.5rem; /* compensate for nav height visually */
+  }
+}
