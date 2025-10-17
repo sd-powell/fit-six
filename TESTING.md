@@ -201,6 +201,18 @@ I've tested my deployed project using the Lighthouse Audit tool to test the perf
 | Terms & Conditions Page | ![screenshot](documentation/testing/validation/lighthouse-mobile-terms.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-terms.webp) | ✅ Passed |
 | Shipping Policy Page | ![screenshot](documentation/testing/validation/lighthouse-mobile-shipping.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-shipping.webp) | ✅ Passed |
 
+> [!NOTE]
+> While the results were generally positive, a few scores — particularly in the **Performance** and **Best Practices** categories — appeared lower than desired. These were largely influenced by factors such as uncompressed media assets, render-blocking CSS/JS, and third-party scripts (e.g., Stripe and Cloudinary integrations).
+
+Given more development time, I would have focused on optimising these areas further by:
+
+- Implementing image compression and lazy loading for product and banner images.  
+- Refactoring CSS and JS to reduce render-blocking resources.  
+- Improving caching strategies and leveraging Django’s static file optimisation.  
+- Conducting additional accessibility reviews using WAVE and manual keyboard testing.
+
+Despite these minor limitations, the site remains **fully functional, responsive, and accessible**, with all key user stories and project requirements met. The current results provide a solid foundation for future optimisation.
+
 ---
 
 <a id="automated-testing"></a>
