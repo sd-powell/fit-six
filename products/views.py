@@ -189,9 +189,29 @@ def add_product(request):
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
+    # Local inlineformset with extra=1
+    ProductVariantFormSet = inlineformset_factory(
+        Product,
+        ProductVariant,
+        form=ProductVariantForm,
+        fields=(
+            'id',
+            'size',
+            'colour',
+            'price',
+            'stock',
+            'image',
+            'image_back'
+        ),
+        extra=1,  # Show one empty form by default on "add"
+        can_delete=True
+    )
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
-        formset = ProductVariantFormSet(request.POST)
+        formset = ProductVariantFormSet(
+            request.POST or None, prefix='variants'
+        )
         if form.is_valid() and formset.is_valid():
             product = form.save()
             formset.instance = product
@@ -231,7 +251,7 @@ def add_product(request):
             )
     else:
         form = ProductForm()
-        formset = ProductVariantFormSet()
+        formset = ProductVariantFormSet(prefix='variants')
 
     template = 'products/add_product.html'
     context = {

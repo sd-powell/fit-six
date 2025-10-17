@@ -29,7 +29,10 @@
                             {{ field | as_crispy_field }}
                         {% else %}
                             <label for="{{ field.id_for_label }}" class="form-label">Product Image</label>
-                            {{ field }}
+                            <div class="btn btn-outline-blue btn-file mb-2">
+                                Select Image {{ field }}
+                            </div>
+                            <p class="filename-display text-muted small mb-2"></p>
                             <small class="form-text text-muted">Upload a clear product image (optional).</small>
                         {% endif %}
                         {% if field.errors %}
@@ -42,18 +45,30 @@
                 <hr>
                 <h5 class="text-muted mt-4">Product Variants</h5>
                 {{ formset.management_form }}
-                {% for form in formset %}
-                    <div class="border rounded p-3 mb-3 bg-light">
-                        {% for field in form.visible_fields %}
-                            <div class="mb-2">
-                                {{ field.label_tag }} {{ field }}
-                                {% if field.errors %}
-                                    <div class="text-danger small">{{ field.errors|striptags }}</div>
-                                {% endif %}
+                    {% for form in formset %}
+                        <div class="variant-form border rounded p-3 mb-3 bg-light">
+                            <h6 class="fw-semibold mb-3">Variant {{ forloop.counter }}</h6>
+                            {% for field in form.visible_fields %}
+                                <div class="mb-3">
+                                    {{ field|as_crispy_field }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+
+                    {# === Hidden empty form template === #}
+                    <div class="variant-form border rounded p-3 mb-3 bg-light d-none" id="empty-form-template">
+                        {% for field in formset.empty_form.visible_fields %}
+                            <div class="mb-3">
+                                {{ field|as_crispy_field }}
                             </div>
                         {% endfor %}
                     </div>
-                {% endfor %}
+
+                    {# === Add Variant Button === #}
+                    <button type="button" class="btn btn-outline-success btn-sm mt-2" id="add-variant-btn">
+                        + Add Variant
+                    </button>
 
                 <div class="d-flex justify-content-between mt-4">
                     <a class="btn btn-outline-black rounded-pill" href="{% url 'products' %}">Cancel</a>
@@ -68,9 +83,55 @@
 {% block postloadjs %}
 {{ block.super }}
 <script type="text/javascript">
-    $('#new-image').change(function() {
-        var file = $('#new-image')[0].files[0];
-        $('#filename').text(`Image will be set to: ${file.name}`);
+    document.querySelectorAll('input[type="file"]').forEach(input => {
+        input.addEventListener('change', function () {
+            const fileName = this.files.length ? this.files[0].name : '';
+            if (fileName) {
+                // Find or create a nearby filename display element
+                let display = this.closest('.btn-file')?.nextElementSibling;
+                if (!display || !display.classList.contains('filename-display')) {
+                    display = document.createElement('p');
+                    display.className = 'filename-display text-muted small mt-1';
+                    this.closest('.btn-file')?.after(display);
+                }
+                display.textContent = `Selected: ${fileName}`;
+            }
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const addButton = document.getElementById('add-variant-btn');
+        const totalForms = document.querySelector('#id_variants-TOTAL_FORMS');
+        const emptyFormTemplate = document.getElementById('empty-form-template');
+
+        addButton.addEventListener('click', function () {
+            const formCount = parseInt(totalForms.value);
+            const newFormHtml = emptyFormTemplate.innerHTML.replace(/__prefix__/g, formCount);
+            
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('variant-form', 'border', 'rounded', 'p-3', 'mb-3', 'bg-light');
+            wrapper.innerHTML = `<h6 class="fw-semibold mb-3">Variant ${formCount + 1}</h6>` + newFormHtml;
+
+            emptyFormTemplate.parentNode.insertBefore(wrapper, addButton);
+            totalForms.value = formCount + 1;
+
+            // Bind file input listener for newly added variant form
+            wrapper.querySelectorAll('input[type="file"]').forEach(input => {
+                input.addEventListener('change', function () {
+                    const fileName = this.files.length ? this.files[0].name : '';
+                    if (fileName) {
+                        let display = this.closest('.btn-file')?.nextElementSibling;
+                        if (!display || !display.classList.contains('filename-display')) {
+                            display = document.createElement('p');
+                            display.className = 'filename-display text-muted small mt-1';
+                            this.closest('.btn-file')?.after(display);
+                        }
+                        display.textContent = `Selected: ${fileName}`;
+                    }
+                });
+            });
+        });
     });
 </script>
 {% endblock %}
