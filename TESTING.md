@@ -546,6 +546,7 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 | 4  | The product detail page and product listing showed inaccurate or incomplete pricing. All variant prices were not reflected dynamically or clearly. | Updated views to calculate `min_price` and `max_price` using Django's `Min` and `Max` annotations. Prices now dynamically update on variant selection using a `variant_price_map` JSON passed to JS. | _Pending Screenshot_ |
 | 5  | Error raised when adding non-variant product to bag due to missing `.price` on `Product` object and unused import warning. | Removed unused `ProductVariant` import, adjusted logic to only use `variant.price`, and added fallback structure for non-variant products. Also split long lines for clarity. | N/A |
 | 6  | Unused import warning for `ProductVariant` in `bag/views.py` | Removed the unnecessary `from products.models import ProductVariant` line, as variant lookups are now done via `product.variants.filter(...)`. | N/A |
+| 6  | Only the first variant item in the bag displayed a "Remove" button; other items (including non-variants) lacked it. | Moved the remove button outside the `{% if variant_key %}` block and conditionally added variant data attributes only when present. | ![Screenshot](documentation/testing/bugs/testing-remove-variant-fix.webp) |
 
 ---
 <a id="conclusion"></a>
