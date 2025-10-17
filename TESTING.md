@@ -510,6 +510,19 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 | **Keep Shopping Button** | Returns user to product list | Clicked on **Keep Shopping** | Redirected to `/products/` | ✅ Pass |
 | **Add to Bag Button** | Adds item to bag and shows success toast | Selected options, clicked **Add to Bag** | Item added and toast confirmed quantity | ✅ Pass |
 
+### Bag Page - (`bag.html`)
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| **Quantity Plus Button** | Increases quantity by 1 until reaching the stock limit. Once the stock limit is reached, the button is disabled. Lowering the quantity re-enables the button. | Clicked the plus button repeatedly until stock limit reached | Quantity increased correctly; button disabled at stock limit; lowering quantity re-enabled it | ✅ Pass |
+| **Quantity Minus Button** | The minus button is disabled when quantity = 1. When greater than 1, each click reduces quantity by one. | Added product to bag and clicked the minus button | Quantity decreased correctly; button disabled at 1 | ✅ Pass |
+| **Quantity Input Field** | Entering a value higher than stock should trigger an error toast showing the stock limit and prompt the user to adjust. | Entered a quantity of 200 for a product with stock level 44 | Error toast appeared showing stock level and advising correction | ✅ Pass |
+| **Update Link/Button** | When quantity is changed, a success toast confirms the update with product info. If over stock, an error toast appears. | Updated a quantity within and above stock limits | Success toast shown within limits; error toast shown when exceeded | ✅ Pass |
+| **Remove Item Link** | Clicking removes product from bag and shows success toast confirming which product was removed. | Clicked **Remove** on an item | Product removed and success toast displayed | ✅ Pass |
+| **Keep Shopping Button** | Returns the user to the main products page. | Clicked **Keep Shopping** in a filled bag and an empty bag | Redirected to `/products/` both times | ✅ Pass |
+| **Secure Checkout Button** | Takes the user to checkout page to enter details and complete purchase. | Clicked **Secure Checkout** | Redirected to `/checkout/` | ✅ Pass |
+| **Checkout Button (Toast)** | The toast shown after adding an item includes product info, bag total, free delivery message, and a **Go to Checkout** button. | Added product to bag, then clicked **Checkout** on toast | Toast displayed correct details and button redirected to `/bag/` for review | ✅ Pass |
+
 ---
 <a id="conclusion"></a>
 
