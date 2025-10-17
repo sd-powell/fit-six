@@ -25,11 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # --- Security ---
 SECRET_KEY = os.environ.get('SECRET_KEY')
-DEBUG = os.environ.get('DEBUG') == 'True'
+DEVELOPMENT = os.environ.get('DEVELOPMENT') == 'True'
+DEBUG = DEVELOPMENT
+
 ALLOWED_HOSTS = os.environ.get(
     'ALLOWED_HOSTS',
-    'localhost'
-    'fit-six-7a3b55f18209.herokuapp.com'
+    'localhost,127.0.0.1,fit-six-7a3b55f18209.herokuapp.com'
 ).split(',')
 
 
