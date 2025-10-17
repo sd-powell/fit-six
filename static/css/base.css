@@ -22,6 +22,7 @@
 body {
   font-family: var(--primary-font);
   background-color: var(--background-white);
+  overflow-x: hidden;
 }
 
 .bg-white {
@@ -49,8 +50,10 @@ body {
 }
 
 .product-card {
-    width: 360px;
-    padding: 20px;
+  width: 100%;
+  max-width: 360px;
+  padding: 20px;
+  margin: 0 auto;
 }
 
 .product-card-image {
@@ -213,6 +216,8 @@ body {
   padding: 0;
   margin: 0;
   list-style: none;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Optional: Fix for consistent card height & layout polish */
