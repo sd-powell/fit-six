@@ -308,9 +308,9 @@ These wireframes served as the **visual foundation** for layout decisions throug
 
 ![Edit Product](documentation/readme/skeleton_plane/wireframe-mobile-edit-product.webp)
 
-- Product Management
+- Delete Product
 
-![Product Management](documentation/readme/skeleton_plane/wireframe-mobile-admin-dashboard.webp)
+![Delete Product](documentation/readme/skeleton_plane/wireframe-mobile-admin-dashboard.webp)
 
 </details>
 
