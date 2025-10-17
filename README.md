@@ -14,6 +14,61 @@ Visit the deployed site here: [Fit Six](https://vinyl-crate-ab3f8a285d4e.herokua
 
 ---
 
+<a id="contents"></a>
+
+## CONTENTS
+
+- [User Experience](#ux)
+  - [Strategy Plane](#strategy-plane)
+  - [Scope Plane](#scope-plane)
+  - [Structure Plane](#structure-plane)
+  - [Database Schema](#database-schema)
+  - [Skeleton Plane](#skeleton-plane)
+      - [Wireframes](#wireframes)
+        - [Mobile Wireframes](#mobile-frames)
+        - [Tablet Wireframes](#tablet-frames)
+        - [Desktop Wireframes](#desktop-frames)
+  - [Surface Plane](#surface-plane)
+    - [Colour Scheme](#colour-scheme)
+    - [Typography](#typography)
+    - [Imagery](#imagery)
+    - [Features](#features)
+        - [Footer](#footer-features)
+        - [The Home Page](#home-page-features)
+        - [The Dashboard Page](#dashboard-features)
+        - [The My Crate Page](#my-crate-features)
+        - [The Record Detail Page](#record-detail-features)
+        - [Record & TRack Form](#record-track-forms)
+        - [The 400 Page](#400-page-features)
+        - [The 403 Page](#403-page-features)
+        - [The 404 Page](#404-page-features)
+        - [The 500 Page](#500-page-features)
+
+- [Development Process](#dev-process)
+    - [Future Implementations](#future-implementation)
+    - [Accessibility](#accessibility)
+
+* [Technologies Used](#technologies)
+
+  - [Languages Used](#languages)
+  - [Frameworks, Libraries & Programs Used](#frameworks)
+
+* [Deployment & Local Development](#deployment-development)
+
+  - [Deployment](#deployment)
+  - [Local Development](#local-development)
+    - [How to Fork](#fork)
+    - [How to clone](#clone)
+
+* [Testing](#testing-tools)
+
+* [Credits & Inspiration](#credits&inspiration)
+  - [Content](#content)
+  - [Media](#media)
+  - [Acknowledgement](#acknowledgement)
+
+---
+
 <a id="ux"></a>
 
 ##  User Experience (UX)
@@ -79,7 +134,7 @@ The following table outlines all planned features across different user roles, w
 
 | User Type       | Feature                                      | Importance | Viability | MVP | Delivered |
 |-----------------|----------------------------------------------|:----------:|:---------:|:--:|:---------:|
-| All             | User roles (Guest, User, Admin)              | 5          | 5         | MVP |  |
+| All             | User roles (Guest, User, Admin)              | 5          | 5         | MVP | ✅ |
 | Guest           | Register for an account                      | 5          | 5         | MVP | ✅ |
 | User            | Login / Logout functionality                 | 5          | 5         | MVP | ✅ |
 | User & Admin    | Account dashboard/profile                    | 5          | 5         | MVP | ✅ |
@@ -88,20 +143,20 @@ The following table outlines all planned features across different user roles, w
 | All             | Search and filter products                   | 5          | 5         | MVP | ✅ |
 | All             | Browse product detail page                   | 5          | 5         | MVP | ✅ |
 | User            | Add to cart                                  | 5          | 5         | MVP | ✅ |
-| Guest           | Guest checkout                               | 3          | 4         |     |  |
+| Guest           | Guest checkout                               | 3          | 4         |     |   |
 | All             | Stripe payment integration                   | 5          | 5         | MVP | ✅ |
 | All             | Order confirmation (on-screen & email)       | 5          | 5         | MVP | ✅ |
 | User            | View order history                           | 4          | 5         | MVP | ✅ |
-| Admin           | Add new product (Create)                     | 5          | 5         | MVP |  |
-| Admin           | Edit/update product                          | 5          | 5         | MVP |  |
+| Admin           | Add new product (Create)                     | 5          | 5         | MVP | ✅ |
+| Admin           | Edit/update product                          | 5          | 5         | MVP | ✅ |
 | Admin           | Delete product                               | 5          | 5         | MVP | ✅ |
-| Admin           | Manage product stock levels                  | 4          | 4         | MVP |  |
-| Admin           | View and manage orders                       | 4          | 4         | MVP |  |
-| All             | Form validation with inline error feedback   | 5          | 5         | MVP |  |
-| All             | Terms & Conditions page                      | 3          | 5         |     |  |
-| All             | Privacy Policy page                          | 3          | 5         |     |  |
-| All             | Delivery & Returns info page                 | 3          | 5         |     |  |
-| All             | Contact form                                 | 3          | 4         |     |  |
+| Admin           | Manage product stock levels                  | 4          | 4         | MVP | ✅ |
+| Admin           | View and manage orders                       | 4          | 4         | MVP | ✅ |
+| All             | Form validation with inline error feedback   | 5          | 5         | MVP | ✅ |
+| All             | Terms & Conditions page                      | 3          | 5         |     | ✅ |
+| All             | Privacy Policy page                          | 3          | 5         |     | ✅ |
+| All             | Delivery & Returns info page                 | 3          | 5         |     | ✅ |
+| All             | Contact form                                 | 3          | 4         |     | ✅ |
 | All             | Social media links                           | 3          | 5         |     | ✅ |
 | User            | Wishlist                                     | 3          | 3         |     |   |
 | User            | Write product reviews                        | 3          | 3         |     |   |
@@ -507,7 +562,7 @@ All colour variables are stored as **CSS custom properties** and reused consiste
 
 - **Paragraphs and body text:** The font [Open Sans](https://fonts.google.com/specimen/Open+Sans) was selected for body copy due to its neutral tone, excellent legibility at various sizes, and compatibility across screen types. It complements Poppins without competing for attention, supporting a harmonious and user‑friendly reading experience throughout the site.
 
-![Open Sans Font Example](documentation/readme/surface_plane/typography-open-sans.webp)
+![Open Sans Font Example](documentation/readme/surface_plane/typography-opensans.webp)
 
 - Together, **Poppins** and **Open Sans** provide strong typographic contrast—balancing bold headlines with highly readable body text for an accessible, modern feel.
 
@@ -1052,6 +1107,29 @@ Fit Six was developed using an **iterative, feature-driven approach**:
 8. Completed manual and automated testing, final documentation, and deployed to Heroku
 
 Version control was managed using **Git** and **GitHub**, with regular, descriptive commits to track progress and maintain a clear development history.
+
+<a id="future-implementation"></a>
+
+#### Future Implementations
+
+All core MVP features for the Fit Six e-commerce platform have been successfully implemented, including full user authentication, product management, secure Stripe checkout, and responsive design across all devices.  
+The current release provides a robust, functional, and visually consistent shopping experience that meets the project’s primary objectives.  
+
+To continue expanding the platform and further enhance user engagement, the following features are being considered for future development:
+
+1. **Wishlist Functionality** – Enable registered users to save products for later or create collections of favourite items. This would improve engagement, encourage repeat visits, and support personalised marketing in the future.
+
+2. **Product Reviews and Ratings** – Allow authenticated users to write and read reviews for products they have purchased. This would increase trust, provide social proof for new visitors, and support admins in monitoring product quality and customer satisfaction.
+
+3. **Discount Vouchers and Coupon Codes** – Introduce admin-controlled discount codes to support marketing campaigns and seasonal promotions, improving conversion rates and rewarding loyal customers.
+
+4. **Guest Checkout Option** – Allow customers to complete purchases without creating an account. This would streamline the buying process for first-time visitors and reduce cart abandonment rates.
+
+5. **Social Media Login Integration** – Provide a faster, friction-free registration and login process through popular social media accounts such as Google or Facebook.
+
+6. **Blog / Articles Section** – Create a content hub featuring training advice, product spotlights, and gym updates to strengthen community engagement and improve the site’s SEO performance.
+
+Each of these features would enhance usability, user engagement, and the professional scope of the application, laying the foundation for future scalability and commercial growth.
 
 <a id="accessibility"></a>
 
