@@ -115,10 +115,10 @@
 
                     {% if request.user.is_superuser %}
                         <div class="mt-3">
-                            <a href="{% url 'edit_product' product.id %}" class="btn btn-outline-black rounded-0 btn-sm me-2">
+                            <a href="{% url 'edit_product' product.id %}" class="btn btn-outline-black rounded-pill btn-sm me-2">
                                 <i class="fas fa-edit"></i> Edit
                             </a>
-                            <a href="{% url 'delete_product' product.id %}" class="btn btn-danger rounded-0 btn-sm">
+                            <a href="{% url 'delete_product' product.id %}" class="btn btn-danger rounded-pill btn-sm">
                                 <i class="fas fa-trash"></i> Delete
                             </a>
                         </div>
@@ -186,10 +186,10 @@
 
                             <!-- Submit Buttons -->
                             <div class="col-12 mt-4">
-                                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0">
+                                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-pill">
                                     <i class="fas fa-chevron-left"></i> Keep Shopping
                                 </a>
-                                <input type="submit" class="btn btn-blue rounded-0 text-uppercase border border-primary" value="Add to Bag">
+                                <input type="submit" class="btn btn-blue rounded-pill text-uppercase border border-primary" value="Add to Bag">
                             </div>
 
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
