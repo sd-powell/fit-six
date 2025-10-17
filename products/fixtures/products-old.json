@@ -1,0 +1,67 @@
+[
+  {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+      "name": "Fit Six Branded Zip Hoodie",
+      "description": "Built for comfort and recovery, this full-zip Fit Six hoodie is a staple for both gym sessions and rest days.\nCrafted from soft, pre-shrunk fleece with a brushed interior, it delivers warmth, comfort, and durability\u2014perfect for layering on your way to training or winding down post-workout.",
+      "has_variants": true,
+      "category": 1,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-18T14:58:22Z",
+      "updated_at": "2025-09-18T14:58:22Z"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+      "name": "Fit Six Branded Hoodie",
+      "description": "This classic Fit Six hoodie blends comfort and simplicity for everyday training.\nBuilt with a soft cotton-faced fabric and a relaxed fit, it\u2019s ideal for warming up, cooling down, or repping the brand on rest days.",
+      "has_variants": true,
+      "category": 1,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-18T14:58:22Z",
+      "updated_at": "2025-09-18T14:58:22Z"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+      "name": "Fit Six Branded T-Shirt",
+      "description": "Stay dry and move freely in the Fit Six performance tee. Built with moisture-wicking fabric to keep you cool during tough sessions, its athletic cut offers a clean, flattering fit for every body type.",
+      "has_variants": true,
+      "category": 1,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-18T14:58:22Z",
+      "updated_at": "2025-09-18T14:58:22Z"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+      "name": "Fit Six Branded Sweatshirt",
+      "description": "The Fit Six heavyweight crew is built for comfort and recovery. Ideal for warm-ups, cool-downs, or rest days, this cosy classic delivers a snug fit that feels just right\u2014whether you\u2019re heading to the gym or kicking back in style.",
+      "has_variants": true,
+      "category": 1,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-18T14:58:22Z",
+      "updated_at": "2025-09-18T14:58:22Z"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+      "name": "Fit Six Branded Vest",
+      "description": "This lightweight gym vest is built for performance and comfort. Featuring moisture-wicking fabric to keep you cool and dry, its athletic fit allows full range of motion while offering a flattering silhouette for all body types.",
+      "has_variants": true,
+      "category": 1,
+      "image": "default-sku.jpg",
+      "created_at": "2025-09-18T14:58:22Z",
+      "updated_at": "2025-09-18T14:58:22Z"
+    }
+  }
+]

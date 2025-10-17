@@ -1,0 +1,1 @@
+web: gunicorn fitsix_project.wsgi:application

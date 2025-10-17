@@ -1,67 +1,898 @@
 [
-  {
-    "model": "products.product",
-    "pk": 1,
-    "fields": {
-      "name": "Fit Six Branded Zip Hoodie",
-      "description": "Built for comfort and recovery, this full-zip Fit Six hoodie is a staple for both gym sessions and rest days.\nCrafted from soft, pre-shrunk fleece with a brushed interior, it delivers warmth, comfort, and durability\u2014perfect for layering on your way to training or winding down post-workout.",
-      "has_variants": true,
-      "category": 1,
-      "image": "default-sku.jpg",
-      "created_at": "2025-09-18T14:58:22Z",
-      "updated_at": "2025-09-18T14:58:22Z"
-    }
-  },
-  {
-    "model": "products.product",
-    "pk": 2,
-    "fields": {
-      "name": "Fit Six Branded Hoodie",
-      "description": "This classic Fit Six hoodie blends comfort and simplicity for everyday training.\nBuilt with a soft cotton-faced fabric and a relaxed fit, it\u2019s ideal for warming up, cooling down, or repping the brand on rest days.",
-      "has_variants": true,
-      "category": 1,
-      "image": "default-sku.jpg",
-      "created_at": "2025-09-18T14:58:22Z",
-      "updated_at": "2025-09-18T14:58:22Z"
-    }
-  },
-  {
-    "model": "products.product",
-    "pk": 3,
-    "fields": {
-      "name": "Fit Six Branded T-Shirt",
-      "description": "Stay dry and move freely in the Fit Six performance tee. Built with moisture-wicking fabric to keep you cool during tough sessions, its athletic cut offers a clean, flattering fit for every body type.",
-      "has_variants": true,
-      "category": 1,
-      "image": "default-sku.jpg",
-      "created_at": "2025-09-18T14:58:22Z",
-      "updated_at": "2025-09-18T14:58:22Z"
-    }
-  },
-  {
-    "model": "products.product",
-    "pk": 4,
-    "fields": {
-      "name": "Fit Six Branded Sweatshirt",
-      "description": "The Fit Six heavyweight crew is built for comfort and recovery. Ideal for warm-ups, cool-downs, or rest days, this cosy classic delivers a snug fit that feels just right\u2014whether you\u2019re heading to the gym or kicking back in style.",
-      "has_variants": true,
-      "category": 1,
-      "image": "default-sku.jpg",
-      "created_at": "2025-09-18T14:58:22Z",
-      "updated_at": "2025-09-18T14:58:22Z"
-    }
-  },
-  {
-    "model": "products.product",
-    "pk": 5,
-    "fields": {
-      "name": "Fit Six Branded Vest",
-      "description": "This lightweight gym vest is built for performance and comfort. Featuring moisture-wicking fabric to keep you cool and dry, its athletic fit allows full range of motion while offering a flattering silhouette for all body types.",
-      "has_variants": true,
-      "category": 1,
-      "image": "default-sku.jpg",
-      "created_at": "2025-09-18T14:58:22Z",
-      "updated_at": "2025-09-18T14:58:22Z"
-    }
+{
+  "model": "products.product",
+  "pk": 4,
+  "fields": {
+    "category": 1,
+    "name": "Fit Six Branded Sweatshirt",
+    "slug": "fit-six-branded-sweatshirt",
+    "description": "The Fit Six heavyweight crew is built for comfort and recovery. Ideal for warm-ups, cool-downs, or rest days, this cosy classic delivers a snug fit that feels just right—whether you’re heading to the gym or kicking back in style.",
+    "has_variants": true,
+    "image_url": null,
+    "image": "fsbs-bla-front.webp",
+    "created_at": "2025-09-18T14:58:22Z",
+    "updated_at": "2025-10-17T17:26:12.140Z"
   }
+},
+{
+  "model": "products.product",
+  "pk": 5,
+  "fields": {
+    "category": 1,
+    "name": "Fit Six Branded Vest",
+    "slug": "fit-six-branded-vest",
+    "description": "This lightweight gym vest is built for performance and comfort. Featuring moisture-wicking fabric to keep you cool and dry, its athletic fit allows full range of motion while offering a flattering silhouette for all body types.",
+    "has_variants": true,
+    "image_url": null,
+    "image": "fsbv-bla-front_RFq6Elv.webp",
+    "created_at": "2025-09-18T14:58:22Z",
+    "updated_at": "2025-10-12T14:26:00.517Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 6,
+  "fields": {
+    "category": 3,
+    "name": "Fit Six Shaker Bottle",
+    "slug": "fit-six-shaker-bottle",
+    "description": "Stay fuelled and represent Fit Six with our premium Shaker Bottle — a sleek, practical essential for life on the go. Available in a clean, semi-transparent design with subtle branding, it makes tracking your fill level effortless while looking the part in or out of the gym.\r\n\r\nWith a 750ml capacity, it’s perfect for mixing protein shakes, pre-workouts or electrolytes. The built-in mixing ball ensures a smooth, lump-free shake every time, while the leak-proof lid and flip-top spout make it ideal for your gym bag or commute.\r\n\r\nBPA free and dishwasher safe, the Fit Six Shaker is your everyday hydration companion — tough, stylish, and ready to go wherever your training takes you.",
+    "has_variants": false,
+    "image_url": null,
+    "image": "fssb-bla-front.webp",
+    "created_at": "2025-10-12T15:19:28.994Z",
+    "updated_at": "2025-10-17T11:02:20.964Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 7,
+  "fields": {
+    "category": 3,
+    "name": "Premium Lifting Straps",
+    "slug": "premium-lifting-straps",
+    "description": "Push harder, lift heavier.\r\n\r\nFit Six Lifting Straps are longer, thicker, and tougher than standard straps — built to reduce grip fatigue and help you power through heavy lifts with confidence.\r\n\r\nMade from a durable cotton-poly blend and padded for wrist comfort, they’re ideal for pulling movements like deadlifts, rows, and shrugs.\r\n\r\nSleek, strong, and finished with Fit Six logo detailing, these are your go-to for serious strength work.\r\n\t•\tDurable cotton-poly blend\r\n\t•\tPadded for comfort\r\n\t•\tExtra length and thickness for grip support\r\n\t•\tIdeal for deadlifts, rows & shrugs\r\n\t•\tSold as a pair",
+    "has_variants": false,
+    "image_url": null,
+    "image": "fsls-bla-front.webp",
+    "created_at": "2025-10-13T08:19:44.462Z",
+    "updated_at": "2025-10-17T11:01:16.356Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 8,
+  "fields": {
+    "category": 1,
+    "name": "Fit Six Snapback Hat",
+    "slug": "fit-six-snapback-hat",
+    "description": "The Fit Six Snapback Hat is built with a six-panel cotton twill design, combining a low-profile crown and a subtly curved brim. A custom-stitched Fit Six logo patch is placed prominently on the front.. One size fits most.",
+    "has_variants": true,
+    "image_url": null,
+    "image": "fsbc-bla-front.webp",
+    "created_at": "2025-10-13T09:26:48.358Z",
+    "updated_at": "2025-10-17T11:03:56.927Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 9,
+  "fields": {
+    "category": 1,
+    "name": "Fit Six Patch Beanie",
+    "slug": "fit-six-patch-beanie",
+    "description": "The Fit Six Patch Beanie is crafted from soft, durable 100% acrylic yarn — perfect for staying warm on cold days or adding a casual edge to any look.\r\n\r\nThis one-size-fits-most knit features a classic cuffed design and a bold Fit Six logo patch stitched neatly to the front. A staple for gym commutes, outdoor sessions, or everyday wear.",
+    "has_variants": true,
+    "image_url": null,
+    "image": "fsbe-bla-front.webp",
+    "created_at": "2025-10-13T09:59:20.922Z",
+    "updated_at": "2025-10-17T11:04:08.049Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 10,
+  "fields": {
+    "category": 1,
+    "name": "Fit Six Branded Hoodie",
+    "slug": "fit-six-branded-hoodie",
+    "description": "This simple and stylish classic hoodie is available in many vibrant colours. Made from cotton faced fabric ideal for decoration purposes, it is an essential for any hoodie lover.",
+    "has_variants": true,
+    "image_url": null,
+    "image": "fsbh-bla-front_Eeg70q2.webp",
+    "created_at": "2025-10-13T12:27:38.066Z",
+    "updated_at": "2025-10-17T09:05:16.341Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 11,
+  "fields": {
+    "category": 2,
+    "name": "Pure Whey Protein",
+    "slug": "pure-whey-protein",
+    "description": "Pure Whey Protein is your everyday training essential.\r\nEach scoop delivers over 22g of high-quality whey protein and 5g of BCAAs to support muscle growth and recovery — with minimal fat and sugar. No fillers, just clean, effective nutrition.\r\n\r\nFor best results, aim for 1.6–2.2g of protein per kg of bodyweight daily. Whether you’re building lean muscle or fuelling post-workout recovery, Pure Whey is the foundation of real progress.",
+    "has_variants": true,
+    "image_url": null,
+    "image": "fswp-whi-fh.webp",
+    "created_at": "2025-10-17T08:06:16.849Z",
+    "updated_at": "2025-10-17T08:14:33.026Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 12,
+  "fields": {
+    "category": 2,
+    "name": "Creatine Monohydrate Powder",
+    "slug": "creatine-monohydrate-powder",
+    "description": "Lift heavier. Push further. Perform better.\r\nCreatine supports energy production in your muscles, helping you power through high‑intensity training and reach new personal bests. It’s the extra edge when you need one more rep.\r\n\r\nUnflavoured and easy to mix with your favourite shake, it’s the perfect addition to your daily routine for stronger lifts and faster progress.",
+    "has_variants": true,
+    "image_url": null,
+    "image": "fscp-whi-oh.webp",
+    "created_at": "2025-10-17T08:13:32.653Z",
+    "updated_at": "2025-10-17T08:14:26.025Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 13,
+  "fields": {
+    "category": 3,
+    "name": "Foam Roller",
+    "slug": "foam-roller",
+    "description": "Relieve post-workout tension and muscle tightness with our textured foam roller, designed to support natural recovery through self-massage. The firm EVA grid surface provides targeted relief by reaching deep into stiff areas like the back, neck, legs, and shoulders.",
+    "has_variants": false,
+    "image_url": null,
+    "image": "fsfr-bla-os.webp",
+    "created_at": "2025-10-17T08:44:49.786Z",
+    "updated_at": "2025-10-17T08:44:49.786Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 29,
+  "fields": {
+    "category": 1,
+    "name": "T-shirt test",
+    "slug": "t-shirt-test",
+    "description": "test",
+    "has_variants": false,
+    "image_url": null,
+    "image": "fsbt-bla-front_cf8oG1M.webp",
+    "created_at": "2025-10-17T19:18:46.121Z",
+    "updated_at": "2025-10-17T19:18:46.121Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 41,
+  "fields": {
+    "product": 4,
+    "sku": "FSBS-BLA-S",
+    "price": "21.00",
+    "image_url": null,
+    "image": "fsbs-bla-front_WkrGfhk.webp",
+    "image_back": "fsbs-bla-back.webp",
+    "stock": 10,
+    "size": "S",
+    "colour": "Black",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-13T15:10:24.988Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 42,
+  "fields": {
+    "product": 4,
+    "sku": "FSBS-BLA-M",
+    "price": "21.00",
+    "image_url": null,
+    "image": "fsbs-bla-front_zU07kai.webp",
+    "image_back": "fsbs-bla-back_GTgOwPc.webp",
+    "stock": 10,
+    "size": "M",
+    "colour": "Black",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-13T15:10:24.989Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 43,
+  "fields": {
+    "product": 4,
+    "sku": "FSBS-BLA-L",
+    "price": "21.00",
+    "image_url": null,
+    "image": "fsbs-bla-front_aJe2QMc.webp",
+    "image_back": "fsbs-bla-back_oSFcZ03.webp",
+    "stock": 10,
+    "size": "L",
+    "colour": "Black",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-13T15:10:24.989Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 44,
+  "fields": {
+    "product": 4,
+    "sku": "FSBS-BLA-XL",
+    "price": "21.00",
+    "image_url": null,
+    "image": "fsbs-bla-front_TL2Uuml.webp",
+    "image_back": "fsbs-bla-back_5rZVBVO.webp",
+    "stock": 10,
+    "size": "XL",
+    "colour": "Black",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-13T15:10:24.990Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 45,
+  "fields": {
+    "product": 4,
+    "sku": "FSBS-BLA-XXL",
+    "price": "21.00",
+    "image_url": null,
+    "image": "fsbs-bla-front_9RGdgTb.webp",
+    "image_back": "fsbs-bla-back_1j7lVdf.webp",
+    "stock": 10,
+    "size": "XXL",
+    "colour": "Black",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-13T15:10:24.990Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 46,
+  "fields": {
+    "product": 4,
+    "sku": "FSBS-GRE-S",
+    "price": "21.00",
+    "image_url": null,
+    "image": "fsbs-gre-front.webp",
+    "image_back": "fsbs-gre-back.webp",
+    "stock": 10,
+    "size": "S",
+    "colour": "Grey",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-13T15:15:34.422Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 47,
+  "fields": {
+    "product": 4,
+    "sku": "FSBS-GRE-M",
+    "price": "21.00",
+    "image_url": null,
+    "image": "fsbs-gre-front_Z337I0x.webp",
+    "image_back": "fsbs-gre-back_y8GIwxv.webp",
+    "stock": 10,
+    "size": "M",
+    "colour": "Grey",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-13T15:15:34.423Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 48,
+  "fields": {
+    "product": 4,
+    "sku": "FSBS-GRE-L",
+    "price": "21.00",
+    "image_url": null,
+    "image": "fsbs-gre-front_wYARgfq.webp",
+    "image_back": "fsbs-gre-back_ciHLgWy.webp",
+    "stock": 10,
+    "size": "L",
+    "colour": "Grey",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-13T15:15:34.423Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 49,
+  "fields": {
+    "product": 4,
+    "sku": "FSBS-GRE-XL",
+    "price": "21.00",
+    "image_url": null,
+    "image": "fsbs-gre-front_kPeEHn2.webp",
+    "image_back": "fsbs-gre-back_zrMzcUv.webp",
+    "stock": 10,
+    "size": "XL",
+    "colour": "Grey",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-13T15:15:34.424Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 50,
+  "fields": {
+    "product": 4,
+    "sku": "FSBS-GRE-XXL",
+    "price": "21.00",
+    "image_url": null,
+    "image": "fsbs-gre-front_QUcrGi5.webp",
+    "image_back": "fsbs-gre-back_6NBZLfO.webp",
+    "stock": 10,
+    "size": "XXL",
+    "colour": "Grey",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-13T15:15:34.425Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 51,
+  "fields": {
+    "product": 5,
+    "sku": "FSBV-BLA-S",
+    "price": "15.00",
+    "image_url": null,
+    "image": "fsbv-bla-front.webp",
+    "image_back": "fsbv-bla-back.webp",
+    "stock": 10,
+    "size": "S",
+    "colour": "Black",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-12T10:23:47.324Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 52,
+  "fields": {
+    "product": 5,
+    "sku": "FSBV-BLA-M",
+    "price": "15.00",
+    "image_url": null,
+    "image": "fsbv-bla-front_WJhqQ0z.webp",
+    "image_back": "fsbv-bla-back_3CoPelk.webp",
+    "stock": 10,
+    "size": "M",
+    "colour": "Black",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-12T10:23:47.325Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 53,
+  "fields": {
+    "product": 5,
+    "sku": "FSBV-BLA-L",
+    "price": "15.00",
+    "image_url": null,
+    "image": "fsbv-bla-front_8czGdtw.webp",
+    "image_back": "fsbv-bla-back_iO63wAq.webp",
+    "stock": 10,
+    "size": "L",
+    "colour": "Black",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-12T10:23:47.326Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 54,
+  "fields": {
+    "product": 5,
+    "sku": "FSBV-BLA-XL",
+    "price": "15.00",
+    "image_url": null,
+    "image": "fsbv-bla-front_nFhJz6s.webp",
+    "image_back": "fsbv-bla-back_3DxeMlK.webp",
+    "stock": 10,
+    "size": "XL",
+    "colour": "Black",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-12T10:23:47.327Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 55,
+  "fields": {
+    "product": 5,
+    "sku": "FSBV-BLA-XXL",
+    "price": "15.00",
+    "image_url": null,
+    "image": "fsbv-bla-front_LcXBUYw.webp",
+    "image_back": "fsbv-gre-back.webp",
+    "stock": 10,
+    "size": "XXL",
+    "colour": "Black",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-12T14:26:00.518Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 56,
+  "fields": {
+    "product": 5,
+    "sku": "FSBV-GRE-S",
+    "price": "15.00",
+    "image_url": null,
+    "image": "fsbv-gre-front.webp",
+    "image_back": "fsbv-gre-back_Va2oaEX.webp",
+    "stock": 10,
+    "size": "S",
+    "colour": "Grey",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-12T14:26:00.519Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 57,
+  "fields": {
+    "product": 5,
+    "sku": "FSBV-GRE-M",
+    "price": "15.00",
+    "image_url": null,
+    "image": "fsbv-gre-front_rSYZ5EQ.webp",
+    "image_back": "fsbv-gre-back_XccmPnr.webp",
+    "stock": 10,
+    "size": "M",
+    "colour": "Grey",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-12T14:26:00.519Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 58,
+  "fields": {
+    "product": 5,
+    "sku": "FSBV-GRE-L",
+    "price": "15.00",
+    "image_url": null,
+    "image": "fsbv-gre-front_bYDxITm.webp",
+    "image_back": "fsbv-gre-back_xMpOme6.webp",
+    "stock": 10,
+    "size": "L",
+    "colour": "Grey",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-12T14:26:00.520Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 59,
+  "fields": {
+    "product": 5,
+    "sku": "FSBV-GRE-XL",
+    "price": "15.00",
+    "image_url": null,
+    "image": "fsbv-gre-front_vgVXSKq.webp",
+    "image_back": "fsbv-gre-back_rIqEmGM.webp",
+    "stock": 10,
+    "size": "XL",
+    "colour": "Grey",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-12T14:26:00.520Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 60,
+  "fields": {
+    "product": 5,
+    "sku": "FSBV-GRE-XXL",
+    "price": "15.00",
+    "image_url": null,
+    "image": "fsbv-gre-front_bJICxnN.webp",
+    "image_back": "fsbv-gre-back_ghEYMz5.webp",
+    "stock": 10,
+    "size": "XXL",
+    "colour": "Grey",
+    "created_at": "2025-09-16T00:00:00Z",
+    "updated_at": "2025-10-12T14:26:00.520Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 62,
+  "fields": {
+    "product": 6,
+    "sku": "FSSB-BLA-OS",
+    "price": "4.99",
+    "image_url": null,
+    "image": "",
+    "image_back": "",
+    "stock": 10,
+    "size": "750ml",
+    "colour": "Black",
+    "created_at": "2025-10-12T15:19:28.996Z",
+    "updated_at": "2025-10-17T11:02:20.965Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 63,
+  "fields": {
+    "product": 7,
+    "sku": "FSLS-BLA-OS",
+    "price": "7.99",
+    "image_url": null,
+    "image": "",
+    "image_back": "",
+    "stock": 10,
+    "size": "O/S",
+    "colour": "Black",
+    "created_at": "2025-10-13T08:19:44.463Z",
+    "updated_at": "2025-10-17T11:01:16.357Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 64,
+  "fields": {
+    "product": 8,
+    "sku": "FSBC-BLA-OS",
+    "price": "14.99",
+    "image_url": null,
+    "image": "fsbc-bla-front_vK6Hqb3.webp",
+    "image_back": "",
+    "stock": 10,
+    "size": "O/S",
+    "colour": "Black",
+    "created_at": "2025-10-13T09:26:48.361Z",
+    "updated_at": "2025-10-17T11:03:56.929Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 65,
+  "fields": {
+    "product": 8,
+    "sku": "FSBC-GRE-OS",
+    "price": "14.99",
+    "image_url": null,
+    "image": "fsbc-gre-front.webp",
+    "image_back": "",
+    "stock": 10,
+    "size": "O/S",
+    "colour": "Grey",
+    "created_at": "2025-10-13T09:26:48.362Z",
+    "updated_at": "2025-10-17T11:03:56.929Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 66,
+  "fields": {
+    "product": 9,
+    "sku": "FSBE-BLA-OS",
+    "price": "12.99",
+    "image_url": null,
+    "image": "fsbe-bla-front_9oes38L.webp",
+    "image_back": "",
+    "stock": 10,
+    "size": "O/S",
+    "colour": "Black",
+    "created_at": "2025-10-13T09:59:20.924Z",
+    "updated_at": "2025-10-17T11:04:08.050Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 67,
+  "fields": {
+    "product": 9,
+    "sku": "FSBE-GRE-OS",
+    "price": "12.99",
+    "image_url": null,
+    "image": "fsbe-gre-front.webp",
+    "image_back": "",
+    "stock": 10,
+    "size": "O/S",
+    "colour": "Grey",
+    "created_at": "2025-10-13T09:59:20.925Z",
+    "updated_at": "2025-10-17T11:04:08.050Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 68,
+  "fields": {
+    "product": 10,
+    "sku": "FSBH-BLA-S",
+    "price": "34.00",
+    "image_url": null,
+    "image": "fsbh-bla-front_gbCI8xt.webp",
+    "image_back": "fsbh-bla-back_Y4T02cw.webp",
+    "stock": 10,
+    "size": "S",
+    "colour": "Black",
+    "created_at": "2025-10-13T12:30:56.866Z",
+    "updated_at": "2025-10-13T12:30:56.866Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 69,
+  "fields": {
+    "product": 10,
+    "sku": "FSBH-BLA-M",
+    "price": "34.00",
+    "image_url": null,
+    "image": "fsbh-bla-front_J1U2qzr.webp",
+    "image_back": "fsbh-bla-back_H9FS7SG.webp",
+    "stock": 10,
+    "size": "M",
+    "colour": "Black",
+    "created_at": "2025-10-13T12:30:56.868Z",
+    "updated_at": "2025-10-13T12:30:56.868Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 70,
+  "fields": {
+    "product": 10,
+    "sku": "FSBH-BLA-L",
+    "price": "34.00",
+    "image_url": null,
+    "image": "fsbh-bla-front_BsZFRlZ.webp",
+    "image_back": "fsbh-bla-back_oH4mYdY.webp",
+    "stock": 10,
+    "size": "L",
+    "colour": "Black",
+    "created_at": "2025-10-13T12:30:56.869Z",
+    "updated_at": "2025-10-13T12:30:56.869Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 71,
+  "fields": {
+    "product": 10,
+    "sku": "FSBH-BLA-XL",
+    "price": "34.00",
+    "image_url": null,
+    "image": "fsbh-bla-front_CMXZxzv.webp",
+    "image_back": "fsbh-bla-back_iGbmmuV.webp",
+    "stock": 10,
+    "size": "XL",
+    "colour": "Black",
+    "created_at": "2025-10-13T12:30:56.871Z",
+    "updated_at": "2025-10-17T09:05:16.342Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 72,
+  "fields": {
+    "product": 10,
+    "sku": "FSBH-BLA-XXL",
+    "price": "34.00",
+    "image_url": null,
+    "image": "fsbh-bla-front_6YBpwtp.webp",
+    "image_back": "fsbh-bla-back_UNXzXcp.webp",
+    "stock": 10,
+    "size": "XXL",
+    "colour": "Black",
+    "created_at": "2025-10-13T12:30:56.872Z",
+    "updated_at": "2025-10-13T12:30:56.872Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 73,
+  "fields": {
+    "product": 10,
+    "sku": "FSBH-GRE-S",
+    "price": "34.00",
+    "image_url": null,
+    "image": "fsbh-gre-front.webp",
+    "image_back": "fsbh-gre-back.webp",
+    "stock": 10,
+    "size": "S",
+    "colour": "Grey",
+    "created_at": "2025-10-13T12:32:44.412Z",
+    "updated_at": "2025-10-13T13:20:43.202Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 74,
+  "fields": {
+    "product": 10,
+    "sku": "FSBH-GRE-M",
+    "price": "34.00",
+    "image_url": null,
+    "image": "fsbh-gre-front_BfRqLmy.webp",
+    "image_back": "fsbh-gre-back_QFiYsZ3.webp",
+    "stock": 10,
+    "size": "M",
+    "colour": "Grey",
+    "created_at": "2025-10-13T12:32:44.413Z",
+    "updated_at": "2025-10-13T13:20:43.203Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 75,
+  "fields": {
+    "product": 10,
+    "sku": "FSBH-GRE-L",
+    "price": "34.00",
+    "image_url": null,
+    "image": "fsbh-gre-front_gzCIHKK.webp",
+    "image_back": "fsbh-gre-back_VNyuHWh.webp",
+    "stock": 10,
+    "size": "L",
+    "colour": "Grey",
+    "created_at": "2025-10-13T12:32:44.413Z",
+    "updated_at": "2025-10-13T13:20:43.204Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 76,
+  "fields": {
+    "product": 10,
+    "sku": "FSBH-GRE-XL",
+    "price": "34.00",
+    "image_url": null,
+    "image": "fsbh-gre-front_IvtjbRY.webp",
+    "image_back": "fsbh-gre-back_bO3TwPx.webp",
+    "stock": 10,
+    "size": "XL",
+    "colour": "Grey",
+    "created_at": "2025-10-13T12:32:44.413Z",
+    "updated_at": "2025-10-13T13:20:43.206Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 77,
+  "fields": {
+    "product": 10,
+    "sku": "FSBH-GRE-XXL",
+    "price": "34.00",
+    "image_url": null,
+    "image": "fsbh-gre-front_jwiWcWj.webp",
+    "image_back": "fsbh-gre-back_3tmpSHV.webp",
+    "stock": 10,
+    "size": "XXL",
+    "colour": "Grey",
+    "created_at": "2025-10-13T12:32:44.413Z",
+    "updated_at": "2025-10-13T13:20:43.207Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 78,
+  "fields": {
+    "product": 11,
+    "sku": "FSWP-WHI-FH",
+    "price": "12.99",
+    "image_url": null,
+    "image": "fswp-whi-fh_rXCa3YB.webp",
+    "image_back": "",
+    "stock": 10,
+    "size": "500g",
+    "colour": null,
+    "created_at": "2025-10-17T08:06:16.850Z",
+    "updated_at": "2025-10-17T08:06:16.850Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 79,
+  "fields": {
+    "product": 11,
+    "sku": "FSWP-WHI-OK",
+    "price": "21.89",
+    "image_url": null,
+    "image": "fswp-whi-ok.webp",
+    "image_back": "",
+    "stock": 10,
+    "size": "1kg",
+    "colour": null,
+    "created_at": "2025-10-17T08:06:16.851Z",
+    "updated_at": "2025-10-17T08:06:16.851Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 80,
+  "fields": {
+    "product": 12,
+    "sku": "FSCP-WHI-OH",
+    "price": "3.99",
+    "image_url": null,
+    "image": "fscp-whi-oh_QvU9K6G.webp",
+    "image_back": "",
+    "stock": 10,
+    "size": "100g",
+    "colour": null,
+    "created_at": "2025-10-17T08:13:32.655Z",
+    "updated_at": "2025-10-17T08:13:32.655Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 81,
+  "fields": {
+    "product": 12,
+    "sku": "FSCP-WHI-TF",
+    "price": "7.49",
+    "image_url": null,
+    "image": "fscp-whi-tf.webp",
+    "image_back": "",
+    "stock": 10,
+    "size": "250g",
+    "colour": null,
+    "created_at": "2025-10-17T08:13:32.656Z",
+    "updated_at": "2025-10-17T08:13:32.656Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 82,
+  "fields": {
+    "product": 12,
+    "sku": "FSCP-WHI-FH",
+    "price": "13.49",
+    "image_url": null,
+    "image": "fscp-whi-fh.webp",
+    "image_back": "",
+    "stock": 10,
+    "size": "500g",
+    "colour": null,
+    "created_at": "2025-10-17T08:13:32.656Z",
+    "updated_at": "2025-10-17T08:13:32.656Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 83,
+  "fields": {
+    "product": 13,
+    "sku": "FSFR-BLA-OS",
+    "price": "11.99",
+    "image_url": null,
+    "image": "fsfr-bla-os_djeTpf8.webp",
+    "image_back": "",
+    "stock": 10,
+    "size": "O/S",
+    "colour": null,
+    "created_at": "2025-10-17T08:44:49.791Z",
+    "updated_at": "2025-10-17T08:44:49.791Z"
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 90,
+  "fields": {
+    "product": 29,
+    "sku": "5E7C36B0",
+    "price": "10.00",
+    "image_url": null,
+    "image": "products/fsbt-pin-front.webp",
+    "image_back": "products/fsbt-pin-back.webp",
+    "stock": 10,
+    "size": "L",
+    "colour": "Pink",
+    "created_at": "2025-10-17T19:18:46.124Z",
+    "updated_at": "2025-10-17T19:18:46.124Z"
+  }
+}
 ]
