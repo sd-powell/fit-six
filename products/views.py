@@ -94,18 +94,25 @@ def all_products(request):
 # products/views.py
 def product_detail(request, slug):
     """
-    Display a single product's detail page.
+    Display the detail page for a single product.
 
-    Retrieves all variants for the product and prepares:
-    - Available sizes and colours
-    - Image mapping per colour for front/back display
+    Retrieves all related product variants and prepares data for:
+    - Available sizes and colours (excluding empty/null values)
+    - Mapping each colour to its associated front and back images
+    - Rendering colour and size selectors only when applicable
 
     Args:
-        slug (str): The product's unique slug used for lookup.
+        request (HttpRequest): The incoming request object.
+        slug (str): The unique slug used to identify the product.
+
+    Returns:
+        HttpResponse: Rendered product detail page with product
+        and variant context.
     """
     product = get_object_or_404(Product, slug=slug)
     variants = product.variants.all()
-    colours = variants.values_list('colour', flat=True).distinct()
+    colours = variants.exclude(colour__isnull=True).exclude(colour__exact='') \
+        .values_list('colour', flat=True).distinct()
     sizes = variants.values_list('size', flat=True).distinct()
 
     # Build a dictionary of variant data per colour

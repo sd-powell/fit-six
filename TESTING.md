@@ -541,6 +541,7 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 | No | Bug Description | Solution | Screenshot |
 | :- | :------------- | :-------- | :--------- |
 | 1  | Users could submit form fields containing leading or trailing spaces (e.g., `"  John "` or `" test@example.com "`), which occasionally caused validation inconsistencies or messy data storage. | Added a `clean()` method in `OrderForm` to automatically trim whitespace from all string fields before validation, ensuring consistent and clean data entry. | ![Screenshot](documentation/testing/bugs/testing-orderform-clean.webp) |
+| 2  | Products without a colour field were causing inconsistencies on the frontend (e.g. dropdown showing when unnecessary). | Updated the template to only show the colour dropdown if colour variants exist. Also ensured that product variants can be created or edited with optional colour fields via the Django admin inline form. | ![Screenshot](documentation/testing/bugs/testing-conditional-colour.webp) |
 
 ---
 <a id="conclusion"></a>
