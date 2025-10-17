@@ -44,14 +44,8 @@
         <a class="btn btn-outline-danger btn-sm rounded-pill px-3 py-1 remove-item"
             id="remove_{{ item.item_id }}"
             data-product_slug="{{ item.product.slug }}"
-            {% if item.variant_key %}
-                {% with item.variant_key|cut:" " as raw_key %}
-                    {% with raw_key|split:"_" as parts %}
-                        data-product_size="{{ parts.0 }}"
-                        data-product_colour="{{ parts.1 }}"
-                    {% endwith %}
-                {% endwith %}
-            {% endif %}>
+            data-product_size="{% if item.variant_key %}{% with item.variant_key|cut:" " as raw_key %}{% with raw_key|split:"_" as parts %}{{ parts.0 }}{% endwith %}{% endwith %}{% endif %}"
+            data-product_colour="{% if item.variant_key %}{% with item.variant_key|cut:" " as raw_key %}{% with raw_key|split:"_" as parts %}{{ parts.1 }}{% endwith %}{% endwith %}{% endif %}">
             <i class="fas fa-trash-alt me-1"></i> Remove
         </a>
     </div>
