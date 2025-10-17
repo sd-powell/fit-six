@@ -16,19 +16,25 @@ class UserProfileForm(forms.ModelForm):
     first_name = forms.CharField(
         max_length=30,
         required=False,
+        strip=True,
         label='',
         widget=forms.TextInput(attrs={
             'placeholder': 'First Name',
-            'class': 'border-black rounded-0 profile-form-input'
+            'class': 'border-black rounded-0 profile-form-input',
+            'pattern': r'.*\S.*',
+            'title': 'This field cannot be blank or contain only spaces.'
         })
     )
     last_name = forms.CharField(
         max_length=30,
         required=False,
+        strip=True,
         label='',
         widget=forms.TextInput(attrs={
             'placeholder': 'Last Name',
-            'class': 'border-black rounded-0 profile-form-input'
+            'class': 'border-black rounded-0 profile-form-input',
+            'pattern': r'.*\S.*',
+            'title': 'This field cannot be blank or contain only spaces.'
         })
     )
 
@@ -48,6 +54,7 @@ class UserProfileForm(forms.ModelForm):
 
         - Adds placeholders and consistent styling to form fields.
         - Removes default Django labels for cleaner presentation.
+        - Prevents whitespace-only submissions using HTML5 pattern attribute.
         - Prefills first and last names from the associated User object
         (if passed as a keyword argument).
         - Configures Crispy Forms layout for improved readability and order.
@@ -72,10 +79,12 @@ class UserProfileForm(forms.ModelForm):
             placeholder = placeholders.get(field, '')
             if self.fields[field].required:
                 placeholder = f'{placeholder} *'
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = (
-                'border-black rounded-0 profile-form-input'
-            )
+            self.fields[field].widget.attrs.update({
+                'placeholder': placeholder,
+                'class': 'border-black rounded-0 profile-form-input',
+                'pattern': r'.*\S.*',
+                'title': 'This field cannot be blank or contain only spaces.'
+            })
             self.fields[field].label = False
 
         # Prefill first/last name from User if provided
