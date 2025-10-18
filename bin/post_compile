@@ -1,14 +1,4 @@
 #!/usr/bin/env bash
 echo "-----> Running collectstatic with AWS enforced ----->"
 export USE_AWS=True
-python - <<'EOF'
-import os, django
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'fitsix_project.settings')
-django.setup()
-from django.conf import settings
-print("USE_AWS:", os.environ.get('USE_AWS'))
-print("STATICFILES_STORAGE:", settings.STATICFILES_STORAGE)
-print("STATIC_URL:", settings.STATIC_URL)
-EOF
-
 python manage.py collectstatic --noinput --clear
