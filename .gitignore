@@ -3,6 +3,7 @@
 *.pyc
 __pycache__
 env
+env.py
 env.py.venv/
 media/
 staticfiles/
