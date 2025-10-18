@@ -51,7 +51,7 @@ def checkout(request):
     apply discount if available, and redirect to success page.
     """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
-    # stripe_secret_key = settings.STRIPE_SECRET_KEY
+    stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
@@ -149,32 +149,11 @@ def checkout(request):
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
 
-        cart = request.session.get('bag', {})
-        metadata_items = []
-
-        for item_id, item_data in cart.items():
-            try:
-                variant = ProductVariant.objects.get(id=item_id)
-                product_info = (
-                    f"{variant.product.name} "
-                    f"({variant.colour or 'N/A'}, {variant.size or 'N/A'})"
-                )
-                metadata_items.append(product_info)
-            except ProductVariant.DoesNotExist:
-                metadata_items.append(f"Unknown item ID {item_id}")
-
+        stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
-            amount=round(stripe_total),
+            amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
-            metadata={
-                'order_number': order.order_number,
-                'user': (
-                    request.user.username
-                    if request.user.is_authenticated
-                    else 'Guest'
-                ),
-                'items': ', '.join(metadata_items)
-            },
+            payment_method_types=['card'],
         )
 
         if request.user.is_authenticated:
