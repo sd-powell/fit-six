@@ -6,7 +6,7 @@ charset-normalizer==3.4.3
 coverage==7.10.7
 crispy-bootstrap5==2025.6
 dj-database-url==0.5.0
-Django==5.2.4
+Django==5.0.7
 django-allauth==65.10.0
 django-countries==7.6.1
 django-crispy-forms==2.4
