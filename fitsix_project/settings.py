@@ -181,6 +181,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 print("USE_AWS =", os.environ.get('USE_AWS'))
+# AWS S3 Storage Setup
 if os.environ.get('USE_AWS', '').lower() == 'true' or 'DYNO' in os.environ:
     # Cache control
     AWS_S3_OBJECT_PARAMETERS = {
@@ -196,13 +197,13 @@ if os.environ.get('USE_AWS', '').lower() == 'true' or 'DYNO' in os.environ:
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
     AWS_DEFAULT_ACL = None
 
-    # Static and media files
+    # Static and Media Storage
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
     STATICFILES_LOCATION = 'static'
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
     MEDIAFILES_LOCATION = 'media'
 
-    # Override static and media URLs in production
+    # URLs for static and media
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
