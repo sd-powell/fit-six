@@ -80,24 +80,11 @@
                 <li class="card h-100 border-0 product-card">
                     <a href="{{ product.get_absolute_url }}">
                         {% if product.has_variants %}
-                            {% with product.variants.first as variant %}
-                                {% if variant.image %}
-                                    <div class="position-relative">
-                                        {% if variant.image_back %}
-                                        <div class="image-swap-wrapper position-relative">
-                                            <img src="{{ variant.image.url }}"
-                                                class="product-image front w-100"
-                                                alt="{{ product.name }}">
-                                            <img src="{{ variant.image_back.url }}"
-                                                class="product-image back w-100 position-absolute top-0 start-0"
-                                                alt="{{ product.name }} - Back">
-                                        </div>
-                                        {% else %}
-                                        <img src="{{ variant.image.url }}"
-                                            class="product-image w-100"
-                                            alt="{{ product.name }}">
-                                        {% endif %}
-                                    </div>
+                            {% with product.variants.all|first as default_variant %}
+                                {% if default_variant and default_variant.image %}
+                                    <img class="card-img-top img-fluid product-card-image"
+                                        src="{{ default_variant.image.url }}"
+                                        alt="{{ product.name }}">
                                 {% else %}
                                     <img class="card-img-top img-fluid product-card-image"
                                         src="{{ MEDIA_URL }}noimage.png"
@@ -106,11 +93,11 @@
                             {% endwith %}
                         {% else %}
                             {% if product.image %}
-                                <img class="card-img-top img-fluid"
+                                <img class="card-img-top img-fluid product-card-image"
                                     src="{{ product.image.url }}"
                                     alt="{{ product.name }}">
                             {% else %}
-                                <img class="card-img-top img-fluid"
+                                <img class="card-img-top img-fluid product-card-image"
                                     src="{{ MEDIA_URL }}noimage.png"
                                     alt="{{ product.name }}">
                             {% endif %}
