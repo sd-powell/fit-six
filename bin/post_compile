@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-echo "-----> Running collectstatic with AWS settings ----->"
+echo "-----> Running collectstatic with AWS enforced ----->"
+export USE_AWS=True
 python manage.py collectstatic --noinput --clear
