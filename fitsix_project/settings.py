@@ -171,10 +171,10 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
-
-STATIC_URL = 'static/'
+# ---------------------------------------------------------------------
+# Static & Media Settings (Local Defaults)
+# ---------------------------------------------------------------------
+STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -185,7 +185,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # AWS S3 Storage Setup
 # ---------------------------------------------------------------------
 
-# Flexible detection for Heroku or env var
+# Detect AWS usage (Heroku dyno or env var)
 USE_AWS = str(os.environ.get('USE_AWS', '')).lower() in ['true', '1', 't', 'yes'] or 'DYNO' in os.environ
 
 if USE_AWS:
@@ -193,39 +193,45 @@ if USE_AWS:
 
     # Cache control
     AWS_S3_OBJECT_PARAMETERS = {
-        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-        'CacheControl': 'max-age=94608000',
+        "Expires": "Thu, 31 Dec 2099 20:00:00 GMT",
+        "CacheControl": "max-age=94608000",
     }
 
-    # Bucket Config
-    AWS_STORAGE_BUCKET_NAME = 'fitsixs3bucket'
-    AWS_S3_REGION_NAME = 'us-east-1'
-    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+    # Bucket configuration
+    AWS_STORAGE_BUCKET_NAME = "fitsixs3bucket"
+    AWS_S3_REGION_NAME = "us-east-1"
+    AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+    AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+    AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
     AWS_DEFAULT_ACL = None
 
     # Folder paths in the bucket
-    STATICFILES_LOCATION = 'static'
-    MEDIAFILES_LOCATION = 'media'
+    STATICFILES_LOCATION = "static"
+    MEDIAFILES_LOCATION = "media"
 
-    # Storage backends
-    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    # Django 5+ STORAGES configuration
+    STORAGES = {
+        "default": {
+            "BACKEND": "custom_storages.MediaStorage",
+        },
+        "staticfiles": {
+            "BACKEND": "custom_storages.StaticStorage",
+        },
+    }
 
     # URLs for static and media
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+    STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/"
+    MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/"
 
 else:
     print("----> Using local static/media storage")
 
-    STATIC_URL = '/static/'
-    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATIC_URL = "/static/"
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    MEDIA_URL = "/media/"
+    MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
