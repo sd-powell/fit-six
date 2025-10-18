@@ -30,7 +30,7 @@ DEBUG = DEVELOPMENT
 
 ALLOWED_HOSTS = os.environ.get(
     'ALLOWED_HOSTS',
-    'localhost,127.0.0.1,fit-six-7a3b55f18209.herokuapp.com'
+    'localhost,127.0.0.1,fit-six-7a3b55f18209.herokuapp.com,.herokuapp.com'
 ).split(',')
 
 
