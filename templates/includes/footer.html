@@ -32,13 +32,29 @@
 
         <!-- Column 2: Helpful Links -->
         <nav class="col-md-4 mb-4 mb-md-0" aria-labelledby="footer-links">
-        <h3 id="footer-links" class="mb-4 footer-header h6">Helpful Links</h3>
-        <ul class="list-unstyled">
-            <li><a href="#" class="navlink d-block mb-1">Contact Us</a></li>
-            <li><a href="#" class="navlink d-block mb-1">My Account</a></li>
-            <li><a href="#" class="navlink d-block mb-1">Returns & Exchanges</a></li>
-            <li><a href="{% url 'shipping' %}" class="navlink d-block mb-1">Shipping Policy</a></li>
-        </ul>
+            <h3 id="footer-links" class="mb-4 footer-header h6">Helpful Links</h3>
+            <ul class="list-unstyled">
+                <li>
+                    <a href="mailto:info@fitsixgym.co.uk" class="navlink d-block mb-1">Contact Us</a>
+                </li>
+
+                {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'profile' %}" class="navlink d-block mb-1">My Account</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{% url 'account_login' %}" class="navlink d-block mb-1">Login / Register</a>
+                    </li>
+                {% endif %}
+
+                <li>
+                    <a href="{% url 'terms' %}" class="navlink d-block mb-1">Returns & Exchanges</a>
+                </li>
+                <li>
+                    <a href="{% url 'shipping' %}" class="navlink d-block mb-1">Shipping Policy</a>
+                </li>
+            </ul>
         </nav>
 
         <!-- Column 3: Follow Us -->

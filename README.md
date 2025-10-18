@@ -28,7 +28,6 @@ Visit the deployed site here: [Fit Six](https://vinyl-crate-ab3f8a285d4e.herokua
   - [Skeleton Plane](#skeleton-plane)
       - [Wireframes](#wireframes)
         - [Mobile Wireframes](#mobile-frames)
-        - [Tablet Wireframes](#tablet-frames)
         - [Desktop Wireframes](#desktop-frames)
   - [Surface Plane](#surface-plane)
     - [Colour Scheme](#colour-scheme)
@@ -347,12 +346,6 @@ These wireframes served as the **visual foundation** for layout decisions throug
 |:----------:|:-------------------:|:----------------:|
 | ![Contact Us](documentation/readme/skeleton_plane/wireframe-mobile-contact-us.webp) | ![Returns](documentation/readme/skeleton_plane/wireframe-mobile-returns.webp) | ![Shipping](documentation/readme/skeleton_plane/wireframe-mobile-shipping.webp) |
 
-#### **UI Feedback**
-
-| Toast Message |
-|:-------------:|
-| ![Toast Message](documentation/readme/skeleton_plane/wireframe-mobile-toast-message.webp) |
-
 </details>
 
 #### **Mobile Wireframes - Admin Flow**
@@ -367,10 +360,6 @@ These wireframes served as the **visual foundation** for layout decisions throug
 - Edit Product
 
 ![Edit Product](documentation/readme/skeleton_plane/wireframe-mobile-edit-product.webp)
-
-- Delete Product
-
-![Delete Product](documentation/readme/skeleton_plane/wireframe-mobile-admin-dashboard.webp)
 
 </details>
 
@@ -436,61 +425,6 @@ These wireframes served as the **visual foundation** for layout decisions throug
 - Checkout Success
 
 ![Checkout Success](documentation/readme/skeleton_plane/wireframe-desktop-checkout-success.webp)
-
-#### **Content & Legal Pages**
-
-- 404 Error
-
-![404 Error](documentation/readme/skeleton_plane/wireframe-desktop-404-error.webp)
-
-- Privacy Policy
-
-![Privacy Policy](documentation/readme/skeleton_plane/wireframe-desktop-privacy-policy.webp)
-
-- Terms & Conditions
-
-![Terms](documentation/readme/skeleton_plane/wireframe-desktop-terms.webp)
-
-- Contact Us
-
-![Contact Us](documentation/readme/skeleton_plane/wireframe-desktop-contact-us.webp)
-
-- Returns & Exchanges
-
-![Returns](documentation/readme/skeleton_plane/wireframe-desktop-returns.webp)
-
-- Shipping Policy
-
-![Shipping](documentation/readme/skeleton_plane/wireframe-desktop-shipping.webp) |
-
-#### **UI Feedback**
-
-- Toast Message
-
-![Toast Message](documentation/readme/skeleton_plane/wireframe-desktop-toast-message.webp)
-
-</details>
-
-#### **Desktop Wireframes - Admin Flow**
-
-<details>
-<summary>Click to view Admin Desktop Wireframes</summary>
-
-- Add Product
-
-![Add Product](documentation/readme/skeleton_plane/wireframe-desktop-add-product.webp)
-
-- Edit Product
-
-![Edit Product](documentation/readme/skeleton_plane/wireframe-desktop-edit-product.webp)
-
-- Delete Product
-
-![Delete Product](documentation/readme/skeleton_plane/wireframe-desktop-delete-product.webp)
-
-- Product Management
-
-![Product Management](documentation/readme/skeleton_plane/wireframe-desktop-admin-dashboard.webp) |
 
 </details>
 
