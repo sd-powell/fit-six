@@ -181,7 +181,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 print("USE_AWS =", os.environ.get('USE_AWS'))
-if os.environ.get('USE_AWS', '').lower() == 'true':
+if os.environ.get('USE_AWS', '').lower() == 'true' or 'DYNO' in os.environ:
     # Cache control
     AWS_S3_OBJECT_PARAMETERS = {
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
