@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 import os
+import re
 import dj_database_url
 from pathlib import Path
 
@@ -28,10 +29,18 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEVELOPMENT = os.environ.get('DEVELOPMENT') == 'True'
 DEBUG = DEVELOPMENT
 
-ALLOWED_HOSTS = os.environ.get(
-    'ALLOWED_HOSTS',
-    'localhost,127.0.0.1,fit-six-7a3b55f18209.herokuapp.com,.herokuapp.com'
-).split(',')
+# ALLOWED_HOSTS = os.environ.get(
+#     'ALLOWED_HOSTS',
+#     'localhost,127.0.0.1,fit-six-7a3b55f18209.herokuapp.com,.herokuapp.com'
+# ).split(',')
+
+raw_hosts = os.environ.get(
+    "ALLOWED_HOSTS",
+    "localhost,127.0.0.1,fit-six-7a3b55f18209.herokuapp.com,.herokuapp.com"
+)
+
+# Split on commas or whitespace, strip extra spaces/newlines
+ALLOWED_HOSTS = [h.strip() for h in re.split(r'[\s,]+', raw_hosts) if h.strip()]
 
 
 # Application definition
