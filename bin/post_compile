@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+echo "-----> Running collectstatic with AWS settings ----->"
+python manage.py collectstatic --noinput --clear
