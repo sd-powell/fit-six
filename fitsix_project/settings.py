@@ -181,19 +181,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-print("USE_AWS =", os.environ.get('USE_AWS'))
-
 # ---------------------------------------------------------------------
 # AWS S3 Storage Setup
 # ---------------------------------------------------------------------
 
-USE_AWS = os.environ.get('USE_AWS', '').lower() == 'true' or 'DYNO' in os.environ
-
-# --- Define these globally so Django uses them early ---
-STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+# Flexible detection for Heroku or env var
+USE_AWS = str(os.environ.get('USE_AWS', '')).lower() in ['true', '1', 't', 'yes'] or 'DYNO' in os.environ
 
 if USE_AWS:
+    print("----> Using AWS S3 for static and media files")
+
     # Cache control
     AWS_S3_OBJECT_PARAMETERS = {
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
@@ -212,14 +209,21 @@ if USE_AWS:
     STATICFILES_LOCATION = 'static'
     MEDIAFILES_LOCATION = 'media'
 
+    # Storage backends
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+
     # URLs for static and media
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
 else:
-    # Local dev fallback
+    print("----> Using local static/media storage")
+
     STATIC_URL = '/static/'
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
