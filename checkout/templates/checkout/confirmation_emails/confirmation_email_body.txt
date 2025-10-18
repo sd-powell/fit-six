@@ -5,14 +5,23 @@ This is a confirmation of your order at Fit Six Store. Your order details are be
 Order Number: {{ order.order_number }}
 Order Date: {{ order.date }}
 
-Order Summary:
--------------
-Subtotal: ${{ order.order_total }}
+Items Ordered:
+--------------
+{% for item in order.lineitems.all %}
+• {{ item.product_variant.product.name }}
+    {% if item.product_variant.colour %} ({{ item.product_variant.colour|title }}){% endif %}
+    {% if item.product_variant.size %} - Size: {{ item.product_variant.size|upper }}{% endif %}
+    × {{ item.quantity }}
+    — £{{ item.lineitem_total|floatformat:2 }}
+{% endfor %}
+
+-----------------------------
+Subtotal: £{{ order.order_total|floatformat:2 }}
 {% if order.discount and order.discount > 0 %}
-Member Discount: -${{ order.discount }}
+Member Discount: -£{{ order.discount|floatformat:2 }}
 {% endif %}
-Delivery: ${{ order.delivery_cost }}
-Grand Total: ${{ order.grand_total }}
+Delivery: £{{ order.delivery_cost|floatformat:2 }}
+Grand Total: £{{ order.grand_total|floatformat:2 }}
 
 Shipping Address:
 -----------------

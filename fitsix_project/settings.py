@@ -186,7 +186,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # ---------------------------------------------------------------------
 
 # Detect AWS usage (Heroku dyno or env var)
-USE_AWS = str(os.environ.get('USE_AWS', '')).lower() in ['true', '1', 't', 'yes'] or 'DYNO' in os.environ
+USE_AWS = (
+    str(os.environ.get('USE_AWS', '')).lower() in ['true', '1', 't', 'yes']
+    or 'DYNO' in os.environ
+)
 
 if USE_AWS:
     print("----> Using AWS S3 for static and media files")
