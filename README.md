@@ -10,7 +10,7 @@ Designed with usability and performance in mind, the site offers a seamless, res
 
 This project is the fourth milestone in the Code Institute Full Stack Web Development Diploma and demonstrates core skills in backend development, user authentication, responsive front-end design, and secure payment integration using Stripe.
 
-Visit the deployed site here: [Fit Six](https://vinyl-crate-ab3f8a285d4e.herokuapp.com/)
+Visit the deployed site here: [Fit Six](https://fit-six-7a3b55f18209.herokuapp.com/)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/sd-powell/fit-six) ![GitHub repo size](https://img.shields.io/github/repo-size/sd-powell/portfolio_project_3) ![GitHub language count](https://img.shields.io/github/languages/count/sd-powell/fit-six)
 
